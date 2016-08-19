@@ -1,0 +1,32 @@
+{{ fullname }}
+{{ underline }}
+
+.. currentmodule:: {{ module }}
+.. autoclass:: {{ objname }}
+   :members: __init__
+   :undoc-members:
+{% block methods %}
+{% if methods %}
+Methods
+-------
+.. autosummary::
+   :toctree:
+
+{% for item in methods %}
+   ~{{ name }}.{{ item }}
+{%- endfor %}
+{% endif %}
+{% endblock %}
+
+{% block attributes %}
+{% if attributes %}
+Attributes
+----------
+.. autosummary::
+  :toctree:
+
+{% for item in attributes %}
+   ~{{ name }}.{{ item }}
+{%- endfor %}
+{% endif %}
+{% endblock %}
