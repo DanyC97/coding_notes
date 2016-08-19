@@ -1,0 +1,631 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. sed-tutorial-tutorials-points &mdash; Coding Notebook 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-umich.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Coding Notebook 1 documentation" href="../index.html"/>
+        <link rel="next" title="4. awk-tutorial" href="../awk-tutorial/index.html"/>
+        <link rel="prev" title="2. sed-tutorial-gnu" href="sed-tutorial.gnu.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html">1. Bash wooledge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/1_commands_and_args.html">1.1. Commands and arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/2_special_chars.html">1.2. Special Characters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sed-tutorial.gnu.html">2. sed-tutorial-gnu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#execution-cycle-how-sed-works">2.1. Execution Cycle: How sed works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#addresses-selecting-lines-with-sed">2.2. Addresses: Selecting lines with sed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.gnu.html#single-address-form">2.2.1. Single address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.gnu.html#two-address-form">2.2.2. Two address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.gnu.html#match-negation-via">2.2.3. Match negation via <code class="docutils literal"><span class="pre">!</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#regular-expressions-overview-of-regular-expression-syntax">2.3. Regular Expressions: Overview of regular expression syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.gnu.html#examples">2.3.1. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#common-commands-often-used-commands">2.4. Common Commands: Often used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#the-s-command-sed-s-swiss-army-knife">2.5. The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.gnu.html#replacement">2.5.1. replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.gnu.html#flags">2.5.2. flags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#other-commands-less-frequently-used-commands">2.6. Other Commands: Less frequently used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#programming-commands-commands-for-sed-gurus">2.7. Programming Commands: Commands for sed gurus</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. sed-tutorial-tutorials-points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sed-workflow">3.1. Sed - workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-syntax-and-examples">3.2. Basic syntax and examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">3.2.1. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standard-options">3.2.2. Standard options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gnu-specific-options">3.2.3. GNU specific options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loops-branches">3.3. Loops, Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#address-range-search-by-specifying-line-nums">3.4. Address range (search by specifying line-nums)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#p-syntax">3.4.1. &#8216;p&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#m-n-syntax">3.4.2. &#8216;M,+n&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.4.3. &#8216;M,~n&#8217; syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">3.5. Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands-delete-read-write-append">3.6. Basic commands (delete, read, write, append)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delete-command-address1-address2-d">3.6.1. Delete command [address1[,address2]]d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-command-address1-address2-w-file">3.6.2. Write command [address1[,address2]]w file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#append-command-address-a">3.6.3. Append command [address]a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-command-address1-address2-c">3.6.4. Change command [address1[,address2]]c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insert-command-address-i">3.6.5. Insert Command [address]i</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translate-command-address1-address2-y-list-1-list-2">3.6.6. Translate command [address1[,address2]]y/list-1/list-2/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-command">3.6.7. I command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quit-command-address-q">3.6.8. Quit Command [address]q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-command-address-r-file">3.6.9. Read Command [address]r file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exectuve-command-address1-address2-e-command">3.6.10. Exectuve Command [address1[,address2]]e [command]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miscellaneous-commands">3.6.11. Miscellaneous Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">4. awk-tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-basic-structure.html">4.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html">4.2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#unary-arithmetic-operators">4.2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">4.2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#assignment-operators">4.2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#conditional-expressions">4.2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#regular-expressions">4.2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#and-or-not">4.2.6. And/Or/Not</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-summary-commands.html">4.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html">4.4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#fs-the-input-field-separator-variable">4.4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#nf-the-number-of-fields-variable">4.4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#nr-the-number-of-records-variable">4.4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#rs-the-record-separator-variable">4.4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#ors-the-output-record-separator-variable">4.4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#filename-the-current-filename-variable">4.4.7. FILENAME - The Current Filename Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Coding Notebook</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>3. sed-tutorial-tutorials-points</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/sed/sed-tutorial.tutorialspoints.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sed-tutorial-tutorials-points">
+<h1>3. sed-tutorial-tutorials-points<a class="headerlink" href="#sed-tutorial-tutorials-points" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sed/sed_workflow.htm">http://www.tutorialspoint.com/sed/sed_workflow.htm</a></p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><strong>Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sed-workflow" id="id2">Sed - workflow</a></li>
+<li><a class="reference internal" href="#basic-syntax-and-examples" id="id3">Basic syntax and examples</a></li>
+<li><a class="reference internal" href="#loops-branches" id="id4">Loops, Branches</a></li>
+<li><a class="reference internal" href="#address-range-search-by-specifying-line-nums" id="id5">Address range (search by specifying line-nums)</a></li>
+<li><a class="reference internal" href="#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax" id="id6">Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
+<li><a class="reference internal" href="#basic-commands-delete-read-write-append" id="id7">Basic commands (delete, read, write, append)</a></li>
+</ul>
+</div>
+<div class="section" id="sed-workflow">
+<h2><a class="toc-backref" href="#id2">3.1. Sed - workflow</a><a class="headerlink" href="#sed-workflow" title="Permalink to this headline">¶</a></h2>
+<p>The following process repeats until the file is exhausted.</p>
+<ul class="simple">
+<li><strong>read</strong>: SED reads a line from the input stream (file, pipe, or stdin) and stores it in its internal buffer called <strong>pattern buffer</strong>.</li>
+<li><strong>Execute</strong>: All SED commands are applied sequentially on the pattern buffer. By <em>default</em>, SED commands are applied on <em>all lines (globally)</em> unless line <strong>addressing</strong> is specified.</li>
+<li><strong>Display</strong>: Send the (modified) contents to the output stream. After sending the data, the <strong>pattern buffer</strong> will be empty.</li>
+</ul>
+<p>Notes</p>
+<ul class="simple">
+<li>By default, all SED commands are applied on the pattern buffer, hence the input file remains unchanged. GNU SED provides a way to modify the input file in-a-place. We will explore about it in later sections.</li>
+<li>There is another memory area called <strong>hold buffer</strong>. Data can be stored in a hold buffer for later retrieval. At the end of each cycle, SED removes the contents of the pattern buffer but the contents of the hold buffer remains persistent between SED cycles.</li>
+<li>If no input files are provided, then SED accepts input from the standard input stream (<strong>stdin</strong>).</li>
+<li>If <strong>address range</strong> is not provided by default, then SED operates on each line.</li>
+</ul>
+</div>
+<div class="section" id="basic-syntax-and-examples">
+<h2><a class="toc-backref" href="#id3">3.2. Basic syntax and examples</a><a class="headerlink" href="#basic-syntax-and-examples" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we have a file <code class="docutils literal"><span class="pre">books.txt</span></code> with the following content:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">)</span> <span class="n">A</span> <span class="n">Storm</span> <span class="n">of</span> <span class="n">Swords</span><span class="p">,</span> <span class="n">George</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Martin</span><span class="p">,</span> <span class="mi">1216</span>
+<span class="mi">2</span><span class="p">)</span> <span class="n">The</span> <span class="n">Two</span> <span class="n">Towers</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Tolkien</span><span class="p">,</span> <span class="mi">352</span>
+<span class="mi">3</span><span class="p">)</span> <span class="n">The</span> <span class="n">Alchemist</span><span class="p">,</span> <span class="n">Paulo</span> <span class="n">Coelho</span><span class="p">,</span> <span class="mi">197</span>
+<span class="mi">4</span><span class="p">)</span> <span class="n">The</span> <span class="n">Fellowship</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Ring</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Tolkien</span><span class="p">,</span> <span class="mi">432</span>
+<span class="mi">5</span><span class="p">)</span> <span class="n">The</span> <span class="n">Pilgrimage</span><span class="p">,</span> <span class="n">Paulo</span> <span class="n">Coelho</span><span class="p">,</span> <span class="mi">288</span>
+<span class="mi">6</span><span class="p">)</span> <span class="n">A</span> <span class="n">Game</span> <span class="n">of</span> <span class="n">Thrones</span><span class="p">,</span> <span class="n">George</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Martin</span><span class="p">,</span> <span class="mi">864</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">quotes.txt</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="ow">is</span> <span class="n">only</span> <span class="n">one</span> <span class="n">thing</span> <span class="n">that</span> <span class="n">makes</span> <span class="n">a</span> <span class="n">dream</span> <span class="n">impossible</span> <span class="n">to</span> <span class="n">achieve</span><span class="p">:</span> <span class="n">the</span> <span class="n">fear</span> <span class="n">of</span> <span class="n">failure</span><span class="o">.</span>
+ <span class="o">-</span> <span class="n">Paulo</span> <span class="n">Coelho</span><span class="p">,</span> <span class="n">The</span> <span class="n">Alchemist</span>
+</pre></div>
+</div>
+<div class="section" id="examples">
+<h3>3.2.1. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># in line command</span>
+sed <span class="o">[</span>-n<span class="o">]</span> <span class="o">[</span>-e<span class="o">]</span> <span class="s1">&#39;command(s)&#39;</span> files
+
+<span class="c1"># specify a script file with sed commands (i probably won&#39;t ever use this)</span>
+sed <span class="o">[</span>-n<span class="o">]</span> -f scriptfile files
+
+<span class="c1"># emulates the `cat` command (displays the content of the file)</span>
+$ sed <span class="s1">&#39;&#39;</span> books.txt
+$ cat books.txt
+
+<span class="c1"># run 3 separate commands with the -e option (delete line1, 2, 5)</span>
+$ sed -e <span class="s1">&#39;1d&#39;</span> -e <span class="s1">&#39;2d&#39;</span> -e <span class="s1">&#39;5d&#39;</span> books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1"># create scriptfile command.txt, and then run it</span>
+$ <span class="nb">echo</span> -e <span class="s2">&quot;1d\n2d\n5d&quot;</span> &gt; commands
+$ sed -f commands books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+</pre></div>
+</div>
+</div>
+<div class="section" id="standard-options">
+<h3>3.2.2. Standard options<a class="headerlink" href="#standard-options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># -n, --quiet, --silent (probably will never use unless -f option is used)</span>
+sed -n <span class="s1">&#39;&#39;</span> quote.txt <span class="c1"># &lt;- won&#39;t print anything</span>
+sed <span class="s1">&#39;&#39;</span> quote.txt <span class="c1"># &lt;- prints file (like cat)</span>
+
+<span class="c1"># -e: next argument is an editing command. can be used to specify multiple commands</span>
+$ sed -e <span class="s1">&#39;&#39;</span> -e <span class="s1">&#39;p&#39;</span> quote.txt
+There is only one thing that makes a dream impossible to achieve: the fear of failure.
+There is only one thing that makes a dream impossible to achieve: the fear of failure.
+ - Paulo Coelho, The Alchemist
+ - Paulo Coelho, The Alchemist
+
+<span class="c1"># -f for using scriptfile.</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;p&quot;</span> &gt; commands
+$ sed -n -f commands quote.txt <span class="c1"># here -n makes sense</span>
+There is only one thing that makes a dream impossible to achieve: the fear of failure.
+ - Paulo Coelho, The Alchemist
+$ sed -f <span class="nb">command</span> quote.txt <span class="c1"># w/o -n, gets printed out twice</span>
+There is only one thing that makes a dream impossible to achieve: the fear of failure.
+There is only one thing that makes a dream impossible to achieve: the fear of failure.
+ - Paulo Coelho, The Alchemist
+ - Paulo Coelho, The Alchemist
+</pre></div>
+</div>
+</div>
+<div class="section" id="gnu-specific-options">
+<h3>3.2.3. GNU specific options<a class="headerlink" href="#gnu-specific-options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="o">--</span><span class="n">quiet</span><span class="p">,</span> <span class="o">--</span><span class="n">silent</span><span class="p">:</span>
+    <span class="n">Same</span> <span class="k">as</span> <span class="n">standard</span> <span class="o">-</span><span class="n">n</span> <span class="n">option</span><span class="o">.</span>
+<span class="o">-</span><span class="n">e</span> <span class="n">script</span><span class="p">,</span> <span class="o">--</span><span class="n">expression</span><span class="o">=</span><span class="n">script</span><span class="p">:</span>
+    <span class="n">Same</span> <span class="k">as</span> <span class="n">standard</span> <span class="o">-</span><span class="n">e</span> <span class="n">option</span><span class="o">.</span>
+<span class="o">-</span><span class="n">f</span> <span class="n">script</span><span class="o">-</span><span class="n">file</span><span class="p">,</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">script</span><span class="o">-</span><span class="n">file</span><span class="p">:</span>
+    <span class="n">Same</span> <span class="k">as</span> <span class="n">standard</span> <span class="o">-</span><span class="n">f</span> <span class="n">option</span><span class="o">.</span>
+<span class="o">--</span><span class="n">follow</span><span class="o">-</span><span class="n">symlinks</span><span class="p">:</span>
+    <span class="n">If</span> <span class="n">this</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">the</span> <span class="n">SED</span> <span class="n">follows</span> <span class="n">symbolic</span> <span class="n">links</span> <span class="k">while</span> <span class="n">editing</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">place</span><span class="o">.</span>
+<span class="o">-</span><span class="n">i</span><span class="p">[</span><span class="n">SUFFIX</span><span class="p">],</span> <span class="o">--</span><span class="ow">in</span><span class="o">-</span><span class="n">place</span><span class="p">[</span><span class="o">=</span><span class="n">SUFFIX</span><span class="p">]:</span>
+    <span class="n">This</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">edit</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">place</span><span class="o">.</span>
+    <span class="n">If</span> <span class="n">suffix</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">it</span> <span class="n">takes</span> <span class="n">a</span> <span class="n">backup</span> <span class="n">of</span> <span class="n">the</span> <span class="n">original</span> <span class="n">file</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">it</span> <span class="n">overwrites</span> <span class="n">the</span> <span class="n">original</span> <span class="n">file</span><span class="o">.</span>
+<span class="o">-</span><span class="n">l</span> <span class="n">N</span><span class="p">,</span> <span class="o">--</span><span class="n">line</span><span class="o">-</span><span class="n">lenght</span><span class="o">=</span><span class="n">N</span><span class="p">:</span>
+    <span class="n">This</span> <span class="n">option</span> <span class="n">sets</span> <span class="n">the</span> <span class="n">line</span> <span class="n">length</span> <span class="k">for</span> <span class="n">l</span> <span class="n">command</span> <span class="n">to</span> <span class="n">N</span> <span class="n">characters</span><span class="o">.</span>
+<span class="o">--</span><span class="n">posix</span><span class="p">:</span>
+    <span class="n">This</span> <span class="n">option</span> <span class="n">disables</span> <span class="nb">all</span> <span class="n">GNU</span> <span class="n">extensions</span><span class="o">.</span>
+<span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">--</span><span class="n">regexp</span><span class="o">-</span><span class="n">extended</span><span class="p">:</span>
+    <span class="n">This</span> <span class="n">option</span> <span class="n">allows</span> <span class="n">to</span> <span class="n">use</span> <span class="n">extended</span> <span class="n">regular</span> <span class="n">expressions</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">basic</span> <span class="n">regular</span> <span class="n">expressions</span><span class="o">.</span>
+<span class="o">-</span><span class="n">u</span><span class="p">,</span> <span class="o">--</span><span class="n">unbuffered</span><span class="p">:</span>
+    <span class="n">When</span> <span class="n">this</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">the</span> <span class="n">SED</span> <span class="n">loads</span> <span class="n">minimal</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nb">input</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">flushes</span> <span class="n">the</span> <span class="n">output</span> <span class="n">buffers</span> <span class="n">more</span> <span class="n">often</span><span class="o">.</span>
+    <span class="n">It</span> <span class="ow">is</span> <span class="n">useful</span> <span class="k">for</span> <span class="n">editing</span> <span class="n">the</span> <span class="n">output</span> <span class="n">of</span> <span class="s2">&quot;tail -f&quot;</span> <span class="n">when</span> <span class="n">you</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">want</span> <span class="n">to</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">the</span> <span class="n">output</span><span class="o">.</span>
+<span class="o">-</span><span class="n">z</span><span class="p">,</span> <span class="o">--</span><span class="n">null</span><span class="o">-</span><span class="n">data</span><span class="p">:</span>
+    <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">the</span> <span class="n">SED</span> <span class="n">separates</span> <span class="n">each</span> <span class="n">line</span> <span class="n">by</span> <span class="n">a</span> <span class="n">new</span><span class="o">-</span><span class="n">line</span> <span class="n">character</span><span class="o">.</span>
+    <span class="n">If</span> <span class="n">NULL</span><span class="o">-</span><span class="n">data</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">it</span> <span class="n">separates</span> <span class="n">the</span> <span class="n">lines</span> <span class="n">by</span> <span class="n">NULL</span> <span class="n">characters</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loops-branches">
+<h2><a class="toc-backref" href="#id4">3.3. Loops, Branches</a><a class="headerlink" href="#loops-branches" title="Permalink to this headline">¶</a></h2>
+<p>Skipped. These are complete overkills for me.</p>
+<p>Loops uses <strong>label</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">label</span>
+<span class="p">:</span><span class="n">start</span>
+<span class="p">:</span><span class="n">end</span>
+<span class="p">:</span><span class="n">up</span>
+</pre></div>
+</div>
+<p>Branches use <code class="docutils literal"><span class="pre">t</span></code> command to jump to labels if previous substitutie command is successful.</p>
+</div>
+<div class="section" id="address-range-search-by-specifying-line-nums">
+<h2><a class="toc-backref" href="#id5">3.4. Address range (search by specifying line-nums)</a><a class="headerlink" href="#address-range-search-by-specifying-line-nums" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="p-syntax">
+<h3>3.4.1. &#8216;p&#8217; syntax<a class="headerlink" href="#p-syntax" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># this works like cat</span>
+$ sed <span class="s1">&#39;&#39;</span> book.txt
+1<span class="o">)</span> A Storm of Swords, George R. R. Martin, 1216
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1"># this print books twice</span>
+$ sed <span class="s1">&#39;p&#39;</span> books.txt
+1<span class="o">)</span> A Storm of Swords, George R. R. Martin, 1216
+1<span class="o">)</span> A Storm of Swords, George R. R. Martin, 1216
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1"># what you probably wanted</span>
+$ sed -n <span class="s1">&#39;p&#39;</span> books.txt
+1<span class="o">)</span> A Storm of Swords, George R. R. Martin, 1216
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1"># print only the 3rd line</span>
+$ sed -n <span class="s1">&#39;3p&#39;</span> books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+
+<span class="c1"># print lines 2 to 5 (range inclusive)</span>
+$ sed -n <span class="s1">&#39;2,5 p&#39;</span> books.txt
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+
+<span class="c1"># print last line using $</span>
+$ sed -n <span class="s1">&#39;$ p&#39;</span> books.txt
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1"># print from 3rd to last line</span>
+$ sed -n <span class="s1">&#39;3,$ p&#39;</span> books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+</pre></div>
+</div>
+</div>
+<div class="section" id="m-n-syntax">
+<h3>3.4.2. &#8216;M,+n&#8217; syntax<a class="headerlink" href="#m-n-syntax" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
+<span class="c1"># &#39;M,+n&#39; syntax</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># &#39;M,+n&#39; means print n-lines, starting from line M</span>
+$ sed -n <span class="s1">&#39;2,+2 p&#39;</span> books.txt
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+
+$ sed -n <span class="s1">&#39;2,+0 p&#39;</span> books.txt
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>3.4.3. &#8216;M,~n&#8217; syntax<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#=========================================================================#</span>
+<span class="c1"># tilde ~ syntax (step size)</span>
+<span class="c1"># &#39;M~n&#39; means starting from Line-M, print every n-lines</span>
+<span class="c1">#=========================================================================#</span>
+$ sed -n <span class="s1">&#39;1~2 p&#39;</span> books.txt
+1<span class="o">)</span> A Storm of Swords, George R. R. Martin, 1216
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+
+$ sed -n <span class="s1">&#39;2~2 p&#39;</span> books.txt
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">
+<h2><a class="toc-backref" href="#id6">3.5. Pattern range - search for simple-text or regexp using /regex/ syntax</a><a class="headerlink" href="#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In the previous chapter, we learnt how SED handles an <strong>address range</strong>.</li>
+<li>This chapter covers how SED takes care of a <strong>pattern range</strong>.<ul>
+<li>A pattern range can be a <strong>simple text</strong> or a <strong>complex regular expression</strong>.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sed -n <span class="s1">&#39;p&#39;</span> books.txt
+1<span class="o">)</span> A Storm of Swords, George R. R. Martin, 1216
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1"># find lines containing simple text-string &quot;Paulo&quot;</span>
+$ sed -n <span class="s1">&#39;/Paulo/ p&#39;</span> books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># combine *pattern range* with *address range*</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># search for line with &quot;Alchemist&quot;, and print until line 5</span>
+$ sed -n <span class="s1">&#39;/Alchemist/, 5 p&#39;</span> books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+
+<span class="c1"># search for line with &quot;Alchemist&quot;, and print until final line ($)</span>
+$ sed -n <span class="s1">&#39;/Alchemist/, $ p&#39;</span> books.txt
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># specify more than one pattern range using command(,) operator</span>
+<span class="c1">#=========================================================================#</span>
+<span class="c1"># print all lines that exist between the patterns &quot;Two&quot; and &quot;Pilgrimage&quot;</span>
+$ sed -n <span class="s1">&#39;/Two/, /Pilgrimage/ p&#39;</span> books.txt
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+
+<span class="c1"># after finding the match, print 4 more lines</span>
+$ sed -n <span class="s1">&#39;/Two/, +4 p&#39;</span> books.txt
+2<span class="o">)</span> The Two Towers, J. R. R. Tolkien, 352
+3<span class="o">)</span> The Alchemist, Paulo Coelho, 197
+4<span class="o">)</span> The Fellowship of the Ring, J. R. R. Tolkien, 432
+5<span class="o">)</span> The Pilgrimage, Paulo Coelho, 288
+6<span class="o">)</span> A Game of Thrones, George R. R. Martin, 864
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-commands-delete-read-write-append">
+<h2><a class="toc-backref" href="#id7">3.6. Basic commands (delete, read, write, append)</a><a class="headerlink" href="#basic-commands-delete-read-write-append" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="delete-command-address1-address2-d">
+<h3>3.6.1. Delete command [address1[,address2]]d<a class="headerlink" href="#delete-command-address1-address2-d" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="write-command-address1-address2-w-file">
+<h3>3.6.2. Write command [address1[,address2]]w file<a class="headerlink" href="#write-command-address1-address2-w-file" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="append-command-address-a">
+<h3>3.6.3. Append command [address]a<a class="headerlink" href="#append-command-address-a" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="change-command-address1-address2-c">
+<h3>3.6.4. Change command [address1[,address2]]c<a class="headerlink" href="#change-command-address1-address2-c" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="insert-command-address-i">
+<h3>3.6.5. Insert Command [address]i<a class="headerlink" href="#insert-command-address-i" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="translate-command-address1-address2-y-list-1-list-2">
+<h3>3.6.6. Translate command [address1[,address2]]y/list-1/list-2/<a class="headerlink" href="#translate-command-address1-address2-y-list-1-list-2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="i-command">
+<h3>3.6.7. I command<a class="headerlink" href="#i-command" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="quit-command-address-q">
+<h3>3.6.8. Quit Command [address]q<a class="headerlink" href="#quit-command-address-q" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="read-command-address-r-file">
+<h3>3.6.9. Read Command [address]r file<a class="headerlink" href="#read-command-address-r-file" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="exectuve-command-address1-address2-e-command">
+<h3>3.6.10. Exectuve Command [address1[,address2]]e [command]<a class="headerlink" href="#exectuve-command-address1-address2-e-command" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="miscellaneous-commands">
+<h3>3.6.11. Miscellaneous Commands<a class="headerlink" href="#miscellaneous-commands" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../awk-tutorial/index.html" class="btn btn-neutral float-right" title="4. awk-tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sed-tutorial.gnu.html" class="btn btn-neutral" title="2. sed-tutorial-gnu" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Takanori Watanabe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

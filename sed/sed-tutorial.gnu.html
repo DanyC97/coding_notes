@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. sed-tutorial-gnu &mdash; Coding Notebook 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-umich.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Coding Notebook 1 documentation" href="../index.html"/>
+        <link rel="next" title="3. sed-tutorial-tutorials-points" href="sed-tutorial.tutorialspoints.html"/>
+        <link rel="prev" title="1.2. Special Characters" href="../bash_wooledge/2_special_chars.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html">1. Bash wooledge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/1_commands_and_args.html">1.1. Commands and arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/2_special_chars.html">1.2. Special Characters</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. sed-tutorial-gnu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#execution-cycle-how-sed-works">2.1. Execution Cycle: How sed works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addresses-selecting-lines-with-sed">2.2. Addresses: Selecting lines with sed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#single-address-form">2.2.1. Single address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#two-address-form">2.2.2. Two address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#match-negation-via">2.2.3. Match negation via <code class="docutils literal"><span class="pre">!</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#regular-expressions-overview-of-regular-expression-syntax">2.3. Regular Expressions: Overview of regular expression syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">2.3.1. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-commands-often-used-commands">2.4. Common Commands: Often used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-s-command-sed-s-swiss-army-knife">2.5. The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#replacement">2.5.1. replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flags">2.5.2. flags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-commands-less-frequently-used-commands">2.6. Other Commands: Less frequently used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programming-commands-commands-for-sed-gurus">2.7. Programming Commands: Commands for sed gurus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sed-tutorial.tutorialspoints.html">3. sed-tutorial-tutorials-points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#sed-workflow">3.1. Sed - workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#basic-syntax-and-examples">3.2. Basic syntax and examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#examples">3.2.1. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#standard-options">3.2.2. Standard options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#gnu-specific-options">3.2.3. GNU specific options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#loops-branches">3.3. Loops, Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#address-range-search-by-specifying-line-nums">3.4. Address range (search by specifying line-nums)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#p-syntax">3.4.1. &#8216;p&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#m-n-syntax">3.4.2. &#8216;M,+n&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#id1">3.4.3. &#8216;M,~n&#8217; syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">3.5. Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#basic-commands-delete-read-write-append">3.6. Basic commands (delete, read, write, append)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#delete-command-address1-address2-d">3.6.1. Delete command [address1[,address2]]d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#write-command-address1-address2-w-file">3.6.2. Write command [address1[,address2]]w file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#append-command-address-a">3.6.3. Append command [address]a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#change-command-address1-address2-c">3.6.4. Change command [address1[,address2]]c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#insert-command-address-i">3.6.5. Insert Command [address]i</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#translate-command-address1-address2-y-list-1-list-2">3.6.6. Translate command [address1[,address2]]y/list-1/list-2/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#i-command">3.6.7. I command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#quit-command-address-q">3.6.8. Quit Command [address]q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#read-command-address-r-file">3.6.9. Read Command [address]r file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#exectuve-command-address1-address2-e-command">3.6.10. Exectuve Command [address1[,address2]]e [command]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed-tutorial.tutorialspoints.html#miscellaneous-commands">3.6.11. Miscellaneous Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">4. awk-tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-basic-structure.html">4.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html">4.2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#unary-arithmetic-operators">4.2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">4.2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#assignment-operators">4.2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#conditional-expressions">4.2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#regular-expressions">4.2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#and-or-not">4.2.6. And/Or/Not</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-summary-commands.html">4.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html">4.4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#fs-the-input-field-separator-variable">4.4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#nf-the-number-of-fields-variable">4.4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#nr-the-number-of-records-variable">4.4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#rs-the-record-separator-variable">4.4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#ors-the-output-record-separator-variable">4.4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#filename-the-current-filename-variable">4.4.7. FILENAME - The Current Filename Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Coding Notebook</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2. sed-tutorial-gnu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/sed/sed-tutorial.gnu.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sed-tutorial-gnu">
+<h1><a class="toc-backref" href="#id1">2. sed-tutorial-gnu</a><a class="headerlink" href="#sed-tutorial-gnu" title="Permalink to this headline">¶</a></h1>
+<p>ch3 - <a class="reference external" href="https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs">https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs</a></p>
+<p>(basically the only chapter i need to know)</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first"><strong>Contents</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sed-tutorial-gnu" id="id1">sed-tutorial-gnu</a><ul>
+<li><a class="reference internal" href="#execution-cycle-how-sed-works" id="id2">Execution Cycle: How sed works</a></li>
+<li><a class="reference internal" href="#addresses-selecting-lines-with-sed" id="id3">Addresses: Selecting lines with sed</a></li>
+<li><a class="reference internal" href="#regular-expressions-overview-of-regular-expression-syntax" id="id4">Regular Expressions: Overview of regular expression syntax</a></li>
+<li><a class="reference internal" href="#common-commands-often-used-commands" id="id5">Common Commands: Often used commands</a></li>
+<li><a class="reference internal" href="#the-s-command-sed-s-swiss-army-knife" id="id6">The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a></li>
+<li><a class="reference internal" href="#other-commands-less-frequently-used-commands" id="id7">Other Commands: Less frequently used commands</a></li>
+<li><a class="reference internal" href="#programming-commands-commands-for-sed-gurus" id="id8">Programming Commands: Commands for sed gurus</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="execution-cycle-how-sed-works">
+<h2><a class="toc-backref" href="#id2">2.1. Execution Cycle: How sed works</a><a class="headerlink" href="#execution-cycle-how-sed-works" title="Permalink to this headline">¶</a></h2>
+<p>sed maintains two data buffers (both initially empty):</p>
+<ol class="arabic simple">
+<li>the active <strong>pattern space</strong>, and</li>
+<li>the auxiliary <strong>hold space</strong> (<strong>address</strong>, i think...).</li>
+</ol>
+<p>sed operates by performing the following cycle on <strong>each line of input</strong>:</p>
+<ul class="simple">
+<li>first, sed reads one line from the input stream, removes any trailing newline, and places it in the <strong>pattern space</strong>.</li>
+<li>Then commands are executed;<ul>
+<li>each command can have an address associated to it (<strong>hold space</strong>):</li>
+<li>a command is only executed if the condition is verified before the command is to be executed.</li>
+</ul>
+</li>
+</ul>
+<p>When the end of the script is reached, unless the <code class="docutils literal"><span class="pre">-n</span></code> option is in use, the <strong>contents of pattern space are printed out to the output stream</strong>, adding back the trailing newline if it was removed.</p>
+<p>Unless special commands (like <code class="docutils literal"><span class="pre">‘D’</span></code>) are used, the pattern space is deleted between two cycles. The hold space, on the other hand, keeps its data between cycles (see commands <code class="docutils literal"><span class="pre">‘h’,</span> <span class="pre">‘H’,</span> <span class="pre">‘x’,</span> <span class="pre">‘g’,</span> <span class="pre">‘G’</span></code> to move data between both buffers).</p>
+</div>
+<div class="section" id="addresses-selecting-lines-with-sed">
+<h2><a class="toc-backref" href="#id3">2.2. Addresses: Selecting lines with sed</a><a class="headerlink" href="#addresses-selecting-lines-with-sed" title="Permalink to this headline">¶</a></h2>
+<p>Options influcencing below:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">-n</span></code> (&#8211;quiet): suppress automatic printing of <strong>pattern space</strong></li>
+<li><code class="docutils literal"><span class="pre">-r</span></code> (extended regexp): use extended regular expressions</li>
+<li><code class="docutils literal"><span class="pre">-i</span></code> (inplace): edit files in place</li>
+<li><code class="docutils literal"><span class="pre">-s</span></code> (separte): consider files as separate rather than as a single continuous long stream</li>
+</ul>
+<div class="section" id="single-address-form">
+<h3>2.2.1. Single address form<a class="headerlink" href="#single-address-form" title="Permalink to this headline">¶</a></h3>
+<p>Addresses in a sed script can be in any of the following forms (if no addresses are given, then all lines are matched):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>n</em></td>
+<td>match only the specified line in the input (note: sed counts lines continuously across all input files unless <code class="docutils literal"><span class="pre">-i,</span> <span class="pre">-s</span></code> options are spceified)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">first~stepsize</span></code></td>
+<td><code class="docutils literal"><span class="pre">1~2</span></code> select odd-numbered lines. <code class="docutils literal"><span class="pre">2~3</span></code> starts from line2, selects every 3 lines. <code class="docutils literal"><span class="pre">10~5</span></code> pick every 5th line starting from line 10. (you get the idea...)</td>
+</tr>
+<tr class="row-even"><td>$</td>
+<td>match the <strong>last line</strong> of the <strong>last file</strong> (or the last line of <strong>each file</strong> if <code class="docutils literal"><span class="pre">-i</span></code> or <code class="docutils literal"><span class="pre">-s</span></code> option is used)</td>
+</tr>
+<tr class="row-odd"><td>/regexp/</td>
+<td>Select any lines matching <em>regexp</em>. if the <em>regexp</em> includes any <code class="docutils literal"><span class="pre">/</span></code> char, it must be espaced with <code class="docutils literal"><span class="pre">\</span></code>. The empty regexp <code class="docutils literal"><span class="pre">//</span></code> repeats the last regexp match.</td>
+</tr>
+<tr class="row-even"><td>%regexp%</td>
+<td>(<code class="docutils literal"><span class="pre">%</span></code> can be replaced with any other single-char) Same as above, but use a delimitered different from <code class="docutils literal"><span class="pre">/</span></code>. This is handy when your rexexp has bunch of <code class="docutils literal"><span class="pre">/</span></code> that escaping becomes pain in the butt.</td>
+</tr>
+<tr class="row-odd"><td>/regexp/I</td>
+<td><code class="docutils literal"><span class="pre">I</span></code> = case-insensitive modifier</td>
+</tr>
+<tr class="row-even"><td>/regexp/M</td>
+<td><code class="docutils literal"><span class="pre">M</span></code> = <em>multi-line</em> modifier. causes <code class="docutils literal"><span class="pre">^</span></code> and <code class="docutils literal"><span class="pre">$</span></code> to match respectively the empty string after the newline (and the empty line before a newline)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="two-address-form">
+<h3>2.2.2. Two address form<a class="headerlink" href="#two-address-form" title="Permalink to this headline">¶</a></h3>
+<p>An address range can be specified by specifying two addresses separated by a comma (,).</p>
+<ul class="simple">
+<li>An address range matches line starting from the <strong>1st address</strong> and ends at the <strong>2nd address</strong> (inclusive)</li>
+<li>if the 2nd address &lt; 1st address, only the 1st address gets matched</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0,/regexp/</td>
+<td>...the description didn&#8217;t make sense to me...</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">addr1,+N</span></code></td>
+<td>matches <strong>addr1</strong> and the N lines following it</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">addr1,~N</span></code></td>
+<td>matches <strong>addr1</strong> and the lines following it UNTIL the next line whose input line number is a multiple of N</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="match-negation-via">
+<h3>2.2.3. Match negation via <code class="docutils literal"><span class="pre">!</span></code><a class="headerlink" href="#match-negation-via" title="Permalink to this headline">¶</a></h3>
+<p>Appending the <code class="docutils literal"><span class="pre">!</span></code> character to the end of an address specification negates the sense of the match.</p>
+<ul class="simple">
+<li>ie, <code class="docutils literal"><span class="pre">!</span></code> follows an address range, then only lines which <strong>do not match</strong> the address range will be selected.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="regular-expressions-overview-of-regular-expression-syntax">
+<h2><a class="toc-backref" href="#id4">2.3. Regular Expressions: Overview of regular expression syntax</a><a class="headerlink" href="#regular-expressions-overview-of-regular-expression-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Here is a brief description of regular expression syntax as used in sed ( i already know below, but to get an idea what char needs to be escaped)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">pattern</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">*</span></code></td>
+<td>0 or more of the preceding</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\+</span></code></td>
+<td>one or more of the preceding</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\?</span></code></td>
+<td>0 or 1</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\{i\}</span></code></td>
+<td>exactly i</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\{i,j\}</span></code></td>
+<td>between i and j (inclusive)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\{i,\}</span></code></td>
+<td>more than i</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\{(regexp)\}</span></code></td>
+<td>group matches via bracket. Eg, <code class="docutils literal"><span class="pre">\\((abcd)\\\)\*</span></code> will search for zero or more of the entire sequence of <code class="docutils literal"><span class="pre">abcd</span></code>. In contrast, <code class="docutils literal"><span class="pre">abcd*</span></code> will match <code class="docutils literal"><span class="pre">abc</span></code> followed by 0 or more <code class="docutils literal"><span class="pre">d</span></code>. Can also be used for <strong>back-references</strong> (see below)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">.</span></code></td>
+<td>match any char</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">^</span></code></td>
+<td>Matches the null string at beginning of the pattern space (<code class="docutils literal"><span class="pre">^#include</span></code> to match lines where <code class="docutils literal"><span class="pre">#include</span></code> is the first thing on the line</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$</span></code></td>
+<td>end of pattern space</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">[list]</span></code></td>
+<td>Match any <strong>single char</strong> in the list. [aeiou] for all voewls. [char1-char2] for any char between (inclusive).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">[^list]</span></code></td>
+<td>Match any <strong>single char</strong> NOT in the list. NOTE: chars <code class="docutils literal"><span class="pre">$,*,.,[,\</span></code> are normally not special in a list, meaning <code class="docutils literal"><span class="pre">[\*]</span></code> will match either <code class="docutils literal"><span class="pre">\</span></code> or <code class="docutils literal"><span class="pre">*</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\digit</span></code></td>
+<td><strong>Back reference</strong>. Matches the digit-th <code class="docutils literal"><span class="pre">\(</span> <span class="pre">..\)</span></code>  paranthesized subexpression in the regexp.  Subexpressions are implicity numbered by counting occurrences of <code class="docutils literal"><span class="pre">\(</span></code> left-to-right.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\n</span></code></td>
+<td>matches the newline char</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\char</span></code></td>
+<td>matches <code class="docutils literal"><span class="pre">char</span></code>, where <code class="docutils literal"><span class="pre">char</span></code> is one of <code class="docutils literal"><span class="pre">$,*,.,[,\,^</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Note that the regular expression matcher is greedy, i.e., matches are attempted from left to right and, if two or more matches are possible starting at the same character, it selects the longest.</p>
+<div class="section" id="examples">
+<h3>2.3.1. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘abcdef’</span></code></td>
+<td>Matches ‘abcdef’.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘a*b’</span></code></td>
+<td>Matches zero or more ‘a’s followed by a single ‘b’. For example, ‘b’ or ‘aaaaab’.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘a\?b’</span></code></td>
+<td>Matches ‘b’ or ‘ab’.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘a\+b\+’</span></code></td>
+<td>Matches one or more ‘a’s followed by one or more ‘b’s: ‘ab’ is the shortest possible match, but other examples are ‘aaaab’ or ‘abbbbb’ or ‘aaaaaabbbbbbb’.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘.*’</span></code>, <code class="docutils literal"><span class="pre">'.\+'</span></code></td>
+<td>These two both match all the characters in a string; however, the first matches every string (including the empty string), while the second matches only strings containing at least one character.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘^main.*(.*)’</span></code></td>
+<td>This matches a string starting with ‘main’, followed by an opening and closing parenthesis. The ‘n’, ‘(’ and ‘)’ need not be adjacent.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘^#’</span></code></td>
+<td>This matches a string beginning with ‘#’.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘\\\\$’</span></code></td>
+<td>This matches a string ending with a single backslash. The regexp contains two backslashes for escaping.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘\\$’</span></code></td>
+<td>Instead, this matches a string consisting of a single dollar sign, because it is escaped.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘[a-zA-Z0-9]’</span></code></td>
+<td>In the C locale, this matches any ASCII letters or digits.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘[^</span> <span class="pre">tab]\+’</span></code></td>
+<td>(Here tab stands for a single tab character.) This matches a string of one or more characters, none of which is a space or a tab. Usually this means a word.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘^\(\(.*\)\)\n\1$’</span></code></td>
+<td>This matches a string consisting of two equal substrings separated by a newline.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">‘.\{9\}A$’</span></code></td>
+<td>This matches nine characters followed by an ‘A’.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">‘^.\{15\}A’</span></code></td>
+<td>This matches the start of a string that contains 16 characters, the last of which is an ‘A’.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="common-commands-often-used-commands">
+<h2><a class="toc-backref" href="#id5">2.4. Common Commands: Often used commands</a><a class="headerlink" href="#common-commands-often-used-commands" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">a</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>q [exit-code]</td>
+<td>Exit sed without processing any more commands or input. Note that the current pattern space is printed if auto-print is not disabled with the <code class="docutils literal"><span class="pre">-n</span></code> options.  (This command only accepts a single address)</td>
+</tr>
+<tr class="row-odd"><td>d [delete]</td>
+<td>Delete the pattern space; immediately start next cycle.</td>
+</tr>
+<tr class="row-even"><td>p [print]</td>
+<td>Print out the pattern space (to the standard output). This command is usually only used in conjunction with the -n command-line option.</td>
+</tr>
+<tr class="row-odd"><td>n</td>
+<td>If auto-print is not disabled (so <code class="docutils literal"><span class="pre">-n</span></code> is NOT used), <strong>print the pattern space</strong>, then, regardless, replace the pattern space with the next line of input. If there is no more input then sed exits without processing any more commands.</td>
+</tr>
+<tr class="row-even"><td>{ commands }</td>
+<td>A group of commands may be enclosed between { and } characters. This is particularly useful when you want a group of commands to be triggered by a single address (or address-range) match.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-s-command-sed-s-swiss-army-knife">
+<h2><a class="toc-backref" href="#id6">2.5. The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><a class="headerlink" href="#the-s-command-sed-s-swiss-army-knife" title="Permalink to this headline">¶</a></h2>
+<p>The syntax of the <code class="docutils literal"><span class="pre">s</span></code> (as in substitute) command is <code class="docutils literal"><span class="pre">‘s/regexp/replacement/flags’</span></code>.</p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">s</span></code> command is probably the most important in sed and has a lot of different options</li>
+</ul>
+<div class="section" id="replacement">
+<h3>2.5.1. replacement<a class="headerlink" href="#replacement" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">replacement</span></code> can contain <code class="docutils literal"><span class="pre">\n</span></code> references (n is number from 1 to 9), which refer to the portion of the match</li>
+<li><code class="docutils literal"><span class="pre">replacement</span></code> can contain unescaped &amp; chars which reference the whole-matched portion of the pattern space.</li>
+<li>You can include a special sequence made of a backslash and one of the letters <code class="docutils literal"><span class="pre">L,</span> <span class="pre">l,</span> <span class="pre">U,</span> <span class="pre">u,</span> <span class="pre">or</span> <span class="pre">E</span></code>.</li>
+<li>To include a literal <code class="docutils literal"><span class="pre">\,</span> <span class="pre">&amp;</span></code>, or <code class="docutils literal"><span class="pre">newline</span></code> in the final replacement, be sure to precede the desired <code class="docutils literal"><span class="pre">\,</span> <span class="pre">&amp;</span></code>, or <code class="docutils literal"><span class="pre">newline</span></code> in the replacement with a <code class="docutils literal"><span class="pre">\</span></code>.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\L</span></code></td>
+<td>Turn the replacement to lowercase until a <code class="docutils literal"><span class="pre">\U</span></code> or <code class="docutils literal"><span class="pre">\E</span></code> is found,</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\l</span></code></td>
+<td>Turn the next character to lowercase,</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\U</span></code></td>
+<td>Turn the replacement to uppercase until a <code class="docutils literal"><span class="pre">\L</span></code> or <code class="docutils literal"><span class="pre">\E</span></code> is found,</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\u</span></code></td>
+<td>Turn the next character to uppercase,</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\E</span></code></td>
+<td>Stop case conversion started by <code class="docutils literal"><span class="pre">\L</span></code> or <code class="docutils literal"><span class="pre">\U</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<p>To include a literal <code class="docutils literal"><span class="pre">\,</span> <span class="pre">&amp;</span></code>, or <code class="docutils literal"><span class="pre">newline</span></code> in the final replacement, be sure to precede the desired <code class="docutils literal"><span class="pre">\,</span> <span class="pre">&amp;</span></code>, or <code class="docutils literal"><span class="pre">newline</span></code> in the replacement with a <code class="docutils literal"><span class="pre">\</span></code>.</p>
+</div>
+<div class="section" id="flags">
+<h3>2.5.2. flags<a class="headerlink" href="#flags" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">s</span></code> command can be followed by <strong>zero or more</strong> of the following flags:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">g</span></code>  (global)</td>
+<td>Apply the replacement to all matches to the regexp, not just the first.</td>
+</tr>
+<tr class="row-odd"><td><em>number</em></td>
+<td>Only replace the <em>number</em>-th match of the regexp.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">p</span></code> (print)</td>
+<td>If the substitution was made, then print the new pattern space. Note: when both the <code class="docutils literal"><span class="pre">p</span> <span class="pre">and</span> <span class="pre">e</span></code> options are specified, the <strong>ordering</strong> of the two produces very different results. In general, <code class="docutils literal"><span class="pre">ep</span></code> (<strong>evaluate then print</strong>) is what you want, but operating the other way round can be useful for debugging.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">w</span> <span class="pre">file-name</span></code> (write to file)</td>
+<td>If the substitution was made, then write out the result to the named file. Two special values of file-name are supported: <code class="docutils literal"><span class="pre">/dev/stderr</span></code>, which writes the result to the standard error, and <code class="docutils literal"><span class="pre">/dev/stdout</span></code>, which writes to the standard output.1</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">e</span></code> (pipe)</td>
+<td>This command allows one to pipe input from a shell command into pattern space. If a substitution was made, the command that is found in pattern space is executed and pattern space is replaced with its output. A trailing newline is suppressed; results are undefined if the command to be executed contains a nul character.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">I</span></code>, <code class="docutils literal"><span class="pre">i</span></code> (case sensitive)</td>
+<td>The I modifier to regular-expression matching makes sed match regexp in a case-insensitive manner.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">M</span></code>, <code class="docutils literal"><span class="pre">m</span></code> (multiline)</td>
+<td>The M modifier to regular-expression matching is a GNU sed extension which causes ^ and $ to match respectively (in addition to the normal behavior) the empty string after a newline, and the empty string before a newline.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="other-commands-less-frequently-used-commands">
+<h2><a class="toc-backref" href="#id7">2.6. Other Commands: Less frequently used commands</a><a class="headerlink" href="#other-commands-less-frequently-used-commands" title="Permalink to this headline">¶</a></h2>
+<p>Though perhaps less frequently used than those in the previous section, some very small yet useful sed scripts can be built with these commands.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">y/source-chars/dest-chars/</span></code></td>
+<td>(The <code class="docutils literal"><span class="pre">/</span></code> characters may be uniformly replaced by any other single character within any given y command.) Transliterate any characters in the pattern space which match any of the source-chars with the corresponding character in dest-chars. Instances of the / (or whatever other character is used in its stead), <code class="docutils literal"><span class="pre">\</span></code>, or newlines can appear in the source-chars or dest-chars lists, provide that each instance is escaped by a <code class="docutils literal"><span class="pre">\</span></code>. The source-chars and dest-chars lists must contain the same number of characters (after de-escaping).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">a\</span></code>, <code class="docutils literal"><span class="pre">text</span></code></td>
+<td>Queue the lines of text which follow this command (each but the last ending with a <code class="docutils literal"><span class="pre">\</span></code>, which are removed from the output) to be output at the end of the current cycle, or when the next input line is read. (this command accepts <strong>two addresses</strong>) Escape sequences in text are processed, so you should use <code class="docutils literal"><span class="pre">\\</span></code> in text to print a single backslash. As a GNU extension, if between the a and the newline there is other than a whitespace-sequence, then the text of this line, starting at the first non-whitespace character after the a, is taken as the first line of the text block. (This enables a simplification in scripting a one-line add.) This extension also works with the i and c commands.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">i\</span></code> <code class="docutils literal"><span class="pre">text</span></code></td>
+<td>Immediately output the lines of text which follow this command (each but the last ending with a <code class="docutils literal"><span class="pre">\</span></code>, which are removed from the output). (this command accepts <strong>two addresses</strong>)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">c\</span></code> <code class="docutils literal"><span class="pre">text</span></code></td>
+<td>Delete the lines matching the address or address-range, and output the lines of text which follow this command (each but the last ending with a <code class="docutils literal"><span class="pre">\</span></code>, which are removed from the output) in place of the last line (or in place of each line, if no addresses were specified). A new cycle is started after this command is done, since the pattern space will have been deleted.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">=</span></code></td>
+<td>Print out the current input line number (with a trailing newline) (this command accepts <strong>two addresses</strong>)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">l</span> <span class="pre">n</span></code></td>
+<td>Print the pattern space in an unambiguous form: non-printable characters (and the character) are printed in C-style escaped form; long lines are split, with a trailing <code class="docutils literal"><span class="pre">\</span></code> character to indicate the split; the end of each line is marked with a $. n specifies the desired line-wrap length; a length of 0 (zero) means to never wrap long lines. If omitted, the default as specified on the command line is used. The n parameter is a GNU sed extension.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">r</span> <span class="pre">filename</span></code></td>
+<td>Queue the contents of filename to be read and inserted into the output stream at the end of the current cycle, or when the next input line is read. Note that if filename cannot be read, it is treated as if it were an empty file, without any error indication. (this command accepts <strong>two addresses</strong>) As a GNU sed extension, the special value /dev/stdin is supported for the file name, which reads the contents of the standard input.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">w</span> <span class="pre">filename</span></code></td>
+<td>Write the pattern space to filename. As a GNU sed extension, two special values of file-name are supported: /dev/stderr, which writes the result to the standard error, and /dev/stdout, which writes to the standard output.1 The file will be created (or truncated) before the first input line is read; all w commands (including instances of the w flag on successful s commands) which refer to the same filename are output without closing and reopening the file.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">D</span></code> (delete)</td>
+<td>If pattern space contains no newline, start a normal new cycle as if the d command was issued. Otherwise, delete text in the pattern space up to the first newline, and restart cycle with the resultant pattern space, without reading a new line of input.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">N</span></code> (newline)</td>
+<td>Add a newline to the pattern space, then append the next line of input to the pattern space. If there is no more input then sed exits without processing any more commands.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">P</span></code> (print)</td>
+<td>Print out the portion of the pattern space up to the first newline.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">h</span></code> (replace)</td>
+<td>Replace the contents of the hold space with the contents of the pattern space.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">H</span></code> (append)</td>
+<td>Append a newline to the contents of the hold space, and then append the contents of the pattern space to that of the hold space.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">g</span></code></td>
+<td>Replace the contents of the pattern space with the contents of the hold space.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">G</span></code></td>
+<td>Append a newline to the contents of the pattern space, and then append the contents of the hold space to that of the pattern space.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">x</span></code> (exchange)</td>
+<td>Exchange the contents of the hold and pattern spaces.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="programming-commands-commands-for-sed-gurus">
+<h2><a class="toc-backref" href="#id8">2.7. Programming Commands: Commands for sed gurus</a><a class="headerlink" href="#programming-commands-commands-for-sed-gurus" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In most cases, <strong>use of these commands indicates that you are probably better off programming in something like awk or Perl</strong>. But occasionally one is committed to sticking with sed, and these commands can enable one to write quite convoluted scripts.</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">:</span> <span class="pre">label</span></code></td>
+<td>[No addresses allowed.] Specify the location of label for branch commands. In all other respects, a no-op.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">b</span> <span class="pre">label</span></code></td>
+<td>Unconditionally branch to label. The label may be omitted, in which case the next cycle is started.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">t</span> <span class="pre">label</span></code></td>
+<td>Branch to label only if there has been a successful substitution since the last input line was read or conditional branch was taken. The label may be omitted, in which case the next cycle is started.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sed-tutorial.tutorialspoints.html" class="btn btn-neutral float-right" title="3. sed-tutorial-tutorials-points" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../bash_wooledge/2_special_chars.html" class="btn btn-neutral" title="1.2. Special Characters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Takanori Watanabe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
