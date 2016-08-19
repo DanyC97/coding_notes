@@ -165,7 +165,7 @@ html_theme = 'sphinx_rtd_theme'
 # pixels large.
 #
 # html_favicon = './img/blockm.gif'
-html_favicon = '_static/img/blockm.gif'
+html_favicon = '_static/img/favicon-umich.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
