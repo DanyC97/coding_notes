@@ -2,8 +2,8 @@
 #=============================================================================#
 # do all the make at once
 #=============================================================================#
-# make clean
-# rm -r ./source_tutorials/generated*
+make clean
+rm -r ./source_tutorials/generated*
 make html
 
 
