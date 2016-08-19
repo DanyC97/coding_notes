@@ -163,7 +163,9 @@ Only a subset
 #############################
 PE tricks (some I rarely use)
 #############################
-     
+*************
+Summary table
+*************
 .. list-table:: 
     :header-rows: 1
     :widths: 20,70
@@ -171,38 +173,46 @@ PE tricks (some I rarely use)
     * - Syntax
       - Description
 
-    * - ``${var}``
-      - substitute the value of ``var``
+    * - ``${var}`` (:ref:`link <${var}>`)
+      - **Standard substitution** -- substitute the value of ``var``
 
-    * - ``${var:-word}``
+    * - ``${var:-word}`` (:ref:`link <${var:-word}>`)
       - **Use default value** -- if ``var`` is null, use ``word``. Value of ``var`` remains unchanged (so a temporary substituion).
     
-    * - ``${var:=word}``
+    * - ``${var:=word}`` (:ref:`link <${var:=word}>`)
       - **Assign default** -- if ``var`` is null, use ``word``. The value of 'vareter' is then substituted. 
     
-    * - ``${var:+word}``
+    * - ``${var:+word}`` (:ref:`link <${var:+word}>`)
       - **Use Alternate Value** -- If ``var`` is set, substitute it with ``word``.  If ``var`` is null, do not substitute (so remains null..I never encountered a situation where I wanna do this)
         
-    * - ``${var:offset:length}``
-      - **Substring Expansion** --  Expands to up to ``length`` characters of ``var`` starting at the character specified by ``offset`` (0-indexed). If ``length`` is omitted, goes all the way until the end.
+    * - ``${var:offset:length}`` (:ref:`link <${var:offset:length}>`)
+      - **Substring Expansion** --  Expands to up to ``length`` characters of ``var`` starting at the character specified by ``offset`` (0-indexed). If ``length`` is omitted, goes all the way until the end.        
+    * - ``${var[@]:offset:length}`` (:ref:`link <${var:offset:length}>`)
+      - Same as above, but item-wise (see demo below)
         
-    * - ``${#var}``
-      - **Number of chars** -- number of characters in var.
-                
-    * - ``${#var[@]}``
-      - **Number of items** -- number of items if ``var`` is an array. Same for ``${var[*]}`` syntax.
+    * - ``${#var}`` (:ref:`link <${#var}>`)
+      - **Number of chars** -- number of characters in var.       
+
+    * - ``${#var[@]}`` (:ref:`link <${#var}>`)
+      - **Number of array items** -- number of items if ``var`` is an array. Same for ``${var[*]}`` syntax.
         
-    * - ``${var#pattern}``
-      - 
+    * - ``${var#pattern}`` (:ref:`link <${var#pattern}>`)
+      - The 'pattern' is matched against the beginning of 'var'. The result is the expanded value of 'var' with the shortest match deleted.    
+
+    * - ``${var[@]#pattern}`` (:ref:`link <${var#pattern}>`)
+      - Same as above, but applied on array items (see example below)
         
     * - ``${var##pattern}``
-      - 
+      - same as above, but **longest match** is deleted
             
     * - ``${var%pattern}``
-      - 
+      - same as ``${var#pattern}``, but applied to the **end** of the string (shortest match at tail of the string deleted)
             
     * - ``${var%%pattern}``
-      - ``${var/pat/string}``
+      - Same as above, but **longest** match gets deleted.
+
+    * - ``${var/pat/string}``
+      - **fill in later**
             
     * - ``${var//pat/string}``
       - 
@@ -213,11 +223,16 @@ PE tricks (some I rarely use)
     * - ``${var/%pat/string}``
       - 
                 
-    * - ``${var:?message}``
+    * - ``${var:?message}`` (:ref:`link <${var:?msg}>`)
       - If ``var`` is null, print ``message`` to standard error.
-    
-    
-    
+
+.. _${var}:
+
+**********
+``${var}``
+**********
+substitute the value of ``var``
+
 .. code-block:: bash
 
     # === ${var} ===
@@ -225,6 +240,20 @@ PE tricks (some I rarely use)
 
     $ var="I am $USER"; printf "${var}\n"
     I am takanori
+
+.. _${var:-word}:
+
+************************************
+``${var:-word}`` (use default value)
+************************************
+- :ref:`${var}`
+
+**Use default value**
+
+- if ``var`` is null, use ``word``. Value of ``var`` remains unchanged
+- (so a temporary substituion)
+
+.. code-block:: bash
 
     # === ${var:-word}: sub temporarily if null ===
     $ var="I am $USER"; word="Harbaugh"
@@ -234,6 +263,17 @@ PE tricks (some I rarely use)
     Harbaugh
     $ printf "${var}\n"  # value remains null
 
+.. _${var:=word}:
+
+*********************************
+``${var:=word}`` (assign default)
+*********************************
+**Assign default** 
+
+- if ``var`` is null, use ``word``. 
+- The value of 'var' is then substituted by ``word``
+    
+.. code-block:: bash
 
     # === ${var:=word}: sub permanently if null ===
     $ var="I am $USER"; word="Harbaugh"
@@ -244,14 +284,28 @@ PE tricks (some I rarely use)
     $ printf "${var}\n" # below we see the value of `var` got replaced with `word`
     Harbaugh
 
-    # === ${var:?message} send stderr if null ===
-    $ ERR_MSG="OH NO!"
-    $ a='hello'; echo "${a:?"${ERR_MSG}"}"
-    hello
-    $ unset a; echo "${a:?"${ERR_MSG}"}"
-    bash: a: OH NO!
-    $ unset a; $ echo "${a:?ERR_MSG}"
-    bash: a: ERR_MSG
+.. _${var:+word}:
+
+**************************************
+``${var:+word}`` (use alternate value)
+**************************************
+**Use Alternate Value**
+
+- If ``var`` is set, substitute it with ``word``.  
+- If ``var`` is null, do not substitute (so remains null..I never encountered a situation where I wanna do this)
+        
+.. _${var:offset:length}:
+
+**********************************************
+``${var:offset:length}`` (substring expansion)
+**********************************************
+**Substring Expansion**
+
+- Expands to up to ``length`` characters of ``var`` starting at the character specified by ``offset`` (0-indexed). 
+- If ``length`` is omitted, goes all the way until the end.
+- if ``offset`` is negative, count backward from end of ``param`` (use parantheses)
+
+.. code-block:: bash
 
     # === demo on ${var:offset:length} syntax (like slicing in python) ===
     var="0123456789"
@@ -265,7 +319,25 @@ PE tricks (some I rarely use)
     #> 56789
     echo ${var:(-5):2}
     #> 56 
-    
+
+    #-- in case of array, above will be done item wise --
+    var_array=("0.Tak " "1.Wata " "2.Mike " "3.Jim ")
+    echo ${var_array[@]:1}
+    #> 1.Wata 2.Mike 3.Jim
+    echo ${var_array[@]:0:2}
+    #> 0.Tak 1.Wata
+
+
+.. _${#var}:
+
+*****************************************************************
+``${#var}``, ``${#var[@]}`` (number of characters or array items)
+*****************************************************************
+``${#var}`` = number of characters in ``var``.
+``${#var[@]}`` = number of items in ``var`` if ``var`` is an array. Same for ``${var[*]}`` syntax.
+
+.. code-block:: bash
+
     # === demo on ${#var} ===
     var="I am tired of this"
     echo "${#var}"
@@ -282,3 +354,48 @@ PE tricks (some I rarely use)
     #> 3 # number of list items
     echo "${#var[*]}"
     #> 3 # number of list ittems
+
+.. _${var#pattern}:
+
+*****************************************************
+``${var#pattern}`` (delete beginning of str if match)
+*****************************************************
+.. code-block:: bash
+
+    # === demo on ${var#pattern} ===
+    var="I love Michgian Football"
+    echo "${var#I love M}"  # delete if beginning matches
+    #> ichgian Football
+    echo "${var#love}"    # nothing happens if no matching occurs
+    #> I love Michgian Football
+
+    #-- if var is an array, this will be done for each item --
+    var_array=("I love Michigan" "I love Stanford" "I hate *SU")
+    echo "${var_array#I love}"
+    #> I hate \*SU
+    echo "${var_array[@]#I love}"
+    #> I hate \*SU  Michigan  Stanford
+
+.. _${var:?msg}:
+
+*************************************
+``${var:?msg}`` (print msg to stderr)
+*************************************
+If ``var`` is null, print ``message`` to standard error.
+    
+.. code-block:: bash
+
+    # === ${var:?msg} send stderr if null ===
+    $ ERR_MSG="OH NO!"
+    $ a='hello'; echo "${a:?"${ERR_MSG}"}"
+    hello
+    $ unset a; echo "${a:?"${ERR_MSG}"}"
+    bash: a: OH NO!
+    $ unset a; $ echo "${a:?ERR_MSG}"
+    bash: a: ERR_MSG
+
+
+
+
+    
+
