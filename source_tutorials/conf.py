@@ -19,7 +19,8 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-
+#sys.path.insert(0,'/home/takanori/Dropbox/work/sbia_work/python/modules')
+sys.path.insert(0, os.path.abspath('./sphinxext/numpydoc'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -61,7 +62,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Snippets'
+project = u'Coding Notebook'
 copyright = u'2016, Takanori Watanabe'
 author = u'Takanori Watanabe'
 

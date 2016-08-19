@@ -3,7 +3,9 @@ sed-tutorial-tutorials-points
 http://www.tutorialspoint.com/sed/sed_workflow.htm
 
 .. contents:: **Contents**
-    :depth: 3
+   :local:
+   :depth: 1
+
 
 ##############
 Sed - workflow
