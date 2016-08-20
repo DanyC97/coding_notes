@@ -50,6 +50,8 @@ Special Parameters and Variables
     $ echo "I am $LOGNAME, and I live at $HOME."
     #> I am takanori, and I live at /home/takanori.
 
+.. _special_param:
+
 ******************
 Special Parameters
 ******************
