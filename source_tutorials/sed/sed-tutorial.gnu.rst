@@ -4,8 +4,10 @@ ch3 - https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Pr
 
 (basically the only chapter i need to know)
 
-.. contents:: **Contents**
-    :depth: 2
+.. contents:: `Table of contents`
+   :depth: 2
+   :local:
+
 
 ##############################
 Execution Cycle: How sed works

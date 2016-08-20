@@ -9,13 +9,13 @@ My coding notebook
 
 .. toctree::
     :maxdepth: 1
-    :numbered:
     :caption: Table of Contents
 
     bash_wooledge/top-bash-wool.rst
     sed/sed-tutorial.gnu.rst
     sed/sed-tutorial.tutorialspoints.rst
     awk-tutorial/index.rst
+    awk-tp.rst
 
 
 

@@ -1,0 +1,8 @@
+	# gawk profile, created Sat Aug 20 00:04:33 2016
+
+	# Rule(s)
+
+	NF > 3 {
+		print $9 " -> filesize =" $5
+	}
+

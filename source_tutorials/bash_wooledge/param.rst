@@ -373,10 +373,11 @@ substitute the value of ``var``
 
     #-- if var is an array, this will be done for each item --
     var_array=("I love Michigan" "I love Stanford" "I hate *SU")
-    echo "${var_array#I love}"
-    #> I hate \*SU
+    echo "${var_array#I love}" # <- only applies to the first item
+    #>  Michigan
     echo "${var_array[@]#I love}"
-    #> I hate \*SU  Michigan  Stanford
+    #>  Michigan  Stanford I hate *SU
+
 
 .. _${var:?msg}:
 
