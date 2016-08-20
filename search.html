@@ -85,8 +85,57 @@
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">1. Bash wooledge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/1_commands_and_args.html">1.1. Commands and arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/2_special_chars.html">1.2. Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1.1. Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">1.2. Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#basic">1.2.1. Basic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#always-double-quote-when-doing-pe-parameter-expansion">1.2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#char-needed-with-dealing-with-numerics">1.2.1.2. char needed with dealing with numerics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#special-parameters-and-variables">1.2.2. Special Parameters and Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#special-parameters">1.2.2.1. Special Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#special-variables-provided-by-the-shell">1.2.2.2. Special variables provided by the shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#pe-tricks-some-i-rarely-use">1.2.3. PE tricks (some I rarely use)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#summary-table">1.2.3.1. Summary table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var">1.2.3.2. <code class="docutils literal"><span class="pre">${var}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-use-default-value">1.2.3.3. <code class="docutils literal"><span class="pre">${var:-word}</span></code> (use default value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-assign-default">1.2.3.4. <code class="docutils literal"><span class="pre">${var:=word}</span></code> (assign default)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-use-alternate-value">1.2.3.5. <code class="docutils literal"><span class="pre">${var:+word}</span></code> (use alternate value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-offset-length-substring-expansion">1.2.3.6. <code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (substring expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-var-number-of-characters-or-array-items">1.2.3.7. <code class="docutils literal"><span class="pre">${#var}</span></code>, <code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (number of characters or array items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-pattern-delete-beginning-of-str-if-match">1.2.3.8. <code class="docutils literal"><span class="pre">${var#pattern}</span></code> (delete beginning of str if match)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-msg-print-msg-to-stderr">1.2.3.9. <code class="docutils literal"><span class="pre">${var:?msg}</span></code> (print msg to stderr)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/patterns.html">1.3. Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#glob-patterns">1.3.1. Glob patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/patterns.html#use-glob-not-ls-for-looping-over-files">1.3.1.1. Use glob, not ls for looping over files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#regular-expressions">1.3.3. Regular expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#brace-expansion">1.3.4. Brace Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/tests.html">1.4. Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#exit-status-0-success-use">1.4.1. Exit status (0 = success)....use $?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#control-operators-and">1.4.2. Control operators (&amp;&amp; and ||)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#grouping-statements">1.4.3. Grouping statements {...;}</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case1-reporting-stderr-on-complex-test">1.4.3.1. Use-case1: reporting stderr on complex test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case2-redirect-input-to-a-group-of-statements">1.4.3.2. Use-case2: redirect input to a group of statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case3-error-handling">1.4.3.3. Use-case3: error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/conditionals.html">1.5. Conditionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#hello-world">1.5.1. Hello world</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.gnu.html">2. sed-tutorial-gnu</a><ul>

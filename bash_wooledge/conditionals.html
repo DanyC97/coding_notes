@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.1. Basic structure &mdash; Coding Notebook 1 documentation</title>
+  <title>1.5. Conditionals &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="Coding Notebook 1 documentation" href="../index.html"/>
-        <link rel="up" title="4. awk-tutorial" href="index.html"/>
-        <link rel="next" title="4.2. The Essential Syntax of AWK" href="awk-essential-syntax.html"/>
-        <link rel="prev" title="4. awk-tutorial" href="index.html"/> 
+        <link rel="up" title="1. Bash wooledge" href="top-bash-wool.html"/>
+        <link rel="next" title="2. sed-tutorial-gnu" href="../sed/sed-tutorial.gnu.html"/>
+        <link rel="prev" title="1.4. Tests" href="tests.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,9 +87,58 @@
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html">1. Bash wooledge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html#commands-and-arguments">1.1. Commands and arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html#special-characters">1.2. Special Characters</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="top-bash-wool.html">1. Bash wooledge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="special_char.html">1.1. Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param.html">1.2. Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="param.html#basic">1.2.1. Basic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="param.html#always-double-quote-when-doing-pe-parameter-expansion">1.2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#char-needed-with-dealing-with-numerics">1.2.1.2. char needed with dealing with numerics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="param.html#special-parameters-and-variables">1.2.2. Special Parameters and Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="param.html#special-parameters">1.2.2.1. Special Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#special-variables-provided-by-the-shell">1.2.2.2. Special variables provided by the shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="param.html#pe-tricks-some-i-rarely-use">1.2.3. PE tricks (some I rarely use)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="param.html#summary-table">1.2.3.1. Summary table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var">1.2.3.2. <code class="docutils literal"><span class="pre">${var}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-word-use-default-value">1.2.3.3. <code class="docutils literal"><span class="pre">${var:-word}</span></code> (use default value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-word-assign-default">1.2.3.4. <code class="docutils literal"><span class="pre">${var:=word}</span></code> (assign default)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-word-use-alternate-value">1.2.3.5. <code class="docutils literal"><span class="pre">${var:+word}</span></code> (use alternate value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-offset-length-substring-expansion">1.2.3.6. <code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (substring expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-var-number-of-characters-or-array-items">1.2.3.7. <code class="docutils literal"><span class="pre">${#var}</span></code>, <code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (number of characters or array items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-pattern-delete-beginning-of-str-if-match">1.2.3.8. <code class="docutils literal"><span class="pre">${var#pattern}</span></code> (delete beginning of str if match)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="param.html#var-msg-print-msg-to-stderr">1.2.3.9. <code class="docutils literal"><span class="pre">${var:?msg}</span></code> (print msg to stderr)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="patterns.html">1.3. Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="patterns.html#glob-patterns">1.3.1. Glob patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="patterns.html#use-glob-not-ls-for-looping-over-files">1.3.1.1. Use glob, not ls for looping over files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="patterns.html#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patterns.html#regular-expressions">1.3.3. Regular expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="patterns.html#brace-expansion">1.3.4. Brace Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">1.4. Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#exit-status-0-success-use">1.4.1. Exit status (0 = success)....use $?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#control-operators-and">1.4.2. Control operators (&amp;&amp; and ||)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#grouping-statements">1.4.3. Grouping statements {...;}</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case1-reporting-stderr-on-complex-test">1.4.3.1. Use-case1: reporting stderr on complex test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case2-redirect-input-to-a-group-of-statements">1.4.3.2. Use-case2: redirect input to a group of statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case3-error-handling">1.4.3.3. Use-case3: error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.5. Conditionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hello-world">1.5.1. Hello world</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sed/sed-tutorial.gnu.html">2. sed-tutorial-gnu</a><ul>
@@ -146,26 +195,26 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. awk-tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. Basic structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">4.2. The Essential Syntax of AWK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#unary-arithmetic-operators">4.2.1. Unary arithmetic operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">4.2.2. The Autoincrement and Autodecrement Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#assignment-operators">4.2.3. Assignment Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#conditional-expressions">4.2.4. Conditional expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#regular-expressions">4.2.5. Regular Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#and-or-not">4.2.6. And/Or/Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tutorial/index.html">4. awk-tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-basic-structure.html">4.1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html">4.2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#unary-arithmetic-operators">4.2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">4.2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#assignment-operators">4.2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#conditional-expressions">4.2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#regular-expressions">4.2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-essential-syntax.html#and-or-not">4.2.6. And/Or/Not</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="awk-summary-commands.html">4.3. Summary of AWK Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">4.4. AWK Built-in Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#fs-the-input-field-separator-variable">4.4.1. FS - The Input Field Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.4.2. OFS - The Output Field Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#nf-the-number-of-fields-variable">4.4.3. NF - The Number of Fields Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#nr-the-number-of-records-variable">4.4.4. NR - The Number of Records Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#rs-the-record-separator-variable">4.4.5. RS - The Record Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#ors-the-output-record-separator-variable">4.4.6. ORS - The Output Record Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#filename-the-current-filename-variable">4.4.7. FILENAME - The Current Filename Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-summary-commands.html">4.3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html">4.4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#fs-the-input-field-separator-variable">4.4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#nf-the-number-of-fields-variable">4.4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#nr-the-number-of-records-variable">4.4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#rs-the-record-separator-variable">4.4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#ors-the-output-record-separator-variable">4.4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tutorial/awk-builtin-vars.html#filename-the-current-filename-variable">4.4.7. FILENAME - The Current Filename Variable</a></li>
 </ul>
 </li>
 </ul>
@@ -211,15 +260,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">4. awk-tutorial</a> &raquo;</li>
+          <li><a href="top-bash-wool.html">1. Bash wooledge</a> &raquo;</li>
         
-      <li>4.1. Basic structure</li>
+      <li>1.5. Conditionals</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/awk-tutorial/awk-basic-structure.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/bash_wooledge/conditionals.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -230,42 +279,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="basic-structure">
-<span id="awk-basic-structure"></span><h1>4.1. Basic structure<a class="headerlink" href="#basic-structure" title="Permalink to this headline">¶</a></h1>
-<p>The essential organization of an AWK program follows the form:</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pattern <span class="o">{</span> action <span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>The pattern specifies when the action is performed. Like most UNIX utilities, AWK is line oriented. That is, the pattern specifies a test that is performed with each line read as input. If the condition is true, then the action is taken. The default pattern is something that matches every line. This is the blank or null pattern. Two other important patterns are specified by the keywords &#8220;BEGIN&#8221; and &#8220;END&#8221;. As you might expect, these two words specify actions to be taken before any lines are read, and after the last line is read. The AWK program below:</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> print <span class="s2">&quot;START&quot;</span> <span class="o">}</span>
-      <span class="o">{</span> print         <span class="o">}</span>
-END   <span class="o">{</span> print <span class="s2">&quot;STOP&quot;</span>  <span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>adds one line before and one line after the input file. This isn&#8217;t very useful, but with a simple change, we can make this into a typical AWK program:</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> print <span class="s2">&quot;File\tOwner&quot;</span><span class="o">}</span>
-<span class="o">{</span> print <span class="nv">$8</span>, <span class="s2">&quot;\t&quot;</span>, <span class="nv">$3</span><span class="o">}</span>
-END <span class="o">{</span> print <span class="s2">&quot; - DONE -&quot;</span> <span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>I&#8217;ll improve the script in the next sections, but we&#8217;ll call it &#8220;FileOwner&#8221;. But let&#8217;s not put it into a script or file yet. I will cover that part in a bit. Hang on and follow with me so you get the flavor of AWK.</p>
-<p>The characters &#8220;t&#8221; Indicates a tab character so the output lines up on even boundries. The &#8220;$8&#8221; and &#8220;$3&#8221; have a meaning similar to a shell script. Instead of the eighth and third argument, they mean the eighth and third field of the input line. You can think of a field as a column, and the action you specify operates on each line or row read in.</p>
-<p>There are two differences between AWK and a shell processing the characters within double quotes. AWK understands special characters follow the &#8220;&#8221; character like &#8220;t&#8221;. The Bourne and C UNIX shells do not. Also, unlike the shell (and PERL) AWK does not evaluate variables within strings. To explain, the second line could not be written like this:</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">{</span>print <span class="s2">&quot;</span><span class="nv">$8</span><span class="s2">\t</span><span class="nv">$3</span><span class="s2">&quot;</span> <span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>That example would print &#8220;$8 $3&#8221;. Inside the quotes, the dollar sign is not a special character. Outside, it corresponds to a field. What do I mean by the third and eight field? Consider the Solaris &#8220;/usr/bin/ls -l&#8221; command, which has eight columns of information. The System V version (Similar to the Linux version), &#8220;/usr/5bin/ls -l&#8221; has 9 columns. The third column is the owner, and the eighth (or nineth) column in the name of the file. This AWK program can be used to process the output of the &#8220;ls -l&#8221; command, printing out the filename, then the owner, for each file. I&#8217;ll show you how.</p>
-<p>Update: On a linux system, change &#8220;$8&#8221; to &#8220;$9&#8221;.</p>
-<p>One more point about the use of a dollar sign. In scripting languages like Perl and the various shells, a dollar sign means the word following is the name of the variable. Awk is different. The dollar sign means that we are refering to a field or column in the current line. When switching between Perl and AWK you must remener that &#8220;$&#8221; has a different meaning. So the following piece of code prints two &#8220;fields&#8221; to standard out. The first field printed is the number &#8220;5&#8221;, the second is the fifth field (or column) on the input line.</p>
-<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>BEGIN <span class="o">{</span> <span class="nv">x</span><span class="o">=</span><span class="m">5</span> <span class="o">}</span>
-<span class="o">{</span> print x, <span class="nv">$x</span><span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
+  <div class="section" id="conditionals">
+<h1>1.5. Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hello-world">
+<h2>1.5.1. Hello world<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -275,10 +293,10 @@ END <span class="o">{</span> print <span class="s2">&quot; - DONE -&quot;</span>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="awk-essential-syntax.html" class="btn btn-neutral float-right" title="4.2. The Essential Syntax of AWK" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../sed/sed-tutorial.gnu.html" class="btn btn-neutral float-right" title="2. sed-tutorial-gnu" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="4. awk-tutorial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tests.html" class="btn btn-neutral" title="1.4. Tests" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -2,11 +2,17 @@ Bash wooledge
 =============
 Some refrehsers from http://mywiki.wooledge.org/BashGuide
 
+Content adapted according to my needs
+
 .. toctree::
     :maxdepth: 2
     :numbered:
     :caption: Table of Contents
-    :name: bash-wool
+    :name: bash-wooledge
 
-    1_commands_and_args.rst
-    2_special_chars.rst
+    special_char.rst
+    param.rst
+    patterns.rst
+    tests.rst
+    conditionals.rst
+

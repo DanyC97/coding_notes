@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Bash wooledge &mdash; Coding Notebook 1 documentation</title>
+  <title>1.1. Special Characters &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,8 +33,9 @@
 
   
     <link rel="top" title="Coding Notebook 1 documentation" href="../index.html"/>
-        <link rel="next" title="1.1. Special Characters" href="special_char.html"/>
-        <link rel="prev" title="My coding notebook" href="../index.html"/> 
+        <link rel="up" title="1. Bash wooledge" href="top-bash-wool.html"/>
+        <link rel="next" title="1.2. Parameters" href="param.html"/>
+        <link rel="prev" title="1. Bash wooledge" href="top-bash-wool.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,8 +87,8 @@
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Bash wooledge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="special_char.html">1.1. Special Characters</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="top-bash-wool.html">1. Bash wooledge</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="param.html">1.2. Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="param.html#basic">1.2.1. Basic</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="param.html#always-double-quote-when-doing-pe-parameter-expansion">1.2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
@@ -121,21 +122,6 @@
 <li class="toctree-l3"><a class="reference internal" href="patterns.html#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="patterns.html#regular-expressions">1.3.3. Regular expressions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="patterns.html#brace-expansion">1.3.4. Brace Expansion</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html">1.4. Tests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#exit-status-0-success-use">1.4.1. Exit status (0 = success)....use $?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#control-operators-and">1.4.2. Control operators (&amp;&amp; and ||)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#grouping-statements">1.4.3. Grouping statements {...;}</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case1-reporting-stderr-on-complex-test">1.4.3.1. Use-case1: reporting stderr on complex test</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case2-redirect-input-to-a-group-of-statements">1.4.3.2. Use-case2: redirect input to a group of statements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case3-error-handling">1.4.3.3. Use-case3: error handling</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="conditionals.html">1.5. Conditionals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="conditionals.html#hello-world">1.5.1. Hello world</a></li>
 </ul>
 </li>
 </ul>
@@ -259,13 +245,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>1. Bash wooledge</li>
+          <li><a href="top-bash-wool.html">1. Bash wooledge</a> &raquo;</li>
+        
+      <li>1.1. Special Characters</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/bash_wooledge/top-bash-wool.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/bash_wooledge/special_char.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -276,38 +264,105 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bash-wooledge">
-<h1>1. Bash wooledge<a class="headerlink" href="#bash-wooledge" title="Permalink to this headline">¶</a></h1>
-<p>Some refrehsers from <a class="reference external" href="http://mywiki.wooledge.org/BashGuide">http://mywiki.wooledge.org/BashGuide</a></p>
-<p>Content adapted according to my needs</p>
-<div class="toctree-wrapper compound" id="id1">
-<p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#id1" title="Permalink to this toctree">¶</a></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="special_char.html">1.1. Special Characters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="param.html">1.2. Parameters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="param.html#basic">1.2.1. Basic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="param.html#special-parameters-and-variables">1.2.2. Special Parameters and Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="param.html#pe-tricks-some-i-rarely-use">1.2.3. PE tricks (some I rarely use)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="patterns.html">1.3. Patterns</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#glob-patterns">1.3.1. Glob patterns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#regular-expressions">1.3.3. Regular expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#brace-expansion">1.3.4. Brace Expansion</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">1.4. Tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#exit-status-0-success-use">1.4.1. Exit status (0 = success)....use $?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#control-operators-and">1.4.2. Control operators (&amp;&amp; and ||)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#grouping-statements">1.4.3. Grouping statements {...;}</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="conditionals.html">1.5. Conditionals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="conditionals.html#hello-world">1.5.1. Hello world</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="special-characters">
+<h1>1.1. Special Characters<a class="headerlink" href="#special-characters" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Char.</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code></td>
+<td><strong>Whitespace</strong> — this is a tab, newline, vertical tab, form feed, carriage return, or space. Bash uses whitespace to determine where words begin and end. The first word is the command name and additional words become arguments to that command.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$</span></code></td>
+<td><strong>Expansion</strong> — introduces various types of expansions</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>parameter expansion</em> (<code class="docutils literal"><span class="pre">$var</span></code> or <code class="docutils literal"><span class="pre">${var}</span></code>)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>command substitution</em> (<code class="docutils literal"><span class="pre">$(command)</span></code>)</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>arithmetic expansion</em> (<code class="docutils literal"><span class="pre">$((expression))</span></code>)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">''</span></code></td>
+<td><strong>Single quotes</strong> — protect the text inside them so that it has a literal meaning.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&quot;&quot;</span></code></td>
+<td><strong>Double quotes</strong> — protect the text inside them from being split into multiple words or arguments, yet allow substitutions to occur</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\</span></code></td>
+<td>Escape — (backslash) prevents the next character from being interpreted as a special character. This works outside of quoting, inside double quotes, and generally ignored in single quotes</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">#</span></code></td>
+<td><strong>Comment</strong></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">[[]]</span></code></td>
+<td><strong>Test</strong> — conditional expression to test &#8220;true&#8221; or &#8220;false&#8221;.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">!</span></code></td>
+<td><strong>Negate</strong> — negate/reverse a test or exit status. Example: <code class="docutils literal"><span class="pre">!</span> <span class="pre">grep</span> <span class="pre">text</span> <span class="pre">file;</span> <span class="pre">exit</span> <span class="pre">$?</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;&lt;</span></code></td>
+<td><strong>Redirection</strong> — redirect a command&#8217;s output or input.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">|</span></code></td>
+<td><strong>Pipe</strong> — redirect output from a initial command to the input of secondary command.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">;</span></code></td>
+<td><strong>Command separator</strong> — a representation of a newline. Used to separate multiple commands that are on the same line.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">{}</span></code></td>
+<td><strong>Inline group</strong> — commands inside the curly braces are treated as if they were one command.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Convenient to use these when Bash syntax requires only one command and a function doesn&#8217;t feel warranted.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">()</span></code></td>
+<td><strong>Subshell group</strong> — similar to the above but where commands within are executed in subshell. Used much like a sandbox, if a command causes side effects (like changing variables), it will have no effect on the current shell.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">(())</span></code></td>
+<td><strong>Arithmetic expression</strong> — here characters such as <code class="docutils literal"><span class="pre">+,</span> <span class="pre">-,</span> <span class="pre">*,</span> <span class="pre">/</span></code> are mathematical operators used for calculations.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Can be used for variable assignments like <code class="docutils literal"><span class="pre">((</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">))</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Can be used for tests like if <code class="docutils literal"><span class="pre">((</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span> <span class="pre">))</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$(())</span></code></td>
+<td><strong>Arithmetic expansion</strong> — Comparable to the above, but the expression is replaced with the result of its arithmetic evaluation.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Example: <code class="docutils literal"><span class="pre">echo</span> <span class="pre">&quot;The</span> <span class="pre">average</span> <span class="pre">is</span> <span class="pre">$((</span> <span class="pre">(a+b)/2</span> <span class="pre">))&quot;</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;I am </span><span class="nv">$LOGNAME</span><span class="s2">&quot;</span>
+<span class="c1">#&gt; I am takanori</span>
+
+$ <span class="nb">echo</span> <span class="s1">&#39;I am $LOGNAME&#39;</span>
+<span class="c1">#&gt;I am $LOGNAME</span>
+
+$ <span class="nb">echo</span> An open<span class="se">\ \ \ </span>space
+<span class="c1">#&gt;An open   space</span>
+
+$ <span class="nb">echo</span> <span class="s2">&quot;My computer is </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span>
+<span class="c1">#&gt;My computer is sbia-pc125</span>
+
+$ <span class="nb">echo</span> <span class="k">$((</span> <span class="m">5</span> <span class="o">+</span> <span class="m">5</span> <span class="k">))</span>
+<span class="c1">#&gt;10</span>
+
+$ <span class="o">((</span> <span class="m">5</span> &gt; <span class="m">0</span> <span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;Five is greater than zero.&quot;</span>
+<span class="c1">#&gt;Five is greater than zero.</span>
+</pre></div>
 </div>
 </div>
 
@@ -318,10 +373,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="special_char.html" class="btn btn-neutral float-right" title="1.1. Special Characters" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="param.html" class="btn btn-neutral float-right" title="1.2. Parameters" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="My coding notebook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="top-bash-wool.html" class="btn btn-neutral" title="1. Bash wooledge" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

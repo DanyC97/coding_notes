@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Bash wooledge &mdash; Coding Notebook 1 documentation</title>
+  <title>1.3. Patterns &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,8 +33,9 @@
 
   
     <link rel="top" title="Coding Notebook 1 documentation" href="../index.html"/>
-        <link rel="next" title="1.1. Special Characters" href="special_char.html"/>
-        <link rel="prev" title="My coding notebook" href="../index.html"/> 
+        <link rel="up" title="1. Bash wooledge" href="top-bash-wool.html"/>
+        <link rel="next" title="2. sed-tutorial-gnu" href="../sed/sed-tutorial.gnu.html"/>
+        <link rel="prev" title="1.2. Parameters" href="param.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,7 +87,7 @@
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Bash wooledge</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-bash-wool.html">1. Bash wooledge</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="special_char.html">1.1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="param.html">1.2. Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="param.html#basic">1.2.1. Basic</a><ul>
@@ -113,29 +114,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html">1.3. Patterns</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="patterns.html#glob-patterns">1.3.1. Glob patterns</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="patterns.html#use-glob-not-ls-for-looping-over-files">1.3.1.1. Use glob, not ls for looping over files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.3. Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#glob-patterns">1.3.1. Glob patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-glob-not-ls-for-looping-over-files">1.3.1.1. Use glob, not ls for looping over files</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="patterns.html#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="patterns.html#regular-expressions">1.3.3. Regular expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="patterns.html#brace-expansion">1.3.4. Brace Expansion</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html">1.4. Tests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#exit-status-0-success-use">1.4.1. Exit status (0 = success)....use $?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#control-operators-and">1.4.2. Control operators (&amp;&amp; and ||)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tests.html#grouping-statements">1.4.3. Grouping statements {...;}</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case1-reporting-stderr-on-complex-test">1.4.3.1. Use-case1: reporting stderr on complex test</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case2-redirect-input-to-a-group-of-statements">1.4.3.2. Use-case2: redirect input to a group of statements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tests.html#use-case3-error-handling">1.4.3.3. Use-case3: error handling</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="conditionals.html">1.5. Conditionals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="conditionals.html#hello-world">1.5.1. Hello world</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regular-expressions">1.3.3. Regular expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brace-expansion">1.3.4. Brace Expansion</a></li>
 </ul>
 </li>
 </ul>
@@ -259,13 +245,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>1. Bash wooledge</li>
+          <li><a href="top-bash-wool.html">1. Bash wooledge</a> &raquo;</li>
+        
+      <li>1.3. Patterns</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/bash_wooledge/top-bash-wool.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/bash_wooledge/patterns.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -276,38 +264,143 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bash-wooledge">
-<h1>1. Bash wooledge<a class="headerlink" href="#bash-wooledge" title="Permalink to this headline">¶</a></h1>
-<p>Some refrehsers from <a class="reference external" href="http://mywiki.wooledge.org/BashGuide">http://mywiki.wooledge.org/BashGuide</a></p>
-<p>Content adapted according to my needs</p>
-<div class="toctree-wrapper compound" id="id1">
-<p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#id1" title="Permalink to this toctree">¶</a></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="special_char.html">1.1. Special Characters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="param.html">1.2. Parameters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="param.html#basic">1.2.1. Basic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="param.html#special-parameters-and-variables">1.2.2. Special Parameters and Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="param.html#pe-tricks-some-i-rarely-use">1.2.3. PE tricks (some I rarely use)</a></li>
+  <div class="section" id="patterns">
+<h1>1.3. Patterns<a class="headerlink" href="#patterns" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="glob-patterns">
+<h2>1.3.1. Glob patterns<a class="headerlink" href="#glob-patterns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">*</span></code> : Matches any string, including the null string.</li>
+<li><code class="docutils literal"><span class="pre">?</span></code> : Matches any single character.</li>
+<li><code class="docutils literal"><span class="pre">[...]</span></code> : Matches any one of the enclosed characters.</li>
+</ul>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">read more about globs at <a class="reference external" href="http://mywiki.wooledge.org/glob">http://mywiki.wooledge.org/glob</a></p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls
+a  abc  b  c
+
+$ <span class="nb">echo</span> *
+a abc b c
+
+$ <span class="nb">echo</span> a*
+a abc
+</pre></div>
+</div>
+<div class="section" id="use-glob-not-ls-for-looping-over-files">
+<h3>1.3.1.1. Use glob, not ls for looping over files<a class="headerlink" href="#use-glob-not-ls-for-looping-over-files" title="Permalink to this headline">¶</a></h3>
+<p>Say we have a file called &#8220;do this.txt&#8221;, with white space.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># white space from `ls` breaks array items into pieces! do not want!</span>
+<span class="k">for</span> file in <span class="k">$(</span>ls<span class="k">)</span><span class="p">;</span> <span class="k">do</span> rm <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span>
+<span class="c1">#&gt; rm: cannot remove `do &#39;: No such file or directory</span>
+<span class="c1">#&gt; rm: cannot remove `this.txt&#39;: No such file or directory</span>
+
+<span class="c1"># this work as expected</span>
+<span class="k">for</span> file in *<span class="p">;</span> <span class="k">do</span> rm <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># This is safe even if a filename contains whitespace:</span>
+<span class="k">for</span> f in *.tar<span class="p">;</span> <span class="k">do</span>
+    tar tvf <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># But this one is not:</span>
+<span class="k">for</span> f in <span class="k">$(</span>ls <span class="p">|</span> grep <span class="s1">&#39;\.tar$&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+    tar tvf <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="extended-globs-i-rather-use-regexp">
+<h2>1.3.2. Extended Globs (I rather use regexp)<a class="headerlink" href="#extended-globs-i-rather-use-regexp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>turned <strong>off by default</strong></li>
+<li>turn on via <code class="docutils literal"><span class="pre">shopt</span></code> command: <code class="docutils literal"><span class="pre">$</span> <span class="pre">shopt</span> <span class="pre">-s</span> <span class="pre">extglob</span></code></li>
+<li>Here&#8217;s a quote: &#8220;technically, they are equivalent to regular expressions, although the syntax looks different than most people are used to&#8221; =&gt; I&#8217;d rather stick with regexp...</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#?(list): Matches zero or one occurrence of the given patterns.</span>
+<span class="c1">#*(list): Matches zero or more occurrences of the given patterns.</span>
+<span class="c1">#+(list): Matches one or more occurrences of the given patterns.</span>
+<span class="c1">#@(list): Matches one of the given patterns.</span>
+<span class="c1">#!(list): Matches anything but the given patterns.</span>
+
+<span class="c1"># === yeah, at this point, i&#39;d rather just use grep ===</span>
+$ ls
+names.txt  tokyo.jpg  california.bmp
+$ <span class="nb">echo</span> !<span class="o">(</span>*jpg<span class="p">|</span>*bmp<span class="o">)</span>
+names.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="regular-expressions">
+<h2>1.3.3. Regular expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Regular expressions (regex) are similar to Glob Patterns, but <strong>can only be used for pattern matching</strong>, not for filename matching.</li>
+<li>Since 3.0, Bash supports the <code class="docutils literal"><span class="pre">=~</span></code> operator to the <code class="docutils literal"><span class="pre">[[</span></code> keyword.</li>
+<li>Bash uses the Extended Regular Expression (ERE) dialect</li>
+</ul>
+<p>Syntax</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nv">langRegex</span><span class="o">=</span><span class="s1">&#39;(..)_(..)&#39;</span>
+$ <span class="k">if</span> <span class="o">[[</span> <span class="nv">$LANG</span> <span class="o">=</span>~ <span class="nv">$langRegex</span> <span class="o">]]</span>
+&gt; <span class="k">then</span>
+&gt;     <span class="nb">echo</span> <span class="s2">&quot;Your country code (ISO 3166-1-alpha-2) is </span><span class="si">${</span><span class="nv">BASH_REMATCH</span><span class="p">[2]</span><span class="si">}</span><span class="s2">.&quot;</span>
+&gt;     <span class="nb">echo</span> <span class="s2">&quot;Your language code (ISO 639-1) is </span><span class="si">${</span><span class="nv">BASH_REMATCH</span><span class="p">[1]</span><span class="si">}</span><span class="s2">.&quot;</span>
+&gt; <span class="k">else</span>
+&gt;     <span class="nb">echo</span> <span class="s2">&quot;Your locale was not recognised&quot;</span>
+&gt; <span class="k">fi</span>
+</pre></div>
+</div>
+<p><strong>Some advices from wooledge</strong></p>
+<ul class="simple">
+<li>we highly recommend you just <strong>never quote your regex</strong></li>
+<li>for cross-compatibility, use a <strong>variable to store your regex</strong><ul>
+<li>eg, <code class="docutils literal"><span class="pre">re='^\*(</span> <span class="pre">&gt;|</span> <span class="pre">*Applying</span> <span class="pre">|.*\.diff|.*\.patch)';</span> <span class="pre">[[</span> <span class="pre">$var</span> <span class="pre">=~</span> <span class="pre">$re</span> <span class="pre">]]</span></code></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="patterns.html">1.3. Patterns</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#glob-patterns">1.3.1. Glob patterns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#extended-globs-i-rather-use-regexp">1.3.2. Extended Globs (I rather use regexp)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#regular-expressions">1.3.3. Regular expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="patterns.html#brace-expansion">1.3.4. Brace Expansion</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">1.4. Tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#exit-status-0-success-use">1.4.1. Exit status (0 = success)....use $?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#control-operators-and">1.4.2. Control operators (&amp;&amp; and ||)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests.html#grouping-statements">1.4.3. Grouping statements {...;}</a></li>
+</div>
+<div class="section" id="brace-expansion">
+<h2>1.3.4. Brace Expansion<a class="headerlink" href="#brace-expansion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Brace expansions can only be used to generate <strong>list of words</strong> (not for pattern matching)</li>
+<li>Brace expansion happens <strong>before</strong> filename expansion</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="conditionals.html">1.5. Conditionals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="conditionals.html#hello-world">1.5.1. Hello world</a></li>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="o">{</span>/home/*,/root<span class="o">}</span>/.*profile
+<span class="c1"># -&gt; brace expansion goes before filename expansion, so will expand to this:</span>
+$ <span class="nb">echo</span> /home/*/.*profile /root/.*profile
+<span class="c1"># after this, the globs get expanded.</span>
+</pre></div>
+</div>
+<p><strong>Glob vs Brace expansion</strong></p>
+<ul class="simple">
+<li>Globs only expand to actual filenames</li>
+<li>Brace expansions will expand to any possible permutation of their contents.</li>
 </ul>
-</li>
-</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> th<span class="o">{</span>e,a<span class="o">}</span>n
+<span class="k">then</span> than
+$ <span class="nb">echo</span> <span class="o">{</span>/home/*,/root<span class="o">}</span>/.*profile
+/home/axxo/.bash_profile /home/lhunath/.profile /root/.bash_profile /root/.profile
+
+<span class="c1"># oh i didn&#39;t know this was brace expansion. neat</span>
+$ <span class="nb">echo</span> <span class="o">{</span>1..9<span class="o">}</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="m">8</span> 9
+
+<span class="c1"># this one is interesting</span>
+$ <span class="nb">echo</span> <span class="o">{</span>0,1<span class="o">}{</span>0..9<span class="o">}</span>
+<span class="m">00</span> <span class="m">01</span> <span class="m">02</span> <span class="m">03</span> <span class="m">04</span> <span class="m">05</span> <span class="m">06</span> <span class="m">07</span> <span class="m">08</span> <span class="m">09</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> 19
+</pre></div>
+</div>
+<p>My actual use-case</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># rename files with either .png or .pkl extension (see link on brack expansion above)</span>
+<span class="c1"># (-n will do a dry run, letting me check the rename will do what i want it to do )</span>
+rename -n <span class="s1">&#39;s/normalized/test/&#39;</span> *.<span class="o">{</span>png,pkl<span class="o">}</span>
+
+
+<span class="c1"># use brace expansion to allow multiple extension</span>
+grep -r --include<span class="o">=</span>*.<span class="o">{</span>py,m<span class="o">}</span> <span class="nb">test</span> .
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -318,10 +411,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="special_char.html" class="btn btn-neutral float-right" title="1.1. Special Characters" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../sed/sed-tutorial.gnu.html" class="btn btn-neutral float-right" title="2. sed-tutorial-gnu" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="My coding notebook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="param.html" class="btn btn-neutral" title="1.2. Parameters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
