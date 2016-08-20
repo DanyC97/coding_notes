@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.3. Summary of AWK Commands &mdash; Coding Notebook 1 documentation</title>
+  <title>3. Summary of AWK Commands &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="Coding Notebook 1 documentation" href="../index.html"/>
-        <link rel="up" title="4. awk-tutorial" href="index.html"/>
-        <link rel="next" title="4.4. AWK Built-in Variables" href="awk-builtin-vars.html"/>
-        <link rel="prev" title="4.2. The Essential Syntax of AWK" href="awk-essential-syntax.html"/> 
+        <link rel="up" title="awk-tutorial" href="index.html"/>
+        <link rel="next" title="4. AWK Built-in Variables" href="awk-builtin-vars.html"/>
+        <link rel="prev" title="2. The Essential Syntax of AWK" href="awk-essential-syntax.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,87 +87,164 @@
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html">1. Bash wooledge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html#commands-and-arguments">1.1. Commands and arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html#special-characters">1.2. Special Characters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/special_char.html">1. Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/param.html">2. Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/param.html#basic">2.1. Basic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#always-double-quote-when-doing-pe-parameter-expansion">2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#char-needed-with-dealing-with-numerics">2.1.2. char needed with dealing with numerics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sed/sed-tutorial.gnu.html">2. sed-tutorial-gnu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#execution-cycle-how-sed-works">2.1. Execution Cycle: How sed works</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#addresses-selecting-lines-with-sed">2.2. Addresses: Selecting lines with sed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#single-address-form">2.2.1. Single address form</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#two-address-form">2.2.2. Two address form</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#match-negation-via">2.2.3. Match negation via <code class="docutils literal"><span class="pre">!</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/param.html#special-parameters-and-variables">2.2. Special Parameters and Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#special-parameters">2.2.1. Special Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#special-variables-provided-by-the-shell">2.2.2. Special variables provided by the shell</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#regular-expressions-overview-of-regular-expression-syntax">2.3. Regular Expressions: Overview of regular expression syntax</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#examples">2.3.1. Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#common-commands-often-used-commands">2.4. Common Commands: Often used commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#the-s-command-sed-s-swiss-army-knife">2.5. The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#replacement">2.5.1. replacement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#flags">2.5.2. flags</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#other-commands-less-frequently-used-commands">2.6. Other Commands: Less frequently used commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#programming-commands-commands-for-sed-gurus">2.7. Programming Commands: Commands for sed gurus</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html">3. sed-tutorial-tutorials-points</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#sed-workflow">3.1. Sed - workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#basic-syntax-and-examples">3.2. Basic syntax and examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#examples">3.2.1. Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#standard-options">3.2.2. Standard options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#gnu-specific-options">3.2.3. GNU specific options</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#loops-branches">3.3. Loops, Branches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#address-range-search-by-specifying-line-nums">3.4. Address range (search by specifying line-nums)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#p-syntax">3.4.1. &#8216;p&#8217; syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#m-n-syntax">3.4.2. &#8216;M,+n&#8217; syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#id1">3.4.3. &#8216;M,~n&#8217; syntax</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">3.5. Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#basic-commands-delete-read-write-append">3.6. Basic commands (delete, read, write, append)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#delete-command-address1-address2-d">3.6.1. Delete command [address1[,address2]]d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#write-command-address1-address2-w-file">3.6.2. Write command [address1[,address2]]w file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#append-command-address-a">3.6.3. Append command [address]a</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#change-command-address1-address2-c">3.6.4. Change command [address1[,address2]]c</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#insert-command-address-i">3.6.5. Insert Command [address]i</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#translate-command-address1-address2-y-list-1-list-2">3.6.6. Translate command [address1[,address2]]y/list-1/list-2/</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#i-command">3.6.7. I command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#quit-command-address-q">3.6.8. Quit Command [address]q</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#read-command-address-r-file">3.6.9. Read Command [address]r file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#exectuve-command-address1-address2-e-command">3.6.10. Exectuve Command [address1[,address2]]e [command]</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#miscellaneous-commands">3.6.11. Miscellaneous Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/param.html#pe-tricks-some-i-rarely-use">2.3. PE tricks (some I rarely use)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#summary-table">2.3.1. Summary table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var">2.3.2. <code class="docutils literal"><span class="pre">${var}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-word-use-default-value">2.3.3. <code class="docutils literal"><span class="pre">${var:-word}</span></code> (use default value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-word-assign-default">2.3.4. <code class="docutils literal"><span class="pre">${var:=word}</span></code> (assign default)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-word-use-alternate-value">2.3.5. <code class="docutils literal"><span class="pre">${var:+word}</span></code> (use alternate value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-offset-length-substring-expansion">2.3.6. <code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (substring expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-var-number-of-characters-or-array-items">2.3.7. <code class="docutils literal"><span class="pre">${#var}</span></code>, <code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (number of characters or array items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-pattern-delete-beginning-of-str-if-match">2.3.8. <code class="docutils literal"><span class="pre">${var#pattern}</span></code> (delete beginning of str if match)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/param.html#var-msg-print-msg-to-stderr">2.3.9. <code class="docutils literal"><span class="pre">${var:?msg}</span></code> (print msg to stderr)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. awk-tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">4.1. Basic structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">4.2. The Essential Syntax of AWK</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#unary-arithmetic-operators">4.2.1. Unary arithmetic operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">4.2.2. The Autoincrement and Autodecrement Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#assignment-operators">4.2.3. Assignment Operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#conditional-expressions">4.2.4. Conditional expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#regular-expressions">4.2.5. Regular Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#and-or-not">4.2.6. And/Or/Not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/patterns.html">3. Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/patterns.html#glob-patterns">3.1. Glob patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/patterns.html#use-glob-not-ls-for-looping-over-files">3.1.1. Use glob, not ls for looping over files</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Summary of AWK Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">4.4. AWK Built-in Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#fs-the-input-field-separator-variable">4.4.1. FS - The Input Field Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.4.2. OFS - The Output Field Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#nf-the-number-of-fields-variable">4.4.3. NF - The Number of Fields Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#nr-the-number-of-records-variable">4.4.4. NR - The Number of Records Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#rs-the-record-separator-variable">4.4.5. RS - The Record Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#ors-the-output-record-separator-variable">4.4.6. ORS - The Output Record Separator Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#filename-the-current-filename-variable">4.4.7. FILENAME - The Current Filename Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/patterns.html#extended-globs-i-rather-use-regexp">3.2. Extended Globs (I rather use regexp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/patterns.html#regular-expressions">3.3. Regular expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/patterns.html#brace-expansion">3.4. Brace Expansion</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/tests.html">4. Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/tests.html#exit-status-0-success-use">4.1. Exit status (0 = success)....use $?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/tests.html#control-operators-and">4.2. Control operators (&amp;&amp; and ||)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/tests.html#grouping-statements">4.3. Grouping statements {...;}</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/tests.html#use-case1-reporting-stderr-on-complex-test">4.3.1. Use-case1: reporting stderr on complex test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/tests.html#use-case2-redirect-input-to-a-group-of-statements">4.3.2. Use-case2: redirect input to a group of statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../bash_wooledge/tests.html#use-case3-error-handling">4.3.3. Use-case3: error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/conditionals.html">5. Conditionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/conditionals.html#conditional-blocks-if-test-and">5.1. Conditional Blocks (if, test and [[)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/conditionals.html#conditional-loops-while-until-and-for">5.2. Conditional Loops (while, until and for)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bash_wooledge/conditionals.html#choices-case-and-select">5.3. Choices (case and select)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sed/sed-tutorial.gnu.html">sed-tutorial-gnu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#execution-cycle-how-sed-works">Execution Cycle: How sed works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#addresses-selecting-lines-with-sed">Addresses: Selecting lines with sed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#single-address-form">Single address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#two-address-form">Two address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#match-negation-via">Match negation via <code class="docutils literal"><span class="pre">!</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#regular-expressions-overview-of-regular-expression-syntax">Regular Expressions: Overview of regular expression syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#common-commands-often-used-commands">Common Commands: Often used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#the-s-command-sed-s-swiss-army-knife">The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#replacement">replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#flags">flags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#other-commands-less-frequently-used-commands">Other Commands: Less frequently used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.gnu.html#programming-commands-commands-for-sed-gurus">Programming Commands: Commands for sed gurus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html">sed-tutorial-tutorials-points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#sed-workflow">Sed - workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#basic-syntax-and-examples">Basic syntax and examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#standard-options">Standard options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#gnu-specific-options">GNU specific options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#loops-branches">Loops, Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#address-range-search-by-specifying-line-nums">Address range (search by specifying line-nums)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#p-syntax">&#8216;p&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#m-n-syntax">&#8216;M,+n&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#id1">&#8216;M,~n&#8217; syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#basic-commands-delete-read-write-append">Basic commands (delete, read, write, append)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#delete-command-address1-address2-d">Delete command [address1[,address2]]d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#write-command-address1-address2-w-file">Write command [address1[,address2]]w file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#append-command-address-a">Append command [address]a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#change-command-address1-address2-c">Change command [address1[,address2]]c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#insert-command-address-i">Insert Command [address]i</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#translate-command-address1-address2-y-list-1-list-2">Translate command [address1[,address2]]y/list-1/list-2/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#i-command">I command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#quit-command-address-q">Quit Command [address]q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#read-command-address-r-file">Read Command [address]r file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#exectuve-command-address1-address2-e-command">Exectuve Command [address1[,address2]]e [command]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sed/sed-tutorial.tutorialspoints.html#miscellaneous-commands">Miscellaneous Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">awk-tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="awk-basic-structure.html">1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-essential-syntax.html">2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#unary-arithmetic-operators">2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#assignment-operators">2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#conditional-expressions">2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#regular-expressions">2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-essential-syntax.html#and-or-not">2.6. And/Or/Not</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-builtin-vars.html">4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#fs-the-input-field-separator-variable">4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#nf-the-number-of-fields-variable">4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#nr-the-number-of-records-variable">4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#rs-the-record-separator-variable">4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#ors-the-output-record-separator-variable">4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-builtin-vars.html#filename-the-current-filename-variable">4.7. FILENAME - The Current Filename Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../awk-tp.html">Awk Tutorials Points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../awk-ss64.html">1. Whirlwind tour from ss64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-ss64.html#basic-syntax">1.1. Basic syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-ss64.html#awk-patterns">1.2. awk-patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-ss64.html#variable-names-that-are-predefined">1.3. Variable names that are predefined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-ss64.html#examples">1.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-ss64.html#complex-examples">1.5. Complex examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-grymoire.html">2. Tables from grymoire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tp.workflow.html">3. awk-workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.workflow.html#the-begin-body-end-block">3.1. The BEGIN, body, END block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.workflow.html#first-example-on-marks-txt-file">3.2. First example on marks.txt file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tp.basic-syntax.html">4. AWK Basic Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.basic-syntax.html#awk-help">4.1. awk &#8211;help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.basic-syntax.html#awk-in-the-terminal-or-program-file">4.2. AWK in the terminal or Program file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.basic-syntax.html#v-option">4.3. -v option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.basic-syntax.html#dump-global-variables">4.4. dump global variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awk-tp.basic-syntax.html#profile-file-to-create-pretty-printed-script-file">4.5. &#8211;profile[=file] to create pretty-printed script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
 </ul>
@@ -211,9 +288,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">4. awk-tutorial</a> &raquo;</li>
+          <li><a href="index.html">awk-tutorial</a> &raquo;</li>
         
-      <li>4.3. Summary of AWK Commands</li>
+      <li>3. Summary of AWK Commands</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -231,7 +308,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="summary-of-awk-commands">
-<span id="awk-summary-commands"></span><h1>4.3. Summary of AWK Commands<a class="headerlink" href="#summary-of-awk-commands" title="Permalink to this headline">¶</a></h1>
+<span id="awk-summary-commands"></span><h1>3. Summary of AWK Commands<a class="headerlink" href="#summary-of-awk-commands" title="Permalink to this headline">¶</a></h1>
 <p>There are only a few commands in AWK. The list and syntax follows:</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -387,10 +464,10 @@ END <span class="o">{</span>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="awk-builtin-vars.html" class="btn btn-neutral float-right" title="4.4. AWK Built-in Variables" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="awk-builtin-vars.html" class="btn btn-neutral float-right" title="4. AWK Built-in Variables" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="awk-essential-syntax.html" class="btn btn-neutral" title="4.2. The Essential Syntax of AWK" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="awk-essential-syntax.html" class="btn btn-neutral" title="2. The Essential Syntax of AWK" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,1317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Tables from grymoire &mdash; Coding Notebook 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon-umich.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="Awk Tutorials Points" href="awk-tp.html"/>
+        <link rel="next" title="3. awk-workflow" href="awk-tp.workflow.html"/>
+        <link rel="prev" title="1. Whirlwind tour from ss64" href="awk-ss64.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#basic">2.1. Basic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#always-double-quote-when-doing-pe-parameter-expansion">2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#char-needed-with-dealing-with-numerics">2.1.2. char needed with dealing with numerics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#special-parameters-and-variables">2.2. Special Parameters and Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#special-parameters">2.2.1. Special Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#special-variables-provided-by-the-shell">2.2.2. Special variables provided by the shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#pe-tricks-some-i-rarely-use">2.3. PE tricks (some I rarely use)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#summary-table">2.3.1. Summary table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var">2.3.2. <code class="docutils literal"><span class="pre">${var}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-use-default-value">2.3.3. <code class="docutils literal"><span class="pre">${var:-word}</span></code> (use default value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-assign-default">2.3.4. <code class="docutils literal"><span class="pre">${var:=word}</span></code> (assign default)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-use-alternate-value">2.3.5. <code class="docutils literal"><span class="pre">${var:+word}</span></code> (use alternate value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-offset-length-substring-expansion">2.3.6. <code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (substring expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-var-number-of-characters-or-array-items">2.3.7. <code class="docutils literal"><span class="pre">${#var}</span></code>, <code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (number of characters or array items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-pattern-delete-beginning-of-str-if-match">2.3.8. <code class="docutils literal"><span class="pre">${var#pattern}</span></code> (delete beginning of str if match)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-msg-print-msg-to-stderr">2.3.9. <code class="docutils literal"><span class="pre">${var:?msg}</span></code> (print msg to stderr)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/patterns.html">3. Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#glob-patterns">3.1. Glob patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/patterns.html#use-glob-not-ls-for-looping-over-files">3.1.1. Use glob, not ls for looping over files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#extended-globs-i-rather-use-regexp">3.2. Extended Globs (I rather use regexp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#regular-expressions">3.3. Regular expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#brace-expansion">3.4. Brace Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/tests.html">4. Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#exit-status-0-success-use">4.1. Exit status (0 = success)....use $?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#control-operators-and">4.2. Control operators (&amp;&amp; and ||)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#grouping-statements">4.3. Grouping statements {...;}</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case1-reporting-stderr-on-complex-test">4.3.1. Use-case1: reporting stderr on complex test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case2-redirect-input-to-a-group-of-statements">4.3.2. Use-case2: redirect input to a group of statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case3-error-handling">4.3.3. Use-case3: error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/conditionals.html">5. Conditionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#conditional-blocks-if-test-and">5.1. Conditional Blocks (if, test and [[)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#conditional-loops-while-until-and-for">5.2. Conditional Loops (while, until and for)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#choices-case-and-select">5.3. Choices (case and select)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.gnu.html">sed-tutorial-gnu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#execution-cycle-how-sed-works">Execution Cycle: How sed works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#addresses-selecting-lines-with-sed">Addresses: Selecting lines with sed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#single-address-form">Single address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#two-address-form">Two address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#match-negation-via">Match negation via <code class="docutils literal"><span class="pre">!</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#regular-expressions-overview-of-regular-expression-syntax">Regular Expressions: Overview of regular expression syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#common-commands-often-used-commands">Common Commands: Often used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#the-s-command-sed-s-swiss-army-knife">The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#replacement">replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#flags">flags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#other-commands-less-frequently-used-commands">Other Commands: Less frequently used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#programming-commands-commands-for-sed-gurus">Programming Commands: Commands for sed gurus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html">sed-tutorial-tutorials-points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#sed-workflow">Sed - workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#basic-syntax-and-examples">Basic syntax and examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#standard-options">Standard options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#gnu-specific-options">GNU specific options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#loops-branches">Loops, Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#address-range-search-by-specifying-line-nums">Address range (search by specifying line-nums)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#p-syntax">&#8216;p&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#m-n-syntax">&#8216;M,+n&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#id1">&#8216;M,~n&#8217; syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#basic-commands-delete-read-write-append">Basic commands (delete, read, write, append)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#delete-command-address1-address2-d">Delete command [address1[,address2]]d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#write-command-address1-address2-w-file">Write command [address1[,address2]]w file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#append-command-address-a">Append command [address]a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#change-command-address1-address2-c">Change command [address1[,address2]]c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#insert-command-address-i">Insert Command [address]i</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#translate-command-address1-address2-y-list-1-list-2">Translate command [address1[,address2]]y/list-1/list-2/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#i-command">I command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#quit-command-address-q">Quit Command [address]q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#read-command-address-r-file">Read Command [address]r file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#exectuve-command-address1-address2-e-command">Exectuve Command [address1[,address2]]e [command]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#miscellaneous-commands">Miscellaneous Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">awk-tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-basic-structure.html">1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html">2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#unary-arithmetic-operators">2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#assignment-operators">2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#conditional-expressions">2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#regular-expressions">2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#and-or-not">2.6. And/Or/Not</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-summary-commands.html">3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html">4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#fs-the-input-field-separator-variable">4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#nf-the-number-of-fields-variable">4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#nr-the-number-of-records-variable">4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#rs-the-record-separator-variable">4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#ors-the-output-record-separator-variable">4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#filename-the-current-filename-variable">4.7. FILENAME - The Current Filename Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="awk-ss64.html">1. Whirlwind tour from ss64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#basic-syntax">1.1. Basic syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#awk-patterns">1.2. awk-patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#variable-names-that-are-predefined">1.3. Variable names that are predefined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#examples">1.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#complex-examples">1.5. Complex examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Tables from grymoire</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arithmetic-expressions">2.1. Arithmetic expressions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#binary-operator">2.1.1. Binary operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assignment-operator">2.1.2. Assignment operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conditional-expressions">2.1.3. Conditional expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#regexp">2.1.4. Regexp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-awk-commands">2.2. Summary of AWK commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-int-awk-variables">2.3. Build-int AWK variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#printf-formatting">2.4. printf - formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">2.4.1. syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#escape-sequences">2.4.2. Escape sequences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#format-specifiers">2.4.3. Format specifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#width-specify-minimum-field-size">2.4.4. Width - specify minimum field size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#my-own-example-use-to-left-justify-string-in-s">2.4.5. my own example (use &#8220;-&#8221; to left justify string in %s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples-of-complex-formatting">2.4.6. Examples of complex formatting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#explicit-file-output">2.4.7. Explicit file output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#flow-control-with-next-and-exit">2.5. Flow Control with next and exit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk-numerical-functions">2.6. AWK Numerical Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk-string-functions">2.7. AWK String functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#split-demo">2.7.1. split demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gsub-demo">2.7.2. gsub demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#match-demo">2.7.3. match demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.workflow.html">3. awk-workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#the-begin-body-end-block">3.1. The BEGIN, body, END block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#first-example-on-marks-txt-file">3.2. First example on marks.txt file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-syntax.html">4. AWK Basic Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#awk-help">4.1. awk &#8211;help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#awk-in-the-terminal-or-program-file">4.2. AWK in the terminal or Program file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#v-option">4.3. -v option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#dump-global-variables">4.4. dump global variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#profile-file-to-create-pretty-printed-script-file">4.5. &#8211;profile[=file] to create pretty-printed script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coding Notebook</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="awk-tp.html">Awk Tutorials Points</a> &raquo;</li>
+        
+      <li>2. Tables from grymoire</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/awk-grymoire.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tables-from-grymoire">
+<h1>2. Tables from grymoire<a class="headerlink" href="#tables-from-grymoire" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.grymoire.com/Unix/Awk.html">http://www.grymoire.com/Unix/Awk.html</a></p>
+<div class="section" id="arithmetic-expressions">
+<h2>2.1. Arithmetic expressions<a class="headerlink" href="#arithmetic-expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="binary-operator">
+<h3>2.1.1. Binary operator<a class="headerlink" href="#binary-operator" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Binary Operator</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Type</th>
+<th class="head">Meaning</th>
+<th class="head">Example</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">+</span></code></td>
+<td>Arithmetic</td>
+<td>Addition</td>
+<td>7+3</td>
+<td>10</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-</span></code></td>
+<td>Arithmetic</td>
+<td>Subtraction</td>
+<td>7-3</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">*</span></code></td>
+<td>Arithmetic</td>
+<td>Multiplication</td>
+<td>7*3</td>
+<td>21</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">/</span></code></td>
+<td>Arithmetic</td>
+<td>Division</td>
+<td>7/3</td>
+<td>2.333</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%</span></code></td>
+<td>Arithmetic</td>
+<td>Modulo</td>
+<td>7%3</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&lt;space&gt;</span></code></td>
+<td>String</td>
+<td>Concatenation</td>
+<td>7 3</td>
+<td>73</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="assignment-operator">
+<h3>2.1.2. Assignment operator<a class="headerlink" href="#assignment-operator" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Assignment operator</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">+=</span></code></td>
+<td>Add result to variable</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">-=</span></code></td>
+<td>Subtract result from variable</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">*=</span></code></td>
+<td>Multiply variable by result</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">/=</span></code></td>
+<td>Divide variable by result</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%=</span></code></td>
+<td>Apply modulo to variable</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># suppose x=4</span>
+print -x<span class="p">;</span> <span class="c1"># prints -4</span>
+
+<span class="c1"># increment/decrement operators supported too</span>
+print x++, <span class="s2">&quot; &quot;</span>, ++x<span class="p">;</span>  <span class="c1"># print 3 and 5</span>
+
+<span class="c1"># can be used by themselves as assignment operators</span>
+x++<span class="p">;</span>
+--y<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conditional-expressions">
+<h3>2.1.3. Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Relational operator</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">==</span></code></td>
+<td>Is equal</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">!=</span></code></td>
+<td>Is not equal to</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&gt;</span></code></td>
+<td>Is greater than</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&gt;=</span></code></td>
+<td>Is greater than or equal to</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&lt;</span></code></td>
+<td>Is less than</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&lt;=</span></code></td>
+<td>Is less than or equal to</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&amp;&amp;</span></code></td>
+<td>AND</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">||</span></code></td>
+<td>OR</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">!</span></code></td>
+<td>NOT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="regexp">
+<h3>2.1.4. Regexp<a class="headerlink" href="#regexp" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">~</span></code></td>
+<td>Matches</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">!~</span></code></td>
+<td>Doesn&#8217;t match</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="summary-of-awk-commands">
+<h2>2.2. Summary of AWK commands<a class="headerlink" href="#summary-of-awk-commands" title="Permalink to this headline">¶</a></h2>
+<p>There are only a few commands in AWK. The list and syntax follows:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span> conditional <span class="o">)</span> statement <span class="o">[</span> <span class="k">else</span> statement <span class="o">]</span>
+<span class="k">while</span> <span class="o">(</span> conditional <span class="o">)</span> statement
+<span class="k">for</span> <span class="o">(</span> expression <span class="p">;</span> conditional <span class="p">;</span> expression <span class="o">)</span> statement
+<span class="k">for</span> <span class="o">(</span> variable in array <span class="o">)</span> statement
+<span class="nb">break</span>
+<span class="k">continue</span>
+<span class="o">{</span> <span class="o">[</span> statement <span class="o">]</span> ...<span class="o">}</span>
+<span class="nv">variable</span><span class="o">=</span>expression
+print <span class="o">[</span> expression-list <span class="o">]</span> <span class="o">[</span> &gt; expression <span class="o">]</span>
+<span class="nb">printf</span> format <span class="o">[</span> , expression-list <span class="o">]</span> <span class="o">[</span> &gt; expression <span class="o">]</span>
+next
+<span class="nb">exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-int-awk-variables">
+<h2>2.3. Build-int AWK variables<a class="headerlink" href="#build-int-awk-variables" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>FS</td>
+<td>The Input Field Separator</td>
+</tr>
+<tr class="row-even"><td>OFS</td>
+<td>The Output Field Separator</td>
+</tr>
+<tr class="row-odd"><td>NF</td>
+<td>The Number of Fields (columns)</td>
+</tr>
+<tr class="row-even"><td>NR</td>
+<td>The Number of Records (rows)</td>
+</tr>
+<tr class="row-odd"><td>RS</td>
+<td>The Record Separator</td>
+</tr>
+<tr class="row-even"><td>ORS</td>
+<td>The Output Record Separator</td>
+</tr>
+<tr class="row-odd"><td>FILENAME</td>
+<td>The Current Filename</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="printf-formatting">
+<h2>2.4. printf - formatting<a class="headerlink" href="#printf-formatting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="syntax">
+<h3>2.4.1. syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># paranthesis and semicolon OPTIONAL!</span>
+<span class="nb">printf</span> <span class="o">(</span> format<span class="o">)</span><span class="p">;</span>
+<span class="nb">printf</span> <span class="o">(</span> format, arguments...<span class="o">)</span><span class="p">;</span>
+<span class="nb">printf</span> <span class="o">(</span> format<span class="o">)</span> &gt;expression<span class="p">;</span>
+<span class="nb">printf</span> <span class="o">(</span> format, arguments...<span class="o">)</span> &gt; expression<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="escape-sequences">
+<h3>2.4.2. Escape sequences<a class="headerlink" href="#escape-sequences" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sequence</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\a</span></code></td>
+<td>ASCII bell (NAWK/GAWK only)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\b</span></code></td>
+<td>Backspace</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\f</span></code></td>
+<td>Formfeed</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\n</span></code></td>
+<td>Newline</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\r</span></code></td>
+<td>Carriage Return</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\t</span></code></td>
+<td>Horizontal tab</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\v</span></code></td>
+<td>Vertical tab (NAWK only)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\ddd</span></code></td>
+<td>Character (1 to 3 octal digits) (NAWK only)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">\xdd</span></code></td>
+<td>Character (hexadecimal) (NAWK only)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">\&lt;Any</span> <span class="pre">other</span> <span class="pre">character&gt;</span></code></td>
+<td>That character</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="format-specifiers">
+<h3>2.4.3. Format specifiers<a class="headerlink" href="#format-specifiers" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Specifier</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%c</span></code></td>
+<td>ASCII Character</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%d</span></code></td>
+<td>Decimal integer</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%e</span></code></td>
+<td>Floating Point number (engineering format)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%f</span></code></td>
+<td>Floating Point number (fixed point format)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%g</span></code></td>
+<td>The shorter of e or f, with trailing zeros removed</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%o</span></code></td>
+<td>Octal</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%s</span></code></td>
+<td>String</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%x</span></code></td>
+<td>Hexadecimal</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%%</span></code></td>
+<td>Literal %</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Example of format conversion</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Format</th>
+<th class="head">Value</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%c</span></code></td>
+<td>100.0</td>
+<td>d</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%c</span></code></td>
+<td>100.0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%c</span></code></td>
+<td>42</td>
+<td>&#8220;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%d</span></code></td>
+<td>100.0</td>
+<td>100</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%e</span></code></td>
+<td>100.0</td>
+<td>1.000000e+02</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%f</span></code></td>
+<td>100.0</td>
+<td>100.000000</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%g</span></code></td>
+<td>100.0</td>
+<td>100</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%o</span></code></td>
+<td>100.0</td>
+<td>144</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%s</span></code></td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%s</span></code></td>
+<td>&#8220;13f&#8221;</td>
+<td>13f</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%d</span></code></td>
+<td>&#8220;13f&#8221;</td>
+<td>0 (AWK)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%d</span></code></td>
+<td>&#8220;13f&#8221;</td>
+<td>13 (NAWK)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%x</span></code></td>
+<td>100.0</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="width-specify-minimum-field-size">
+<h3>2.4.4. Width - specify minimum field size<a class="headerlink" href="#width-specify-minimum-field-size" title="Permalink to this headline">¶</a></h3>
+<p>Give a number after <code class="docutils literal"><span class="pre">%</span></code> to specify <strong>field size</strong> := mininum number of character to print</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># if string length doesn&#39;t match, this gets jumbled up</span>
+printf<span class="o">(</span><span class="s2">&quot;%st%d\n&quot;</span>, s, d<span class="o">)</span><span class="p">;</span>
+
+<span class="c1"># so give width 0f 20 chars</span>
+printf<span class="o">(</span><span class="s2">&quot;%20s%d\n&quot;</span>, s, d<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You can do things like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+    printf<span class="o">(</span><span class="s2">&quot;%10s %6sn&quot;</span>, <span class="s2">&quot;String&quot;</span>, <span class="s2">&quot;Number&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    printf<span class="o">(</span><span class="s2">&quot;%10s %6d\n&quot;</span>, <span class="nv">$1</span>, <span class="nv">$2</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+
+
+<span class="c1"># even better, use variables!</span>
+<span class="c1">#!/usr/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+    <span class="nv">format1</span> <span class="o">=</span><span class="s2">&quot;%10s %6sn&quot;</span><span class="p">;</span>
+    <span class="nv">format2</span> <span class="o">=</span><span class="s2">&quot;%10s %6dn&quot;</span><span class="p">;</span>
+    printf<span class="o">(</span>format1, <span class="s2">&quot;String&quot;</span>, <span class="s2">&quot;Number&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    printf<span class="o">(</span>format2, <span class="nv">$1</span>, <span class="nv">$2</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="my-own-example-use-to-left-justify-string-in-s">
+<h3>2.4.5. my own example (use &#8220;-&#8221; to left justify string in %s)<a class="headerlink" href="#my-own-example-use-to-left-justify-string-in-s" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls -l *.py <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;NF==9 {print  $9, $5}&#39;</span>
+t_0711a_pnc_conn_agereg_fs_corrwithage.py 4.3K
+t_0711b_pnc_conn_agereg_fs_variance.py 4.4K
+t_0711c_pnc_bct_nmf.py 5.1K
+t_0712_pnc_bct_ensemble.py 4.7K
+t_0713b_pnc_supervised_nmf.py 3.2K
+
+<span class="c1"># awww, better!</span>
+$ ls -l *.py <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;NF==9 {printf(&quot;%-45s&quot;,$9)}{print $5}&#39;</span>
+t_0711a_pnc_conn_agereg_fs_corrwithage.py    4.3K
+t_0711b_pnc_conn_agereg_fs_variance.py       4.4K
+t_0711c_pnc_bct_nmf.py                       5.1K
+t_0712_pnc_bct_ensemble.py                   4.7K
+t_0713b_pnc_supervised_nmf.py                3.2K
+
+<span class="c1"># needed the backslash after *pattern* (NF == 9) below...</span>
+<span class="c1"># to be on the safe side, i should always just include a backslash</span>
+<span class="c1"># when writing on the terminal</span>
+$ ls -l *.py <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;\</span>
+<span class="s1">NF ==9 \</span>
+<span class="s1">{printf(&quot;%-45s&quot;,$9)}</span>
+<span class="s1">{print $5}&#39;</span>
+t_0711a_pnc_conn_agereg_fs_corrwithage.py    4.3K
+t_0711b_pnc_conn_agereg_fs_variance.py       4.4K
+t_0711c_pnc_bct_nmf.py                       5.1K
+t_0712_pnc_bct_ensemble.py                   4.7K
+t_0713b_pnc_supervised_nmf.py                3.2K
+
+
+<span class="c1"># (%-45s means 45 spaces, left justified)</span>
+$ ls -l *.py <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;\</span>
+<span class="s1">          BEGIN{printf(&quot;%-45s&quot;,&quot;Filename&quot;); print &quot;filsize&quot;} \</span>
+<span class="s1">          NF ==9 \</span>
+<span class="s1">          {printf(&quot;%-45s&quot;,$9)}</span>
+<span class="s1">          {print $5}&#39;</span>
+Filename                                     filsize
+t_0711a_pnc_conn_agereg_fs_corrwithage.py    4.3K
+t_0711b_pnc_conn_agereg_fs_variance.py       4.4K
+t_0711c_pnc_bct_nmf.py                       5.1K
+t_0712_pnc_bct_ensemble.py                   4.7K
+t_0713b_pnc_supervised_nmf.py                3.2K
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples-of-complex-formatting">
+<h3>2.4.6. Examples of complex formatting<a class="headerlink" href="#examples-of-complex-formatting" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Format</th>
+<th class="head">Variable</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%c</span></code></td>
+<td>100</td>
+<td><code class="docutils literal"><span class="pre">&quot;d&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10c</span></code></td>
+<td>100</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">d&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%010c</span></code></td>
+<td>100</td>
+<td><code class="docutils literal"><span class="pre">&quot;000000000d&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%d</span></code></td>
+<td>10</td>
+<td><code class="docutils literal"><span class="pre">&quot;10&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10d</span></code></td>
+<td>10</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">10&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%10.4d</span></code></td>
+<td>10.123456789</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">0010&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10.8d</span></code></td>
+<td>10.123456789</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">00000010&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%.8d</span></code></td>
+<td>10.123456789</td>
+<td><code class="docutils literal"><span class="pre">&quot;00000010&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%010d</span></code></td>
+<td>10.123456789</td>
+<td><code class="docutils literal"><span class="pre">&quot;0000000010&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%e</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;9.871235e+02&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%10.4e</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;9.8712e+02&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10.8e</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;9.87123457e+02&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%f</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;987.123457&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%10.4f</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">987.1235&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%010.4f</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;00987.1235&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%10.8f</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;987.12345679&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%g</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;987.123&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10g</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">987.123&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%10.4g</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">987.1&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%010.4g</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;00000987.1&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%.8g</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;987.12346&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%o</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;1733&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10o</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">1733&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%010o</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;0000001733&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%.8o</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;00001733&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%s</span></code></td>
+<td>987.123</td>
+<td><code class="docutils literal"><span class="pre">&quot;987.123&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%10s</span></code></td>
+<td>987.123</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">987.123&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10.4s</span></code></td>
+<td>987.123</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">987.&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%010.8s</span></code></td>
+<td>987.123</td>
+<td><code class="docutils literal"><span class="pre">&quot;000987.123&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%x</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;3db&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%10x</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;</span> <span class="pre">3db&quot;</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">%010x</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;00000003db&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">%.8x</span></code></td>
+<td>987.1234567890</td>
+<td><code class="docutils literal"><span class="pre">&quot;000003db&quot;</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="explicit-file-output">
+<h3>2.4.7. Explicit file output<a class="headerlink" href="#explicit-file-output" title="Permalink to this headline">¶</a></h3>
+<p>subtle difference between output stream <code class="docutils literal"><span class="pre">&gt;</span></code> and <code class="docutils literal"><span class="pre">&gt;&gt;</span></code> for writing output in shell as
+overwrite or concatenation (little difference with how awk program behaves...i skipped it for now)</p>
+</div>
+</div>
+<div class="section" id="flow-control-with-next-and-exit">
+<h2>2.5. Flow Control with next and exit<a class="headerlink" href="#flow-control-with-next-and-exit" title="Permalink to this headline">¶</a></h2>
+<p>Like shell script, you can exit awk script using <code class="docutils literal"><span class="pre">exit</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/awk -f</span>
+<span class="o">{</span>
+    <span class="c1"># lots of code here, where you may find an error</span>
+    <span class="k">if</span> <span class="o">(</span> numberOfErrors &gt; <span class="m">0</span> <span class="o">)</span> <span class="o">{</span>
+        <span class="nb">exit</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You can also exit with error condition</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/awk -f</span>
+<span class="c1">#| here, we expect all lines to be 60 char-long. use exit status as direction of violation</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span> length<span class="o">(</span><span class="nv">$0</span><span class="o">)</span> &gt; 60<span class="o">)</span> <span class="o">{</span>
+        <span class="nb">exit</span> 1
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span> length<span class="o">(</span><span class="nv">$0</span><span class="o">)</span> &lt; 60<span class="o">)</span> <span class="o">{</span>
+        <span class="nb">exit</span> 2
+    <span class="o">}</span>
+    print
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="awk-numerical-functions">
+<h2>2.6. AWK Numerical Functions<a class="headerlink" href="#awk-numerical-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text">Numeric Functions</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Function</th>
+<th class="head">Variant</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cos</td>
+<td>cosine</td>
+<td>GAWK,AWK,NAWK</td>
+</tr>
+<tr class="row-odd"><td>exp</td>
+<td>Exponent</td>
+<td>GAWK,AWK,NAWK</td>
+</tr>
+<tr class="row-even"><td>int</td>
+<td>Integer</td>
+<td>GAWK,AWK,NAWK</td>
+</tr>
+<tr class="row-odd"><td>log</td>
+<td>Logarithm</td>
+<td>GAWK,AWK,NAWK</td>
+</tr>
+<tr class="row-even"><td>sin</td>
+<td>Sine</td>
+<td>GAWK,AWK,NAWK</td>
+</tr>
+<tr class="row-odd"><td>sqrt</td>
+<td>Square</td>
+<td>Root GAWK,AWK,NAWK</td>
+</tr>
+<tr class="row-even"><td>atan2</td>
+<td>Arctangent</td>
+<td>GAWK,NAWK</td>
+</tr>
+<tr class="row-odd"><td>rand</td>
+<td>Random</td>
+<td>GAWK,NAWK</td>
+</tr>
+<tr class="row-even"><td>srand</td>
+<td>Seed</td>
+<td>Random GAWK,NAWK</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="awk-string-functions">
+<h2>2.7. AWK String functions<a class="headerlink" href="#awk-string-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils" id="id6">
+<caption><span class="caption-text">String funcitons</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Example Usage</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>length(string)</td>
+<td><code class="docutils literal"><span class="pre">if</span> <span class="pre">(length($0)</span> <span class="pre">&lt;</span> <span class="pre">80)</span> <span class="pre">{...}</span></code></td>
+<td>length of string</td>
+</tr>
+<tr class="row-odd"><td>index(string,search)</td>
+<td><code class="docutils literal"><span class="pre">if</span> <span class="pre">(index(sentence,</span> <span class="pre">&quot;,&quot;)</span> <span class="pre">&gt;</span> <span class="pre">0)</span> <span class="pre">{...}</span></code></td>
+<td>search for substring index</td>
+</tr>
+<tr class="row-even"><td>substr(string,position)</td>
+<td>&nbsp;</td>
+<td>length = number of car to extract (default=1)</td>
+</tr>
+<tr class="row-odd"><td>substr(string,position,length)</td>
+<td><code class="docutils literal"><span class="pre">{print</span> <span class="pre">substr($0,40,10)}</span></code></td>
+<td>print col 40 to 50</td>
+</tr>
+<tr class="row-even"><td>split(string,array,separator)</td>
+<td><code class="docutils literal"><span class="pre">n=split(string,array,&quot;</span> <span class="pre">&quot;);</span></code></td>
+<td>count words assuming white-space separates them</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><strong>below only in NAWK GAWK</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>sub(regex,replacement,string)</td>
+<td><code class="docutils literal"><span class="pre">sub(/old/,</span> <span class="pre">&quot;new&quot;,</span> <span class="pre">string)</span></code></td>
+<td>(only the 1st occurence) replace <cite>&#8220;old</cite>&#8221; with <cite>&#8220;new</cite>&#8221;. returns 1 if substitution occured, 0 elsewise</td>
+</tr>
+<tr class="row-odd"><td>sub(regex,replacement)</td>
+<td><code class="docutils literal"><span class="pre">sub(/old/,</span> <span class="pre">&quot;new&quot;)</span></code></td>
+<td>same, but <code class="docutils literal"><span class="pre">$0</span></code> assumed for <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+<tr class="row-even"><td>gsub(regex,replacement)</td>
+<td><code class="docutils literal"><span class="pre">gsub(/old/,</span> <span class="pre">&quot;new&quot;,</span> <span class="pre">string)</span></code></td>
+<td>same as <code class="docutils literal"><span class="pre">sub</span></code>, but for all occurences (not just the fisrt)</td>
+</tr>
+<tr class="row-odd"><td>gsub(regex,replacement,string)</td>
+<td><code class="docutils literal"><span class="pre">gsub(/old/,</span> <span class="pre">&quot;new&quot;,</span> <span class="pre">string)</span></code></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>match(string,regex)</td>
+<td><code class="docutils literal"><span class="pre">if</span> <span class="pre">(match($0,regex))</span> <span class="pre">{...}</span></code></td>
+<td>when regexp is found, sets special variable <code class="docutils literal"><span class="pre">RSTART</span></code> and <code class="docutils literal"><span class="pre">RLENGTH</span></code> (see example below)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><strong>below only in GAWK</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>tolower(string)</td>
+<td><code class="docutils literal"><span class="pre">print</span> <span class="pre">tolower($0);</span></code></td>
+<td>lowercase</td>
+</tr>
+<tr class="row-odd"><td>toupper(string)</td>
+<td><code class="docutils literal"><span class="pre">print</span> <span class="pre">toupper($0);</span></code></td>
+<td>uppercase</td>
+</tr>
+<tr class="row-even"><td>asort(string,[d])</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>asorti(string,[d])</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>gensub(r,s,h [,t])</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>strtonum(string)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>More Examples</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># search for the string &quot;HELLO&quot; at position 20</span>
+substr<span class="o">(</span><span class="nv">$0</span>,20,5<span class="o">)</span> <span class="o">==</span> <span class="s2">&quot;HELLO&quot;</span> <span class="o">{</span>print<span class="o">}</span>
+</pre></div>
+</div>
+<div class="section" id="split-demo">
+<h3>2.7.1. split demo<a class="headerlink" href="#split-demo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/awk -f</span>
+BEGIN <span class="o">{</span>
+<span class="c1"># this script breaks up the sentence into words, using</span>
+<span class="c1"># a space as the character separating the words</span>
+    <span class="nv">string</span><span class="o">=</span><span class="s2">&quot;This is a string, is it not?&quot;</span><span class="p">;</span>
+    <span class="nv">search</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">;</span>
+    <span class="nv">n</span><span class="o">=</span>split<span class="o">(</span>string,array,search<span class="o">)</span><span class="p">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nv">i</span><span class="o">=</span>1<span class="p">;</span>i&lt;<span class="o">=</span>n<span class="p">;</span>i++<span class="o">)</span> <span class="o">{</span>
+        printf<span class="o">(</span><span class="s2">&quot;Word[%d]=%s\n&quot;</span>,i,array<span class="o">[</span>i<span class="o">])</span><span class="p">;</span>
+    <span class="o">}</span>
+    exit<span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gsub-demo">
+<h3>2.7.2. gsub demo<a class="headerlink" href="#gsub-demo" title="Permalink to this headline">¶</a></h3>
+<p>Below prints out: <code class="docutils literal"><span class="pre">Substitution</span> <span class="pre">occurred:</span> <span class="pre">ANother</span> <span class="pre">sample</span> <span class="pre">of</span> <span class="pre">AN</span> <span class="pre">example</span> <span class="pre">sentence</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/nawk -f</span>
+BEGIN <span class="o">{</span>
+    <span class="nv">string</span> <span class="o">=</span> <span class="s2">&quot;Another sample of an example sentence&quot;</span><span class="p">;</span>
+    <span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;[Aa]n&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">(</span>gsub<span class="o">(</span>pattern,<span class="s2">&quot;AN&quot;</span>,string<span class="o">))</span> <span class="o">{</span>
+        printf<span class="o">(</span><span class="s2">&quot;Substitution occurred: %s\n&quot;</span>, string<span class="o">)</span><span class="p">;</span>
+    <span class="o">}</span>
+
+    exit<span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="match-demo">
+<h3>2.7.3. match demo<a class="headerlink" href="#match-demo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/nawk -f</span>
+<span class="c1"># demonstrate the match function</span>
+
+BEGIN <span class="o">{</span>
+    <span class="nv">regex</span><span class="o">=</span><span class="s2">&quot;[a-zA-Z0-9]+&quot;</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span>match<span class="o">(</span><span class="nv">$0</span>,regex<span class="o">))</span> <span class="o">{</span>
+<span class="c1">#           RSTART is where the pattern starts</span>
+<span class="c1">#           RLENGTH is the length of the pattern</span>
+            <span class="nv">before</span> <span class="o">=</span> substr<span class="o">(</span><span class="nv">$0</span>,1,RSTART-1<span class="o">)</span><span class="p">;</span>
+            <span class="nv">pattern</span> <span class="o">=</span> substr<span class="o">(</span><span class="nv">$0</span>,RSTART,RLENGTH<span class="o">)</span><span class="p">;</span>
+            <span class="nv">after</span> <span class="o">=</span> substr<span class="o">(</span><span class="nv">$0</span>,RSTART+RLENGTH<span class="o">)</span><span class="p">;</span>
+            printf<span class="o">(</span><span class="s2">&quot;%s&lt;%s&gt;%s\n&quot;</span>, before, pattern, after<span class="o">)</span><span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Continue from below</p>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="n">AWK</span> <span class="n">Table</span> <span class="mi">11</span>
+<span class="n">Miscellaneous</span> <span class="n">Functions</span>
+<span class="n">Name</span>    <span class="n">Variant</span>
+<span class="n">getline</span> <span class="n">AWK</span><span class="p">,</span> <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="n">getline</span> <span class="o">&lt;</span><span class="n">file</span>   <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="n">getline</span> <span class="n">variable</span>    <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="n">getline</span> <span class="n">variable</span> <span class="o">&lt;</span><span class="n">file</span>  <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="s2">&quot;command&quot;</span> <span class="o">|</span> <span class="n">getline</span> <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="s2">&quot;command&quot;</span> <span class="o">|</span> <span class="n">getline</span> <span class="n">variable</span>    <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span> <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="n">close</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>  <span class="n">NAWK</span><span class="p">,</span> <span class="n">GAWK</span>
+<span class="n">systime</span><span class="p">()</span>   <span class="n">GAWK</span>
+<span class="n">strftime</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>    <span class="n">GAWK</span>
+<span class="n">strftime</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span> <span class="n">GAWK</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="awk-tp.workflow.html" class="btn btn-neutral float-right" title="3. awk-workflow" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="awk-ss64.html" class="btn btn-neutral" title="1. Whirlwind tour from ss64" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Takanori Watanabe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

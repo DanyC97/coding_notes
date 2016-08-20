@@ -143,3 +143,11 @@ My actual use-case
 
     # use brace expansion to allow multiple extension
     grep -r --include=*.{py,m} test .
+
+    $ ls -l *{.out,.sh}
+    -rw-rw-rw- 1 takanori takanori 108 Aug 20 00:04 awkprof.out
+    -rw-r--r-- 1 takanori takanori 286 Aug 19 23:09 awkvars.out
+    -rw-r--r-- 1 takanori takanori 703 Aug 19 23:41 mymake.sh
+    -rw-r--r-- 1 takanori takanori 343 Aug 19 12:57 publish.sh
+    -rw-rw-rw- 1 takanori takanori  72 Aug 19 23:22 _temp.sh
+ 
