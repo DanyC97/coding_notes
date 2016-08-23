@@ -1,0 +1,988 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Bunch of stuffs from the official doc &mdash; Coding Notebook 1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon-umich.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="SQL-lite Tutorials Point" href="top-sqlite.html"/>
+        <link rel="prev" title="4. SQLite - useful functions" href="sqlite_5.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#basic">2.1. Basic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#always-double-quote-when-doing-pe-parameter-expansion">2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#char-needed-with-dealing-with-numerics">2.1.2. char needed with dealing with numerics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#special-parameters-and-variables">2.2. Special Parameters and Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#special-parameters">2.2.1. Special Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#special-variables-provided-by-the-shell">2.2.2. Special variables provided by the shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/param.html#pe-tricks-some-i-rarely-use">2.3. PE tricks (some I rarely use)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#summary-table">2.3.1. Summary table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var">2.3.2. <code class="docutils literal"><span class="pre">${var}</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-use-default-value">2.3.3. <code class="docutils literal"><span class="pre">${var:-word}</span></code> (use default value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-assign-default">2.3.4. <code class="docutils literal"><span class="pre">${var:=word}</span></code> (assign default)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-word-use-alternate-value">2.3.5. <code class="docutils literal"><span class="pre">${var:+word}</span></code> (use alternate value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-offset-length-substring-expansion">2.3.6. <code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (substring expansion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-var-number-of-characters-or-array-items">2.3.7. <code class="docutils literal"><span class="pre">${#var}</span></code>, <code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (number of characters or array items)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-pattern-delete-beginning-of-str-if-match">2.3.8. <code class="docutils literal"><span class="pre">${var#pattern}</span></code> (delete beginning of str if match)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/param.html#var-msg-print-msg-to-stderr">2.3.9. <code class="docutils literal"><span class="pre">${var:?msg}</span></code> (print msg to stderr)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/patterns.html">3. Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#glob-patterns">3.1. Glob patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/patterns.html#use-glob-not-ls-for-looping-over-files">3.1.1. Use glob, not ls for looping over files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#extended-globs-i-rather-use-regexp">3.2. Extended Globs (I rather use regexp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#regular-expressions">3.3. Regular expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/patterns.html#brace-expansion">3.4. Brace Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/tests.html">4. Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#exit-status-0-success-use">4.1. Exit status (0 = success)....use $?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#control-operators-and">4.2. Control operators (&amp;&amp; and ||)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/tests.html#grouping-statements">4.3. Grouping statements {...;}</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case1-reporting-stderr-on-complex-test">4.3.1. Use-case1: reporting stderr on complex test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case2-redirect-input-to-a-group-of-statements">4.3.2. Use-case2: redirect input to a group of statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bash_wooledge/tests.html#use-case3-error-handling">4.3.3. Use-case3: error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash_wooledge/conditionals.html">5. Conditionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#conditional-blocks-if-test-and">5.1. Conditional Blocks (if, test and [[)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#conditional-loops-while-until-and-for">5.2. Conditional Loops (while, until and for)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash_wooledge/conditionals.html#choices-case-and-select">5.3. Choices (case and select)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.gnu.html">sed-tutorial-gnu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#execution-cycle-how-sed-works">Execution Cycle: How sed works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#addresses-selecting-lines-with-sed">Addresses: Selecting lines with sed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#single-address-form">Single address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#two-address-form">Two address form</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#match-negation-via">Match negation via <code class="docutils literal"><span class="pre">!</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#regular-expressions-overview-of-regular-expression-syntax">Regular Expressions: Overview of regular expression syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#common-commands-often-used-commands">Common Commands: Often used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#the-s-command-sed-s-swiss-army-knife">The &#8220;s&#8221; Command: sed&#8217;s Swiss Army Knife</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#replacement">replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.gnu.html#flags">flags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#other-commands-less-frequently-used-commands">Other Commands: Less frequently used commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.gnu.html#programming-commands-commands-for-sed-gurus">Programming Commands: Commands for sed gurus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html">sed-tutorial-tutorials-points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#sed-workflow">Sed - workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#basic-syntax-and-examples">Basic syntax and examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#standard-options">Standard options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#gnu-specific-options">GNU specific options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#loops-branches">Loops, Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#address-range-search-by-specifying-line-nums">Address range (search by specifying line-nums)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#p-syntax">&#8216;p&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#m-n-syntax">&#8216;M,+n&#8217; syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#id1">&#8216;M,~n&#8217; syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#pattern-range-search-for-simple-text-or-regexp-using-regex-syntax">Pattern range - search for simple-text or regexp using /regex/ syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#basic-commands-delete-read-write-append">Basic commands (delete, read, write, append)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#delete-command-address1-address2-d">Delete command [address1[,address2]]d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#write-command-address1-address2-w-file">Write command [address1[,address2]]w file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#append-command-address-a">Append command [address]a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#change-command-address1-address2-c">Change command [address1[,address2]]c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#insert-command-address-i">Insert Command [address]i</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#translate-command-address1-address2-y-list-1-list-2">Translate command [address1[,address2]]y/list-1/list-2/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#i-command">I command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#quit-command-address-q">Quit Command [address]q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#read-command-address-r-file">Read Command [address]r file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#exectuve-command-address1-address2-e-command">Exectuve Command [address1[,address2]]e [command]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html#miscellaneous-commands">Miscellaneous Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">awk-tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-basic-structure.html">1. Basic structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html">2. The Essential Syntax of AWK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#unary-arithmetic-operators">2.1. Unary arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#the-autoincrement-and-autodecrement-operators">2.2. The Autoincrement and Autodecrement Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#assignment-operators">2.3. Assignment Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#conditional-expressions">2.4. Conditional expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#regular-expressions">2.5. Regular Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-essential-syntax.html#and-or-not">2.6. And/Or/Not</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-summary-commands.html">3. Summary of AWK Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html">4. AWK Built-in Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#fs-the-input-field-separator-variable">4.1. FS - The Input Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#ofs-the-output-field-separator-variable">4.2. OFS - The Output Field Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#nf-the-number-of-fields-variable">4.3. NF - The Number of Fields Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#nr-the-number-of-records-variable">4.4. NR - The Number of Records Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#rs-the-record-separator-variable">4.5. RS - The Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#ors-the-output-record-separator-variable">4.6. ORS - The Output Record Separator Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tutorial/awk-builtin-vars.html#filename-the-current-filename-variable">4.7. FILENAME - The Current Filename Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-ss64.html">1. Whirlwind tour from ss64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#basic-syntax">1.1. Basic syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#awk-patterns">1.2. awk-patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#variable-names-that-are-predefined">1.3. Variable names that are predefined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#examples">1.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#complex-examples">1.5. Complex examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-grymoire.html">2. Tables from grymoire</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#arithmetic-expressions">2.1. Arithmetic expressions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#binary-operator">2.1.1. Binary operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#assignment-operator">2.1.2. Assignment operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#conditional-expressions">2.1.3. Conditional expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#regexp">2.1.4. Regexp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#summary-of-awk-commands">2.2. Summary of AWK commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#build-int-awk-variables">2.3. Build-int AWK variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#printf-formatting">2.4. printf - formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#syntax">2.4.1. syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#escape-sequences">2.4.2. Escape sequences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#format-specifiers">2.4.3. Format specifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#width-specify-minimum-field-size">2.4.4. Width - specify minimum field size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#my-own-example-use-to-left-justify-string-in-s">2.4.5. my own example (use &#8220;-&#8221; to left justify string in %s)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#examples-of-complex-formatting">2.4.6. Examples of complex formatting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#explicit-file-output">2.4.7. Explicit file output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#flow-control-with-next-and-exit">2.5. Flow Control with next and exit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#awk-numerical-functions">2.6. AWK Numerical Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-grymoire.html#awk-string-functions">2.7. AWK String functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#split-demo">2.7.1. split demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#gsub-demo">2.7.2. gsub demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="awk-grymoire.html#match-demo">2.7.3. match demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.workflow.html">3. awk-workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#the-begin-body-end-block">3.1. The BEGIN, body, END block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#first-example-on-marks-txt-file">3.2. First example on marks.txt file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-syntax.html">4. AWK Basic Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#awk-help">4.1. awk &#8211;help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#awk-in-the-terminal-or-program-file">4.2. AWK in the terminal or Program file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#v-option">4.3. -v option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#dump-global-variables">4.4. dump global variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.basic-syntax.html#profile-file-to-create-pretty-printed-script-file">4.5. &#8211;profile[=file] to create pretty-printed script file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL-lite Tutorials Point</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sqlite_1.html">1. SQLite commands overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#ddl-data-definition-language">1.1. DDL (data definition language)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#dml-data-manipulation-language">1.2. DML (Data manipulation language)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#dql-data-query-language">1.3. DQL (data query language)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite_1.html#unsupported-features-in-sqlite">2. Unsupported features in SQLite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite_1.html#sqlite-commands">3. sqlite commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#show-see-default-settings">3.1. show &#8211; see default settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#format-output-with-header-mode-timer">3.2. Format output with (header, mode, timer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#the-sqlite-master-table">3.3. The sqlite_master Table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite_5.html">4. SQLite - useful functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_5.html#summary-of-key-functions">4.1. Summary of key functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_5.html#examples">4.2. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Bunch of stuffs from the official doc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-shell-for-sqlite-incomplete">5.1. Command Line Shell for SQLite (incomplete)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#semicolon-to-indicate-end-of-sql-command">5.1.1. Semicolon to indicate end of SQL command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dot-commands-special-commands-to-sqlite3">5.1.2. dot-commands (special commands to sqlite3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#todo">5.1.3. todo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sql-syntax-link-only">5.2. SQL Syntax (link only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql-keywords-link-only">5.3. SQL Keywords (link only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datatypes-in-sqlite-version3-todo">5.4. Datatypes in SQLite Version3 (todo)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#core-functions-todo">5.5. Core functions (todo)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agg-functions">5.6. Agg functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-and-time-functions">5.7. Data and time functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#timestring">5.7.1. timestring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modifiers">5.7.2. modifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">5.7.3. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#json-just-read">5.8. JSON (just read)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coding Notebook</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="top-sqlite.html">SQL-lite Tutorials Point</a> &raquo;</li>
+        
+      <li>5. Bunch of stuffs from the official doc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sqlite_doc.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bunch-of-stuffs-from-the-official-doc">
+<h1>5. Bunch of stuffs from the official doc<a class="headerlink" href="#bunch-of-stuffs-from-the-official-doc" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="https://www.sqlite.org/docs.html">https://www.sqlite.org/docs.html</a></li>
+<li><a class="reference external" href="https://www.sqlite.org/cli.html">https://www.sqlite.org/cli.html</a> (command-line shell)</li>
+</ul>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first"><cite>Table of contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#command-line-shell-for-sqlite-incomplete" id="id1">Command Line Shell for SQLite (incomplete)</a><ul>
+<li><a class="reference internal" href="#semicolon-to-indicate-end-of-sql-command" id="id2">Semicolon to indicate end of SQL command</a></li>
+<li><a class="reference internal" href="#dot-commands-special-commands-to-sqlite3" id="id3">dot-commands (special commands to sqlite3)</a></li>
+<li><a class="reference internal" href="#todo" id="id4">todo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sql-syntax-link-only" id="id5">SQL Syntax (link only)</a></li>
+<li><a class="reference internal" href="#sql-keywords-link-only" id="id6">SQL Keywords (link only)</a></li>
+<li><a class="reference internal" href="#datatypes-in-sqlite-version3-todo" id="id7">Datatypes in SQLite Version3 (todo)</a></li>
+<li><a class="reference internal" href="#core-functions-todo" id="id8">Core functions (todo)</a></li>
+<li><a class="reference internal" href="#agg-functions" id="id9">Agg functions</a></li>
+<li><a class="reference internal" href="#data-and-time-functions" id="id10">Data and time functions</a><ul>
+<li><a class="reference internal" href="#timestring" id="id11">timestring</a></li>
+<li><a class="reference internal" href="#modifiers" id="id12">modifiers</a></li>
+<li><a class="reference internal" href="#examples" id="id13">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#json-just-read" id="id14">JSON (just read)</a></li>
+</ul>
+</div>
+<div class="section" id="command-line-shell-for-sqlite-incomplete">
+<h2><a class="toc-backref" href="#id1">5.1. Command Line Shell for SQLite (incomplete)</a><a class="headerlink" href="#command-line-shell-for-sqlite-incomplete" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.sqlite.org/cli.html">https://www.sqlite.org/cli.html</a></p>
+<p><strong>sqlite3</strong> &#8211; commandline utility from the SQLite projec</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CTRL-D</span></code> &#8211; terminate the program (end-of-file character)</li>
+<li><code class="docutils literal"><span class="pre">CTRL-C</span></code> &#8211; stop a long-running SQL statement (interrupt char)</li>
+</ul>
+<p>Example: create a new SQLite dabase &#8220;ex1&#8221; with a single table named &#8220;tbl1&#8221;:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># create SQLite database &quot;ex1&quot; with table &quot;tbl1&quot;</span>
+$ sqlite3 ex1
+sqlite&gt; create table tbl1<span class="o">(</span>one varchar<span class="o">(</span>10<span class="o">)</span>, two smallint<span class="o">)</span><span class="p">;</span>
+sqlite&gt; insert into tbl1 values<span class="o">(</span><span class="s1">&#39;hello!&#39;</span>,10<span class="o">)</span><span class="p">;</span>
+sqlite&gt; insert into tbl1 values<span class="o">(</span><span class="s1">&#39;goodbye&#39;</span>, 20<span class="o">)</span><span class="p">;</span>
+sqlite&gt; <span class="k">select</span> * from tbl1<span class="p">;</span>
+hello!<span class="p">|</span>10
+goodbye<span class="p">|</span>20
+sqlite&gt;
+</pre></div>
+</div>
+<div class="section" id="semicolon-to-indicate-end-of-sql-command">
+<h3><a class="toc-backref" href="#id2">5.1.1. Semicolon to indicate end of SQL command</a><a class="headerlink" href="#semicolon-to-indicate-end-of-sql-command" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you type a semicolon at the end of each SQL command!</p>
+<ul class="simple">
+<li>The sqlite3 program looks for a semicolon to know when your SQL command is complete.</li>
+<li>w/o the semicolon, sqlite3 will give you a <strong>continuation prompt</strong> and wait for you to enter more text to be added to the current SQL command.</li>
+<li>This feature allows you to enter SQL commands that span multiple lines.</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sqlite&gt; CREATE TABLE tbl2 <span class="o">(</span>
+   ...&gt;   f1 varchar<span class="o">(</span>30<span class="o">)</span> primary key,
+   ...&gt;   f2 text,
+   ...&gt;   f3 real
+   ...&gt; <span class="o">)</span><span class="p">;</span>
+sqlite&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="dot-commands-special-commands-to-sqlite3">
+<h3><a class="toc-backref" href="#id3">5.1.2. dot-commands (special commands to sqlite3)</a><a class="headerlink" href="#dot-commands-special-commands-to-sqlite3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>stuffs that show up from <code class="docutils literal"><span class="pre">sqlite&gt;</span> <span class="pre">.help</span></code></li>
+<li>these <strong>dot commands</strong> are typically used to:<ul>
+<li>change the output format of queries</li>
+<li>execute certain prepackage query commands</li>
+</ul>
+</li>
+<li><strong>dot commands</strong> syntax is more restrictive than ordinary SQL statements<ul>
+<li>no preceding whitespace allowed before the <code class="docutils literal"><span class="pre">.</span></code></li>
+<li>must be in <strong>single input line</strong></li>
+<li>cannot occur in the middle of an ordinary SQL statement</li>
+<li>do not recognize comments</li>
+</ul>
+</li>
+<li>in contrast, SQL statements are <strong>free-form</strong> (can span multiple lines, can have whitespace and comments anywhere)</li>
+</ul>
+<div class="highlight-none"><div class="highlight"><pre><span></span>sqlite&gt; .help
+.auth ON|OFF           Show authorizer callbacks
+.backup ?DB? FILE      Backup DB (default &quot;main&quot;) to FILE
+.bail on|off           Stop after hitting an error.  Default OFF
+.binary on|off         Turn binary output on or off.  Default OFF
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h3><a class="toc-backref" href="#id4">5.1.3. todo</a><a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">continue from <a class="reference external" href="https://www.sqlite.org/cli.html#section_5">https://www.sqlite.org/cli.html#section_5</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="sql-syntax-link-only">
+<h2><a class="toc-backref" href="#id5">5.2. SQL Syntax (link only)</a><a class="headerlink" href="#sql-syntax-link-only" title="Permalink to this headline">¶</a></h2>
+<p>SQL As Understood By SQLite &#8211; <a class="reference external" href="https://www.sqlite.org/lang.html">https://www.sqlite.org/lang.html</a></p>
+</div>
+<div class="section" id="sql-keywords-link-only">
+<h2><a class="toc-backref" href="#id6">5.3. SQL Keywords (link only)</a><a class="headerlink" href="#sql-keywords-link-only" title="Permalink to this headline">¶</a></h2>
+<p>For list of reserved key words, go to <a class="reference external" href="https://www.sqlite.org/lang_keywords.html">https://www.sqlite.org/lang_keywords.html</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ABORT</span>    <span class="n">ACTION</span>    <span class="n">ADD</span>    <span class="n">AFTER</span>    <span class="n">ALL</span>    <span class="n">ALTER</span>    <span class="n">ANALYZE</span>    <span class="n">AND</span>    <span class="n">AS</span>    <span class="n">ASC</span>    <span class="n">ATTACH</span>    <span class="n">AUTOINCREMENT</span>
+<span class="n">BEFORE</span>    <span class="n">BEGIN</span>    <span class="n">BETWEEN</span>    <span class="n">BY</span>
+<span class="n">CASCADE</span>    <span class="n">CASE</span>    <span class="n">CAST</span>    <span class="n">CHECK</span>    <span class="n">COLLATE</span>    <span class="n">COLUMN</span>    <span class="n">COMMIT</span>    <span class="n">CONFLICT</span>    <span class="n">CONSTRAINT</span>   <span class="n">CREATE</span>    <span class="n">CROSS</span>    <span class="n">CURRENT_DATE</span>    <span class="n">CURRENT_TIME</span>    <span class="n">CURRENT_TIMESTAMP</span>
+<span class="n">DATABASE</span>    <span class="n">DEFAULT</span>   <span class="n">DEFERRABLE</span>    <span class="n">DEFERRED</span>    <span class="n">DELETE</span>    <span class="n">DESC</span>    <span class="n">DETACH</span>    <span class="n">DISTINCT</span>    <span class="n">DROP</span>
+<span class="n">EACH</span>    <span class="n">ELSE</span>    <span class="n">END</span>    <span class="n">ESCAPE</span>    <span class="n">EXCEPT</span>    <span class="n">EXCLUSIVE</span>    <span class="n">EXISTS</span>    <span class="n">EXPLAIN</span>
+<span class="n">FAIL</span>    <span class="n">FOR</span>    <span class="n">FOREIGN</span>        <span class="n">FROM</span>    <span class="n">FULL</span>
+<span class="n">GLOB</span>    <span class="n">GROUP</span>    <span class="n">HAVING</span>
+<span class="n">IF</span>    <span class="n">IGNORE</span>    <span class="n">IMMEDIATE</span>    <span class="n">IN</span>    <span class="n">INDEX</span>    <span class="n">INDEXED</span>    <span class="n">INITIALLY</span>    <span class="n">INNER</span>    <span class="n">INSERT</span>    <span class="n">INSTEAD</span>    <span class="n">INTERSECT</span>    <span class="n">INTO</span>    <span class="n">ISNULL</span>
+<span class="n">JOIN</span>    <span class="n">KEY</span>    <span class="n">LEFT</span>    <span class="n">LIKE</span>    <span class="n">LIMIT</span>    <span class="n">MATCH</span>
+<span class="n">NATURAL</span>     <span class="n">NO</span>    <span class="n">NOT</span>    <span class="n">NOTNULL</span>    <span class="n">NULL</span>
+<span class="n">OF</span>    <span class="n">OFFSET</span>    <span class="n">ON</span>    <span class="n">OR</span>    <span class="n">ORDER</span>    <span class="n">OUTER</span>
+<span class="n">PLAN</span>    <span class="n">PRAGMA</span>    <span class="n">PRIMARY</span>    <span class="n">QUERY</span>
+<span class="n">RAISE</span>    <span class="n">RECURSIVE</span>    <span class="n">REFERENCES</span>    <span class="n">REGEXP</span>    <span class="n">REINDEX</span>    <span class="n">RELEASE</span>    <span class="n">RENAME</span>    <span class="n">REPLACE</span>    <span class="n">RESTRICT</span>    <span class="n">RIGHT</span>  <span class="n">ROLLBACK</span>    <span class="n">ROW</span>
+<span class="n">SAVEPOINT</span>    <span class="n">SELECT</span>    <span class="n">SET</span>
+<span class="n">TABLE</span>    <span class="n">TEMP</span>    <span class="n">TEMPORARY</span>    <span class="n">THEN</span>    <span class="n">TO</span>    <span class="n">TRANSACTION</span>    <span class="n">TRIGGER</span>
+<span class="n">UNION</span>    <span class="n">UNIQUE</span>    <span class="n">UPDATE</span>    <span class="n">USING</span>
+<span class="n">VACUUM</span>    <span class="n">VALUES</span>    <span class="n">VIEW</span>    <span class="n">VIRTUAL</span>
+<span class="n">WHEN</span>    <span class="n">WHERE</span>    <span class="n">WITH</span>    <span class="n">WITHOUT</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datatypes-in-sqlite-version3-todo">
+<h2><a class="toc-backref" href="#id7">5.4. Datatypes in SQLite Version3 (todo)</a><a class="headerlink" href="#datatypes-in-sqlite-version3-todo" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.sqlite.org/datatype3.html">https://www.sqlite.org/datatype3.html</a></p>
+</div>
+<div class="section" id="core-functions-todo">
+<h2><a class="toc-backref" href="#id8">5.5. Core functions (todo)</a><a class="headerlink" href="#core-functions-todo" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.sqlite.org/lang_corefunc.html">https://www.sqlite.org/lang_corefunc.html</a></p>
+<ul class="simple">
+<li>The <strong>core functions</strong> below are available by default</li>
+<li>Date &amp; Time functions, aggregate functions, and JSON functions are documented separately.</li>
+<li>An application may define additional functions written in C and added to the database engine using the <code class="docutils literal"><span class="pre">sqlite3_create_function()</span></code> API (<a class="reference external" href="https://www.sqlite.org/c3ref/create_function.html">link</a>).</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>abs(X)</td>
+<td>The abs(X) function returns the absolute value of the numeric argument X. Abs(X) returns NULL if X is NULL. Abs(X) returns 0.0 if X is a string or blob that cannot be converted to a numeric value. If X is the integer -9223372036854775808 then abs(X) throws an integer overflow error since there is no equivalent positive 64-bit two complement value.</td>
+</tr>
+<tr class="row-odd"><td>changes()</td>
+<td>The changes() function returns the number of database rows that were changed or inserted or deleted by the most recently completed INSERT, DELETE, or UPDATE statement, exclusive of statements in lower-level triggers. The changes() SQL function is a wrapper around the sqlite3_changes() C/C++ function and hence follows the same rules for counting changes.</td>
+</tr>
+<tr class="row-even"><td>char(X1,X2,...,XN)</td>
+<td>The char(X1,X2,...,XN) function returns a string composed of characters having the unicode code point values of integers X1 through XN, respectively.</td>
+</tr>
+<tr class="row-odd"><td>coalesce(X,Y,...)</td>
+<td>The coalesce() function returns a copy of its first non-NULL argument, or NULL if all arguments are NULL. Coalesce() must have at least 2 arguments.</td>
+</tr>
+<tr class="row-even"><td>glob(X,Y)</td>
+<td>The glob(X,Y) function is equivalent to the expression &#8220;Y GLOB X&#8221;. Note that the X and Y arguments are reversed in the glob() function relative to the infix GLOB operator. If the sqlite3_create_function() interface is used to override the glob(X,Y) function with an alternative implementation then the GLOB operator will invoke the alternative implementation.</td>
+</tr>
+<tr class="row-odd"><td>ifnull(X,Y)</td>
+<td>The ifnull() function returns a copy of its first non-NULL argument, or NULL if both arguments are NULL. Ifnull() must have exactly 2 arguments. The ifnull() function is equivalent to coalesce() with two arguments.</td>
+</tr>
+<tr class="row-even"><td>instr(X,Y)</td>
+<td>The instr(X,Y) function finds the first occurrence of string Y within string X and returns the number of prior characters plus 1, or 0 if Y is nowhere found within X. Or, if X and Y are both BLOBs, then instr(X,Y) returns one more than the number bytes prior to the first occurrence of Y, or 0 if Y does not occur anywhere within X. If both arguments X and Y to instr(X,Y) are non-NULL and are not BLOBs then both are interpreted as strings. If either X or Y are NULL in instr(X,Y) then the result is NULL.</td>
+</tr>
+<tr class="row-odd"><td>hex(X)</td>
+<td>The hex() function interprets its argument as a BLOB and returns a string which is the upper-case hexadecimal rendering of the content of that blob.</td>
+</tr>
+<tr class="row-even"><td>last_insert_rowid()</td>
+<td>The last_insert_rowid() function returns the ROWID of the last row insert from the database connection which invoked the function. The last_insert_rowid() SQL function is a wrapper around the sqlite3_last_insert_rowid() C/C++ interface function.</td>
+</tr>
+<tr class="row-odd"><td>length(X)</td>
+<td>For a string value X, the length(X) function returns the number of characters (not bytes) in X prior to the first NUL character. Since SQLite strings do not normally contain NUL characters, the length(X) function will usually return the total number of characters in the string X. For a blob value X, length(X) returns the number of bytes in the blob. If X is NULL then length(X) is NULL. If X is numeric then length(X) returns the length of a string representation of X.</td>
+</tr>
+<tr class="row-even"><td>like(X,Y)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>like(X,Y,Z)</td>
+<td>The like() function is used to implement the &#8220;Y LIKE X [ESCAPE Z]&#8221; expression. If the optional ESCAPE clause is present, then the like() function is invoked with three arguments. Otherwise, it is invoked with two arguments only. Note that the X and Y parameters are reversed in the like() function relative to the infix LIKE operator. The sqlite3_create_function() interface can be used to override the like() function and thereby change the operation of the LIKE operator. When overriding the like() function, it may be important to override both the two and three argument versions of the like() function. Otherwise, different code may be called to implement the LIKE operator depending on whether or not an ESCAPE clause was specified.</td>
+</tr>
+<tr class="row-even"><td>likelihood(X,Y)</td>
+<td>The likelihood(X,Y) function returns argument X unchanged. The value Y in likelihood(X,Y) must be a floating point constant between 0.0 and 1.0, inclusive. The likelihood(X) function is a no-op that the code generator optimizes away so that it consumes no CPU cycles during run-time (that is, during calls to sqlite3_step()). The purpose of the likelihood(X,Y) function is to provide a hint to the query planner that the argument X is a boolean that is true with a probability of approximately Y. The unlikely(X) function is short-hand for likelihood(X,0.0625). The likely(X) function is short-hand for likelihood(X,0.9375).</td>
+</tr>
+<tr class="row-odd"><td>likely(X)</td>
+<td>The likely(X) function returns the argument X unchanged. The likely(X) function is a no-op that the code generator optimizes away so that it consumes no CPU cycles at run-time (that is, during calls to sqlite3_step()). The purpose of the likely(X) function is to provide a hint to the query planner that the argument X is a boolean value that is usually true. The likely(X) function is equivalent to likelihood(X,0.9375). See also: unlikely(X).</td>
+</tr>
+<tr class="row-even"><td>load_extension(X)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>load_extension(X,Y)</td>
+<td>The load_extension(X,Y) function loads SQLite extensions out of the shared library file named X using the entry point Y. The result of load_extension() is always a NULL. If Y is omitted then the default entry point name is used. The load_extension() function raises an exception if the extension fails to load or initialize correctly.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>The load_extension() function will fail if the extension attempts to modify or delete an SQL function or collating sequence. The extension can add new functions or collating sequences, but cannot modify or delete existing functions or collating sequences because those functions and/or collating sequences might be used elsewhere in the currently running SQL statement. To load an extension that changes or deletes functions or collating sequences, use the sqlite3_load_extension() C-language API.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>For security reasons, extension loaded is turned off by default and must be enabled by a prior call to sqlite3_enable_load_extension().</td>
+</tr>
+<tr class="row-even"><td>lower(X)</td>
+<td>The lower(X) function returns a copy of string X with all ASCII characters converted to lower case. The default built-in lower() function works for ASCII characters only. To do case conversions on non-ASCII characters, load the ICU extension.</td>
+</tr>
+<tr class="row-odd"><td>ltrim(X)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>ltrim(X,Y)</td>
+<td>The ltrim(X,Y) function returns a string formed by removing any and all characters that appear in Y from the left side of X. If the Y argument is omitted, ltrim(X) removes spaces from the left side of X.</td>
+</tr>
+<tr class="row-odd"><td>max(X,Y,...)</td>
+<td>The multi-argument max() function returns the argument with the maximum value, or return NULL if any argument is NULL. The multi-argument max() function searches its arguments from left to right for an argument that defines a collating function and uses that collating function for all string comparisons. If none of the arguments to max() define a collating function, then the BINARY collating function is used. Note that max() is a simple function when it has 2 or more arguments but operates as an aggregate function if given only a single argument.</td>
+</tr>
+<tr class="row-even"><td>min(X,Y,...)</td>
+<td>The multi-argument min() function returns the argument with the minimum value. The multi-argument min() function searches its arguments from left to right for an argument that defines a collating function and uses that collating function for all string comparisons. If none of the arguments to min() define a collating function, then the BINARY collating function is used. Note that min() is a simple function when it has 2 or more arguments but operates as an aggregate function if given only a single argument.</td>
+</tr>
+<tr class="row-odd"><td>nullif(X,Y)</td>
+<td>The nullif(X,Y) function returns its first argument if the arguments are different and NULL if the arguments are the same. The nullif(X,Y) function searches its arguments from left to right for an argument that defines a collating function and uses that collating function for all string comparisons. If neither argument to nullif() defines a collating function then the BINARY is used.</td>
+</tr>
+<tr class="row-even"><td>printf(FORMAT,...)</td>
+<td>The printf(FORMAT,...) SQL function works like the sqlite3_mprintf() C-language function and the printf() function from the standard C library. The first argument is a format string that specifies how to construct the output string using values taken from subsequent arguments. If the FORMAT argument is missing or NULL then the result is NULL. The %n format is silently ignored and does not consume an argument. The %p format is an alias for %X. The %z format is interchangeable with %s. If there are too few arguments in the argument list, missing arguments are assumed to have a NULL value, which is translated into 0 or 0.0 for numeric formats or an empty string for %s.</td>
+</tr>
+<tr class="row-odd"><td>quote(X)</td>
+<td>The quote(X) function returns the text of an SQL literal which is the value of its argument suitable for inclusion into an SQL statement. Strings are surrounded by single-quotes with escapes on interior quotes as needed. BLOBs are encoded as hexadecimal literals. Strings with embedded NUL characters cannot be represented as string literals in SQL and hence the returned string literal is truncated prior to the first NUL.</td>
+</tr>
+<tr class="row-even"><td>random()</td>
+<td>The random() function returns a pseudo-random integer between -9223372036854775808 and +9223372036854775807.</td>
+</tr>
+<tr class="row-odd"><td>randomblob(N)</td>
+<td>The randomblob(N) function return an N-byte blob containing pseudo-random bytes. If N is less than 1 then a 1-byte random blob is returned.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Hint: applications can generate globally unique identifiers using this function together with hex() and/or lower() like this:        hex(randomblob(16))        lower(hex(randomblob(16)))</td>
+</tr>
+<tr class="row-odd"><td>replace(X,Y,Z)</td>
+<td>The replace(X,Y,Z) function returns a string formed by substituting string Z for every occurrence of string Y in string X. The BINARY collating sequence is used for comparisons. If Y is an empty string then return X unchanged. If Z is not initially a string, it is cast to a UTF-8 string prior to processing.</td>
+</tr>
+<tr class="row-even"><td>round(X)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>round(X,Y)</td>
+<td>The round(X,Y) function returns a floating-point value X rounded to Y digits to the right of the decimal point. If the Y argument is omitted, it is assumed to be 0.</td>
+</tr>
+<tr class="row-even"><td>rtrim(X)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>rtrim(X,Y)</td>
+<td>The rtrim(X,Y) function returns a string formed by removing any and all characters that appear in Y from the right side of X. If the Y argument is omitted, rtrim(X) removes spaces from the right side of X.</td>
+</tr>
+<tr class="row-even"><td>soundex(X)</td>
+<td>The soundex(X) function returns a string that is the soundex encoding of the string X. The string &#8221;?000&#8221; is returned if the argument is NULL or contains no ASCII alphabetic characters. This function is omitted from SQLite by default. It is only available if the SQLITE_SOUNDEX compile-time option is used when SQLite is built.</td>
+</tr>
+<tr class="row-odd"><td>sqlite_compileoption_get(N)</td>
+<td>The sqlite_compileoption_get() SQL function is a wrapper around the sqlite3_compileoption_get() C/C++ function. This routine returns the N-th compile-time option used to build SQLite or NULL if N is out of range. See also the compile_options pragma.</td>
+</tr>
+<tr class="row-even"><td>sqlite_compileoption_used(X)</td>
+<td>The sqlite_compileoption_used() SQL function is a wrapper around the sqlite3_compileoption_used() C/C++ function. When the argument X to sqlite_compileoption_used(X) is a string which is the name of a compile-time option, this routine returns true (1) or false (0) depending on whether or not that option was used during the build.</td>
+</tr>
+<tr class="row-odd"><td>sqlite_source_id()</td>
+<td>The sqlite_source_id() function returns a string that identifies the specific version of the source code that was used to build the SQLite library. The string returned by sqlite_source_id() is the date and time that the source code was checked in followed by the SHA1 hash for that check-in. This function is an SQL wrapper around the sqlite3_sourceid() C interface.</td>
+</tr>
+<tr class="row-even"><td>sqlite_version()</td>
+<td>The sqlite_version() function returns the version string for the SQLite library that is running. This function is an SQL wrapper around the sqlite3_libversion() C-interface.</td>
+</tr>
+<tr class="row-odd"><td>substr(X,Y,Z)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>substr(X,Y)</td>
+<td>The substr(X,Y,Z) function returns a substring of input string X that begins with the Y-th character and which is Z characters long. If Z is omitted then substr(X,Y) returns all characters through the end of the string X beginning with the Y-th. The left-most character of X is number 1. If Y is negative then the first character of the substring is found by counting from the right rather than the left. If Z is negative then the abs(Z) characters preceding the Y-th character are returned. If X is a string then characters indices refer to actual UTF-8 characters. If X is a BLOB then the indices refer to bytes.</td>
+</tr>
+<tr class="row-odd"><td>total_changes()</td>
+<td>The total_changes() function returns the number of row changes caused by INSERT, UPDATE or DELETE statements since the current database connection was opened. This function is a wrapper around the sqlite3_total_changes() C/C++ interface.</td>
+</tr>
+<tr class="row-even"><td>trim(X)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>trim(X,Y)</td>
+<td>The trim(X,Y) function returns a string formed by removing any and all characters that appear in Y from both ends of X. If the Y argument is omitted, trim(X) removes spaces from both ends of X.</td>
+</tr>
+<tr class="row-even"><td>typeof(X)</td>
+<td>The typeof(X) function returns a string that indicates the datatype of the expression X: &#8220;null&#8221;, &#8220;integer&#8221;, &#8220;real&#8221;, &#8220;text&#8221;, or &#8220;blob&#8221;.</td>
+</tr>
+<tr class="row-odd"><td>unlikely(X)</td>
+<td>The unlikely(X) function returns the argument X unchanged. The unlikely(X) function is a no-op that the code generator optimizes away so that it consumes no CPU cycles at run-time (that is, during calls to sqlite3_step()). The purpose of the unlikely(X) function is to provide a hint to the query planner that the argument X is a boolean value that is usually not true. The unlikely(X) function is equivalent to likelihood(X, 0.0625).</td>
+</tr>
+<tr class="row-even"><td>unicode(X)</td>
+<td>The unicode(X) function returns the numeric unicode code point corresponding to the first character of the string X. If the argument to unicode(X) is not a string then the result is undefined.</td>
+</tr>
+<tr class="row-odd"><td>upper(X)</td>
+<td>The upper(X) function returns a copy of input string X in which all lower-case ASCII characters are converted to their upper-case equivalent.</td>
+</tr>
+<tr class="row-even"><td>zeroblob(N)</td>
+<td>The zeroblob(N) function returns a BLOB consisting of N bytes of 0x00. SQLite manages these zeroblobs very efficiently. Zeroblobs can be used to reserve space for a BLOB that is later written using incremental BLOB I/O. This SQL function is implemented using the sqlite3_result_zeroblob() routine from the C/C++ interface.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="agg-functions">
+<h2><a class="toc-backref" href="#id9">5.6. Agg functions</a><a class="headerlink" href="#agg-functions" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.sqlite.org/lang_aggfunc.html">https://www.sqlite.org/lang_aggfunc.html</a></p>
+<ul class="simple">
+<li>The aggregate functions shown below are available by default.</li>
+<li>Additional aggregate functions written in C may be added using the <code class="docutils literal"><span class="pre">sqlite3_create_function()</span></code> API (<a class="reference external" href="https://www.sqlite.org/c3ref/create_function.html">link</a>).</li>
+</ul>
+<p class="rubric">DISTINCT keyword</p>
+<ul class="simple">
+<li>In any aggregate function that takes a single argument, that argument can be preceded by the keyword <code class="docutils literal"><span class="pre">DISTINCT</span></code>.</li>
+<li>In such cases, duplicate elements are filtered before being passed into the aggregate function.</li>
+<li>Example: <code class="docutils literal"><span class="pre">count(distinct</span> <span class="pre">X)</span></code> &#8211; return the number of distinct values of column X instead of the total number of non-null values in column X.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">function</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">avg(X)</span></code></td>
+<td>returns the average value of all non-NULL X within a group.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>String and BLOB values that do not look like numbers are interpreted as 0.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>The result of avg() is always a floating point value as long as at there is at least one non-NULL input even if all inputs are integers.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>The result of avg() is NULL if and only if there are no non-NULL inputs.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">count(X)</span></code></td>
+<td>returns a count of the number of times that X is not NULL in a group.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">count(*)</span></code></td>
+<td>The count(*) function (with no arguments) returns the total number of rows in the group.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">group_concat(X)</span></code></td>
+<td>returns a string which is the concatenation of all non-NULL values of X.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">group_concat(X,Y)</span></code></td>
+<td>if Y is present then it is used as the separator between instances of X.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>A comma (&#8221;,&#8221;) is used as the separator if Y is omitted.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>The order of the concatenated elements is arbitrary.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">max(X)</span></code></td>
+<td>returns the maximum value of all values in the group.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>The maximum value is the value that would be returned last in an <code class="docutils literal"><span class="pre">ORDER</span> <span class="pre">BY</span></code> on the same column.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Aggregate max() returns NULL if and only if there are no non-NULL values in the group.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">min(X)</span></code></td>
+<td>returns the minimum non-NULL value of all values in the group. The minimum value is the first non-NULL value that would appear in an ORDER BY of the column. Aggregate min() returns NULL if and only if there are no non-NULL values in the group.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">sum(X),total(X)</span></code></td>
+<td>sum() and total() aggregate functions return sum of all non-NULL values in the group.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>If there are no non-NULL input rows then sum() returns NULL but total() returns 0.0. NULL is not normally a helpful result for the sum of no rows but the SQL standard requires it and most other SQL database engines implement sum() that way so SQLite does it in the same way in order to be compatible. The non-standard total() function is provided as a convenient way to work around this design problem in the SQL language.</td>
+</tr>
+<tr class="row-even"><td>sum vs total</td>
+<td>The result of total() is always a floating point value.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>The result of sum() is an integer value if all non-NULL inputs are integers.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>If any input to sum() is neither an integer or a NULL then sum() returns a floating point value which might be an approximation to the true sum.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Sum() will throw an &#8220;integer overflow&#8221; exception if all inputs are integers or NULL and an integer overflow occurs at any point during the computation.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Total() never throws an integer overflow.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="data-and-time-functions">
+<h2><a class="toc-backref" href="#id10">5.7. Data and time functions</a><a class="headerlink" href="#data-and-time-functions" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.sqlite.org/lang_datefunc.html">https://www.sqlite.org/lang_datefunc.html</a></p>
+<blockquote>
+<div>SQLite supports five date and time functions:</div></blockquote>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">date(timestring,</span> <span class="pre">modifier,</span> <span class="pre">modifier,</span> <span class="pre">...)</span></code> (uses part of <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> time format)</li>
+<li><code class="docutils literal"><span class="pre">time(timestring,</span> <span class="pre">modifier,</span> <span class="pre">modifier,</span> <span class="pre">...)</span></code> &#8212; returns the date in this format: YYYY-MM-DD</li>
+<li><code class="docutils literal"><span class="pre">datetime(timestring,</span> <span class="pre">modifier,</span> <span class="pre">modifier,</span> <span class="pre">...)</span></code> &#8211; returns <code class="docutils literal"><span class="pre">YYYY-MM-DD</span> <span class="pre">HH:MM:SS</span></code></li>
+<li><code class="docutils literal"><span class="pre">julianday(timestring,</span> <span class="pre">modifier,</span> <span class="pre">modifier,</span> <span class="pre">...)</span></code> (<a class="reference external" href="http://en.wikipedia.org/wiki/Julian_day">wiki</a>)</li>
+<li><code class="docutils literal"><span class="pre">strftime(format,</span> <span class="pre">timestring,</span> <span class="pre">modifier,</span> <span class="pre">modifier,</span> <span class="pre">...)</span></code> &#8212;  returns the date formatted according to the format string specified as the first argument. <strong>See below</strong> for valid <code class="docutils literal"><span class="pre">strftime</span></code> substitutions.</li>
+</ol>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>%d      day of month: 00
+<span class="hll">%f      fractional seconds: SS.SSS
+</span>%H      hour: 00-24
+%j      day of year: 001-366
+<span class="hll">%J      Julian day number
+</span>%m      month: 01-12
+%M      minute: 00-59
+%s      seconds since 1970-01-01
+%S      seconds: 00-59
+%w      day of week 0-6 with Sunday==0
+%W      week of year: 00-53
+%Y      year: 0000-9999
+%%      %
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Note the following equivalence (date, time, datetime functions are there for convenience and efficiency)</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Equivalent <code class="docutils literal"><span class="pre">strftime()</span></code></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">date(...)</span></code></td>
+<td><code class="docutils literal"><span class="pre">strftime('%Y-%m-%d',</span> <span class="pre">...)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">time(...)</span></code></td>
+<td><code class="docutils literal"><span class="pre">strftime('%H:%M:%S',</span> <span class="pre">...)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">datetime(...)</span></code></td>
+<td><code class="docutils literal"><span class="pre">strftime('%Y-%m-%d</span> <span class="pre">%H:%M:%S',</span> <span class="pre">...)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">julianday(...)</span></code></td>
+<td><code class="docutils literal"><span class="pre">strftime('%J',</span> <span class="pre">...)</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="timestring">
+<h3><a class="toc-backref" href="#id11">5.7.1. timestring</a><a class="headerlink" href="#timestring" title="Permalink to this headline">¶</a></h3>
+<p>A time string can be in any of the following formats:</p>
+<ol class="arabic simple">
+<li>YYYY-MM-DD</li>
+<li>YYYY-MM-DD HH:MM</li>
+<li>YYYY-MM-DD HH:MM:SS</li>
+<li>YYYY-MM-DD HH:MM:SS.SSS</li>
+<li>YYYY-MM-DDTHH:MM</li>
+<li>YYYY-MM-DDTHH:MM:SS</li>
+<li>YYYY-MM-DDTHH:MM:SS.SSS</li>
+<li>HH:MM</li>
+<li>HH:MM:SS</li>
+<li>HH:MM:SS.SSS</li>
+<li>now</li>
+<li>DDDDDDDDDD</li>
+</ol>
+</div>
+<div class="section" id="modifiers">
+<h3><a class="toc-backref" href="#id12">5.7.2. modifiers</a><a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The time string can be followed by zero or more modifiers that alter date and/or time.</li>
+<li>Each modifier is a transformation that is applied to the time value to its left.</li>
+<li>Modifiers are applied from left to right; <strong>order is important</strong>.</li>
+</ul>
+<p>The available modifiers are as follows.</p>
+<ol class="arabic simple">
+<li>NNN days</li>
+<li>NNN hours</li>
+<li>NNN minutes</li>
+<li>NNN.NNNN seconds</li>
+<li>NNN months</li>
+<li>NNN years</li>
+<li>start of month</li>
+<li>start of year</li>
+<li>start of day</li>
+<li>weekday N</li>
+<li>unixepoch</li>
+<li>localtime</li>
+<li>utc</li>
+</ol>
+</div>
+<div class="section" id="examples">
+<h3><a class="toc-backref" href="#id13">5.7.3. Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">-- Compute the current date.</span>
+<span class="k">SELECT</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the last day of the current month.</span>
+<span class="k">SELECT</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">,</span><span class="s1">&#39;start of month&#39;</span><span class="p">,</span><span class="s1">&#39;+1 month&#39;</span><span class="p">,</span><span class="s1">&#39;-1 day&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the date and time given a unix timestamp 1092941466.</span>
+<span class="k">SELECT</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1092941466</span><span class="p">,</span> <span class="s1">&#39;unixepoch&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the date and time given a unix timestamp 1092941466, and compensate for your local timezone.</span>
+<span class="k">SELECT</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1092941466</span><span class="p">,</span> <span class="s1">&#39;unixepoch&#39;</span><span class="p">,</span> <span class="s1">&#39;localtime&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the current unix timestamp.</span>
+<span class="k">SELECT</span> <span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%s&#39;</span><span class="p">,</span><span class="s1">&#39;now&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the number of days since the signing of the US Declaration of Independence.</span>
+<span class="k">SELECT</span> <span class="n">julianday</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">julianday</span><span class="p">(</span><span class="s1">&#39;1776-07-04&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the number of seconds since a particular moment in 2004:</span>
+<span class="k">SELECT</span> <span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%s&#39;</span><span class="p">,</span><span class="s1">&#39;now&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%s&#39;</span><span class="p">,</span><span class="s1">&#39;2004-01-01 02:34:56&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the date of the first Tuesday in October for the current year.</span>
+<span class="k">SELECT</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">,</span><span class="s1">&#39;start of year&#39;</span><span class="p">,</span><span class="s1">&#39;+9 months&#39;</span><span class="p">,</span><span class="s1">&#39;weekday 2&#39;</span><span class="p">);</span>
+
+<span class="c1">-- Compute the time since the unix epoch in seconds (like strftime(&#39;%s&#39;,&#39;now&#39;) except includes fractional part):</span>
+<span class="k">SELECT</span> <span class="p">(</span><span class="n">julianday</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2440587</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="mi">86400</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="json-just-read">
+<h2><a class="toc-backref" href="#id14">5.8. JSON (just read)</a><a class="headerlink" href="#json-just-read" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.sqlite.org/json1.html">https://www.sqlite.org/json1.html</a></p>
+<p>Skim over in the future (not my immediate need at the moment 23 August 2016 (Tuesday))</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="sqlite_5.html" class="btn btn-neutral" title="4. SQLite - useful functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Takanori Watanabe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

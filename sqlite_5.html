@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. awk-workflow &mdash; Coding Notebook 1 documentation</title>
+  <title>4. SQLite - useful functions &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
-        <link rel="up" title="Awk Tutorials Points" href="awk-tp.html"/>
-        <link rel="next" title="4. AWK Basic Syntax" href="awk-tp.basic-syntax.html"/>
-        <link rel="prev" title="2. Tables from grymoire" href="awk-grymoire.html"/> 
+        <link rel="up" title="SQL-lite Tutorials Point" href="top-sqlite.html"/>
+        <link rel="next" title="5. Bunch of stuffs from the official doc" href="sqlite_doc.html"/>
+        <link rel="prev" title="1. SQLite commands overview" href="sqlite_1.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -221,7 +221,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="awk-ss64.html">1. Whirlwind tour from ss64</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#basic-syntax">1.1. Basic syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#awk-patterns">1.2. awk-patterns</a></li>
@@ -260,9 +260,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3. awk-workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-begin-body-end-block">3.1. The BEGIN, body, END block</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#first-example-on-marks-txt-file">3.2. First example on marks.txt file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awk-tp.workflow.html">3. awk-workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#the-begin-body-end-block">3.1. The BEGIN, body, END block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#first-example-on-marks-txt-file">3.2. First example on marks.txt file</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-syntax.html">4. AWK Basic Syntax</a><ul>
@@ -276,7 +276,7 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL-lite Tutorials Point</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL-lite Tutorials Point</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sqlite_1.html">1. SQLite commands overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#ddl-data-definition-language">1.1. DDL (data definition language)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#dml-data-manipulation-language">1.2. DML (Data manipulation language)</a></li>
@@ -290,9 +290,9 @@
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#the-sqlite-master-table">3.3. The sqlite_master Table</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="sqlite_5.html">4. SQLite - useful functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_5.html#summary-of-key-functions">4.1. Summary of key functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_5.html#examples">4.2. Examples</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. SQLite - useful functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-key-functions">4.1. Summary of key functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">4.2. Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sqlite_doc.html">5. Bunch of stuffs from the official doc</a><ul>
@@ -357,15 +357,15 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="awk-tp.html">Awk Tutorials Points</a> &raquo;</li>
+          <li><a href="top-sqlite.html">SQL-lite Tutorials Point</a> &raquo;</li>
         
-      <li>3. awk-workflow</li>
+      <li>4. SQLite - useful functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/awk-tp.workflow.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/sqlite_5.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -376,46 +376,141 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="awk-workflow">
-<h1>3. awk-workflow<a class="headerlink" href="#awk-workflow" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://www.tutorialspoint.com/awk/awk_workflow.htm">http://www.tutorialspoint.com/awk/awk_workflow.htm</a></p>
-<div class="section" id="the-begin-body-end-block">
-<h2>3.1. The BEGIN, body, END block<a class="headerlink" href="#the-begin-body-end-block" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>The BEGIN block gets executed at program start-up (upper-case).</li>
-<li>It executes only once, and is <strong>optional</strong></li>
-<li>This is good place to initialize variables</li>
-</ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># BEGIN block (optional)</span>
-BEGIN <span class="o">{</span>awk-commands<span class="o">}</span>
-
-<span class="c1"># Body block - applies awk commands on every input line (default)</span>
-/pattern/ <span class="o">{</span>awk-commands<span class="o">}</span>
-
-<span class="c1"># END block (optional)</span>
-END <span class="o">{</span>awk-commands<span class="o">}</span>
+  <div class="section" id="sqlite-useful-functions">
+<h1>4. SQLite - useful functions<a class="headerlink" href="#sqlite-useful-functions" title="Permalink to this headline">¶</a></h1>
+<p>from <a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_useful_functions.htm">http://www.tutorialspoint.com/sqlite/sqlite_useful_functions.htm</a></p>
+<div class="section" id="summary-of-key-functions">
+<h2>4.1. Summary of key functions<a class="headerlink" href="#summary-of-key-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>COUNT</td>
+<td>(agg fcn) count the number of rows in a database table.</td>
+</tr>
+<tr class="row-even"><td>MAX</td>
+<td>(agg fcn) select the highest (maximum) value for a certain column.</td>
+</tr>
+<tr class="row-odd"><td>MIN</td>
+<td>(agg fcn) select the lowest (minimum) value for a certain column.</td>
+</tr>
+<tr class="row-even"><td>AVG</td>
+<td>(agg fcn) average value for certain table column.</td>
+</tr>
+<tr class="row-odd"><td>SUM</td>
+<td>(agg fcn) total for a numeric column.</td>
+</tr>
+<tr class="row-even"><td>RANDOM</td>
+<td>returns a pseudo-random integer between -9223372036854775808 and +9223372036854775807.</td>
+</tr>
+<tr class="row-odd"><td>ABS</td>
+<td>returns the absolute value of the numeric argument.</td>
+</tr>
+<tr class="row-even"><td>UPPER</td>
+<td>converts a string into upper-case letters.</td>
+</tr>
+<tr class="row-odd"><td>LOWER</td>
+<td>converts a string into lower-case letters.</td>
+</tr>
+<tr class="row-even"><td>LENGTH</td>
+<td>returns the length of a string.</td>
+</tr>
+<tr class="row-odd"><td>sqlite_version</td>
+<td>The SQLite sqlite_version function returns the version of the SQLite library.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>4.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we have the following table called COMPANY</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">ID</span>          <span class="n">NAME</span>        <span class="n">AGE</span>         <span class="n">ADDRESS</span>     <span class="n">SALARY</span>
+<span class="c1">----------  ----------  ----------  ----------  ----------</span>
+<span class="mi">1</span>           <span class="n">Paul</span>        <span class="mi">32</span>          <span class="n">California</span>  <span class="mi">20000</span><span class="p">.</span><span class="mi">0</span>
+<span class="mi">2</span>           <span class="n">Allen</span>       <span class="mi">25</span>          <span class="n">Texas</span>       <span class="mi">15000</span><span class="p">.</span><span class="mi">0</span>
+<span class="mi">3</span>           <span class="n">Teddy</span>       <span class="mi">23</span>          <span class="n">Norway</span>      <span class="mi">20000</span><span class="p">.</span><span class="mi">0</span>
+<span class="mi">4</span>           <span class="n">Mark</span>        <span class="mi">25</span>          <span class="n">Rich</span><span class="o">-</span><span class="n">Mond</span>   <span class="mi">65000</span><span class="p">.</span><span class="mi">0</span>
+<span class="mi">5</span>           <span class="n">David</span>       <span class="mi">27</span>          <span class="n">Texas</span>       <span class="mi">85000</span><span class="p">.</span><span class="mi">0</span>
+<span class="mi">6</span>           <span class="n">Kim</span>         <span class="mi">22</span>          <span class="n">South</span><span class="o">-</span><span class="n">Hall</span>  <span class="mi">45000</span><span class="p">.</span><span class="mi">0</span>
+<span class="mi">7</span>           <span class="n">James</span>       <span class="mi">24</span>          <span class="n">Houston</span>     <span class="mi">10000</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="first-example-on-marks-txt-file">
-<h2>3.2. First example on marks.txt file<a class="headerlink" href="#first-example-on-marks-txt-file" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have a file called <code class="docutils literal"><span class="pre">marks.txt</span></code> with the following content</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">)</span>  <span class="n">Amit</span>    <span class="n">Physics</span>  <span class="mi">80</span>
-<span class="mi">2</span><span class="p">)</span>  <span class="n">Rahul</span>   <span class="n">Maths</span>    <span class="mi">90</span>
-<span class="mi">3</span><span class="p">)</span>  <span class="n">Shyam</span>   <span class="n">Biology</span>  <span class="mi">87</span>
-<span class="mi">4</span><span class="p">)</span>  <span class="n">Kedar</span>   <span class="n">English</span>  <span class="mi">85</span>
-<span class="mi">5</span><span class="p">)</span>  <span class="n">Hari</span>    <span class="n">History</span>  <span class="mi">89</span>
-</pre></div>
-</div>
-<p>Look at this</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>awk <span class="s1">&#39;BEGIN{printf &quot;Sr No\tName\tSub\tMarks\n&quot;} {print}&#39;</span> marks.txt
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">-- count</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="c1">----------</span>
+<span class="mi">7</span>
 
-Sr No   Name    Sub Marks
-1<span class="o">)</span>  Amit    Physics  80
-2<span class="o">)</span>  Rahul   Maths    90
-3<span class="o">)</span>  Shyam   Biology  87
-4<span class="o">)</span>  Kedar   English  85
-5<span class="o">)</span>  Hari    History  89
+<span class="c1">-- MAX</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">max</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="k">max</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="c1">-----------</span>
+<span class="mi">85000</span><span class="p">.</span><span class="mi">0</span>
+
+<span class="c1">-- AVG</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="c1">----------------</span>
+<span class="mi">37142</span><span class="p">.</span><span class="mi">8571428572</span>
+
+<span class="c1">-- SUM</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="k">sum</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="c1">-----------</span>
+<span class="mi">260000</span><span class="p">.</span><span class="mi">0</span>
+
+<span class="c1">--RANDOM</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">random</span><span class="p">()</span> <span class="k">AS</span> <span class="n">Random</span><span class="p">;</span>
+<span class="n">Random</span>
+<span class="c1">-------------------</span>
+<span class="mi">5876796417670984050</span>
+
+<span class="c1">-- ABS</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">abs</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="k">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">),</span> <span class="k">abs</span><span class="p">(</span><span class="k">NULL</span><span class="p">),</span> <span class="k">abs</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="k">abs</span><span class="p">(</span><span class="ss">&quot;ABC&quot;</span><span class="p">);</span>
+<span class="k">abs</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>      <span class="k">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span>    <span class="k">abs</span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span>   <span class="k">abs</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="k">abs</span><span class="p">(</span><span class="ss">&quot;ABC&quot;</span><span class="p">)</span>
+<span class="c1">----------  ----------  ----------  ----------  ----------</span>
+<span class="mi">5</span>           <span class="mi">15</span>                      <span class="mi">0</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+
+<span class="c1">-- UPPER</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">upper</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="k">upper</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c1">-----------</span>
+<span class="n">PAUL</span>
+<span class="n">ALLEN</span>
+<span class="n">TEDDY</span>
+<span class="n">MARK</span>
+<span class="n">DAVID</span>
+<span class="n">KIM</span>
+<span class="n">JAMES</span>
+
+<span class="c1">-- lower</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="k">lower</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="k">lower</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c1">-----------</span>
+<span class="n">paul</span>
+<span class="n">allen</span>
+<span class="n">teddy</span>
+<span class="n">mark</span>
+<span class="n">david</span>
+<span class="n">kim</span>
+<span class="n">james</span>
+
+<span class="c1">-- LENGTH</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">length</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">COMPANY</span><span class="p">;</span>
+<span class="n">NAME</span>        <span class="k">length</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c1">----------  ------------</span>
+<span class="n">Paul</span>        <span class="mi">4</span>
+<span class="n">Allen</span>       <span class="mi">5</span>
+<span class="n">Teddy</span>       <span class="mi">5</span>
+<span class="n">Mark</span>        <span class="mi">4</span>
+<span class="n">David</span>       <span class="mi">5</span>
+<span class="n">Kim</span>         <span class="mi">3</span>
+<span class="n">James</span>       <span class="mi">5</span>
+
+<span class="c1">-- sqlite_version</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="k">SELECT</span> <span class="n">sqlite_version</span><span class="p">()</span> <span class="k">AS</span> <span class="s1">&#39;SQLite Version&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -428,10 +523,10 @@ Sr No   Name    Sub Marks
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="awk-tp.basic-syntax.html" class="btn btn-neutral float-right" title="4. AWK Basic Syntax" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sqlite_doc.html" class="btn btn-neutral float-right" title="5. Bunch of stuffs from the official doc" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="awk-grymoire.html" class="btn btn-neutral" title="2. Tables from grymoire" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sqlite_1.html" class="btn btn-neutral" title="1. SQLite commands overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

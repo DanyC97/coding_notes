@@ -16,6 +16,7 @@ My coding notebook
     sed/sed-tutorial.tutorialspoints.rst
     awk-tutorial/index.rst
     awk-tp.rst
+    top-sqlite.rst
 
 
 
