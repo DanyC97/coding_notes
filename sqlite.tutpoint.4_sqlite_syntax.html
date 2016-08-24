@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Coding Notebook 1 documentation</title>
+  <title>1.4. SQLite syntax (a whirl-wind tour) &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,7 +32,10 @@
   
 
   
-    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/> 
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="1. SQLite notes from tutorialpoint" href="sqlite.tutpoint.html"/>
+        <link rel="next" title="1.5. SQLite Data Type" href="sqlite.tutpoint.5_datatype.html"/>
+        <link rel="prev" title="1.3. sqlite commands" href="sqlite.tutpoint.3_sqlite_commands.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,7 +86,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -274,8 +276,8 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html">1.1. SQLite commands overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#ddl-data-definition-language">1.1.1. DDL (data definition language)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#dml-data-manipulation-language">1.1.2. DML (Data manipulation language)</a></li>
@@ -290,16 +292,16 @@
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.3_sqlite_commands.html#the-sqlite-master-table">1.3.4. The sqlite_master Table</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html">1.4. SQLite syntax (a whirl-wind tour)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#case-sensitivity">1.4.1. Case Sensitivity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#comments">1.4.2. Comments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#sqlite-statements-and-clause">1.4.3. SQLite Statements and Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#create-table">1.4.4. CREATE TABLE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#create-trigger">1.4.5. CREATE TRIGGER</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#group-by">1.4.6. GROUP BY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#having">1.4.7. HAVING</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#pragma">1.4.8. PRAGMA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#update">1.4.9. UPDATE</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.4. SQLite syntax (a whirl-wind tour)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#case-sensitivity">1.4.1. Case Sensitivity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comments">1.4.2. Comments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite-statements-and-clause">1.4.3. SQLite Statements and Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-table">1.4.4. CREATE TABLE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-trigger">1.4.5. CREATE TRIGGER</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-by">1.4.6. GROUP BY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#having">1.4.7. HAVING</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pragma">1.4.8. PRAGMA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update">1.4.9. UPDATE</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html">1.5. SQLite Data Type</a><ul>
@@ -442,12 +444,18 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li></li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
+        
+          <li><a href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a> &raquo;</li>
+        
+      <li>1.4. SQLite syntax (a whirl-wind tour)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/sqlite.tutpoint.4_sqlite_syntax.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -457,17 +465,316 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
+  <div class="section" id="sqlite-syntax-a-whirl-wind-tour">
+<h1>1.4. SQLite syntax (a whirl-wind tour)<a class="headerlink" href="#sqlite-syntax-a-whirl-wind-tour" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_syntax.htm">http://www.tutorialspoint.com/sqlite/sqlite_syntax.htm</a></p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#case-sensitivity" id="id1">Case Sensitivity</a></li>
+<li><a class="reference internal" href="#comments" id="id2">Comments</a></li>
+<li><a class="reference internal" href="#sqlite-statements-and-clause" id="id3">SQLite Statements and Clause</a></li>
+<li><a class="reference internal" href="#create-table" id="id4">CREATE TABLE</a></li>
+<li><a class="reference internal" href="#create-trigger" id="id5">CREATE TRIGGER</a></li>
+<li><a class="reference internal" href="#group-by" id="id6">GROUP BY</a></li>
+<li><a class="reference internal" href="#having" id="id7">HAVING</a></li>
+<li><a class="reference internal" href="#pragma" id="id8">PRAGMA</a></li>
+<li><a class="reference internal" href="#update" id="id9">UPDATE</a></li>
+</ul>
+</div>
+<div class="section" id="case-sensitivity">
+<h2><a class="toc-backref" href="#id1">1.4.1. Case Sensitivity</a><a class="headerlink" href="#case-sensitivity" title="Permalink to this headline">¶</a></h2>
+<p>SQLite is <strong>case insensitive</strong></p>
+<ul class="simple">
+<li>howeva, there are some commands which are case sensitive</li>
+<li>example: <code class="docutils literal"><span class="pre">GLOB</span></code> and <code class="docutils literal"><span class="pre">glob</span></code> have different meaning in SQLite statements</li>
+</ul>
+</div>
+<div class="section" id="comments">
+<h2><a class="toc-backref" href="#id2">1.4.2. Comments</a><a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Two ways:</p>
+<ul class="simple">
+<li>double dash <code class="docutils literal"><span class="pre">--</span></code></li>
+<li>C-style with <code class="docutils literal"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></code> (can span multiple lines)</li>
+</ul>
+</div>
+<div class="section" id="sqlite-statements-and-clause">
+<h2><a class="toc-backref" href="#id3">1.4.3. SQLite Statements and Clause</a><a class="headerlink" href="#sqlite-statements-and-clause" title="Permalink to this headline">¶</a></h2>
+<p>All SQLite statements:</p>
+<ul class="simple">
+<li>start with any of the keywords like <code class="docutils literal"><span class="pre">SELECT,</span> <span class="pre">INSERT,</span> <span class="pre">UPDATE,</span> <span class="pre">DELETE,</span> <span class="pre">ALTER,</span> <span class="pre">DROP</span></code></li>
+<li>end with a semicolon <code class="docutils literal"><span class="pre">;</span></code></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="14%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">name</th>
+<th class="head">&nbsp;</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>ANALYZE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">ANALYZE</span> <span class="pre">database_name;</span></code> or <code class="docutils literal"><span class="pre">ANALYZE</span> <span class="pre">database_name.table_name;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>AND/OR</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col1,col2</span> <span class="pre">FROM</span> <span class="pre">table_name</span> <span class="pre">WHERE</span> <span class="pre">CONDITION1</span> <span class="pre">{AND|OR}</span> <span class="pre">CONDITION2;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>ALTER TABLE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">table_name</span> <span class="pre">ADD</span> <span class="pre">COLUMN</span> <span class="pre">column_def...;</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">table_name</span> <span class="pre">RENAME</span> <span class="pre">TO</span> <span class="pre">new_tbl_name</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>ATTACH DATABASE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">ALTER</span> <span class="pre">DABASE</span> <span class="pre">'DBName'</span> <span class="pre">As</span> <span class="pre">'Alias-Name'</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>BEGIN TRANSACTION</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">BEGIN;</span></code> or <code class="docutils literal"><span class="pre">BEGIN</span> <span class="pre">EXCLUSIVE</span> <span class="pre">TRANSACTION</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>BETWEEN</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECTION</span> <span class="pre">col</span> <span class="pre">FROM</span> <span class="pre">tbl_name</span> <span class="pre">WHERE</span> <span class="pre">col_name</span> <span class="pre">BETWEEN</span> <span class="pre">val1</span> <span class="pre">AND</span> <span class="pre">val2</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>COMMIT</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">COMMIT;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>CREATE INDEX</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">INDEX</span> <span class="pre">index_name</span> <span class="pre">ON</span> <span class="pre">tbl_name</span> <span class="pre">(</span> <span class="pre">col_name</span> <span class="pre">COLLATE</span> <span class="pre">NOCASE</span> <span class="pre">)</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>CREATE UNIQUE INDEX</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">UNIQUE</span> <span class="pre">INDEX</span> <span class="pre">index_name</span> <span class="pre">ON</span> <span class="pre">tbl_name</span> <span class="pre">(col1,</span> <span class="pre">col2,</span> <span class="pre">...colN)</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>CREATE TABLE</strong></td>
+<td>Statement</td>
+<td>see below</td>
+</tr>
+<tr class="row-odd"><td><strong>CREATE TRIGGER</strong></td>
+<td>Statement</td>
+<td>see below</td>
+</tr>
+<tr class="row-even"><td><strong>CREATE VIEW</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">VIEW</span> <span class="pre">db_name.view_name</span> <span class="pre">AS</span> <span class="pre">SELECT</span> <span class="pre">statement...;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>CREATE VIRTUAL TABLE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">VIRTUAL</span> <span class="pre">TABLE</span> <span class="pre">dbname.tbl_name</span> <span class="pre">USING</span> <span class="pre">weblog(</span> <span class="pre">access.log</span> <span class="pre">);</span></code></td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Statement</td>
+<td>or <code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">VIRTUAL</span> <span class="pre">TABLE</span> <span class="pre">dbname.tbl_name</span> <span class="pre">USING</span> <span class="pre">fts3(</span> <span class="pre">);</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>COMMIT TRANSACTION</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">COMMIT;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>COUNT</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECTION</span> <span class="pre">COUNT(col_name)</span> <span class="pre">FROM</span> <span class="pre">tbl_name</span> <span class="pre">WHERE</span> <span class="pre">CONDITION;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>DELETE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">DELETE</span> <span class="pre">FROM</span> <span class="pre">tbl_name</span> <span class="pre">WHERE</span> <span class="pre">{CONDITION};</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>DETACH DATABASE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">DETACH</span> <span class="pre">DATABASE</span> <span class="pre">'Alias-Name';</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>DISTINCT</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">DETACH</span> <span class="pre">DATABASE</span> <span class="pre">'Alias-Name';</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>DROP INDEX</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">DROP</span> <span class="pre">INDEX</span> <span class="pre">db_name.index_name;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>DROP TABLE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">DROP</span> <span class="pre">TABLE</span> <span class="pre">db_name.tbl_name;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>DROP VIEW</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">DROP</span> <span class="pre">INDEX</span> <span class="pre">db_name.view_name;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>DROP TRIGGER</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">DROP</span> <span class="pre">INDEX</span> <span class="pre">db_name.trigger_name;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>EXISTS</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">colname</span> <span class="pre">EXISTS</span> <span class="pre">(...);</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>GLOB</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">colname</span> <span class="pre">GLOB</span> <span class="pre">{</span> <span class="pre">PATTERN</span> <span class="pre">};</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>GROUP BY</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">SUM(colname)</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">CONDITION</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">colname</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>HAVING</strong></td>
+<td>Clause</td>
+<td>see below</td>
+</tr>
+<tr class="row-even"><td><strong>INSERT INTO</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">INSERT</span> <span class="pre">INTO</span> <span class="pre">tblname(</span> <span class="pre">col1,</span> <span class="pre">col2)</span> <span class="pre">VALUES</span> <span class="pre">(</span> <span class="pre">val1,</span> <span class="pre">val2);</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>IN</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col1,</span> <span class="pre">col2</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">colname</span> <span class="pre">IN</span> <span class="pre">(val1,</span> <span class="pre">val2)</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>NOT IN</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col1,</span> <span class="pre">col2</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">colname</span> <span class="pre">NOT</span> <span class="pre">IN</span> <span class="pre">(val1,</span> <span class="pre">val2)</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>LIKE</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">...</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">...</span> <span class="pre">LIKE</span> <span class="pre">{</span> <span class="pre">PATTERN</span> <span class="pre">};</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>ORDER BY</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">...</span> <span class="pre">FROM</span> <span class="pre">tbl</span> <span class="pre">WHERE</span> <span class="pre">...</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">col_name</span> <span class="pre">{ASD|DESC};</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>PRAGMA</strong></td>
+<td>Statement</td>
+<td>See below</td>
+</tr>
+<tr class="row-even"><td><strong>RELEASE SAVEPOINT</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">RELEASE</span> <span class="pre">savepoint_name;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>REINDEX</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">REINDEX</span> <span class="pre">collation_name;</span></code></td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">REINDEX</span> <span class="pre">dbname.index_name;</span></code></td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">REINDEX</span> <span class="pre">dbname.table_name;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>ROLLBACK</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">ROLLBACK;</span></code> or <code class="docutils literal"><span class="pre">ROLLBACK</span> <span class="pre">TO</span> <span class="pre">SAVEPOINT</span> <span class="pre">savepoint_name;</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>SELECT</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col1,</span> <span class="pre">col2,</span> <span class="pre">...</span> <span class="pre">colN</span> <span class="pre">FROM</span> <span class="pre">table_name;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>UPDATE</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">UPDATE</span> <span class="pre">tbl_name</span> <span class="pre">SET</span> <span class="pre">column1</span> <span class="pre">=</span> <span class="pre">value1,</span> <span class="pre">column2</span> <span class="pre">..</span> <span class="pre">[</span> <span class="pre">WHERE</span> <span class="pre">CONDITION</span> <span class="pre">];</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>VACUUM</strong></td>
+<td>Statement</td>
+<td><code class="docutils literal"><span class="pre">VACUUM;</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>WHERE</strong></td>
+<td>Clause</td>
+<td><code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">col1,</span> <span class="pre">col2,...colN</span> <span class="pre">FROM</span> <span class="pre">table_name</span> <span class="pre">WHERE</span> <span class="pre">CONDITION;</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some more notables ones listed below</p>
+</div>
+</div>
+<div class="section" id="create-table">
+<h2><a class="toc-backref" href="#id4">1.4.4. CREATE TABLE</a><a class="headerlink" href="#create-table" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">table_name</span><span class="p">(</span>
+   <span class="n">column1</span> <span class="n">datatype</span><span class="p">,</span>
+   <span class="n">column2</span> <span class="n">datatype</span><span class="p">,</span>
+   <span class="n">column3</span> <span class="n">datatype</span><span class="p">,</span>
+   <span class="p">.....</span>
+   <span class="n">columnN</span> <span class="n">datatype</span><span class="p">,</span>
+   <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span> <span class="n">one</span> <span class="k">or</span> <span class="k">more</span> <span class="n">columns</span> <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-trigger">
+<h2><a class="toc-backref" href="#id5">1.4.5. CREATE TRIGGER</a><a class="headerlink" href="#create-trigger" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">database_name</span><span class="p">.</span><span class="k">trigger_name</span>
+<span class="k">BEFORE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="k">table_name</span> <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+<span class="k">BEGIN</span>
+   <span class="n">stmt1</span><span class="p">;</span>
+   <span class="n">stmt2</span><span class="p">;</span>
+   <span class="p">....</span>
+<span class="k">END</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="group-by">
+<h2><a class="toc-backref" href="#id6">1.4.6. GROUP BY</a><a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="k">column_name</span><span class="p">)</span>
+<span class="k">FROM</span>   <span class="k">table_name</span>
+<span class="k">WHERE</span>  <span class="n">CONDITION</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">column_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="having">
+<h2><a class="toc-backref" href="#id7">1.4.7. HAVING</a><a class="headerlink" href="#having" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="k">column_name</span><span class="p">)</span>
+<span class="k">FROM</span>   <span class="k">table_name</span>
+<span class="k">WHERE</span>  <span class="n">CONDITION</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">column_name</span>
+<span class="k">HAVING</span> <span class="p">(</span><span class="n">arithematic</span> <span class="k">function</span> <span class="n">condition</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pragma">
+<h2><a class="toc-backref" href="#id8">1.4.8. PRAGMA</a><a class="headerlink" href="#pragma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span> <span class="n">pragma_name</span><span class="p">;</span>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+<span class="c1">-- For example:</span>
+<span class="n">PRAGMA</span> <span class="n">page_size</span><span class="p">;</span>
+<span class="n">PRAGMA</span> <span class="n">cache_size</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
+<span class="n">PRAGMA</span> <span class="n">table_info</span><span class="p">(</span><span class="k">table_name</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update">
+<h2><a class="toc-backref" href="#id9">1.4.9. UPDATE</a><a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="k">table_name</span>
+<span class="k">SET</span> <span class="n">column1</span> <span class="o">=</span> <span class="n">value1</span><span class="p">,</span> <span class="n">column2</span> <span class="o">=</span> <span class="n">value2</span><span class="p">....</span><span class="n">columnN</span><span class="o">=</span><span class="n">valueN</span>
+<span class="p">[</span> <span class="k">WHERE</span>  <span class="n">CONDITION</span> <span class="p">];</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sqlite.tutpoint.5_datatype.html" class="btn btn-neutral float-right" title="1.5. SQLite Data Type" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sqlite.tutpoint.3_sqlite_commands.html" class="btn btn-neutral" title="1.3. sqlite commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

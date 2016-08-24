@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Coding Notebook 1 documentation</title>
+  <title>1.7. SQLite DML &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,7 +32,10 @@
   
 
   
-    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/> 
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="1. SQLite notes from tutorialpoint" href="sqlite.tutpoint.html"/>
+        <link rel="next" title="1.8. SQLite clauses" href="sqlite.tutpoint.7_sqlite_clauses.html"/>
+        <link rel="prev" title="1.6. SQLite DDL" href="sqlite.tutpoint.6_sqlite_DDL.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,7 +86,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -274,8 +276,8 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html">1.1. SQLite commands overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#ddl-data-definition-language">1.1.1. DDL (data definition language)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#dml-data-manipulation-language">1.1.2. DML (Data manipulation language)</a></li>
@@ -317,11 +319,11 @@
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#drop-table">1.6.5. DROP Table</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_DML.html">1.7. SQLite DML</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_DML.html#insert-query">1.7.1. INSERT Query</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_DML.html#select-query">1.7.2. SELECT Query</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_DML.html#update-query">1.7.3. UPDATE Query</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_DML.html#delete-query">1.7.4. DELETE Query</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.7. SQLite DML</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#insert-query">1.7.1. INSERT Query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-query">1.7.2. SELECT Query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-query">1.7.3. UPDATE Query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-query">1.7.4. DELETE Query</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html">1.8. SQLite clauses</a><ul>
@@ -442,12 +444,18 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li></li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
+        
+          <li><a href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a> &raquo;</li>
+        
+      <li>1.7. SQLite DML</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/sqlite.tutpoint.7_sqlite_DML.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -457,17 +465,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sqlite-dml" id="id1">SQLite DML</a><ul>
+<li><a class="reference internal" href="#insert-query" id="id2">INSERT Query</a></li>
+<li><a class="reference internal" href="#select-query" id="id3">SELECT Query</a></li>
+<li><a class="reference internal" href="#update-query" id="id4">UPDATE Query</a></li>
+<li><a class="reference internal" href="#delete-query" id="id5">DELETE Query</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sqlite-dml">
+<h1><a class="toc-backref" href="#id1">1.7. SQLite DML</a><a class="headerlink" href="#sqlite-dml" title="Permalink to this headline">¶</a></h1>
+<p><strong>Data Manipulation Language (DML)</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Data_manipulation_language">DML</a> (<code class="docutils literal"><span class="pre">SELECT,</span> <span class="pre">INSERT,</span> <span class="pre">UPDATE,</span> <span class="pre">DELETE</span></code>) - a family of syntax elements similar to a computer programming language used for selecting, inserting, deleting and updating data in a database</li>
+<li><a class="reference external" href="https://msdn.microsoft.com/en-us/library/ff848766.aspx">Data Manipulation Language (DML) Statements (Transact-SQL) (MSDN)</a> - Data Manipulation Language (DML) is a vocabulary used to retrieve and work with data in SQL Server 2016. Use these statements to add, modify, query, or remove data from a SQL Server database.</li>
+</ul>
+<p><strong>References from tutorial-points</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_insert_query.htm">INSERT Query</a></li>
+<li><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_select_query.htm">SELECT Query</a></li>
+<li><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_update_query.htm">UPDATE Query</a></li>
+<li><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_delete_query.htm">DELETE Query</a></li>
+</ul>
+<div class="section" id="insert-query">
+<h2><a class="toc-backref" href="#id2">1.7.1. INSERT Query</a><a class="headerlink" href="#insert-query" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_insert_query.htm">http://www.tutorialspoint.com/sqlite/sqlite_insert_query.htm</a></p>
+</div>
+<div class="section" id="select-query">
+<h2><a class="toc-backref" href="#id3">1.7.2. SELECT Query</a><a class="headerlink" href="#select-query" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_select_query.htm">http://www.tutorialspoint.com/sqlite/sqlite_select_query.htm</a></p>
+</div>
+<div class="section" id="update-query">
+<h2><a class="toc-backref" href="#id4">1.7.3. UPDATE Query</a><a class="headerlink" href="#update-query" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_update_query.htm">http://www.tutorialspoint.com/sqlite/sqlite_update_query.htm</a></p>
+</div>
+<div class="section" id="delete-query">
+<h2><a class="toc-backref" href="#id5">1.7.4. DELETE Query</a><a class="headerlink" href="#delete-query" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_delete_query.htm">http://www.tutorialspoint.com/sqlite/sqlite_delete_query.htm</a></p>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sqlite.tutpoint.7_sqlite_clauses.html" class="btn btn-neutral float-right" title="1.8. SQLite clauses" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sqlite.tutpoint.6_sqlite_DDL.html" class="btn btn-neutral" title="1.6. SQLite DDL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

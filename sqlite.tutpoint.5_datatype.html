@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Coding Notebook 1 documentation</title>
+  <title>1.5. SQLite Data Type &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,7 +32,10 @@
   
 
   
-    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/> 
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="1. SQLite notes from tutorialpoint" href="sqlite.tutpoint.html"/>
+        <link rel="next" title="1.6. SQLite DDL" href="sqlite.tutpoint.6_sqlite_DDL.html"/>
+        <link rel="prev" title="1.4. SQLite syntax (a whirl-wind tour)" href="sqlite.tutpoint.4_sqlite_syntax.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,7 +86,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -274,8 +276,8 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html">1.1. SQLite commands overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#ddl-data-definition-language">1.1.1. DDL (data definition language)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#dml-data-manipulation-language">1.1.2. DML (Data manipulation language)</a></li>
@@ -302,11 +304,11 @@
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.4_sqlite_syntax.html#update">1.4.9. UPDATE</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html">1.5. SQLite Data Type</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html#sqlite-storage-classes">1.5.1. SQLite Storage Classes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html#sqlite-affinity-type">1.5.2. SQLite Affinity Type</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html#sqlite-affinity-and-type-names">1.5.3. SQLite Affinity and Type Names</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html#date-and-time-datatype">1.5.4. Date and Time Datatype</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.5. SQLite Data Type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite-storage-classes">1.5.1. SQLite Storage Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite-affinity-type">1.5.2. SQLite Affinity Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite-affinity-and-type-names">1.5.3. SQLite Affinity and Type Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#date-and-time-datatype">1.5.4. Date and Time Datatype</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html">1.6. SQLite DDL</a><ul>
@@ -442,12 +444,18 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li></li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
+        
+          <li><a href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a> &raquo;</li>
+        
+      <li>1.5. SQLite Data Type</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/sqlite.tutpoint.5_datatype.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -457,17 +465,164 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="sqlite-data-type">
+<h1>1.5. SQLite Data Type<a class="headerlink" href="#sqlite-data-type" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sqlite-storage-classes" id="id1">SQLite Storage Classes</a></li>
+<li><a class="reference internal" href="#sqlite-affinity-type" id="id2">SQLite Affinity Type</a></li>
+<li><a class="reference internal" href="#sqlite-affinity-and-type-names" id="id3">SQLite Affinity and Type Names</a></li>
+<li><a class="reference internal" href="#date-and-time-datatype" id="id4">Date and Time Datatype</a></li>
+</ul>
+</div>
+<div class="section" id="sqlite-storage-classes">
+<h2><a class="toc-backref" href="#id1">1.5.1. SQLite Storage Classes</a><a class="headerlink" href="#sqlite-storage-classes" title="Permalink to this headline">¶</a></h2>
+<p>Each value stored in an SQLite database has one of the following storage classes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Storage Class</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>NULL</strong></td>
+<td>The value is a NULL value.</td>
+</tr>
+<tr class="row-odd"><td><strong>INTEGER</strong></td>
+<td>The value is a signed integer, stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of the value.</td>
+</tr>
+<tr class="row-even"><td><strong>REAL</strong></td>
+<td>The value is a floating point value, stored as an 8-byte IEEE floating point number.</td>
+</tr>
+<tr class="row-odd"><td><strong>TEXT</strong></td>
+<td>The value is a text string, stored using the database encoding (UTF-8, UTF-16BE or UTF-16LE)</td>
+</tr>
+<tr class="row-even"><td><strong>BLOB</strong></td>
+<td>The value is a blob of data, stored exactly as it was input.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sqlite-affinity-type">
+<h2><a class="toc-backref" href="#id2">1.5.2. SQLite Affinity Type</a><a class="headerlink" href="#sqlite-affinity-type" title="Permalink to this headline">¶</a></h2>
+<p>SQLite supports the concept of <strong>type affinity</strong> on columns.</p>
+<ul class="simple">
+<li>Any column can still store any type of data but the preferred storage class for a column is called its <strong>affinity</strong>.</li>
+</ul>
+<p>Each table column in an SQLite3 database is assigned one of the following type affinities:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Affinity</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>TEXT</strong></td>
+<td>This column stores all data using storage classes NULL, TEXT or BLOB.</td>
+</tr>
+<tr class="row-odd"><td><strong>NUMERIC</strong></td>
+<td>This column may contain values using all five storage classes.</td>
+</tr>
+<tr class="row-even"><td><strong>INTEGER</strong></td>
+<td>Behaves the same as a column with NUMERIC affinity with an exception in a CAST expression.</td>
+</tr>
+<tr class="row-odd"><td><strong>REAL</strong></td>
+<td>Behaves like a column with NUMERIC affinity except that it forces integer values into floating point representation</td>
+</tr>
+<tr class="row-even"><td><strong>NONE</strong></td>
+<td>A column with affinity NONE does not prefer one storage class over another and no attempt is made to coerce data from one storage class into another.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sqlite-affinity-and-type-names">
+<h2><a class="toc-backref" href="#id3">1.5.3. SQLite Affinity and Type Names</a><a class="headerlink" href="#sqlite-affinity-and-type-names" title="Permalink to this headline">¶</a></h2>
+<p>Following table lists down various <strong>data type names</strong> which can be used while creating SQLite3 tables and corresponding applied <strong>affinity</strong> also has been shown:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Affinity</th>
+<th class="head">Data Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>INTEGER</strong></td>
+<td><code class="docutils literal"><span class="pre">INT</span></code>, <code class="docutils literal"><span class="pre">INTEGER</span></code>, <code class="docutils literal"><span class="pre">TINYINT</span></code>, <code class="docutils literal"><span class="pre">SMALLINT</span></code>, <code class="docutils literal"><span class="pre">BIGINT</span></code>, <code class="docutils literal"><span class="pre">UNSIGNED</span> <span class="pre">BIG</span> <span class="pre">INT</span></code>, <code class="docutils literal"><span class="pre">INT2</span></code>, <code class="docutils literal"><span class="pre">INT8</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>TEXT</strong></td>
+<td><code class="docutils literal"><span class="pre">CHARACTER(20)</span></code>, <code class="docutils literal"><span class="pre">VARCHAR(255)</span></code>, <code class="docutils literal"><span class="pre">VARYING</span> <span class="pre">CHARACTER(255)</span></code>, <code class="docutils literal"><span class="pre">NCHAR(55)</span></code>,</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">NATIVE</span> <span class="pre">CHARACTER(70)</span></code>, <code class="docutils literal"><span class="pre">NVARCHAR(100)</span></code>, <code class="docutils literal"><span class="pre">TEXT</span></code>, <code class="docutils literal"><span class="pre">CLOB</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>NONE</strong></td>
+<td><code class="docutils literal"><span class="pre">BLOB</span></code>, <code class="docutils literal"><span class="pre">no</span> <span class="pre">datatype</span> <span class="pre">specified</span></code></td>
+</tr>
+<tr class="row-even"><td><strong>REAL</strong></td>
+<td><code class="docutils literal"><span class="pre">REAL</span></code>, <code class="docutils literal"><span class="pre">DOUBLE</span></code>, <code class="docutils literal"><span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code>, <code class="docutils literal"><span class="pre">FLOAT</span></code></td>
+</tr>
+<tr class="row-odd"><td><strong>NUMERIC</strong></td>
+<td><code class="docutils literal"><span class="pre">NUMERIC</span></code>, <code class="docutils literal"><span class="pre">DECIMAL(10,5)</span></code>, <code class="docutils literal"><span class="pre">BOOLEAN</span></code>, <code class="docutils literal"><span class="pre">DATE</span></code>, <code class="docutils literal"><span class="pre">DATETIME</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="date-and-time-datatype">
+<h2><a class="toc-backref" href="#id4">1.5.4. Date and Time Datatype</a><a class="headerlink" href="#date-and-time-datatype" title="Permalink to this headline">¶</a></h2>
+<p>SQLite does not have a separate storage class for storing dates and/or times,</p>
+<ul class="simple">
+<li>howeva, SQLite is capable of storing dates and times as TEXT, REAL or INTEGER values.</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Storage Class</th>
+<th class="head">Data Format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>TEXT</strong></td>
+<td>A date in a format like &#8220;YYYY-MM-DD HH:MM:SS.SSS&#8221;.</td>
+</tr>
+<tr class="row-odd"><td><strong>REAL</strong></td>
+<td>The number of days since noon in Greenwich on November 24, 4714 B.C.</td>
+</tr>
+<tr class="row-even"><td><strong>INTEGER</strong></td>
+<td>The number of seconds since 1970-01-01 00:00:00 UTC.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sqlite.tutpoint.6_sqlite_DDL.html" class="btn btn-neutral float-right" title="1.6. SQLite DDL" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sqlite.tutpoint.4_sqlite_syntax.html" class="btn btn-neutral" title="1.4. SQLite syntax (a whirl-wind tour)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

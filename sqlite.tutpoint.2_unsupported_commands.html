@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Coding Notebook 1 documentation</title>
+  <title>1.2. Unsupported features in SQLite &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,7 +32,10 @@
   
 
   
-    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/> 
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="1. SQLite notes from tutorialpoint" href="sqlite.tutpoint.html"/>
+        <link rel="next" title="1.3. sqlite commands" href="sqlite.tutpoint.3_sqlite_commands.html"/>
+        <link rel="prev" title="1.1. SQLite commands overview" href="sqlite.tutpoint.1_commands_overview.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,7 +86,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -274,15 +276,15 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html">1.1. SQLite commands overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#ddl-data-definition-language">1.1.1. DDL (data definition language)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#dml-data-manipulation-language">1.1.2. DML (Data manipulation language)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#dql-data-query-language">1.1.3. DQL (data query language)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.2_unsupported_commands.html">1.2. Unsupported features in SQLite</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2. Unsupported features in SQLite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.3_sqlite_commands.html">1.3. sqlite commands</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.3_sqlite_commands.html#the-dot-commands-from-sqlite">1.3.1. the <em>dot</em> commands from sqlite</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.3_sqlite_commands.html#show-see-default-settings">1.3.2. show &#8211; see default settings</a></li>
@@ -442,12 +444,18 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li></li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
+        
+          <li><a href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a> &raquo;</li>
+        
+      <li>1.2. Unsupported features in SQLite</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/sqlite.tutpoint.2_unsupported_commands.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -457,17 +465,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="unsupported-features-in-sqlite">
+<h1>1.2. Unsupported features in SQLite<a class="headerlink" href="#unsupported-features-in-sqlite" title="Permalink to this headline">¶</a></h1>
+<p>Unsupported features in SQL92 of SQLite</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Feature</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>RIGHT OUTER JOIN</td>
+<td>Only LEFT OUTER JOIN is implemented.</td>
+</tr>
+<tr class="row-odd"><td>FULL OUTER JOIN</td>
+<td>Only LEFT OUTER JOIN is implemented.</td>
+</tr>
+<tr class="row-even"><td>ALTER TABLE</td>
+<td>The RENAME TABLE and ADD COLUMN variants of the ALTER command are supported.</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>The DROP COLUMN, ALTER COLUMN, ADD CONSTRAINT not supported.</td>
+</tr>
+<tr class="row-even"><td>Trigger support</td>
+<td>FOR EACH ROW triggers are supported but not FOR EACH STATEMENT triggers.</td>
+</tr>
+<tr class="row-odd"><td>VIEWs</td>
+<td>VIEWs in SQLite are read-only.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>You may not execute a DELETE, INSERT, or UPDATE statement on a view.</td>
+</tr>
+<tr class="row-odd"><td>GRANT and REVOKE</td>
+<td>The only access permissions that can be applied are the normal file access permissions of the underlying operating system.</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sqlite.tutpoint.3_sqlite_commands.html" class="btn btn-neutral float-right" title="1.3. sqlite commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sqlite.tutpoint.1_commands_overview.html" class="btn btn-neutral" title="1.1. SQLite commands overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

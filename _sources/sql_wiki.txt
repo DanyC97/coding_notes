@@ -1,5 +1,10 @@
 Random jumbles from wikipedia pertaining to Database concepts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Use the table at the bottom of this `article <https://en.wikipedia.org/wiki/Data_definition_language>`__
+
+More tables `here <https://en.wikipedia.org/wiki/Database>`__
+
+
 I love wikipedia, but I do this way too often:
 
 .. image:: https://imgs.xkcd.com/comics/dfs.png
@@ -35,20 +40,22 @@ https://en.wikipedia.org/wiki/SQL
 
 SQL consists of:
 
-- DDL **data definition language**
+- DDL **data definition language** `(MSDN) <https://msdn.microsoft.com/en-us/library/ff848799.aspx>`__
 - DML **data manipulation language**, and 
 - DCL **Data Control Language**.
 
-##############################
+******************************
 Data definition language (DDL)
-##############################
-`DDL <https://en.wikipedia.org/wiki/Data_definition_language>`__  (``CREATE, DROP, ALTER, RENAME``)
-= a syntax similar to a computer programming language for defining data structures, especially database schemas.
+******************************
+- `DDL <https://en.wikipedia.org/wiki/Data_definition_language>`__  (``CREATE, DROP, ALTER, RENAME``)= a syntax similar to a computer programming language for defining data structures, especially database schemas.
+- `Data Definition Language (DDL) Statements (Transact-SQL) (MSDN) <https://msdn.microsoft.com/en-us/library/ff848799.aspx>`__ - Data Definition Language (DDL) is a vocabulary used to define data structures in SQL Server 2016. Use these statements to create, alter, or drop data structures in an instance of SQL Server.
+
 
 ********************************
 Data Manipulation Language (DML)
 ********************************
-`DML <https://en.wikipedia.org/wiki/Data_manipulation_language>`__ (``SELECT, INSERT, UPDATE, DELETE``) - a family of syntax elements similar to a computer programming language used for selecting, inserting, deleting and updating data in a database
+- `DML <https://en.wikipedia.org/wiki/Data_manipulation_language>`__ (``SELECT, INSERT, UPDATE, DELETE``) - a family of syntax elements similar to a computer programming language used for selecting, inserting, deleting and updating data in a database
+- `Data Manipulation Language (DML) Statements (Transact-SQL) (MSDN) <https://msdn.microsoft.com/en-us/library/ff848766.aspx>`__ - Data Manipulation Language (DML) is a vocabulary used to retrieve and work with data in SQL Server 2016. Use these statements to add, modify, query, or remove data from a SQL Server database.
 
 .. code-block:: sql
     
@@ -56,6 +63,8 @@ Data Manipulation Language (DML)
     INSERT INTO ... VALUES ...
     UPDATE ... SET ... WHERE ...
     DELETE FROM ... WHERE ...
+
+`(MSDN) <https://msdn.microsoft.com/en-us/library/ff848799.aspx>`__
 
 ***************************
 Data Control Language (DCL)

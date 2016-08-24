@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Coding Notebook 1 documentation</title>
+  <title>1.8. SQLite clauses &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,7 +32,10 @@
   
 
   
-    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/> 
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="1. SQLite notes from tutorialpoint" href="sqlite.tutpoint.html"/>
+        <link rel="next" title="1.9. SQLite Expressions" href="sqlite.tutpoint.8_sqlite_expressions.html"/>
+        <link rel="prev" title="1.7. SQLite DML" href="sqlite.tutpoint.7_sqlite_DML.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,7 +86,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -274,8 +276,8 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html">1.1. SQLite commands overview</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#ddl-data-definition-language">1.1.1. DDL (data definition language)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.1_commands_overview.html#dml-data-manipulation-language">1.1.2. DML (Data manipulation language)</a></li>
@@ -324,17 +326,17 @@
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_DML.html#delete-query">1.7.4. DELETE Query</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html">1.8. SQLite clauses</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#where-clause">1.8.1. WHERE Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#and-or-clause">1.8.2. AND, OR Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#like-clause">1.8.3. LIKE Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#glob-clause">1.8.4. GLOB Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#limit-clause">1.8.5. LIMIT Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#having-clause">1.8.6. HAVING Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#unions-clause">1.8.7. UNIONS Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#order-by-clause">1.8.8. ORDER BY Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#group-by-clause">1.8.9. GROUP BY Clause</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.7_sqlite_clauses.html#distinct-clause-keyword">1.8.10. DISTINCT Clause/keyword</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.8. SQLite clauses</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#where-clause">1.8.1. WHERE Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#and-or-clause">1.8.2. AND, OR Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#like-clause">1.8.3. LIKE Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#glob-clause">1.8.4. GLOB Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#limit-clause">1.8.5. LIMIT Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#having-clause">1.8.6. HAVING Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unions-clause">1.8.7. UNIONS Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#order-by-clause">1.8.8. ORDER BY Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-by-clause">1.8.9. GROUP BY Clause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distinct-clause-keyword">1.8.10. DISTINCT Clause/keyword</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.8_sqlite_expressions.html">1.9. SQLite Expressions</a></li>
@@ -442,12 +444,18 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li></li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
+        
+          <li><a href="sqlite.tutpoint.html">1. SQLite notes from tutorialpoint</a> &raquo;</li>
+        
+      <li>1.8. SQLite clauses</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/sqlite.tutpoint.7_sqlite_clauses.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -457,17 +465,81 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#sqlite-clauses" id="id1">SQLite clauses</a><ul>
+<li><a class="reference internal" href="#where-clause" id="id2">WHERE Clause</a></li>
+<li><a class="reference internal" href="#and-or-clause" id="id3">AND, OR Clause</a></li>
+<li><a class="reference internal" href="#like-clause" id="id4">LIKE Clause</a></li>
+<li><a class="reference internal" href="#glob-clause" id="id5">GLOB Clause</a></li>
+<li><a class="reference internal" href="#limit-clause" id="id6">LIMIT Clause</a></li>
+<li><a class="reference internal" href="#having-clause" id="id7">HAVING Clause</a></li>
+<li><a class="reference internal" href="#unions-clause" id="id8">UNIONS Clause</a></li>
+<li><a class="reference internal" href="#order-by-clause" id="id9">ORDER BY Clause</a></li>
+<li><a class="reference internal" href="#group-by-clause" id="id10">GROUP BY Clause</a></li>
+<li><a class="reference internal" href="#distinct-clause-keyword" id="id11">DISTINCT Clause/keyword</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sqlite-clauses">
+<h1><a class="toc-backref" href="#id1">1.8. SQLite clauses</a><a class="headerlink" href="#sqlite-clauses" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="where-clause">
+<h2><a class="toc-backref" href="#id2">1.8.1. WHERE Clause</a><a class="headerlink" href="#where-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_where_clause.htm">http://www.tutorialspoint.com/sqlite/sqlite_where_clause.htm</a></p>
+</div>
+<div class="section" id="and-or-clause">
+<h2><a class="toc-backref" href="#id3">1.8.2. AND, OR Clause</a><a class="headerlink" href="#and-or-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_and_or_clauses.htm">http://www.tutorialspoint.com/sqlite/sqlite_and_or_clauses.htm</a></p>
+</div>
+<div class="section" id="like-clause">
+<h2><a class="toc-backref" href="#id4">1.8.3. LIKE Clause</a><a class="headerlink" href="#like-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_like_clause.htm">http://www.tutorialspoint.com/sqlite/sqlite_like_clause.htm</a></p>
+</div>
+<div class="section" id="glob-clause">
+<h2><a class="toc-backref" href="#id5">1.8.4. GLOB Clause</a><a class="headerlink" href="#glob-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_glob_clause.htm">http://www.tutorialspoint.com/sqlite/sqlite_glob_clause.htm</a></p>
+</div>
+<div class="section" id="limit-clause">
+<h2><a class="toc-backref" href="#id6">1.8.5. LIMIT Clause</a><a class="headerlink" href="#limit-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_limit_clause.htm">http://www.tutorialspoint.com/sqlite/sqlite_limit_clause.htm</a></p>
+</div>
+<div class="section" id="having-clause">
+<h2><a class="toc-backref" href="#id7">1.8.6. HAVING Clause</a><a class="headerlink" href="#having-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_having_clause.htm">http://www.tutorialspoint.com/sqlite/sqlite_having_clause.htm</a></p>
+</div>
+<div class="section" id="unions-clause">
+<h2><a class="toc-backref" href="#id8">1.8.7. UNIONS Clause</a><a class="headerlink" href="#unions-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_unions_clause.htm">http://www.tutorialspoint.com/sqlite/sqlite_unions_clause.htm</a></p>
+</div>
+<div class="section" id="order-by-clause">
+<h2><a class="toc-backref" href="#id9">1.8.8. ORDER BY Clause</a><a class="headerlink" href="#order-by-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_order_by.htm">http://www.tutorialspoint.com/sqlite/sqlite_order_by.htm</a></p>
+</div>
+<div class="section" id="group-by-clause">
+<h2><a class="toc-backref" href="#id10">1.8.9. GROUP BY Clause</a><a class="headerlink" href="#group-by-clause" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_group_by.htm">http://www.tutorialspoint.com/sqlite/sqlite_group_by.htm</a></p>
+</div>
+<div class="section" id="distinct-clause-keyword">
+<h2><a class="toc-backref" href="#id11">1.8.10. DISTINCT Clause/keyword</a><a class="headerlink" href="#distinct-clause-keyword" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_distinct_keyword.htm">http://www.tutorialspoint.com/sqlite/sqlite_distinct_keyword.htm</a></p>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sqlite.tutpoint.8_sqlite_expressions.html" class="btn btn-neutral float-right" title="1.9. SQLite Expressions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sqlite.tutpoint.7_sqlite_DML.html" class="btn btn-neutral" title="1.7. SQLite DML" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
