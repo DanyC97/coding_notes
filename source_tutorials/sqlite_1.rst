@@ -11,6 +11,8 @@ SQLite commands overview
 ******************************
 DDL (data definition language)
 ******************************
+https://en.wikipedia.org/wiki/Data_definition_language
+
 .. csv-table:: 
     :header: Command, Description
     :widths: 20,70
@@ -64,6 +66,7 @@ Unsupported features in SQL92 of SQLite
 ###############
 sqlite commands
 ###############
+http://www.tutorialspoint.com/sqlite/sqlite_commands.htm
 
 .. code-block:: none
     :linenos:

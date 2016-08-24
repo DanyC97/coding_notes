@@ -1,5 +1,9 @@
-SQL-lite Tutorials Point
-""""""""""""""""""""""""
+SQL notes
+"""""""""
+Concepts related to SQL and database.
+
+Completely jumbled notes with references from all over the place.
+
 Took out snippets from http://www.tutorialspoint.com/sqlite/index.htm
 
 References for SQLite
@@ -14,5 +18,8 @@ References for SQLite
     :numbered:
 
     sqlite_1.rst
+    sqlite_2_sqlite_syntax.rst
+    sqlite_3_data_type.rst
     sqlite_5.rst
     sqlite_doc.rst
+    sql_wiki.rst
