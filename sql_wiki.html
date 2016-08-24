@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>My coding notebook &mdash; Coding Notebook 1 documentation</title>
+  <title>8. Random jumbles from wikipedia pertaining to Database concepts &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -32,8 +32,9 @@
   
 
   
-    <link rel="top" title="Coding Notebook 1 documentation" href="#"/>
-        <link rel="next" title="Bash wooledge" href="bash_wooledge/top-bash-wool.html"/> 
+    <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
+        <link rel="up" title="SQL notes" href="top-sqlite.html"/>
+        <link rel="prev" title="7. Bunch of stuffs from the official doc" href="sqlite_doc.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -52,7 +53,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Coding Notebook
+            <a href="index.html" class="icon icon-home"> Coding Notebook
           
 
           
@@ -84,7 +85,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -274,7 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sqlite_1.html">1. SQLite commands overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#ddl-data-definition-language">1.1. DDL (data definition language)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#dml-data-manipulation-language">1.2. DML (Data manipulation language)</a></li>
@@ -300,8 +301,11 @@
 <li class="toctree-l2"><a class="reference internal" href="sqlite_3_data_type.html">5. SQLite Data Type</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-storage-classes">5.1. SQLite Storage Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-affinity-type">5.2. SQLite Affinity Type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-affinity-and-type-names">5.3. SQLite Affinity and Type Names</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#date-and-time-datatype">5.4. Date and Time Datatype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-affinity-and-type-names">5.3. SQLite Affinity and Type Names</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_3_data_type.html#affinity-none">5.3.1. Affinity: NONE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_3_data_type.html#affinity-real">5.3.2. Affinity: REAL</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sqlite_5.html">6. SQLite - useful functions</a><ul>
@@ -330,36 +334,36 @@
 <li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#json-just-read">7.8. JSON (just read)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="sql_wiki.html">8. Random jumbles from wikipedia pertaining to Database concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#data-integrity">8.1. Data Integrity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#ddl-dml-dcl">8.2. DDL, DML, DCL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#data-definition-language-ddl">8.3. Data definition language (DDL)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#data-manipulation-language-dml">8.3.1. Data Manipulation Language (DML)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#data-control-language-dcl">8.3.2. Data Control Language (DCL)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8. Random jumbles from wikipedia pertaining to Database concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-integrity">8.1. Data Integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ddl-dml-dcl">8.2. DDL, DML, DCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-definition-language-ddl">8.3. Data definition language (DDL)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-manipulation-language-dml">8.3.1. Data Manipulation Language (DML)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-control-language-dcl">8.3.2. Data Control Language (DCL)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#acid">8.4. ACID</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#atomicity">8.4.1. Atomicity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#consistency">8.4.2. Consistency</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#isolation">8.4.3. Isolation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#durability">8.4.4. Durability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acid">8.4. ACID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#atomicity">8.4.1. Atomicity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#consistency">8.4.2. Consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isolation">8.4.3. Isolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#durability">8.4.4. Durability</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#jumpled-articles">8.5. Jumpled articles</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#consistency-model">8.5.1. Consistency model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#cap-theorem-aka-brewer-s-theorem">8.5.2. CAP Theorem (aka Brewer&#8217;s Theorem)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#database-transaction">8.5.3. Database transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jumpled-articles">8.5. Jumpled articles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#consistency-model">8.5.1. Consistency model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cap-theorem-aka-brewer-s-theorem">8.5.2. CAP Theorem (aka Brewer&#8217;s Theorem)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-transaction">8.5.3. Database transaction</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#database-normalization">8.6. Database normalization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#database-schema">8.7. Database Schema</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#logical-schema">8.7.1. Logical schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#physical-schema">8.7.2. Physical schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#conceptual-schema">8.7.3. Conceptual schema</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#three-schema-approach">8.7.4. Three-schema approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-normalization">8.6. Database normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-schema">8.7. Database Schema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logical-schema">8.7.1. Logical schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#physical-schema">8.7.2. Physical schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conceptual-schema">8.7.3. Conceptual schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#three-schema-approach">8.7.4. Three-schema approach</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#bunch-of-jumbled-links">8.8. Bunch of jumbled links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bunch-of-jumbled-links">8.8. Bunch of jumbled links</a></li>
 </ul>
 </li>
 </ul>
@@ -378,7 +382,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Coding Notebook</a>
+          <a href="index.html">Coding Notebook</a>
         
       </nav>
 
@@ -403,15 +407,17 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>My coding notebook</li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
+        
+      <li>8. Random jumbles from wikipedia pertaining to Database concepts</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/sql_wiki.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -422,25 +428,198 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="my-coding-notebook">
-<h1>My coding notebook<a class="headerlink" href="#my-coding-notebook" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p>sed</p>
-<ul class="last simple">
-<li><a class="reference external" href="http://www.tutorialspoint.com/sed/index.htm">http://www.tutorialspoint.com/sed/index.htm</a></li>
-<li><a class="reference external" href="https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs">https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs</a></li>
+  <div class="section" id="random-jumbles-from-wikipedia-pertaining-to-database-concepts">
+<h1>8. Random jumbles from wikipedia pertaining to Database concepts<a class="headerlink" href="#random-jumbles-from-wikipedia-pertaining-to-database-concepts" title="Permalink to this headline">¶</a></h1>
+<p>I love wikipedia, but I do this way too often:</p>
+<img alt="https://imgs.xkcd.com/comics/dfs.png" src="https://imgs.xkcd.com/comics/dfs.png" />
+<p>That said, having the hierarchical TOC on the LHS helps
+(even just sorting them conceptally helps me get a rough understanding of the field)</p>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first"><cite>Table of contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#data-integrity" id="id1">Data Integrity</a></li>
+<li><a class="reference internal" href="#ddl-dml-dcl" id="id2">DDL, DML, DCL</a></li>
+<li><a class="reference internal" href="#data-definition-language-ddl" id="id3">Data definition language (DDL)</a><ul>
+<li><a class="reference internal" href="#data-manipulation-language-dml" id="id4">Data Manipulation Language (DML)</a></li>
+<li><a class="reference internal" href="#data-control-language-dcl" id="id5">Data Control Language (DCL)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acid" id="id6">ACID</a><ul>
+<li><a class="reference internal" href="#atomicity" id="id7">Atomicity</a></li>
+<li><a class="reference internal" href="#consistency" id="id8">Consistency</a></li>
+<li><a class="reference internal" href="#isolation" id="id9">Isolation</a></li>
+<li><a class="reference internal" href="#durability" id="id10">Durability</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jumpled-articles" id="id11">Jumpled articles</a><ul>
+<li><a class="reference internal" href="#consistency-model" id="id12">Consistency model</a></li>
+<li><a class="reference internal" href="#cap-theorem-aka-brewer-s-theorem" id="id13">CAP Theorem (aka Brewer&#8217;s Theorem)</a></li>
+<li><a class="reference internal" href="#database-transaction" id="id14">Database transaction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#database-normalization" id="id15">Database normalization</a></li>
+<li><a class="reference internal" href="#database-schema" id="id16">Database Schema</a><ul>
+<li><a class="reference internal" href="#logical-schema" id="id17">Logical schema</a></li>
+<li><a class="reference internal" href="#physical-schema" id="id18">Physical schema</a></li>
+<li><a class="reference internal" href="#conceptual-schema" id="id19">Conceptual schema</a></li>
+<li><a class="reference internal" href="#three-schema-approach" id="id20">Three-schema approach</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bunch-of-jumbled-links" id="id21">Bunch of jumbled links</a></li>
 </ul>
 </div>
-<div class="toctree-wrapper compound" id="table-of-contents">
-<p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#table-of-contents" title="Permalink to this toctree">¶</a></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.gnu.html">sed-tutorial-gnu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sed/sed-tutorial.tutorialspoints.html">sed-tutorial-tutorials-points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tutorial/index.html">awk-tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="top-sqlite.html">SQL notes</a></li>
+<div class="section" id="data-integrity">
+<h2><a class="toc-backref" href="#id1">8.1. Data Integrity</a><a class="headerlink" href="#data-integrity" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Data_integrity">https://en.wikipedia.org/wiki/Data_integrity</a></p>
+<p>Summary for <strong>Databases</strong> (<a class="reference external" href="https://en.wikipedia.org/wiki/Data_integrity#Types_of_integrity_constraints">link</a>)</p>
+<p>3 types of contraints for Relational data model:</p>
+<ol class="arabic simple">
+<li><strong>Entity integrity</strong> - every table must have a primary key and the columns chosen as the primary key must be unique</li>
+<li><strong>Referential integrity</strong> - any <em>foreign-key</em> value can only be in one of two states (usually states that the foreign-key-value referrs to a primary key value of some table in the database)</li>
+<li><strong>Domain integrity</strong> - all columns must be declared upon a defined domain (domain is a set of values of the same type)</li>
+</ol>
+<p>There&#8217;s also <strong>user-defined integrity</strong></p>
+</div>
+<div class="section" id="ddl-dml-dcl">
+<h2><a class="toc-backref" href="#id2">8.2. DDL, DML, DCL</a><a class="headerlink" href="#ddl-dml-dcl" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/SQL">https://en.wikipedia.org/wiki/SQL</a></p>
+<p>SQL consists of:</p>
+<ul class="simple">
+<li>DDL <strong>data definition language</strong></li>
+<li>DML <strong>data manipulation language</strong>, and</li>
+<li>DCL <strong>Data Control Language</strong>.</li>
+</ul>
+</div>
+<div class="section" id="data-definition-language-ddl">
+<h2><a class="toc-backref" href="#id3">8.3. Data definition language (DDL)</a><a class="headerlink" href="#data-definition-language-ddl" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Data_definition_language">DDL</a>  (<code class="docutils literal"><span class="pre">CREATE,</span> <span class="pre">DROP,</span> <span class="pre">ALTER,</span> <span class="pre">RENAME</span></code>)
+= a syntax similar to a computer programming language for defining data structures, especially database schemas.</p>
+<div class="section" id="data-manipulation-language-dml">
+<h3><a class="toc-backref" href="#id4">8.3.1. Data Manipulation Language (DML)</a><a class="headerlink" href="#data-manipulation-language-dml" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Data_manipulation_language">DML</a> (<code class="docutils literal"><span class="pre">SELECT,</span> <span class="pre">INSERT,</span> <span class="pre">UPDATE,</span> <span class="pre">DELETE</span></code>) - a family of syntax elements similar to a computer programming language used for selecting, inserting, deleting and updating data in a database</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">...</span> <span class="k">FROM</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="p">...</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">...</span> <span class="k">VALUES</span> <span class="p">...</span>
+<span class="k">UPDATE</span> <span class="p">...</span> <span class="k">SET</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="p">...</span>
+<span class="k">DELETE</span> <span class="k">FROM</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="p">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-control-language-dcl">
+<h3><a class="toc-backref" href="#id5">8.3.2. Data Control Language (DCL)</a><a class="headerlink" href="#data-control-language-dcl" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Data_control_language">DCL</a> (<code class="docutils literal"><span class="pre">GRANT,</span> <span class="pre">REVOKE</span></code>) &#8211; a syntax similar to a computer programming language used to control access to data stored in a database (Authorization)</p>
+<ul class="simple">
+<li>Oracle Database &#8211; cannot roll back the command</li>
+<li>PostgreSQL &#8211; can be rolled back</li>
+<li>SQLite does not have any DCL commands as it does not have usernames or logins</li>
+</ul>
+</div>
+</div>
+<div class="section" id="acid">
+<h2><a class="toc-backref" href="#id6">8.4. ACID</a><a class="headerlink" href="#acid" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/ACID">https://en.wikipedia.org/wiki/ACID</a></p>
+<p>ACID (Atomicity, Consistency, Isolation, Durability)</p>
+<ul class="simple">
+<li>a set of properties of <a class="reference external" href="https://en.wikipedia.org/wiki/Database_transaction">database transactions</a></li>
+</ul>
+<div class="section" id="atomicity">
+<h3><a class="toc-backref" href="#id7">8.4.1. Atomicity</a><a class="headerlink" href="#atomicity" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Atomicity_%28database_systems%29">https://en.wikipedia.org/wiki/Atomicity_%28database_systems%29</a></p>
+</div>
+<div class="section" id="consistency">
+<h3><a class="toc-backref" href="#id8">8.4.2. Consistency</a><a class="headerlink" href="#consistency" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Consistency_%28database_systems%29">https://en.wikipedia.org/wiki/Consistency_%28database_systems%29</a></p>
+</div>
+<div class="section" id="isolation">
+<h3><a class="toc-backref" href="#id9">8.4.3. Isolation</a><a class="headerlink" href="#isolation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Isolation_%28database_systems%29">https://en.wikipedia.org/wiki/Isolation_%28database_systems%29</a></p>
+</div>
+<div class="section" id="durability">
+<h3><a class="toc-backref" href="#id10">8.4.4. Durability</a><a class="headerlink" href="#durability" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Durability_%28database_systems%29">https://en.wikipedia.org/wiki/Durability_%28database_systems%29</a></p>
+</div>
+</div>
+<div class="section" id="jumpled-articles">
+<h2><a class="toc-backref" href="#id11">8.5. Jumpled articles</a><a class="headerlink" href="#jumpled-articles" title="Permalink to this headline">¶</a></h2>
+<p>Stuffs I donno enough to categorize...</p>
+<div class="section" id="consistency-model">
+<h3><a class="toc-backref" href="#id12">8.5.1. Consistency model</a><a class="headerlink" href="#consistency-model" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Consistency_model">https://en.wikipedia.org/wiki/Consistency_model</a></p>
+</div>
+<div class="section" id="cap-theorem-aka-brewer-s-theorem">
+<h3><a class="toc-backref" href="#id13">8.5.2. CAP Theorem (aka Brewer&#8217;s Theorem)</a><a class="headerlink" href="#cap-theorem-aka-brewer-s-theorem" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/CAP_theorem">https://en.wikipedia.org/wiki/CAP_theorem</a></p>
+<p>states that it is impossible for a distributed computer system to simultaneously provide all three of the following guarantees</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Consistency_%28database_systems%29">Consistency</a> (all nodes see the same data at the same time)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Availability">Availability</a> (every request receives a response about whether it succeeded or failed)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Network_partition">Partition tolerance</a> (the system continues to operate despite arbitrary partitioning due to network failures)</li>
+</ol>
+</div>
+<div class="section" id="database-transaction">
+<h3><a class="toc-backref" href="#id14">8.5.3. Database transaction</a><a class="headerlink" href="#database-transaction" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Database_transaction">https://en.wikipedia.org/wiki/Database_transaction</a></p>
+</div>
+</div>
+<div class="section" id="database-normalization">
+<h2><a class="toc-backref" href="#id15">8.6. Database normalization</a><a class="headerlink" href="#database-normalization" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Database_normalization">https://en.wikipedia.org/wiki/Database_normalization</a></li>
+<li><a class="reference external" href="https://simple.wikipedia.org/wiki/Database_normalisation">https://simple.wikipedia.org/wiki/Database_normalisation</a></li>
+</ul>
+</div>
+<div class="section" id="database-schema">
+<h2><a class="toc-backref" href="#id16">8.7. Database Schema</a><a class="headerlink" href="#database-schema" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Database_schema">https://en.wikipedia.org/wiki/Database_schema</a></li>
+</ul>
+<p>Some SO threads</p>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/2674222/what-is-purpose-of-database-schema">http://stackoverflow.com/questions/2674222/what-is-purpose-of-database-schema</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/298739/what-is-the-difference-between-a-schema-and-a-table-and-a-database">http://stackoverflow.com/questions/298739/what-is-the-difference-between-a-schema-and-a-table-and-a-database</a></li>
+</ul>
+<div class="section" id="logical-schema">
+<h3><a class="toc-backref" href="#id17">8.7.1. Logical schema</a><a class="headerlink" href="#logical-schema" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Logical_schema">https://en.wikipedia.org/wiki/Logical_schema</a></p>
+</div>
+<div class="section" id="physical-schema">
+<h3><a class="toc-backref" href="#id18">8.7.2. Physical schema</a><a class="headerlink" href="#physical-schema" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Physical_schema">https://en.wikipedia.org/wiki/Physical_schema</a></p>
+</div>
+<div class="section" id="conceptual-schema">
+<h3><a class="toc-backref" href="#id19">8.7.3. Conceptual schema</a><a class="headerlink" href="#conceptual-schema" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Conceptual_schema">https://en.wikipedia.org/wiki/Conceptual_schema</a></p>
+</div>
+<div class="section" id="three-schema-approach">
+<h3><a class="toc-backref" href="#id20">8.7.4. Three-schema approach</a><a class="headerlink" href="#three-schema-approach" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Three-schema_approach">https://en.wikipedia.org/wiki/Three-schema_approach</a></p>
+</div>
+</div>
+<div class="section" id="bunch-of-jumbled-links">
+<h2><a class="toc-backref" href="#id21">8.8. Bunch of jumbled links</a><a class="headerlink" href="#bunch-of-jumbled-links" title="Permalink to this headline">¶</a></h2>
+<p>..note:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Don</span><span class="s1">&#39;t expect myself to dive in too deeply with some of these, but just be aware that these concepts exist.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Relational_database">https://en.wikipedia.org/wiki/Relational_database</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Relational_model">https://en.wikipedia.org/wiki/Relational_model</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Relation_(database">https://en.wikipedia.org/wiki/Relation_(database</a>)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Data_retention">https://en.wikipedia.org/wiki/Data_retention</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Relational_database_management_system">https://en.wikipedia.org/wiki/Relational_database_management_system</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Database_design">https://en.wikipedia.org/wiki/Database_design</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Foreign_key">https://en.wikipedia.org/wiki/Foreign_key</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Data_model">https://en.wikipedia.org/wiki/Data_model</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/View_model">https://en.wikipedia.org/wiki/View_model</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model">https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Data_structure_diagram">https://en.wikipedia.org/wiki/Data_structure_diagram</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Check_constraint">https://en.wikipedia.org/wiki/Check_constraint</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Database_trigger">https://en.wikipedia.org/wiki/Database_trigger</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Cursor_(databases">https://en.wikipedia.org/wiki/Cursor_(databases</a>)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Data_domain">https://en.wikipedia.org/wiki/Data_domain</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/View_(SQL">https://en.wikipedia.org/wiki/View_(SQL</a>)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Materialized_view">https://en.wikipedia.org/wiki/Materialized_view</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Query_optimization">https://en.wikipedia.org/wiki/Query_optimization</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Query_plan">https://en.wikipedia.org/wiki/Query_plan</a></li>
 </ul>
 </div>
 </div>
@@ -452,8 +631,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="bash_wooledge/top-bash-wool.html" class="btn btn-neutral float-right" title="Bash wooledge" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="sqlite_doc.html" class="btn btn-neutral" title="7. Bunch of stuffs from the official doc" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. SQLite - useful functions &mdash; Coding Notebook 1 documentation</title>
+  <title>6. SQLite - useful functions &mdash; Coding Notebook 1 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="Coding Notebook 1 documentation" href="index.html"/>
-        <link rel="up" title="SQL-lite Tutorials Point" href="top-sqlite.html"/>
-        <link rel="next" title="5. Bunch of stuffs from the official doc" href="sqlite_doc.html"/>
-        <link rel="prev" title="1. SQLite commands overview" href="sqlite_1.html"/> 
+        <link rel="up" title="SQL notes" href="top-sqlite.html"/>
+        <link rel="next" title="7. Bunch of stuffs from the official doc" href="sqlite_doc.html"/>
+        <link rel="prev" title="5. SQLite Data Type" href="sqlite_3_data_type.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -276,7 +276,7 @@
 <li class="toctree-l2"><a class="reference internal" href="awk-tp.basic-examples.html">5. AWK &#8211; Basic Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL-lite Tutorials Point</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="top-sqlite.html">SQL notes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sqlite_1.html">1. SQLite commands overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#ddl-data-definition-language">1.1. DDL (data definition language)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#dml-data-manipulation-language">1.2. DML (Data manipulation language)</a></li>
@@ -290,28 +290,81 @@
 <li class="toctree-l3"><a class="reference internal" href="sqlite_1.html#the-sqlite-master-table">3.3. The sqlite_master Table</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4. SQLite - useful functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#summary-of-key-functions">4.1. Summary of key functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">4.2. Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite_2_sqlite_syntax.html">4. SQLite syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_2_sqlite_syntax.html#create-table">4.1. CREATE TABLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_2_sqlite_syntax.html#create-trigger">4.2. CREATE TRIGGER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_2_sqlite_syntax.html#group-by">4.3. GROUP BY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_2_sqlite_syntax.html#having">4.4. HAVING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_2_sqlite_syntax.html#pragma">4.5. PRAGMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_2_sqlite_syntax.html#update">4.6. UPDATE</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="sqlite_doc.html">5. Bunch of stuffs from the official doc</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#command-line-shell-for-sqlite">5.1. Command Line Shell for SQLite</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#semicolon-to-indicate-end-of-sql-command">5.1.1. Semicolon to indicate end of SQL command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite_3_data_type.html">5. SQLite Data Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-storage-classes">5.1. SQLite Storage Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-affinity-type">5.2. SQLite Affinity Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_3_data_type.html#sqlite-affinity-and-type-names">5.3. SQLite Affinity and Type Names</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_3_data_type.html#affinity-none">5.3.1. Affinity: NONE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_3_data_type.html#affinity-real">5.3.2. Affinity: REAL</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#sql-syntax-link-only">5.2. SQL Syntax (link only)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#sql-keywords-link-only">5.3. SQL Keywords (link only)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#datatypes-in-sqlite-version3-link-only">5.4. Datatypes in SQLite Version3 (link only)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#core-functions">5.5. Core functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#agg-functions">5.6. Agg functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#data-and-time-functions">5.7. Data and time functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#timestring">5.7.1. timestring</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#modifiers">5.7.2. modifiers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#examples">5.7.3. Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#json-just-read">5.8. JSON (just read)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. SQLite - useful functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-key-functions">6.1. Summary of key functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">6.2. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sqlite_doc.html">7. Bunch of stuffs from the official doc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#command-line-shell-for-sqlite-incomplete">7.1. Command Line Shell for SQLite (incomplete)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#semicolon-to-indicate-end-of-sql-command">7.1.1. Semicolon to indicate end of SQL command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#dot-commands-special-commands-to-sqlite3">7.1.2. dot-commands (special commands to sqlite3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#todo">7.1.3. todo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#sql-syntax-link-only">7.2. SQL Syntax (link only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#sql-keywords-link-only">7.3. SQL Keywords (link only)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#datatypes-in-sqlite-version3-todo">7.4. Datatypes in SQLite Version3 (todo)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#core-functions-todo">7.5. Core functions (todo)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#agg-functions">7.6. Agg functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#data-and-time-functions">7.7. Data and time functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#timestring">7.7.1. timestring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#modifiers">7.7.2. modifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite_doc.html#examples">7.7.3. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sqlite_doc.html#json-just-read">7.8. JSON (just read)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sql_wiki.html">8. Random jumbles from wikipedia pertaining to Database concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#data-integrity">8.1. Data Integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#ddl-dml-dcl">8.2. DDL, DML, DCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#data-definition-language-ddl">8.3. Data definition language (DDL)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#data-manipulation-language-dml">8.3.1. Data Manipulation Language (DML)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#data-control-language-dcl">8.3.2. Data Control Language (DCL)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#acid">8.4. ACID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#atomicity">8.4.1. Atomicity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#consistency">8.4.2. Consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#isolation">8.4.3. Isolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#durability">8.4.4. Durability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#jumpled-articles">8.5. Jumpled articles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#consistency-model">8.5.1. Consistency model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#cap-theorem-aka-brewer-s-theorem">8.5.2. CAP Theorem (aka Brewer&#8217;s Theorem)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#database-transaction">8.5.3. Database transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#database-normalization">8.6. Database normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#database-schema">8.7. Database Schema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#logical-schema">8.7.1. Logical schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#physical-schema">8.7.2. Physical schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#conceptual-schema">8.7.3. Conceptual schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sql_wiki.html#three-schema-approach">8.7.4. Three-schema approach</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sql_wiki.html#bunch-of-jumbled-links">8.8. Bunch of jumbled links</a></li>
 </ul>
 </li>
 </ul>
@@ -357,9 +410,9 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="top-sqlite.html">SQL-lite Tutorials Point</a> &raquo;</li>
+          <li><a href="top-sqlite.html">SQL notes</a> &raquo;</li>
         
-      <li>4. SQLite - useful functions</li>
+      <li>6. SQLite - useful functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -377,10 +430,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sqlite-useful-functions">
-<h1>4. SQLite - useful functions<a class="headerlink" href="#sqlite-useful-functions" title="Permalink to this headline">¶</a></h1>
+<h1>6. SQLite - useful functions<a class="headerlink" href="#sqlite-useful-functions" title="Permalink to this headline">¶</a></h1>
 <p>from <a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_useful_functions.htm">http://www.tutorialspoint.com/sqlite/sqlite_useful_functions.htm</a></p>
 <div class="section" id="summary-of-key-functions">
-<h2>4.1. Summary of key functions<a class="headerlink" href="#summary-of-key-functions" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. Summary of key functions<a class="headerlink" href="#summary-of-key-functions" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -424,7 +477,7 @@
 </table>
 </div>
 <div class="section" id="examples">
-<h2>4.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we have the following table called COMPANY</p>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">ID</span>          <span class="n">NAME</span>        <span class="n">AGE</span>         <span class="n">ADDRESS</span>     <span class="n">SALARY</span>
 <span class="c1">----------  ----------  ----------  ----------  ----------</span>
@@ -523,10 +576,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sqlite_doc.html" class="btn btn-neutral float-right" title="5. Bunch of stuffs from the official doc" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sqlite_doc.html" class="btn btn-neutral float-right" title="7. Bunch of stuffs from the official doc" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sqlite_1.html" class="btn btn-neutral" title="1. SQLite commands overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sqlite_3_data_type.html" class="btn btn-neutral" title="5. SQLite Data Type" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
