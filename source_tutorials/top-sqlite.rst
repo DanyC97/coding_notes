@@ -17,9 +17,6 @@ References for SQLite
     :name: top-sqlite
     :numbered:
 
-    sqlite_1.rst
-    sqlite_2_sqlite_syntax.rst
-    sqlite_3_data_type.rst
-    sqlite_5.rst
+    sqlite.tutpoint.rst
     sqlite_doc.rst
     sql_wiki.rst

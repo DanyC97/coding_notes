@@ -1,72 +1,16 @@
-.. contents:: **Table of contents**
-   :depth: 2
-   :local:
-
-########################
-SQLite commands overview
-########################
-- CREATE, SELECT, INSERT, UPDATE, DELETE and DROP
-- these commands an be classified into groups based on their operational nature.
-
-******************************
-DDL (data definition language)
-******************************
-https://en.wikipedia.org/wiki/Data_definition_language
-
-.. csv-table:: 
-    :header: Command, Description
-    :widths: 20,70
-    :delim: |
-
-    CREATE  | Creates a new table/view of a table/other object
-    ALTER   | Modifies an existing database object, such as a table.
-    DROP    | Deletes an entire table, a view of a table or other object in the database.
-
-********************************
-DML (Data manipulation language)
-********************************
-.. csv-table:: 
-    :header: Command, Description
-    :widths: 20,70
-    :delim: |
-
-    INSERT  | Creates a record
-    UPDATE  | Modifies records
-    DELETE  | Deletes records
-
-*************************
-DQL (data query language)
-*************************
-.. csv-table:: 
-    :header: Command, Description
-    :widths: 20,70
-    :delim: |
-
-    SELECT | Retrieves certain records from one or more tables
-
-##############################
-Unsupported features in SQLite
-##############################
-Unsupported features in SQL92 of SQLite
-
-.. csv-table:: 
-    :header: Feature, Description
-    :widths: 20,70
-    :delim: |
-
-    RIGHT OUTER JOIN  | Only LEFT OUTER JOIN is implemented.
-    FULL OUTER JOIN   | Only LEFT OUTER JOIN is implemented.
-    ALTER TABLE       | The RENAME TABLE and ADD COLUMN variants of the ALTER command are supported. 
-                      | The DROP COLUMN, ALTER COLUMN, ADD CONSTRAINT not supported.
-    Trigger support   | FOR EACH ROW triggers are supported but not FOR EACH STATEMENT triggers.
-    VIEWs             | VIEWs in SQLite are read-only. 
-                      | You may not execute a DELETE, INSERT, or UPDATE statement on a view.
-    GRANT and REVOKE  |   The only access permissions that can be applied are the normal file access permissions of the underlying operating system.  
-
 ###############
 sqlite commands
 ###############
 http://www.tutorialspoint.com/sqlite/sqlite_commands.htm
+
+.. contents:: **Contents**
+   :depth: 2
+   :local:
+
+********************************
+the *dot* commands from sqlite
+********************************
+
 
 .. code-block:: none
     :linenos:
