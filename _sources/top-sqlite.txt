@@ -12,7 +12,7 @@ References for SQLite
 - https://www.sqlite.org/docs.html
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Contents
     :name: top-sqlite
     :numbered:

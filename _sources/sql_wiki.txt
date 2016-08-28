@@ -36,7 +36,8 @@ There's also **user-defined integrity**
 #############
 DDL, DML, DCL
 #############
-https://en.wikipedia.org/wiki/SQL
+- https://en.wikipedia.org/wiki/SQL
+- http://www.orafaq.com/faq/what_are_the_difference_between_ddl_dml_and_dcl_commands
 
 SQL consists of:
 

@@ -311,7 +311,7 @@
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.5_datatype.html#date-and-time-datatype">1.5.4. Date and Time Datatype</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1.6. SQLite DDL</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="">1.6. SQLite DDL</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#create-database">1.6.1. CREATE Database</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#attach-database">1.6.2. ATTACH Database</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#detach-database">1.6.3. DETACH Database</a></li>
@@ -476,30 +476,146 @@
 <p class="topic-title first"><cite>Contents</cite></p>
 <ul class="simple">
 <li><a class="reference internal" href="#create-database" id="id1">CREATE Database</a></li>
-<li><a class="reference internal" href="#attach-database" id="id2">ATTACH Database</a></li>
-<li><a class="reference internal" href="#detach-database" id="id3">DETACH Database</a></li>
-<li><a class="reference internal" href="#create-table" id="id4">CREATE Table</a></li>
-<li><a class="reference internal" href="#drop-table" id="id5">DROP Table</a></li>
+<li><a class="reference internal" href="#attach-database" id="id2">ATTACH Database</a><ul>
+<li><a class="reference internal" href="#basic-syntax" id="id3">Basic syntax</a></li>
+<li><a class="reference internal" href="#demo" id="id4">Demo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#detach-database" id="id5">DETACH Database</a><ul>
+<li><a class="reference internal" href="#example" id="id6">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-table" id="id7">CREATE Table</a></li>
+<li><a class="reference internal" href="#drop-table" id="id8">DROP Table</a></li>
 </ul>
 </div>
 <div class="section" id="create-database">
 <h2><a class="toc-backref" href="#id1">1.6.1. CREATE Database</a><a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_create_database.htm">http://www.tutorialspoint.com/sqlite/sqlite_create_database.htm</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sqlite3 testDB.db
+SQLite version 3.13.0 2016-05-18 10:57:30
+Enter <span class="s2">&quot;.help&quot;</span> <span class="k">for</span> usage hints.
+</pre></div>
+</div>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">sqlite</span><span class="o">&gt;</span> <span class="p">.</span><span class="n">databases</span> <span class="c1">-- check if the database is int hte list of databases in SQLite</span>
+<span class="n">seq</span>  <span class="n">name</span>             <span class="n">file</span>
+<span class="c1">---  ---------------  ----------------------------------------------------------</span>
+<span class="mi">0</span>    <span class="n">main</span>             <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">takanori</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sql_play</span><span class="o">/</span><span class="n">testDB</span><span class="p">.</span><span class="n">db</span>
+
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="p">.</span><span class="n">quit</span> <span class="c1">-- exit. can also do ctrl+D (end-of-file char)</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls
+testDB.db
+
+<span class="c1"># use the .dump command to expore comlete database in a text file</span>
+$ sqlite3 testDB.db .dump &gt; testDB.sql
+
+<span class="c1"># the contents of testDB.db database is converted into SQLite statements and dumped</span>
+<span class="c1"># into an ASCII text file testDB.sql</span>
+$ ls
+testDB.db  testDB.sql
+
+$ cat testDB.sql
+PRAGMA <span class="nv">foreign_keys</span><span class="o">=</span>OFF<span class="p">;</span>
+BEGIN TRANSACTION<span class="p">;</span>
+COMMIT<span class="p">;</span>
+
+<span class="c1"># the database can be restored from the generated *.sql file simply by redirecting the stdin</span>
+$ sqlite3 testDB.db &lt; testDB.sql
+</pre></div>
+</div>
+<p>At this moment the database is empty, so you can try above two procedures once you have few tables and data in your database.</p>
 </div>
 <div class="section" id="attach-database">
 <h2><a class="toc-backref" href="#id2">1.6.2. ATTACH Database</a><a class="headerlink" href="#attach-database" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_attach_database.htm">http://www.tutorialspoint.com/sqlite/sqlite_attach_database.htm</a></p>
+<p>Suppose you have multiple databases at hand and you want to use any of them at a time.</p>
+<p><code class="docutils literal"><span class="pre">ATTACH</span> <span class="pre">DATABASE</span></code> statement is used to select a particular database.</p>
+<ul class="simple">
+<li>after this command, all SQLite statements will be executed under the attached database.</li>
+</ul>
+<div class="section" id="basic-syntax">
+<h3><a class="toc-backref" href="#id3">1.6.2.1. Basic syntax</a><a class="headerlink" href="#basic-syntax" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The following command will also create a database in case database isn&#8217;t yet created.</li>
+<li>otherwise, it&#8217;ll just attached db filename with logical database &#8216;Alias-Name&#8217;</li>
+</ul>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;DatabaseName&#39;</span> <span class="k">As</span> <span class="s1">&#39;Alias-Name&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="demo">
+<h3><a class="toc-backref" href="#id4">1.6.2.2. Demo</a><a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h3>
+<p>Start sqlite3 <code class="docutils literal"><span class="pre">$</span> <span class="pre">sqlite3</span></code></p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="c1">-- initially, everything is empty</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="p">.</span><span class="k">database</span>
+<span class="n">seq</span>  <span class="n">name</span>             <span class="n">file</span>
+<span class="c1">---  ---------------  ----------------------------------------------------------</span>
+<span class="mi">0</span>    <span class="n">main</span>
+
+<span class="c1">-- attach database we just created</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;TEST&#39;</span><span class="p">;</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="p">.</span><span class="k">database</span>
+<span class="n">seq</span>  <span class="n">name</span>             <span class="n">file</span>
+<span class="c1">---  ---------------  ----------------------------------------------------------</span>
+<span class="mi">0</span>    <span class="n">main</span>
+<span class="mi">2</span>    <span class="n">TEST</span>             <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">takanori</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sql_play</span><span class="o">/</span><span class="n">testDB</span><span class="p">.</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>db-names <strong>main</strong> and <strong>temp</strong> are reserved names</p>
+<ul class="simple">
+<li><strong>main</strong> = primary database</li>
+<li><strong>temp</strong> = holds temporary tables and other temporary data objects</li>
+<li>so never use these names for attachment (sqlite won&#8217;t allow you to do so anyways)</li>
+</ul>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">sqlite</span><span class="o">&gt;</span>  <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">;</span>
+<span class="n">Error</span><span class="p">:</span> <span class="k">database</span> <span class="n">TEMP</span> <span class="k">is</span> <span class="n">already</span> <span class="k">in</span> <span class="n">use</span>
+<span class="n">sqlite</span><span class="o">&gt;</span>  <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;main&#39;</span><span class="p">;</span>
+<span class="n">Error</span><span class="p">:</span> <span class="k">database</span> <span class="n">TEMP</span> <span class="k">is</span> <span class="n">already</span> <span class="k">in</span> <span class="n">use</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="detach-database">
-<h2><a class="toc-backref" href="#id3">1.6.3. DETACH Database</a><a class="headerlink" href="#detach-database" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">1.6.3. DETACH Database</a><a class="headerlink" href="#detach-database" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_detach_database.htm">http://www.tutorialspoint.com/sqlite/sqlite_detach_database.htm</a></p>
+<p><code class="docutils literal"><span class="pre">DETACH</span></code> command will disconnect only given name and rest of the attachement will still continue.</p>
+<ul class="simple">
+<li>You cannot detach the main or temp databases.</li>
+<li>if the DB is in-memory or temporary db, the db will be destroyed and the contents will be lost</li>
+</ul>
+<p><strong>syntax</strong></p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">DETACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;Alias-Name&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="example">
+<h3><a class="toc-backref" href="#id6">1.6.3.1. Example</a><a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">sqlite</span><span class="o">&gt;</span> <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;currentDB&#39;</span><span class="p">;</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="p">.</span><span class="n">databases</span>
+<span class="n">seq</span>  <span class="n">name</span>             <span class="n">file</span>
+<span class="c1">---  ---------------  ----------------------------------------------------------</span>
+<span class="mi">0</span>    <span class="n">main</span>
+<span class="mi">2</span>    <span class="n">test</span>             <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">takanori</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sql_play</span><span class="o">/</span><span class="n">testDB</span><span class="p">.</span><span class="n">db</span>
+<span class="mi">3</span>    <span class="n">currentDB</span>        <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">takanori</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sql_play</span><span class="o">/</span><span class="n">testDB</span><span class="p">.</span><span class="n">db</span>
+
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="n">DETACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;currentDB&#39;</span><span class="p">;</span>
+<span class="n">sqlite</span><span class="o">&gt;</span> <span class="p">.</span><span class="k">database</span>
+<span class="n">seq</span>  <span class="n">name</span>             <span class="n">file</span>
+<span class="c1">---  ---------------  ----------------------------------------------------------</span>
+<span class="mi">0</span>    <span class="n">main</span>
+<span class="mi">2</span>    <span class="n">test</span>             <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">takanori</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sql_play</span><span class="o">/</span><span class="n">testDB</span><span class="p">.</span><span class="n">db</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="create-table">
-<h2><a class="toc-backref" href="#id4">1.6.4. CREATE Table</a><a class="headerlink" href="#create-table" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">1.6.4. CREATE Table</a><a class="headerlink" href="#create-table" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_create_table.htm">http://www.tutorialspoint.com/sqlite/sqlite_create_table.htm</a></p>
 </div>
 <div class="section" id="drop-table">
-<h2><a class="toc-backref" href="#id5">1.6.5. DROP Table</a><a class="headerlink" href="#drop-table" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">1.6.5. DROP Table</a><a class="headerlink" href="#drop-table" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.tutorialspoint.com/sqlite/sqlite_drop_table.htm">http://www.tutorialspoint.com/sqlite/sqlite_drop_table.htm</a></p>
 </div>
 </div>
@@ -554,6 +670,7 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

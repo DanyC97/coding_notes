@@ -89,7 +89,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="top-bash-wool.html">Bash wooledge</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="special_char.html">1. Special Characters</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Parameters</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">2. Parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basic">2.1. Basic</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#always-double-quote-when-doing-pe-parameter-expansion">2.1.1. Always double-quote when doing PE (parameter expansion)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#char-needed-with-dealing-with-numerics">2.1.2. char needed with dealing with numerics</a></li>
@@ -684,34 +684,34 @@ $ <span class="nb">echo</span> <span class="s2">&quot;TMPDIR = </span><span clas
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var}</span></code> (<a class="reference internal" href="#var"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var}</span></code> (<a class="reference internal" href="#var"><span>link</span></a>)</td>
 <td><strong>Standard substitution</strong> &#8211; substitute the value of <code class="docutils literal"><span class="pre">var</span></code></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var:-word}</span></code> (<a class="reference internal" href="#var-word"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var:-word}</span></code> (<a class="reference internal" href="#var-word"><span>link</span></a>)</td>
 <td><strong>Use default value</strong> &#8211; if <code class="docutils literal"><span class="pre">var</span></code> is null, use <code class="docutils literal"><span class="pre">word</span></code>. Value of <code class="docutils literal"><span class="pre">var</span></code> remains unchanged (so a temporary substituion).</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var:=word}</span></code> (<a class="reference internal" href="#id2"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var:=word}</span></code> (<a class="reference internal" href="#id2"><span>link</span></a>)</td>
 <td><strong>Assign default</strong> &#8211; if <code class="docutils literal"><span class="pre">var</span></code> is null, use <code class="docutils literal"><span class="pre">word</span></code>. The value of &#8216;vareter&#8217; is then substituted.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var:+word}</span></code> (<a class="reference internal" href="#id3"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var:+word}</span></code> (<a class="reference internal" href="#id3"><span>link</span></a>)</td>
 <td><strong>Use Alternate Value</strong> &#8211; If <code class="docutils literal"><span class="pre">var</span></code> is set, substitute it with <code class="docutils literal"><span class="pre">word</span></code>.  If <code class="docutils literal"><span class="pre">var</span></code> is null, do not substitute (so remains null..I never encountered a situation where I wanna do this)</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (<a class="reference internal" href="#var-offset-length"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var:offset:length}</span></code> (<a class="reference internal" href="#var-offset-length"><span>link</span></a>)</td>
 <td><strong>Substring Expansion</strong> &#8211;  Expands to up to <code class="docutils literal"><span class="pre">length</span></code> characters of <code class="docutils literal"><span class="pre">var</span></code> starting at the character specified by <code class="docutils literal"><span class="pre">offset</span></code> (0-indexed). If <code class="docutils literal"><span class="pre">length</span></code> is omitted, goes all the way until the end.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var[&#64;]:offset:length}</span></code> (<a class="reference internal" href="#var-offset-length"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var[&#64;]:offset:length}</span></code> (<a class="reference internal" href="#var-offset-length"><span>link</span></a>)</td>
 <td>Same as above, but item-wise (see demo below)</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">${#var}</span></code> (<a class="reference internal" href="#id4"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">${#var}</span></code> (<a class="reference internal" href="#id4"><span>link</span></a>)</td>
 <td><strong>Number of chars</strong> &#8211; number of characters in var.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (<a class="reference internal" href="#id4"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${#var[&#64;]}</span></code> (<a class="reference internal" href="#id4"><span>link</span></a>)</td>
 <td><strong>Number of array items</strong> &#8211; number of items if <code class="docutils literal"><span class="pre">var</span></code> is an array. Same for <code class="docutils literal"><span class="pre">${var[*]}</span></code> syntax.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var#pattern}</span></code> (<a class="reference internal" href="#var-pattern"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">${var#pattern}</span></code> (<a class="reference internal" href="#var-pattern"><span>link</span></a>)</td>
 <td>The &#8216;pattern&#8217; is matched against the beginning of &#8216;var&#8217;. The result is the expanded value of &#8216;var&#8217; with the shortest match deleted.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var[&#64;]#pattern}</span></code> (<a class="reference internal" href="#var-pattern"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var[&#64;]#pattern}</span></code> (<a class="reference internal" href="#var-pattern"><span>link</span></a>)</td>
 <td>Same as above, but applied on array items (see example below)</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">${var##pattern}</span></code></td>
@@ -735,7 +735,7 @@ $ <span class="nb">echo</span> <span class="s2">&quot;TMPDIR = </span><span clas
 <tr class="row-even"><td><code class="docutils literal"><span class="pre">${var/%pat/string}</span></code></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var:?message}</span></code> (<a class="reference internal" href="#var-msg"><span class="std std-ref">link</span></a>)</td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">${var:?message}</span></code> (<a class="reference internal" href="#var-msg"><span>link</span></a>)</td>
 <td>If <code class="docutils literal"><span class="pre">var</span></code> is null, print <code class="docutils literal"><span class="pre">message</span></code> to standard error.</td>
 </tr>
 </tbody>
@@ -755,7 +755,7 @@ I am takanori
 <div class="section" id="var-word-use-default-value">
 <span id="var-word"></span><h3>2.3.3. <code class="docutils literal"><span class="pre">${var:-word}</span></code> (use default value)<a class="headerlink" href="#var-word-use-default-value" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><a class="reference internal" href="#var"><span class="std std-ref">${var}</span></a></li>
+<li><a class="reference internal" href="#var"><span>${var}</span></a></li>
 </ul>
 <p><strong>Use default value</strong></p>
 <ul class="simple">
@@ -936,6 +936,7 @@ bash: a: ERR_MSG
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

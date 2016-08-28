@@ -164,7 +164,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sed-tutorial.gnu.html#programming-commands-commands-for-sed-gurus">Programming Commands: Commands for sed gurus</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">sed-tutorial-tutorials-points</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">sed-tutorial-tutorials-points</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#sed-workflow">Sed - workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-syntax-and-examples">Basic syntax and examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
@@ -493,17 +493,17 @@
 <div class="section" id="basic-syntax-and-examples">
 <h2><a class="toc-backref" href="#id3">Basic syntax and examples</a><a class="headerlink" href="#basic-syntax-and-examples" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we have a file <code class="docutils literal"><span class="pre">books.txt</span></code> with the following content:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">)</span> <span class="n">A</span> <span class="n">Storm</span> <span class="n">of</span> <span class="n">Swords</span><span class="p">,</span> <span class="n">George</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Martin</span><span class="p">,</span> <span class="mi">1216</span>
-<span class="mi">2</span><span class="p">)</span> <span class="n">The</span> <span class="n">Two</span> <span class="n">Towers</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Tolkien</span><span class="p">,</span> <span class="mi">352</span>
-<span class="mi">3</span><span class="p">)</span> <span class="n">The</span> <span class="n">Alchemist</span><span class="p">,</span> <span class="n">Paulo</span> <span class="n">Coelho</span><span class="p">,</span> <span class="mi">197</span>
-<span class="mi">4</span><span class="p">)</span> <span class="n">The</span> <span class="n">Fellowship</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Ring</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Tolkien</span><span class="p">,</span> <span class="mi">432</span>
-<span class="mi">5</span><span class="p">)</span> <span class="n">The</span> <span class="n">Pilgrimage</span><span class="p">,</span> <span class="n">Paulo</span> <span class="n">Coelho</span><span class="p">,</span> <span class="mi">288</span>
-<span class="mi">6</span><span class="p">)</span> <span class="n">A</span> <span class="n">Game</span> <span class="n">of</span> <span class="n">Thrones</span><span class="p">,</span> <span class="n">George</span> <span class="n">R</span><span class="o">.</span> <span class="n">R</span><span class="o">.</span> <span class="n">Martin</span><span class="p">,</span> <span class="mi">864</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>1) A Storm of Swords, George R. R. Martin, 1216
+2) The Two Towers, J. R. R. Tolkien, 352
+3) The Alchemist, Paulo Coelho, 197
+4) The Fellowship of the Ring, J. R. R. Tolkien, 432
+5) The Pilgrimage, Paulo Coelho, 288
+6) A Game of Thrones, George R. R. Martin, 864
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">quotes.txt</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="ow">is</span> <span class="n">only</span> <span class="n">one</span> <span class="n">thing</span> <span class="n">that</span> <span class="n">makes</span> <span class="n">a</span> <span class="n">dream</span> <span class="n">impossible</span> <span class="n">to</span> <span class="n">achieve</span><span class="p">:</span> <span class="n">the</span> <span class="n">fear</span> <span class="n">of</span> <span class="n">failure</span><span class="o">.</span>
- <span class="o">-</span> <span class="n">Paulo</span> <span class="n">Coelho</span><span class="p">,</span> <span class="n">The</span> <span class="n">Alchemist</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>There is only one thing that makes a dream impossible to achieve: the fear of failure.
+ - Paulo Coelho, The Alchemist
 </pre></div>
 </div>
 <div class="section" id="examples">
@@ -561,29 +561,29 @@ There is only one thing that makes a dream impossible to achieve: the fear of fa
 </div>
 <div class="section" id="gnu-specific-options">
 <h3>GNU specific options<a class="headerlink" href="#gnu-specific-options" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="o">--</span><span class="n">quiet</span><span class="p">,</span> <span class="o">--</span><span class="n">silent</span><span class="p">:</span>
-    <span class="n">Same</span> <span class="k">as</span> <span class="n">standard</span> <span class="o">-</span><span class="n">n</span> <span class="n">option</span><span class="o">.</span>
-<span class="o">-</span><span class="n">e</span> <span class="n">script</span><span class="p">,</span> <span class="o">--</span><span class="n">expression</span><span class="o">=</span><span class="n">script</span><span class="p">:</span>
-    <span class="n">Same</span> <span class="k">as</span> <span class="n">standard</span> <span class="o">-</span><span class="n">e</span> <span class="n">option</span><span class="o">.</span>
-<span class="o">-</span><span class="n">f</span> <span class="n">script</span><span class="o">-</span><span class="n">file</span><span class="p">,</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">script</span><span class="o">-</span><span class="n">file</span><span class="p">:</span>
-    <span class="n">Same</span> <span class="k">as</span> <span class="n">standard</span> <span class="o">-</span><span class="n">f</span> <span class="n">option</span><span class="o">.</span>
-<span class="o">--</span><span class="n">follow</span><span class="o">-</span><span class="n">symlinks</span><span class="p">:</span>
-    <span class="n">If</span> <span class="n">this</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">the</span> <span class="n">SED</span> <span class="n">follows</span> <span class="n">symbolic</span> <span class="n">links</span> <span class="k">while</span> <span class="n">editing</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">place</span><span class="o">.</span>
-<span class="o">-</span><span class="n">i</span><span class="p">[</span><span class="n">SUFFIX</span><span class="p">],</span> <span class="o">--</span><span class="ow">in</span><span class="o">-</span><span class="n">place</span><span class="p">[</span><span class="o">=</span><span class="n">SUFFIX</span><span class="p">]:</span>
-    <span class="n">This</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">edit</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">place</span><span class="o">.</span>
-    <span class="n">If</span> <span class="n">suffix</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">it</span> <span class="n">takes</span> <span class="n">a</span> <span class="n">backup</span> <span class="n">of</span> <span class="n">the</span> <span class="n">original</span> <span class="n">file</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">it</span> <span class="n">overwrites</span> <span class="n">the</span> <span class="n">original</span> <span class="n">file</span><span class="o">.</span>
-<span class="o">-</span><span class="n">l</span> <span class="n">N</span><span class="p">,</span> <span class="o">--</span><span class="n">line</span><span class="o">-</span><span class="n">lenght</span><span class="o">=</span><span class="n">N</span><span class="p">:</span>
-    <span class="n">This</span> <span class="n">option</span> <span class="n">sets</span> <span class="n">the</span> <span class="n">line</span> <span class="n">length</span> <span class="k">for</span> <span class="n">l</span> <span class="n">command</span> <span class="n">to</span> <span class="n">N</span> <span class="n">characters</span><span class="o">.</span>
-<span class="o">--</span><span class="n">posix</span><span class="p">:</span>
-    <span class="n">This</span> <span class="n">option</span> <span class="n">disables</span> <span class="nb">all</span> <span class="n">GNU</span> <span class="n">extensions</span><span class="o">.</span>
-<span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">--</span><span class="n">regexp</span><span class="o">-</span><span class="n">extended</span><span class="p">:</span>
-    <span class="n">This</span> <span class="n">option</span> <span class="n">allows</span> <span class="n">to</span> <span class="n">use</span> <span class="n">extended</span> <span class="n">regular</span> <span class="n">expressions</span> <span class="n">rather</span> <span class="n">than</span> <span class="n">basic</span> <span class="n">regular</span> <span class="n">expressions</span><span class="o">.</span>
-<span class="o">-</span><span class="n">u</span><span class="p">,</span> <span class="o">--</span><span class="n">unbuffered</span><span class="p">:</span>
-    <span class="n">When</span> <span class="n">this</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">the</span> <span class="n">SED</span> <span class="n">loads</span> <span class="n">minimal</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nb">input</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">flushes</span> <span class="n">the</span> <span class="n">output</span> <span class="n">buffers</span> <span class="n">more</span> <span class="n">often</span><span class="o">.</span>
-    <span class="n">It</span> <span class="ow">is</span> <span class="n">useful</span> <span class="k">for</span> <span class="n">editing</span> <span class="n">the</span> <span class="n">output</span> <span class="n">of</span> <span class="s2">&quot;tail -f&quot;</span> <span class="n">when</span> <span class="n">you</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">want</span> <span class="n">to</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">the</span> <span class="n">output</span><span class="o">.</span>
-<span class="o">-</span><span class="n">z</span><span class="p">,</span> <span class="o">--</span><span class="n">null</span><span class="o">-</span><span class="n">data</span><span class="p">:</span>
-    <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">the</span> <span class="n">SED</span> <span class="n">separates</span> <span class="n">each</span> <span class="n">line</span> <span class="n">by</span> <span class="n">a</span> <span class="n">new</span><span class="o">-</span><span class="n">line</span> <span class="n">character</span><span class="o">.</span>
-    <span class="n">If</span> <span class="n">NULL</span><span class="o">-</span><span class="n">data</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">provided</span><span class="p">,</span> <span class="n">it</span> <span class="n">separates</span> <span class="n">the</span> <span class="n">lines</span> <span class="n">by</span> <span class="n">NULL</span> <span class="n">characters</span><span class="o">.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>-n, --quiet, --silent:
+    Same as standard -n option.
+-e script, --expression=script:
+    Same as standard -e option.
+-f script-file, --file=script-file:
+    Same as standard -f option.
+--follow-symlinks:
+    If this option is provided, the SED follows symbolic links while editing files in place.
+-i[SUFFIX], --in-place[=SUFFIX]:
+    This option is used to edit file in place.
+    If suffix is provided, it takes a backup of the original file, otherwise it overwrites the original file.
+-l N, --line-lenght=N:
+    This option sets the line length for l command to N characters.
+--posix:
+    This option disables all GNU extensions.
+-r, --regexp-extended:
+    This option allows to use extended regular expressions rather than basic regular expressions.
+-u, --unbuffered:
+    When this option is provided, the SED loads minimal amount of data from the input files and flushes the output buffers more often.
+    It is useful for editing the output of &quot;tail -f&quot; when you do not want to wait for the output.
+-z, --null-data:
+    By default, the SED separates each line by a new-line character.
+    If NULL-data option is provided, it separates the lines by NULL characters.
 </pre></div>
 </div>
 </div>
@@ -592,10 +592,10 @@ There is only one thing that makes a dream impossible to achieve: the fear of fa
 <h2><a class="toc-backref" href="#id4">Loops, Branches</a><a class="headerlink" href="#loops-branches" title="Permalink to this headline">¶</a></h2>
 <p>Skipped. These are complete overkills for me.</p>
 <p>Loops uses <strong>label</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">label</span>
-<span class="p">:</span><span class="n">start</span>
-<span class="p">:</span><span class="n">end</span>
-<span class="p">:</span><span class="n">up</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>:label
+:start
+:end
+:up
 </pre></div>
 </div>
 <p>Branches use <code class="docutils literal"><span class="pre">t</span></code> command to jump to labels if previous substitutie command is successful.</p>
@@ -842,6 +842,7 @@ $ sed -n <span class="s1">&#39;/Two/, +4 p&#39;</span> books.txt
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

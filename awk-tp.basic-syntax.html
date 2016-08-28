@@ -265,7 +265,7 @@
 <li class="toctree-l3"><a class="reference internal" href="awk-tp.workflow.html#first-example-on-marks-txt-file">3.2. First example on marks.txt file</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4. AWK Basic Syntax</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">4. AWK Basic Syntax</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#awk-help">4.1. awk &#8211;help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#awk-in-the-terminal-or-program-file">4.2. AWK in the terminal or Program file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#v-option">4.3. -v option</a></li>
@@ -467,31 +467,31 @@
 <h1>4. AWK Basic Syntax<a class="headerlink" href="#awk-basic-syntax" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="awk-help">
 <h2>4.1. awk &#8211;help<a class="headerlink" href="#awk-help" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span> <span class="n">awk</span> <span class="p">[</span><span class="n">POSIX</span> <span class="ow">or</span> <span class="n">GNU</span> <span class="n">style</span> <span class="n">options</span><span class="p">]</span> <span class="o">-</span><span class="n">f</span> <span class="n">progfile</span> <span class="p">[</span><span class="o">--</span><span class="p">]</span> <span class="n">file</span> <span class="o">...</span>
-<span class="n">Usage</span><span class="p">:</span> <span class="n">awk</span> <span class="p">[</span><span class="n">POSIX</span> <span class="ow">or</span> <span class="n">GNU</span> <span class="n">style</span> <span class="n">options</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="p">]</span> <span class="s1">&#39;program&#39;</span> <span class="n">file</span> <span class="o">...</span>
-<span class="n">POSIX</span> <span class="n">options</span><span class="p">:</span>      <span class="n">GNU</span> <span class="n">long</span> <span class="n">options</span><span class="p">:</span> <span class="p">(</span><span class="n">standard</span><span class="p">)</span>
-    <span class="o">-</span><span class="n">f</span> <span class="n">progfile</span>     <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">progfile</span>
-    <span class="o">-</span><span class="n">F</span> <span class="n">fs</span>           <span class="o">--</span><span class="n">field</span><span class="o">-</span><span class="n">separator</span><span class="o">=</span><span class="n">fs</span>
-    <span class="o">-</span><span class="n">v</span> <span class="n">var</span><span class="o">=</span><span class="n">val</span>      <span class="o">--</span><span class="n">assign</span><span class="o">=</span><span class="n">var</span><span class="o">=</span><span class="n">val</span>
-<span class="n">Short</span> <span class="n">options</span><span class="p">:</span>      <span class="n">GNU</span> <span class="n">long</span> <span class="n">options</span><span class="p">:</span> <span class="p">(</span><span class="n">extensions</span><span class="p">)</span>
-    <span class="o">-</span><span class="n">b</span>          <span class="o">--</span><span class="n">characters</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="nb">bytes</span>
-    <span class="o">-</span><span class="n">c</span>          <span class="o">--</span><span class="n">traditional</span>
-    <span class="o">-</span><span class="n">C</span>          <span class="o">--</span><span class="n">copyright</span>
-    <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="n">file</span><span class="p">]</span>        <span class="o">--</span><span class="n">dump</span><span class="o">-</span><span class="n">variables</span><span class="p">[</span><span class="o">=</span><span class="n">file</span><span class="p">]</span>
-    <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;program-text&#39;</span>   <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;program-text&#39;</span>
-    <span class="o">-</span><span class="n">E</span> <span class="n">file</span>         <span class="o">--</span><span class="n">exec</span><span class="o">=</span><span class="n">file</span>
-    <span class="o">-</span><span class="n">g</span>          <span class="o">--</span><span class="n">gen</span><span class="o">-</span><span class="n">pot</span>
-    <span class="o">-</span><span class="n">h</span>          <span class="o">--</span><span class="n">help</span>
-    <span class="o">-</span><span class="n">L</span> <span class="p">[</span><span class="n">fatal</span><span class="p">]</span>      <span class="o">--</span><span class="n">lint</span><span class="p">[</span><span class="o">=</span><span class="n">fatal</span><span class="p">]</span>
-    <span class="o">-</span><span class="n">n</span>          <span class="o">--</span><span class="n">non</span><span class="o">-</span><span class="n">decimal</span><span class="o">-</span><span class="n">data</span>
-    <span class="o">-</span><span class="n">N</span>          <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">lc</span><span class="o">-</span><span class="n">numeric</span>
-    <span class="o">-</span><span class="n">O</span>          <span class="o">--</span><span class="n">optimize</span>
-    <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="n">file</span><span class="p">]</span>        <span class="o">--</span><span class="n">profile</span><span class="p">[</span><span class="o">=</span><span class="n">file</span><span class="p">]</span>
-    <span class="o">-</span><span class="n">P</span>          <span class="o">--</span><span class="n">posix</span>
-    <span class="o">-</span><span class="n">r</span>          <span class="o">--</span><span class="n">re</span><span class="o">-</span><span class="n">interval</span>
-    <span class="o">-</span><span class="n">S</span>          <span class="o">--</span><span class="n">sandbox</span>
-    <span class="o">-</span><span class="n">t</span>          <span class="o">--</span><span class="n">lint</span><span class="o">-</span><span class="n">old</span>
-    <span class="o">-</span><span class="n">V</span>          <span class="o">--</span><span class="n">version</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Usage: awk [POSIX or GNU style options] -f progfile [--] file ...
+Usage: awk [POSIX or GNU style options] [--] &#39;program&#39; file ...
+POSIX options:      GNU long options: (standard)
+    -f progfile     --file=progfile
+    -F fs           --field-separator=fs
+    -v var=val      --assign=var=val
+Short options:      GNU long options: (extensions)
+    -b          --characters-as-bytes
+    -c          --traditional
+    -C          --copyright
+    -d[file]        --dump-variables[=file]
+    -e &#39;program-text&#39;   --source=&#39;program-text&#39;
+    -E file         --exec=file
+    -g          --gen-pot
+    -h          --help
+    -L [fatal]      --lint[=fatal]
+    -n          --non-decimal-data
+    -N          --use-lc-numeric
+    -O          --optimize
+    -p[file]        --profile[=file]
+    -P          --posix
+    -r          --re-interval
+    -S          --sandbox
+    -t          --lint-old
+    -V          --version
 </pre></div>
 </div>
 </div>
@@ -648,6 +648,7 @@ cat pretty.awk
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   

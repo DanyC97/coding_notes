@@ -222,7 +222,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Whirlwind tour from ss64</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">1. Whirlwind tour from ss64</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basic-syntax">1.1. Basic syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#awk-patterns">1.2. awk-patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variable-names-that-are-predefined">1.3. Variable names that are predefined</a></li>
@@ -476,9 +476,9 @@ $ awk -f PROGRAM-FILE &lt;options&gt; Input-File1 Input-File2 ...
 </pre></div>
 </div>
 <p>For each of reading, each line in awk program is normally a separate <strong>Program</strong> statement like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="p">{</span> <span class="n">action</span> <span class="p">}</span>
-<span class="n">pattern</span> <span class="p">{</span> <span class="n">action</span> <span class="p">}</span>
-<span class="o">...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>pattern { action }
+pattern { action }
+...
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Display lines from samplefile containing the string &quot;123&quot; or &quot;abc&quot; or &quot;some text&quot;:</span>
@@ -493,7 +493,7 @@ awk <span class="s1">&#39;/123/ { print $0 }</span>
 <div class="section" id="awk-patterns">
 <h2>1.2. awk-patterns<a class="headerlink" href="#awk-patterns" title="Permalink to this headline">¶</a></h2>
 <p>awk-patterns can be one of the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>/Regular Expression/        - Match =
+<div class="highlight-python"><div class="highlight"><pre><span></span>/Regular Expression/        - Match =
 Pattern &amp;&amp; Pattern          - AND
 Pattern || Pattern          - OR
 ! Pattern                   - NOT
@@ -757,6 +757,7 @@ colord
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
