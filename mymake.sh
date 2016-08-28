@@ -2,8 +2,9 @@
 #=============================================================================#
 # do all the make at once
 #=============================================================================#
-# make clean
-# rm -r ./source_tutorials/generated*
+export PATH="$HOME/anaconda2/bin:$PATH" 
+make clean
+rm -r ./source_tutorials/generated*
 make html
 # twsphinx_check
 #| not 100% happy with this approach in SO:
