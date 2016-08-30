@@ -97,11 +97,11 @@ Start sqlite3 ``$ sqlite3``
 
 .. note:: 
 
-db-names **main** and **temp** are reserved names
+    db-names **main** and **temp** are reserved names
 
-- **main** = primary database
-- **temp** = holds temporary tables and other temporary data objects
-- so never use these names for attachment (sqlite won't allow you to do so anyways)
+    - **main** = primary database
+    - **temp** = holds temporary tables and other temporary data objects
+    - so never use these names for attachment (sqlite won't allow you to do so anyways)
 
 .. code-block:: sql
 

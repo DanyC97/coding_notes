@@ -26,7 +26,7 @@
 
   
   
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/my_theme.css" type="text/css" />
   
 
   
@@ -563,12 +563,15 @@ $ sqlite3 testDB.db &lt; testDB.sql
 <span class="mi">2</span>    <span class="n">TEST</span>             <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">takanori</span><span class="o">/</span><span class="n">Dropbox</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">sql_play</span><span class="o">/</span><span class="n">testDB</span><span class="p">.</span><span class="n">db</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p>db-names <strong>main</strong> and <strong>temp</strong> are reserved names</p>
-<ul class="simple">
+<ul class="last simple">
 <li><strong>main</strong> = primary database</li>
 <li><strong>temp</strong> = holds temporary tables and other temporary data objects</li>
 <li>so never use these names for attachment (sqlite won&#8217;t allow you to do so anyways)</li>
 </ul>
+</div>
 <div class="highlight-sql"><div class="highlight"><pre><span></span><span class="n">sqlite</span><span class="o">&gt;</span>  <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;TEMP&#39;</span><span class="p">;</span>
 <span class="n">Error</span><span class="p">:</span> <span class="k">database</span> <span class="n">TEMP</span> <span class="k">is</span> <span class="n">already</span> <span class="k">in</span> <span class="n">use</span>
 <span class="n">sqlite</span><span class="o">&gt;</span>  <span class="n">ATTACH</span> <span class="k">DATABASE</span> <span class="s1">&#39;testDB.db&#39;</span> <span class="k">as</span> <span class="s1">&#39;main&#39;</span><span class="p">;</span>
