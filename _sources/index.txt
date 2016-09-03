@@ -14,9 +14,10 @@ My coding notebook
     bash_wooledge/top-bash-wool.rst
     sed/sed-tutorial.gnu.rst
     sed/sed-tutorial.tutorialspoints.rst
-    awk-tutorial/index.rst
+    awk-tutorial/awk-tutorial.rst
     awk-tp.rst
     top-sqlite.rst
+    cs-computer.rst
 
 >>> # test build on windows
 >>> print "hello world"

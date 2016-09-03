@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Whirlwind tour from ss64 &mdash; Coding Notebook  documentation</title>
+  <title>Random notes relating to computer science (cs-computer.rst) &mdash; Coding Notebook  documentation</title>
   
 
   
@@ -33,9 +33,8 @@
 
   
     <link rel="top" title="Coding Notebook  documentation" href="index.html"/>
-        <link rel="up" title="Awk Tutorials Points (awk-tp.rst)" href="awk-tp.html"/>
-        <link rel="next" title="2. Tables from grymoire" href="awk-grymoire.html"/>
-        <link rel="prev" title="Awk Tutorials Points (awk-tp.rst)" href="awk-tp.html"/> 
+        <link rel="next" title="Unix-related" href="cs-computer.unix.html"/>
+        <link rel="prev" title="3. Random jumbles from wikipedia pertaining to Database concepts" href="sql_wiki.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -217,13 +216,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points (<code class="docutils literal"><span class="pre">awk-tp.rst</span></code>)</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">1. Whirlwind tour from ss64</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#basic-syntax">1.1. Basic syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#awk-patterns">1.2. awk-patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#variable-names-that-are-predefined">1.3. Variable names that are predefined</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">1.4. Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#complex-examples">1.5. Complex examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awk-tp.html">Awk Tutorials Points (<code class="docutils literal"><span class="pre">awk-tp.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awk-ss64.html">1. Whirlwind tour from ss64</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#basic-syntax">1.1. Basic syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#awk-patterns">1.2. awk-patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#variable-names-that-are-predefined">1.3. Variable names that are predefined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#examples">1.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awk-ss64.html#complex-examples">1.5. Complex examples</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="awk-grymoire.html">2. Tables from grymoire</a><ul>
@@ -406,7 +405,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cs-computer.html">Random notes relating to computer science (<code class="docutils literal"><span class="pre">cs-computer.rst</span></code>)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Random notes relating to computer science (<code class="docutils literal"><span class="pre">cs-computer.rst</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs-computer.unix.html">Unix-related</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs-computer.unix.html#terminal-shell-tty-console-the-difference">terminal, shell, tty, console...the difference?</a></li>
 </ul>
@@ -458,15 +457,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="awk-tp.html">Awk Tutorials Points (<code class="docutils literal"><span class="pre">awk-tp.rst</span></code>)</a> &raquo;</li>
-        
-      <li>1. Whirlwind tour from ss64</li>
+      <li>Random notes relating to computer science (<code class="docutils literal"><span class="pre">cs-computer.rst</span></code>)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/awk-ss64.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/cs-computer.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -477,247 +474,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="whirlwind-tour-from-ss64">
-<h1>1. Whirlwind tour from ss64<a class="headerlink" href="#whirlwind-tour-from-ss64" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://ss64.com/bash/awk.html">http://ss64.com/bash/awk.html</a></p>
-<div class="section" id="basic-syntax">
-<h2>1.1. Basic syntax<a class="headerlink" href="#basic-syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># program in single quote (if not Input-File is given, awk applies Program to stdin</span>
-$ awk &lt;options&gt; <span class="s1">&#39;Program&#39;</span> Input-File1 Input-File2 ...
-
-<span class="c1"># &#39;-f&#39; option to run via awk script</span>
-$ awk -f PROGRAM-FILE &lt;options&gt; Input-File1 Input-File2 ...
-</pre></div>
-</div>
-<p>For each of reading, each line in awk program is normally a separate <strong>Program</strong> statement like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>pattern { action }
-pattern { action }
-...
-</pre></div>
-</div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Display lines from samplefile containing the string &quot;123&quot; or &quot;abc&quot; or &quot;some text&quot;:</span>
-<span class="c1"># (remember, single quote indicates awk Program)</span>
-<span class="c1"># below regexp is enclosed in slashes (/)</span>
-awk <span class="s1">&#39;/123/ { print $0 }</span>
-<span class="s1">     /abc/ { print $0 }</span>
-<span class="s1">     /some text/ { print $0 }&#39;</span> samplefile
-</pre></div>
-</div>
-</div>
-<div class="section" id="awk-patterns">
-<h2>1.2. awk-patterns<a class="headerlink" href="#awk-patterns" title="Permalink to this headline">¶</a></h2>
-<p>awk-patterns can be one of the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>/Regular Expression/        - Match =
-Pattern &amp;&amp; Pattern          - AND
-Pattern || Pattern          - OR
-! Pattern                   - NOT
-Pattern ? Pattern : Pattern - If, Then, Else
-Pattern1, Pattern2          - Range Start - end
-BEGIN                       - Perform action BEFORE input file is read
-END                         - Perform action AFTER input file is read
-</pre></div>
-</div>
-</div>
-<div class="section" id="variable-names-that-are-predefined">
-<h2>1.3. Variable names that are predefined<a class="headerlink" href="#variable-names-that-are-predefined" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="22%" />
-<col width="78%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><strong>CONVFMT</strong></td>
-<td>conversion  format  used  when  converting  numbers (default %.6g)</td>
-</tr>
-<tr class="row-odd"><td><strong>FS</strong></td>
-<td>regular  expression  used  to separate fields; also settable by option -Ffs.</td>
-</tr>
-<tr class="row-even"><td><strong>NF</strong></td>
-<td>number of fields in the current record</td>
-</tr>
-<tr class="row-odd"><td><strong>NR</strong></td>
-<td>ordinal number of the current record</td>
-</tr>
-<tr class="row-even"><td><strong>FNR</strong></td>
-<td>ordinal number of the current record in the current file</td>
-</tr>
-<tr class="row-odd"><td><strong>FILENAME</strong></td>
-<td>the name of the current input file</td>
-</tr>
-<tr class="row-even"><td><strong>RS</strong></td>
-<td>input record separator (default newline)</td>
-</tr>
-<tr class="row-odd"><td><strong>OFS</strong></td>
-<td>output field separator (default blank)</td>
-</tr>
-<tr class="row-even"><td><strong>ORS</strong></td>
-<td>output record separator (default newline)</td>
-</tr>
-<tr class="row-odd"><td><strong>OFMT</strong></td>
-<td>output format for numbers (default %.6g)</td>
-</tr>
-<tr class="row-even"><td><strong>SUBSEP</strong></td>
-<td>separates multiple subscripts (default 034)</td>
-</tr>
-<tr class="row-odd"><td><strong>ARGC</strong></td>
-<td>argument count, assignable</td>
-</tr>
-<tr class="row-even"><td><strong>ARGV</strong></td>
-<td>argument  array,  assignable;  non-null members are taken as filenames</td>
-</tr>
-<tr class="row-odd"><td><strong>ENVIRON</strong></td>
-<td>array  of  environment  variables;  subscripts  are names.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="examples">
-<h2>1.4. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls -l <span class="p">|</span> head -5
-total 116K
-drwxr-xr-x <span class="m">4</span> takanori takanori 4.0K Aug <span class="m">19</span> 23:46 build
-drwxr-xr-x <span class="m">8</span> takanori takanori 4.0K Aug <span class="m">19</span> 21:42 build_published
-drwxr-xr-x <span class="m">8</span> takanori takanori 4.0K Aug <span class="m">19</span> 23:40 source_tutorials
--rw-rw-rw- <span class="m">1</span> takanori takanori   <span class="m">81</span> Aug <span class="m">19</span> 23:25 awkprof.out
-
-<span class="c1"># print 5th column</span>
-$ ls -l <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;{print $5}&#39;</span>
-
-4.0K
-4.0K
-4.0K
-81
-
-<span class="c1"># print 5th and 9th column, with &quot;-&quot; char in between</span>
-<span class="c1"># (need a way to programatically skip first line here...)</span>
-$ ls -l <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;{print $9 &quot;: filesize =&quot; $5}&#39;</span>
-: <span class="nv">filesize</span> <span class="o">=</span>
-build: <span class="nv">filesize</span> <span class="o">=</span>4.0K
-build_published: <span class="nv">filesize</span> <span class="o">=</span>4.0K
-source_tutorials: <span class="nv">filesize</span> <span class="o">=</span>4.0K
-awkprof.out: <span class="nv">filesize</span> <span class="o">=</span>81
-
-<span class="c1"># print number of fields in the current record (ie, current line)</span>
-$ ls -l <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;{print NF}&#39;</span>
-2
-9
-9
-9
-
-<span class="c1"># only print if NF==9 (number of fields)</span>
-$ ls -l <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;NF == 9 {print $9 &quot; -&gt; filesize =&quot; $5}&#39;</span>
-build -&gt; <span class="nv">filesize</span> <span class="o">=</span>4.0K
-build_published -&gt; <span class="nv">filesize</span> <span class="o">=</span>4.0K
-source_tutorials -&gt; <span class="nv">filesize</span> <span class="o">=</span>4.0K
-awkprof.out -&gt; <span class="nv">filesize</span> <span class="o">=</span>81
-
-
-<span class="c1"># print column 5,9, prepended with line number (NR)</span>
-$ ls -l <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;{print NR &quot;: &quot; $9 &quot;-&quot; $5}&#39;</span>
-1: -
-2: build-4.0K
-3: build_published-4.0K
-4: source_tutorials-4.0K
-5: awkprof.out-81
-
-
-<span class="c1"># print 1st item and 2nd from last item $(NF-1)</span>
-$ ls -l <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;{print $1, $(NF-1)}&#39;</span> <span class="c1"># , seems to add whitespace</span>
-total total
-drwxr-xr-x 23:46
-drwxr-xr-x 21:42
-drwxr-xr-x 23:40
--rw-rw-rw- 23:25
-
-<span class="c1"># print if 6 field equals Nov (different from grep, which will map at any part of the line)</span>
-$ ls -l <span class="p">|</span> awk <span class="s1">&#39;$6 == &quot;Nov&quot;&#39;</span>
-drwxr-xr-x  <span class="m">6</span> takanori takanori 4.0K Nov  <span class="m">9</span>  <span class="m">2015</span> CytoscapeConfiguration
-drwxr-xr-x  <span class="m">5</span> takanori takanori 4.0K Nov  <span class="m">9</span>  <span class="m">2015</span> Cytoscape_v3.2.1
--rw-r--r--  <span class="m">1</span> takanori takanori 1.8M Nov <span class="m">26</span>  <span class="m">2010</span> libwx-perl_0.9702-1_i386.deb
--rw-r--r--  <span class="m">1</span> takanori takanori 4.4K Nov <span class="m">11</span>  <span class="m">2015</span> matlab_crash_dump.20697-1
--rw-r--r--  <span class="m">1</span> takanori takanori 4.4K Nov  <span class="m">1</span>  <span class="m">2015</span> matlab_crash_dump.4175-1
--rw-r--r--  <span class="m">1</span> takanori takanori 4.4K Nov <span class="m">19</span>  <span class="m">2015</span> matlab_crash_dump.8347-1
--rw-rw-rw-  <span class="m">1</span> takanori takanori 100K Nov  <span class="m">4</span>  <span class="m">2015</span> python.sublime-workspace
--rw-r--r--  <span class="m">1</span> takanori takanori  13K Nov  <span class="m">8</span>  <span class="m">2015</span> test.txt
-
-<span class="c1"># same, but just print the final field (so just the filename here)</span>
-$ ls -l <span class="p">|</span> awk <span class="s1">&#39;$6 == &quot;Nov&quot; {print $(NF)}&#39;</span>
-CytoscapeConfiguration
-Cytoscape_v3.2.1
-libwx-perl_0.9702-1_i386.deb
-matlab_crash_dump.20697-1
-matlab_crash_dump.4175-1
-matlab_crash_dump.8347-1
-python.sublime-workspace
-test.txt
-
-<span class="c1"># line counts (hmm, one more than wc?)</span>
-$ awk <span class="s1">&#39;END { print NR }&#39;</span> util_0711.py
-410
-$ wc -l util_0711.py
-<span class="m">409</span> util_0711.py
-
-<span class="c1"># print even lines only (together with line numbers)</span>
-$ awk <span class="s1">&#39;NR%2 == 0 {print NR,$0}&#39;</span> util_0711.py <span class="p">|</span> head -10
-<span class="m">2</span> import numpy as np
-4
-6
-<span class="m">8</span> from sklearn.cross_validation import KFold
-<span class="m">10</span> from os.path import join
-<span class="m">12</span> import matplotlib.pyplot as plt
-<span class="m">14</span> import scipy as sp
-<span class="m">16</span> <span class="c1">#%%</span>
-<span class="m">18</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">20     &quot;&quot;&quot;</span>
-
-<span class="c1"># you&#39;re getting the hang of this now Tak!</span>
-ls -l *.py <span class="p">|</span> head -5 <span class="p">|</span> awk <span class="s1">&#39;\</span>
-<span class="s1">BEGIN   { print &quot;Owner\t\tFile&quot; } \</span>
-<span class="s1">        { print $3, &quot;\t&quot;, $9}   \</span>
-<span class="s1">END     { print &quot; - DONE -&quot; } \</span>
-<span class="s1">&#39;</span>
-<span class="c1">#&gt;Owner       File</span>
-<span class="c1">#&gt;takanori     t_0711a_pnc_conn_agereg_fs_corrwithage.py</span>
-<span class="c1">#&gt;takanori     t_0711b_pnc_conn_agereg_fs_variance.py</span>
-<span class="c1">#&gt;takanori     t_0711c_pnc_bct_nmf.py</span>
-<span class="c1">#&gt;takanori     t_0712_pnc_bct_ensemble.py</span>
-<span class="c1">#&gt;takanori     t_0713b_pnc_supervised_nmf.py</span>
-<span class="c1">#&gt; - DONE -</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="complex-examples">
-<h2>1.5. Complex examples<a class="headerlink" href="#complex-examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># print length of the longest input line</span>
-$ ls -l <span class="p">|</span> awk <span class="s1">&#39;{if (length($0) &gt; max) max = length($0)} END {print max}&#39;</span>
-93
-
-<span class="c1"># print the average file size of all png files in a directory</span>
-$ <span class="nb">cd</span> ~/Dropbox/work/sbia_work/python/now/results/t_0813_bct_pnc_interhemi_particp_coeff
-$ ls -l *.png <span class="p">|</span> gawk <span class="s1">&#39;{sum += $5; n++;} END {print sum/n;}&#39;</span>
-188.61
-
-<span class="c1"># print sorted list of login names of all users</span>
-$ cat /etc/passwd <span class="p">|</span> head -5
-root:x:0:0:root:/root:/bin/bash
-daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sys:x:3:3:sys:/dev:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-
-$  awk -F: <span class="s1">&#39;{ print $1 }&#39;</span> /etc/passwd <span class="p">|</span> sort <span class="p">|</span> head -5
-avahi
-avahi-autoipd
-backup
-bin
-colord
-</pre></div>
-</div>
+  <div class="section" id="random-notes-relating-to-computer-science-cs-computer-rst">
+<h1>Random notes relating to computer science (<code class="docutils literal"><span class="pre">cs-computer.rst</span></code>)<a class="headerlink" href="#random-notes-relating-to-computer-science-cs-computer-rst" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="cs-computer">
+<p class="caption"><span class="caption-text">Contents</span><a class="headerlink" href="#cs-computer" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cs-computer.unix.html">Unix-related</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs-computer.unix.html#terminal-shell-tty-console-the-difference">terminal, shell, tty, console...the difference?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cs-computer.network.html">Network notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs-computer.network.html#http-messages">HTTP messages</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
@@ -728,10 +498,10 @@ colord
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="awk-grymoire.html" class="btn btn-neutral float-right" title="2. Tables from grymoire" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cs-computer.unix.html" class="btn btn-neutral float-right" title="Unix-related" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="awk-tp.html" class="btn btn-neutral" title="Awk Tutorials Points (awk-tp.rst)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sql_wiki.html" class="btn btn-neutral" title="3. Random jumbles from wikipedia pertaining to Database concepts" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
