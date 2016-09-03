@@ -1,5 +1,5 @@
-SQL notes
-"""""""""
+SQL notes (``top-sqlite.rst``)
+""""""""""""""""""""""""""""""
 Concepts related to SQL and database.
 
 Completely jumbled notes with references from all over the place.

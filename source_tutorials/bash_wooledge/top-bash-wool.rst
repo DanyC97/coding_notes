@@ -1,5 +1,5 @@
-Bash wooledge
-=============
+Bash wooledge (``top-bash-wool.rst``)
+=====================================
 Some refrehsers from http://mywiki.wooledge.org/BashGuide
 
 Content adapted according to my needs

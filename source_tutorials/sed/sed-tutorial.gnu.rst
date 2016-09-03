@@ -1,5 +1,5 @@
-sed-tutorial-gnu
-""""""""""""""""
+sed-tutorial-gnu (``sed-tutorial.gnu.rst``)
+"""""""""""""""""""""""""""""""""""""""""""
 ch3 - https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs
 
 (basically the only chapter i need to know)
