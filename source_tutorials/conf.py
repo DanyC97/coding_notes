@@ -100,10 +100,6 @@ exclude_patterns = [
 'bct.rst', #<- exclude when prototyping
 ]
 
-html_theme_options = {
-    'collapse_navigation': False, #<- set to false when publishing
-    'navigation_depth': 4,
-}
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -143,6 +139,10 @@ todo_include_todos = True
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+
+html_theme_options = {
+    'collapse_navigation': False, #<- set to false when publishing
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []

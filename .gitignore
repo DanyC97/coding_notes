@@ -9,3 +9,4 @@ source/DIRNAME
 source/generated
 published
 _temp.sh
+debug.log
