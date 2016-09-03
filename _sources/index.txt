@@ -18,5 +18,6 @@ My coding notebook
     awk-tp.rst
     top-sqlite.rst
 
-
+>>> # test build on windows
+>>> print "hello world"
 
