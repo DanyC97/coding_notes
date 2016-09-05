@@ -1,11 +1,5 @@
 My coding notebook
 ==================
-.. todo:: 
-
-    sed
-
-    - http://www.tutorialspoint.com/sed/index.htm
-    - https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs    
 
 .. toctree::
     :maxdepth: 1
@@ -16,6 +10,7 @@ My coding notebook
     sed/sed-tutorial.tutorialspoints.rst
     awk-tutorial/awk-tutorial.rst
     awk-tp.rst
+    pyspark/top-pyspark
     top-sqlite.rst
     cs-computer.rst
 

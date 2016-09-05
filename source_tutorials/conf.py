@@ -95,6 +95,10 @@ language = None
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
+'awk*',
+'sed*',
+'sql*',
+'bash*',
 'cs-rst-ignore.rst', # decided to just include links to good references
 'cs-sphinx.rst',
 'bct.rst', #<- exclude when prototyping
@@ -151,6 +155,7 @@ html_theme_options = {
 # "<project> v<release> documentation" by default.
 #
 # html_title = u'Snippets v1'
+html_title =''
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
