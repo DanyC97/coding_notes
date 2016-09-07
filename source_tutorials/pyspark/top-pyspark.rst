@@ -4,15 +4,17 @@ PySpark Notes (``top-pyspark.rst``)
 """""""""""""""""""""""""""""""""""
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :numbered:
     :caption: Contents
     :name: top-pyspark
 
     pyspark-snippet
-    pyspark-prog-guide
-    cs105_lab0
-    cs105_lab1a
+    pyspark-prog-guide1
+    pyspark-prog-guide2
+    pyspark-ml-guide
+    pyspark-practice
+    pyspark-overflow
     pyspark-install
 
 This note from mit on `mapreduce <http://nil.csail.mit.edu/6.824/2015/notes/l-mapreduce.txt>`__  and `spark <http://nil.csail.mit.edu/6.824/2015/notes/l-spark.txt>`__ is a nice refresher (from 2015, so prior to Spark 2.0): http://nil.csail.mit.edu/6.824/2015/schedule.html

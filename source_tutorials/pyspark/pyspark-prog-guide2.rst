@@ -1,5 +1,5 @@
-Pyspark Programming Guide (from official page) ``pyspark-prog-guide``
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Pyspark Programming Guide DataFrames and SQL ``pyspark-prog-guide2``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 http://spark.apache.org/docs/latest/sql-programming-guide.html
 
 :TimeStamp: 09-05-2016 (00:55)

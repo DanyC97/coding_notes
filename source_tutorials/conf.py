@@ -94,17 +94,51 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
+#=============================================================================#
+# Rather than specifying files you want to exclude, specify the file to keep.
+# We do this by globbing all rst files, and specifying the filename of
+# those to keep.
+# http://stackoverflow.com/questions/2186525/use-a-glob-to-find-files-recursively-in-python
+# http://stackoverflow.com/questions/11264684/flatten-list-of-lists
+# http://stackoverflow.com/questions/2793324/is-there-a-simple-way-to-delete-a-list-element-by-value-in-python
+#=============================================================================#
+# import fnmatch
+
+# exclude_patterns = []
+# for root, dirnames, filenames in os.walk('./'):
+#     if root == './_templates':
+#         continue # keep templating rst files
+#     for filename in fnmatch.filter(filenames, '*.rst'):
+#         # in case i'm on windows, replace "\\" with "/"
+#         #http://stackoverflow.com/questions/16333569/mixed-slashes-with-os-path-join-on-windows
+#         # also, strip first two chars in the item corresponding to './'
+#         tmp = os.path.join(root, filename).replace("\\","/")[2:]
+#         if tmp == 'index.rst':
+#             # i always want this
+#             continue
+
+#         exclude_patterns.append(tmp)
+
+# items_to_include = [
+#     'pyspark/top-pyspark.rst',
+#     'pyspark/cs110_lab3b.rst',
+# ]
+# for item_ in items_to_include:
+#     exclude_patterns.remove(item_)
+
+# with open('test_test.txt','w') as f:
+#     f.write('\n'.join(exclude_patterns))
+
 exclude_patterns = [
-'awk*',
-'sed*',
-'sql*',
-'bash*',
-'cs-rst-ignore.rst', # decided to just include links to good references
-'cs-sphinx.rst',
-'bct.rst', #<- exclude when prototyping
+# 'awk*',
+# 'sed*',
+# 'sql*',
+# 'bash*',
+# 'cs-rst-ignore.rst', # decided to just include links to good references
+# 'cs-sphinx.rst',
+# 'bct.rst', #<- exclude when prototyping
 ]
-
-
+#-----------------------------------------------------------------------------#
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
 #

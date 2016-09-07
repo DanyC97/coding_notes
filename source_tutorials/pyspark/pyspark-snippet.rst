@@ -41,3 +41,35 @@ Create toy dataset
     Out[15]: (u'Harvey', u'Tracey', u'160-37-9051', 'Agricultural engineer', 39)
     >>> len(data)
     Out[16]: 10000
+
+############################################################
+Databrick helper function displaying all DFs in the notebook
+############################################################
+Happend in lab 1
+
+.. code-block:: python
+
+  >>> from spark_notebook_helpers import printDataFrames
+  ​>>> 
+  >>> #This function returns all the DataFrames in the notebook and their corresponding column names.
+  >>> printDataFrames(True)
+  testPunctDF: ['_1']
+  shakespeareDF: ['sentence']
+  pluralLengthsDF: ['length_of_word']
+  df: ['s', 'd']
+  shakeWordsDF: ['word']
+  sentenceDF: ['sentence']
+  tmp: ['sentence']
+  pluralDF: ['word']
+  wordsDF: ['word']
+  wordsDF2: ['word', 'tmp']
+  wordCountsDF: ['word', 'count']
+
+#######################################
+Get shape of DF (gotta be a better way)
+#######################################
+.. code-block:: python
+    
+    # for ncol, take the length of the 1st row (head) 
+    # for nrow, use built-in method ``count``
+    print 'ncol = {},nrow = {}'.format(len(df.head()), df.count())
