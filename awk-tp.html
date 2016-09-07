@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Awk Tutorials Points (awk-tp.rst) &mdash; Coding Notebook  documentation</title>
+  <title>Awk Tutorials Points (awk-tp.rst)</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="Coding Notebook  documentation" href="index.html"/>
+    <link rel="top" title="" href="index.html"/>
         <link rel="next" title="1. Whirlwind tour from ss64" href="awk-ss64.html"/>
         <link rel="prev" title="4. AWK Built-in Variables" href="awk-tutorial/awk-builtin-vars.html"/> 
 
@@ -43,7 +43,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -82,6 +81,386 @@
             
                 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pyspark/top-pyspark.html">PySpark Notes (<code class="docutils literal"><span class="pre">top-pyspark.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-snippet.html">1. <code class="docutils literal"><span class="pre">pyspark-snippet.rst</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-snippet.html#modules">1.1. Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-snippet.html#create-toy-dataset">1.2. Create toy dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-snippet.html#databrick-helper-function-displaying-all-dfs-in-the-notebook">1.3. Databrick helper function displaying all DFs in the notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-snippet.html#get-shape-of-df-gotta-be-a-better-way">1.4. Get shape of DF (gotta be a better way)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-prog-guide1.html">2. (TODO) Pyspark Programming Guide DataFrames and SQL <code class="docutils literal"><span class="pre">pyspark-prog-guide1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html">3. Pyspark Programming Guide DataFrames and SQL <code class="docutils literal"><span class="pre">pyspark-prog-guide2</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#overview">3.1. Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#sql">3.1.1. SQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#datasets-and-dataframes">3.1.2. Datasets and DataFrames</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#getting-started">3.2. Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#starting-point-sparksession">3.2.1. Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#creating-dataframes">3.2.2. Creating DataFrames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#untyped-dataset-operations-aka-dataframe-operations">3.2.3. Untyped Dataset Operations (aka DataFrame Operations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#running-sql-queries-programmatically">3.2.4. Running SQL Queries Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#creating-datasets-only-in-scala-java">3.2.5. Creating Datasets (only in Scala/Java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#interoperating-with-rdds">3.2.6. Interoperating with RDDs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#data-sources">3.3. Data Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#generic-load-functions">3.4. Generic Load Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#default-parquet">3.4.1. Default (parquet)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#manually-specifying-options">3.4.2. Manually Specifying Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#run-sql-on-files-directly">3.4.3. Run SQL on files directly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#generic-save-functions">3.5. Generic Save Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#save-modes">3.5.1. Save Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#saving-to-persistent-tables">3.5.2. __Saving to Persistent Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#parquet-files">3.6. Parquet Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#loading-data-programmatically">3.6.1. Loading Data Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#partition-discovery">3.6.2. __Partition Discovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#schema-merging">3.6.3. Schema Merging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#hive-metastore-parquet-conversion">3.6.4. __Hive metastore Parquet Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#configuration">3.6.5. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#json-datasets">3.7. JSON Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#hive-tables">3.8. Hive Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#interacting-with-different-versions-of-hive-metastore">3.8.1. __Interacting with Different Versions of Hive Metastore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#jdbc-to-other-databases">3.9. __JDBC To Other Databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#performance-tuning">3.10. Performance Tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#caching-data-in-memory">3.10.1. Caching Data in Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#other-configuration-options">3.10.2. Other Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#distributed-sql-engine">3.11. Distributed SQL Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#running-the-thrift-jdbc-odbc-server">3.11.1. __Running the Thrift JDBC/ODBC server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#running-the-spark-sql-cli">3.11.2. Running the Spark SQL CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#reference">3.12. Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#data-types">3.12.1. Data-Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-prog-guide2.html#nan-semantics">3.12.2. NaN Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-ml-guide.html">4. spark.ml prog-guide <code class="docutils literal"><span class="pre">pyspark-ml-guide</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#main-concepts-in-pipelines">4.1. Main concepts in Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#dataframe">4.2. DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#pipeline-components">4.3. Pipeline components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#transformers">4.3.1. Transformers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#estimators">4.3.2. Estimators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#properties-of-pipeline-components">4.3.3. Properties of pipeline components</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#pipeline-transformers-and-estimators">4.4. Pipeline (transformers and estimators)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#how-it-works">4.4.1. How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#details">4.4.2. Details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#parameters">4.5. Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#saving-and-loading-pipelines">4.6. Saving and Loading Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#code-examples">4.7. Code Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#estimator-transformer-and-param">4.7.1. Estimator, Transformer, and Param</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#example-pipeline">4.7.2. Example: Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#example-model-selection-via-cv-scala">4.7.3. Example: model selection via CV (Scala)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-ml-guide.html#example-model-selection-via-train-validation-split-scala">4.7.4. Example: model selection via train validation split (scala)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-practice.html">5. <code class="docutils literal"><span class="pre">pyspark-practice.rst</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#basics-dfs">5.1. Basics DFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#udfs">5.2. UDFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#sorting">5.3. Sorting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#create-df-from-list-of-tuples">5.4. Create DF from list of tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#groupby">5.5. groupby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#practice-with-faker-data">5.6. Practice with faker data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-practice.html#little-refrehser-on-generators">5.6.1. Little refrehser on generators</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#register-table-to-use-sql">5.7. Register table to use SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-practice.html#more">5.8. More</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-overflow.html">6. <code class="docutils literal"><span class="pre">pyspark-overflow.rst</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#how-to-get-a-value-from-the-row-object-in-spark-dataframe">6.1. How to get a value from the Row object in Spark Dataframe?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#how-to-add-a-constant-column-in-a-spark-dataframe">6.2. How to add a constant column in a Spark DataFrame?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#add-an-empty-column-to-spark-dataframe">6.3. Add an empty column to Spark DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#count-number-of-non-nan-entries-in-each-column-of-spark-dataframe">6.4. Count number of non-NaN entries in each column of Spark dataframe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#use-simple-aggregation">6.4.1. Use simple aggregation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#use-sql-null-semantics">6.4.2. Use SQL <code class="docutils literal"><span class="pre">NULL</span></code> semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#in-fractions">6.4.3. In fractions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#updating-a-dataframe-column-in-spark">6.5. Updating a dataframe column in spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#how-do-i-add-a-new-column-to-spark-data-frame-pyspark">6.6. How do I add a new column to spark data frame (Pyspark)?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#use-literals-lit">6.6.1. Use literals <code class="docutils literal"><span class="pre">lit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#transforming-an-existing-column">6.6.2. Transforming an existing column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#using-join">6.6.3. Using <code class="docutils literal"><span class="pre">join</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#using-function-udf">6.6.4. Using function/UDF</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#how-to-change-dataframe-column-names-in-pyspark">6.7. How to change dataframe column names in pyspark?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#option-1-using-selectexpr">6.7.1. Option 1. Using selectExpr.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#option-2-using-withcolumnrenamed">6.7.2. Option 2. Using <code class="docutils literal"><span class="pre">withColumnRenamed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#using-alias">6.7.3. Using alias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#using-sqlcontext-sql">6.7.4. Using <code class="docutils literal"><span class="pre">sqlContext.sql</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#pyspark-dataframes-way-to-enumerate-without-converting-to-pandas">6.8. PySpark DataFrames - way to enumerate without converting to Pandas?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-overflow.html#ones-i-just-bookmarked-for-future-reference">6.9. Ones I just bookmarked for future reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/pyspark-overflow.html#reshaping-pivoting-data-in-spark-rdd-and-or-spark-dataframes">6.9.1. Reshaping/Pivoting data in Spark RDD and/or Spark DataFrames</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/pyspark-install.html">7. Install PySpark (<code class="docutils literal"><span class="pre">pyspark-install</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-install.html#windows">7.1. windows?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/pyspark-install.html#retry-above-is-a-clusterfuck">7.2. Retry, above is a clusterfuck</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspark/top-edx.html">EdX Course Notes (<code class="docutils literal"><span class="pre">top-edx.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs105_lab0.html">cs105_lab0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab0.html#create-dataframe-and-filter-it">Create DataFrame and filter it</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab0.html#load-a-text-file">Load a text file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab0.html#check-plotting">Check plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs105_lab1a.html">cs105_lab1a</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a.html#spark-context">Spark Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a.html#sparkcontext-and-the-driver-program-cluster-structure">SparkContext and the Driver Program (Cluster Structure)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#about-the-driver-program">About the Driver Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#about-hivecontext-the-type-of-sqlcontext-for-db">About HiveContext (the type of sqlContext for DB)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#sparkcontext">SparkContext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a.html#using-dataframes-and-chaining-transformations">Using DataFrames and chaining transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#dataframe-and-schema">DataFrame and Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#ways-to-define-schemas">Ways to define schemas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#distributed-data-and-using-a-collection-to-create-a-dataframe">Distributed Data and using a collection to create a DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a.html#query-plans-and-the-catalyst-optimizer">Query plans and the <code class="docutils literal"><span class="pre">Catalyst</span> <span class="pre">Optimizer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html">cs105_lab1a codes (<code class="docutils literal"><span class="pre">cs105_lab1a_code</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#exercise-overview">Exercise Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#create-list-of-data">Create list of Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#create-dataframe-from-a-list">Create DataFrame from a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#subtract-one-from-each-the-age-row">Subtract one from each the <em>age</em> row</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#apply-transformations-and-examine-query-plan">Apply transformations, and examine query plan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#use-collect-to-view-results">Use <code class="docutils literal"><span class="pre">collect</span></code> to view results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#display-helper-function-in-db">display helper function in DB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#more-actions-count-to-get-total">More actions: <code class="docutils literal"><span class="pre">count</span></code> to get total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#apply-transformation-filter-and-view-results-with-collect">Apply transformation <code class="docutils literal"><span class="pre">filter</span></code> and view results with <code class="docutils literal"><span class="pre">collect</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#lambda-functions-and-udfs">Lambda functions and UDFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#additional-dataframe-actions">Additional DataFrame actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#additional-dataframe-transformations">Additional DataFrame transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#orderby">orderBy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#a-distinct-and-dropduplicates">A <code class="docutils literal"><span class="pre">distinct</span></code> and <code class="docutils literal"><span class="pre">dropDuplicates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#drop">drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#groupby">groupBy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#sample">sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#caching-dataframes-and-storage-options">Caching DataFrames and Storage Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#unpersist-and-storage-options">Unpersist and storage options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#debugging-spark-applications-and-lazy-evaluation">Debugging Spark applications and lazy evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#jvm-and-py4j-how-python-is-executed-in-spark">JVM and Py4J - How Python is Executed in Spark</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#challenges-with-lazy-evaluation-using-transformations-and-actions">Challenges with lazy evaluation using transformations and actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#finding-the-bug">Finding the bug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1a_coding.html#moving-toward-expert-style">Moving toward expert style</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs105_lab1b.html">cs105_lab1b_wordcount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1b.html#create-a-base-df-and-perform-operations">Create a base DF and perform operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#create-a-base-df">Create a base DF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#use-df-functions-to-add-an-s">Use DF functions to add an &#8216;s&#8217;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#length-of-each-word">Length of each word</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1b.html#counting-with-spark-sql-and-dataframes">Counting with Spark SQL and DataFrames</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#using-groupby-and-count">Using groupBy and count</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1b.html#finding-unique-words-and-a-mean-value">Finding unique words and a mean value</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#unique-words">Unique words</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#means-of-groups-using-dataframes">Means of groups using DataFrames</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1b.html#apply-word-count-to-a-file">Apply word count to a file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#the-wordcount-function">The wordCount function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#capitalization-and-punctuation">Capitalization and punctuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#load-a-text-file">Load a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#words-from-lines">Words from lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab1b.html#count-the-words">Count the words</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab1b.html#random-stuffs-i-played-around-with">Random stuffs I played around with</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs105_lab2.html">cs105_lab2_apache_log</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab2.html#introduction-and-imports">Introduction and Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab2.html#exploratory-data-analysis">Exploratory Data Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#b-parsing-the-log-file">(2b) Parsing the log file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#data-cleaning">Data Cleaning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#fix-the-rows-with-null-content-size">Fix the rows with null content_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#parsing-the-timestamp">Parsing the timestamp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab2.html#analysis-walk-through-on-the-web-server-log-file">Analysis Walk-Through on the Web Server Log File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#example-content-size-statistics">Example: Content Size Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#example-http-status-analysis">Example: HTTP Status Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#example-status-graphing">Example: Status Graphing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#example-frequent-hosts">Example: Frequent Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#example-visualizing-paths">Example: Visualizing Paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#example-top-paths">Example: Top Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab2.html#analyzing-web-server-log-file">Analyzing Web Server Log File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-top-ten-error-paths-hw-problem">Exercise: Top Ten Error Paths (HW Problem)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-number-of-unique-hosts-hw">Exercise: Number of Unique Hosts (HW)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-number-of-unique-daily-hosts">Exercise: Number of Unique Daily Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-visualizing-the-number-of-unique-daily-hosts">Exercise: Visualizing the Number of Unique Daily Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-average-number-of-daily-requests-per-host">Exercise: Average Number of Daily Requests per Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-visualizing-the-average-daily-requests-per-unique-host">Exercise: Visualizing the Average Daily Requests per Unique Host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs105_lab2.html#exploring-404-status-codes">Exploring 404 Status Codes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-counting-404-response-codes">Exercise: Counting 404 Response Codes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-listing-404-status-code-records">Exercise: Listing 404 Status Code Records</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-listing-the-top-twenty-404-response-code-paths">Exercise: Listing the Top Twenty 404 Response Code paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-listing-the-top-twenty-five-404-response-code-hosts">Exercise: Listing the Top Twenty-five 404 Response Code Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-listing-404-errors-per-day">Exercise: Listing 404 Errors per Day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-visualizing-the-404-errors-by-day">Exercise: Visualizing the 404 Errors by Day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-top-five-days-for-404-errors">Exercise: Top Five Days for 404 Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-hourly-404-errors">Exercise: Hourly 404 Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs105_lab2.html#exercise-visualizing-the-404-response-codes-by-hour">Exercise: Visualizing the 404 Response Codes by Hour</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs110_lab1.html">cs110_lab1_power_plant_ml_pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#background">Background</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#background-power-generation">Background &#8212; power generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#challenge-for-power-grid-operation">Challenge for power grid operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#the-business-problem">The business problem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#business-understanding">Business Understanding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#extract-transform-load-etl-your-data">Extract-Transform-Load (ETL) Your Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-2a">Exercise 2a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-2b">Exercise 2b</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-2c">Exercise 2c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-2d">Exercise 2d</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#explore-your-data">Explore your data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#a">3a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#b">3b</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#visualize-your-data">Visualize your data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#id1">4a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-4-b">Exercise 4(b)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#excercise-4-c">Excercise 4(c)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-4-d">Exercise 4(d)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#data-preparation-where-i-left-off">Data Preparation (where i left off)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-5-a">Exercise 5(a)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#data-modeling">Data Modeling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-6-a">Exercise 6(a)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#id2">6(b)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#c">6(c)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#d">6(d)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#e">6e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#f">6(f)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#g">6(g)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#h">6(h)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#i">6(i)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#j">6(j)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#k">6(k)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab1.html#tuning-and-evaluation">Tuning and Evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#id3">7(a)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-b">Exercise 7(b)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-c-decisiontreeregressor">Exercise 7(c) DecisionTreeRegressor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-d">Exercise 7(d)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-e">Exercise 7(e)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-f-random-forest-regressor">Exercise 7(f) (Random Forest Regressor)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-g-cross-validation">Exercise 7(g) (cross validation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab1.html#exercise-7-h-model-evaluation">Exercise 7(h) (model evaluation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs110_lab2.html">cs110_lab2_als_prediction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab2.html#preliminaries">Preliminaries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#the-20-million-movie-sample">The 20-million movie sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#cpu-vs-io-tradeoff">CPU vs IO Tradeoff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#load-and-cache">Load and Cache</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab2.html#basic-recommendations">Basic Recommendations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-1a-movies-with-highest-average-ratings">Exercise (1a) Movies with Highest Average Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-1b-movies-with-highest-average-ratings-and-at-least-500-reviews">Exercise (1b) Movies with Highest Average Ratings and at least 500 reviews</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab2.html#collaborative-filtering">Collaborative Filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-2a-creating-a-training-set">Exercise (2a) Creating a Training Set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-2b-alternating-least-squares">Exercise (2b) Alternating Least Squares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#why-are-we-doing-our-own-cross-validation">Why are we doing our own cross-validation?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#excersie-2c-testing-your-model">Excersie (2c) Testing Your Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-2d-comparing-your-model">Exercise (2d) Comparing Your Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab2.html#predictions-for-yourself">Predictions for Yourself</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-3a-your-movie-ratings">Exercise (3a) Your Movie Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-3b-add-your-movies-to-training-dataset">Exercise (3b) Add Your Movies to Training Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-3c-train-a-model-with-your-ratings">Exercise (3c) Train a Model with Your Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-3d-check-rmse-for-the-new-model-with-your-ratings">Exercise (3d) Check RMSE for the New Model with Your Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-3e-predict-your-ratings">Exercise (3e) Predict Your Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab2.html#exercise-3f-predict-your-ratings">Exercise (3f) Predict Your Ratings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs110_lab3a.html">cs110_lab3a_word_count_rdd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs110_lab3b.html">cs110_lab3b_text_analysis_and_entity_resolution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab3b.html#data-files">Data files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab3b.html#preliminaries">Preliminaries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab3b.html#load-data-files">Load data files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab3b.html#examine-the-lines-loaded">Examine the lines loaded</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark/cs110_lab3b.html#er-as-text-similarity-bags-of-words">ER as Text Similarity - Bags of Words</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark/cs110_lab3b.html#exercise-1-a-tokenize-a-string">Exercise 1(a) Tokenize a String</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs120_lab1a.html">cs120_lab1a_math_review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs120_lab1b.html">cs120_lab1b_word_count_rdd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs120_lab2.html">cs120_lab2_linear_regression_df</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs120_lab3.html">cs120_lab3_ctr_df</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark/cs120_lab4.html">cs120_lab4_pca</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="bash_wooledge/top-bash-wool.html">Bash wooledge (<code class="docutils literal"><span class="pre">top-bash-wool.rst</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/special_char.html">1. Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bash_wooledge/param.html">2. Parameters</a><ul>
@@ -308,15 +687,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html">1.6. SQLite DDL</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#create-database">1.6.1. CREATE Database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#attach-database">1.6.2. ATTACH Database</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#basic-syntax">1.6.2.1. Basic syntax</a></li>
-<li class="toctree-l5"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#demo">1.6.2.2. Demo</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#detach-database">1.6.3. DETACH Database</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#example">1.6.3.1. Example</a></li>
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#attach-database">1.6.2. ATTACH Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#detach-database">1.6.3. DETACH Database</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#create-table">1.6.4. CREATE Table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sqlite.tutpoint.6_sqlite_DDL.html#drop-table">1.6.5. DROP Table</a></li>
 </ul>
@@ -428,10 +800,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Coding Notebook</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Coding Notebook</a>
       </nav>
 
 
@@ -444,30 +814,18 @@
 
 
 
-
-
-
-
-
-
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Awk Tutorials Points (<code class="docutils literal"><span class="pre">awk-tp.rst</span></code>)</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Awk Tutorials Points (<code class="docutils literal"><span class="pre">awk-tp.rst</span></code>)</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/awk-tp.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
   <hr/>
 </div>

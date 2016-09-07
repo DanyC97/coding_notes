@@ -1,16 +1,12 @@
 My coding notebook
 ==================
-.. todo:: 
-
-    sed
-
-    - http://www.tutorialspoint.com/sed/index.htm
-    - https://www.gnu.org/software/sed/manual/html_node/sed-Programs.html#sed-Programs    
 
 .. toctree::
     :maxdepth: 1
     :caption: Table of Contents
 
+    pyspark/top-pyspark
+    pyspark/top-edx
     bash_wooledge/top-bash-wool.rst
     sed/sed-tutorial.gnu.rst
     sed/sed-tutorial.tutorialspoints.rst
