@@ -6,6 +6,10 @@ https://github.com/spark-mooc/mooc-setup/blob/master/cs105_lab0.dbc
 
 .. note:: This notebook tests Spark Functionality (not a tutorial)
 
+.. contents:: `Contents`
+   :depth: 2
+   :local:
+
 ##############################
 Create DataFrame and filter it
 ##############################

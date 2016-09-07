@@ -2,11 +2,19 @@
 
 EdX Course Notes (``top-edx.rst``)
 """"""""""""""""""""""""""""""""""
+Notes I took when completing EdX's program series on `Data Science and Engineering with Spark <https://courses.edx.org/dashboard/programs/21/data-science-and-engineering-with-spark>`__.
+
+.. important:: 
+
+  To adhere to the honor code, I kept the content of ``<FILL IN>`` for the HW problems 
+  in a separate personal private `github repos <https://github.com/wtak23/private_repos/>`__
+  that only I have access to.
 
 .. toctree::
     :maxdepth: 1
     :caption: Contents
     :name: top-edx
+    :numbered:
 
     cs105_lab0
     cs105_lab1a

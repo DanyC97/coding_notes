@@ -1,5 +1,5 @@
-cs105_lab1a codes (``cs105_lab1a_code``)
-""""""""""""""""""""""""""""""""""""""""
+cs105_lab1a codes
+"""""""""""""""""
 
 .. contents:: `Contents`
    :depth: 2
