@@ -1,5 +1,5 @@
-cs110_lab3b_text_analysis_and_entity_resolution
-"""""""""""""""""""""""""""""""""""""""""""""""
+cs110_lab3b_text_analysis_ER
+""""""""""""""""""""""""""""
 https://raw.githubusercontent.com/spark-mooc/mooc-setup/master/cs110_lab3b_text_analysis_and_entity_resolution.py
 
 .. important:: 
