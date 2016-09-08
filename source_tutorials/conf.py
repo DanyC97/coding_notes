@@ -120,23 +120,25 @@ language = None
 #         exclude_patterns.append(tmp)
 
 # items_to_include = [
-#     'pyspark/top-pyspark.rst',
+#     'pyspark/top-edx.rst',
 #     'pyspark/cs110_lab3b.rst',
+#     'pyspark/cs120_lab4.rst',
 # ]
 # for item_ in items_to_include:
 #     exclude_patterns.remove(item_)
 
-# with open('test_test.txt','w') as f:
-#     f.write('\n'.join(exclude_patterns))
+# # with open('test_test.txt','w') as f:
+# #     f.write('\n'.join(exclude_patterns))
 
 exclude_patterns = [
-# 'awk*',
-# 'sed*',
-# 'sql*',
-# 'bash*',
-# 'cs-rst-ignore.rst', # decided to just include links to good references
-# 'cs-sphinx.rst',
-# 'bct.rst', #<- exclude when prototyping
+# 'pyspark/pyspark*.rst',
+'pyspark/cs105*.rst',
+'pyspark/cs120*.rst',
+'awk*',
+'sed*',
+'sql*',
+'bash*',
+'cs-computer*',
 ]
 #-----------------------------------------------------------------------------#
 # The reST default role (used for this markup: `text`) to use for all
