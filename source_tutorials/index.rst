@@ -16,7 +16,8 @@ My coding notebook
 
     pyspark/top-pyspark
     pyspark/top-edx
-    pyspark/top-databricks
+    pyspark/apache-ml-guide
+    pyspark/apache-ml-rdd
 
 .. toctree::
     :maxdepth: 1

@@ -133,7 +133,7 @@ language = None
 exclude_patterns = [
 # 'pyspark/pyspark*.rst',
 'pyspark/cs105*.rst',
-'pyspark/cs120*.rst',
+# 'pyspark/cs120*.rst',
 'awk*',
 'sed*',
 'sql*',

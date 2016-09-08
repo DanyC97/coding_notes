@@ -1,6 +1,13 @@
-spark.ml prog-guide ``pyspark-ml-guide``
-""""""""""""""""""""""""""""""""""""""""
-https://spark.apache.org/docs/1.6.2/ml-guide.html
+Pipeline-old (``pipeline-old``)
+"""""""""""""""""""""""""""""""
+
+.. warning:: 
+  
+  Note taken from Spark 1.6.2 (now 2.0) from: https://spark.apache.org/docs/1.6.2/ml-guide.html
+
+  Content nearly identical to http://spark.apache.org/docs/latest/ml-pipeline.html
+
+  **Timestamp**: 09-08-2016 (15:33)
 
 .. contents:: `Contents`
    :depth: 1

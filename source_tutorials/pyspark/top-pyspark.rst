@@ -10,12 +10,12 @@ PySpark Notes (``top-pyspark.rst``)
     :name: top-pyspark
 
     pyspark-snippet
-    pyspark-prog-guide1
-    pyspark-prog-guide2
-    pyspark-ml-guide
     pyspark-practice
     pyspark-overflow
     pyspark-install
+    apache-prog-guide-rdd
+    apache-prog-guide-df
+    databricks
 
 This note from mit on `mapreduce <http://nil.csail.mit.edu/6.824/2015/notes/l-mapreduce.txt>`__  and `spark <http://nil.csail.mit.edu/6.824/2015/notes/l-spark.txt>`__ is a nice refresher (from 2015, so prior to Spark 2.0): http://nil.csail.mit.edu/6.824/2015/schedule.html
 
