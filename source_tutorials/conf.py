@@ -102,44 +102,47 @@ language = None
 # http://stackoverflow.com/questions/11264684/flatten-list-of-lists
 # http://stackoverflow.com/questions/2793324/is-there-a-simple-way-to-delete-a-list-element-by-value-in-python
 #=============================================================================#
-# import fnmatch
+import fnmatch
 
-# exclude_patterns = []
-# for root, dirnames, filenames in os.walk('./'):
-#     if root == './_templates':
-#         continue # keep templating rst files
-#     for filename in fnmatch.filter(filenames, '*.rst'):
-#         # in case i'm on windows, replace "\\" with "/"
-#         #http://stackoverflow.com/questions/16333569/mixed-slashes-with-os-path-join-on-windows
-#         # also, strip first two chars in the item corresponding to './'
-#         tmp = os.path.join(root, filename).replace("\\","/")[2:]
-#         if tmp == 'index.rst':
-#             # i always want this
-#             continue
+exclude_patterns = []
+for root, dirnames, filenames in os.walk('./'):
+    if root == './_templates':
+        continue # keep templating rst files
+    for filename in fnmatch.filter(filenames, '*.rst'):
+        # in case i'm on windows, replace "\\" with "/"
+        #http://stackoverflow.com/questions/16333569/mixed-slashes-with-os-path-join-on-windows
+        # also, strip first two chars in the item corresponding to './'
+        tmp = os.path.join(root, filename).replace("\\","/")[2:]
+        if tmp == 'index.rst':
+            # i always want this
+            continue
 
-#         exclude_patterns.append(tmp)
+        exclude_patterns.append(tmp)
 
-# items_to_include = [
-#     'pyspark/top-edx.rst',
-#     'pyspark/cs110_lab3b.rst',
-#     'pyspark/cs120_lab4.rst',
-# ]
-# for item_ in items_to_include:
-#     exclude_patterns.remove(item_)
+items_to_include = [
+    'pyspark/top-edx.rst',
+    'pyspark/top-pyspark.rst',
+    'pyspark/cs105_lab2.rst',
+    'pyspark/pyspark-snippet.rst',
+    # 'pyspark/cs110_lab3b.rst',
+    # 'pyspark/cs120_lab4.rst',
+]
+for item_ in items_to_include:
+    exclude_patterns.remove(item_)
 
 # # with open('test_test.txt','w') as f:
 # #     f.write('\n'.join(exclude_patterns))
 
-exclude_patterns = [
-# 'pyspark/pyspark*.rst',
-'pyspark/cs105*.rst',
-# 'pyspark/cs120*.rst',
-'awk*',
-'sed*',
-'sql*',
-'bash*',
-'cs-computer*',
-]
+# exclude_patterns = [
+# # 'pyspark/pyspark*.rst',
+# # 'pyspark/cs105*.rst',
+# # 'pyspark/cs120*.rst',
+# 'awk*',
+# 'sed*',
+# 'sql*',
+# 'bash*',
+# 'cs-computer*',
+# ]
 #-----------------------------------------------------------------------------#
 # The reST default role (used for this markup: `text`) to use for all
 # documents.

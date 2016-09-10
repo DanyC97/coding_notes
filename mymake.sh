@@ -10,7 +10,7 @@ export PATH="$HOME/anaconda2/bin:$PATH" # <- when running script from sublime-bu
 export PATH="/cygdrive/c/Users/takanori/Anaconda2/Scripts:$PATH" # <- in case i'm on windows
 # # which python # <- verify python from anaconda is running
 
-make clean
+# make clean
 # # rm -r ./source/generated*
 make html
 
@@ -19,7 +19,7 @@ exit 0
 # --- browse result in chrome? --- #
 # BROWSE=false
 # if [[ ! BROWSE ]]; then exit 0; fi
-
+# 
 if [[ $(uname -o) == 'Cygwin' ]]; then
   "/cygdrive/C/Program Files (x86)/Google/Chrome/Application/chrome.exe" \
       $(cygpath -w ${PWD}/build/html/index.html)

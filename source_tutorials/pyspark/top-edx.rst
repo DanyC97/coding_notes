@@ -14,7 +14,6 @@ Notes I took when completing EdX's program series on `Data Science and Engineeri
     :maxdepth: 1
     :caption: Contents
     :name: top-edx
-    :numbered:
 
     cs105_lab0
     cs105_lab1a

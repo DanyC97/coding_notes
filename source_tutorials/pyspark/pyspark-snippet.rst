@@ -8,12 +8,33 @@ Modules
 .. code-block:: python
 
   >>> from pyspark import sql
+  >>> from pyspark.sql import functions as F
   >>> from pprint import pprint
   >>> import os
   >>> import re
   >>> import datetime
   >>> print 'This was last run on: {0}'.format(datetime.datetime.now())
   This was last run on: 2016-09-05 03:53:21.809269
+
+#############################################
+spark_notebook_helpers library for Databricks
+#############################################
+- From :ref:`cs105_lab2`, :ref:`cs105_lab2.3c`
+- to make more adjustments, use ``matplotlib``
+- Here let's use a set of helper functions from the ``spark_notebook_helpers`` library. 
+
+
+.. code-block:: python
+
+    >>> # np is just an alias for numpy.
+    >>> # cm and plt are aliases for matplotlib.cm (for "color map") and matplotlib.pyplot, respectively.
+    >>> # prepareSubplot is a helper.
+    >>> from spark_notebook_helpers import prepareSubplot, np, plt, cm
+    >>> help(prepareSubplot)
+    Help on function prepareSubplot in module spark_notebook_helpers:
+
+    prepareSubplot(xticks, yticks, figsize=(10.5, 6), hideLabels=False, gridColor='#999999', gridWidth=1.0, subplots=(1, 1))
+        Template for generating the plot layout.
 
 ##################
 Create toy dataset
@@ -88,3 +109,25 @@ Get shape of DF (gotta be a better way)
     # for ncol, take the length of the 1st row (head) 
     # for nrow, use built-in method ``count``
     print 'ncol = {},nrow = {}'.format(len(df.head()), df.count())
+
+
+###############
+Random snippets
+###############
+
+***********************************************
+print dataframes in my workspace (super-ad-hoc)
+***********************************************
+
+>>> #assuming i have 'df' in my varname for DataFrames, print out what i got in my workspace
+>>> filter(lambda _varname: 'df' in _varname,dir())
+Out[59]: 
+['bad_content_size_df',
+ 'bad_rows_df',
+ 'base_df',
+ 'cleaned_df',
+ 'paths_df',
+ 'split_df',
+ 'status_to_count_df',
+ 'throwaway_df',
+ 'udf']
