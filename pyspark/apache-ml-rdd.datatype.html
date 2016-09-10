@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Data Types (datatypes)</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon-umich.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="" href="../index.html"/>
+        <link rel="up" title="MLLib: RDD-based API Guideline (apache-ml-rdd)" href="apache-ml-rdd.html"/>
+        <link rel="next" title="2. Basic Statistics (stats)" href="apache-ml-rdd.stats.html"/>
+        <link rel="prev" title="MLLib: RDD-based API Guideline (apache-ml-rdd)" href="apache-ml-rdd.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents (PySpark)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="top-pyspark.html">PySpark Notes (<code class="docutils literal"><span class="pre">top-pyspark.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-snippet.html">1. <code class="docutils literal"><span class="pre">pyspark-snippet.rst</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#modules">1.1. Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#create-toy-dataset">1.2. Create toy dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#print-rdd-per-item">1.3. Print RDD per item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#databrick-helper-function-displaying-all-dfs-in-the-notebook">1.4. Databrick helper function displaying all DFs in the notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#get-shape-of-df-gotta-be-a-better-way">1.5. Get shape of DF (gotta be a better way)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-practice.html">2. <code class="docutils literal"><span class="pre">pyspark-practice.rst</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#basics-dfs">2.1. Basics DFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#udfs">2.2. UDFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#sorting">2.3. Sorting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#create-df-from-list-of-tuples">2.4. Create DF from list of tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#groupby">2.5. groupby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#practice-with-faker-data">2.6. Practice with faker data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-practice.html#little-refrehser-on-generators">2.6.1. Little refrehser on generators</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#register-table-to-use-sql">2.7. Register table to use SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-practice.html#more">2.8. More</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-overflow.html">3. <code class="docutils literal"><span class="pre">pyspark-overflow.rst</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#how-to-get-a-value-from-the-row-object-in-spark-dataframe">3.1. How to get a value from the Row object in Spark Dataframe?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#how-to-add-a-constant-column-in-a-spark-dataframe">3.2. How to add a constant column in a Spark DataFrame?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#add-an-empty-column-to-spark-dataframe">3.3. Add an empty column to Spark DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#count-number-of-non-nan-entries-in-each-column-of-spark-dataframe">3.4. Count number of non-NaN entries in each column of Spark dataframe</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#use-simple-aggregation">3.4.1. Use simple aggregation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#use-sql-null-semantics">3.4.2. Use SQL <code class="docutils literal"><span class="pre">NULL</span></code> semantics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#in-fractions">3.4.3. In fractions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#updating-a-dataframe-column-in-spark">3.5. Updating a dataframe column in spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#how-do-i-add-a-new-column-to-spark-data-frame-pyspark">3.6. How do I add a new column to spark data frame (Pyspark)?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#use-literals-lit">3.6.1. Use literals <code class="docutils literal"><span class="pre">lit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#transforming-an-existing-column">3.6.2. Transforming an existing column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#using-join">3.6.3. Using <code class="docutils literal"><span class="pre">join</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#using-function-udf">3.6.4. Using function/UDF</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#how-to-change-dataframe-column-names-in-pyspark">3.7. How to change dataframe column names in pyspark?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#option-1-using-selectexpr">3.7.1. Option 1. Using selectExpr.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#option-2-using-withcolumnrenamed">3.7.2. Option 2. Using <code class="docutils literal"><span class="pre">withColumnRenamed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#using-alias">3.7.3. Using alias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#using-sqlcontext-sql">3.7.4. Using <code class="docutils literal"><span class="pre">sqlContext.sql</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#pyspark-dataframes-way-to-enumerate-without-converting-to-pandas">3.8. PySpark DataFrames - way to enumerate without converting to Pandas?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-overflow.html#ones-i-just-bookmarked-for-future-reference">3.9. Ones I just bookmarked for future reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-overflow.html#reshaping-pivoting-data-in-spark-rdd-and-or-spark-dataframes">3.9.1. Reshaping/Pivoting data in Spark RDD and/or Spark DataFrames</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-install.html">4. Install PySpark (<code class="docutils literal"><span class="pre">pyspark-install</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-install.html#windows">4.1. windows?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-install.html#retry-above-is-a-clusterfuck">4.2. Retry, above is a clusterfuck</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-prog-guide-rdd.html">5. (todo) Spark Programming Guide (<code class="docutils literal"><span class="pre">apache-prog-guide-rdd</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apache-prog-guide-df.html">6. Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#overview">6.1. Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#sql">6.1.1. SQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#datasets-and-dataframes">6.1.2. Datasets and DataFrames</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#getting-started">6.2. Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#starting-point-sparksession">6.2.1. Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#creating-dataframes">6.2.2. Creating DataFrames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#untyped-dataset-operations-aka-dataframe-operations">6.2.3. Untyped Dataset Operations (aka DataFrame Operations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-sql-queries-programmatically">6.2.4. Running SQL Queries Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#creating-datasets-only-in-scala-java">6.2.5. Creating Datasets (only in Scala/Java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#interoperating-with-rdds">6.2.6. Interoperating with RDDs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#data-sources">6.3. Data Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#generic-load-functions">6.4. Generic Load Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#default-parquet">6.4.1. Default (parquet)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#manually-specifying-options">6.4.2. Manually Specifying Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#run-sql-on-files-directly">6.4.3. Run SQL on files directly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#generic-save-functions">6.5. Generic Save Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#save-modes">6.5.1. Save Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#saving-to-persistent-tables">6.5.2. __Saving to Persistent Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#parquet-files">6.6. Parquet Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#loading-data-programmatically">6.6.1. Loading Data Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#partition-discovery">6.6.2. __Partition Discovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#schema-merging">6.6.3. Schema Merging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#hive-metastore-parquet-conversion">6.6.4. __Hive metastore Parquet Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#configuration">6.6.5. Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#json-datasets">6.7. JSON Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#hive-tables">6.8. Hive Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#interacting-with-different-versions-of-hive-metastore">6.8.1. __Interacting with Different Versions of Hive Metastore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#jdbc-to-other-databases">6.9. __JDBC To Other Databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#performance-tuning">6.10. Performance Tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#caching-data-in-memory">6.10.1. Caching Data in Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#other-configuration-options">6.10.2. Other Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#distributed-sql-engine">6.11. Distributed SQL Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-the-thrift-jdbc-odbc-server">6.11.1. __Running the Thrift JDBC/ODBC server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-the-spark-sql-cli">6.11.2. Running the Spark SQL CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#reference">6.12. Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#data-types">6.12.1. Data-Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#nan-semantics">6.12.2. NaN Semantics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="databricks.html">7. Databrick Doc (<code class="docutils literal"><span class="pre">databricks.rst</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databricks.html#ml-stuffs">7.1. ML Stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databricks.html#bunch-of-notebooks">7.2. Bunch of notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="top-edx.html">EdX Course Notes (<code class="docutils literal"><span class="pre">top-edx.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab0.html">1. cs105_lab0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#create-dataframe-and-filter-it">1.1. Create DataFrame and filter it</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#load-a-text-file">1.2. Load a text file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#check-plotting">1.3. Check plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab1a.html">2. cs105_lab1a</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a.html#spark-context">2.1. Spark Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a.html#sparkcontext-and-the-driver-program-cluster-structure">2.2. SparkContext and the Driver Program (Cluster Structure)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#about-the-driver-program">2.2.1. About the Driver Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#about-hivecontext-the-type-of-sqlcontext-for-db">2.2.2. About HiveContext (the type of sqlContext for DB)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#sparkcontext">2.2.3. SparkContext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a.html#using-dataframes-and-chaining-transformations">2.3. Using DataFrames and chaining transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#dataframe-and-schema">2.3.1. DataFrame and Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#ways-to-define-schemas">2.3.2. Ways to define schemas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#distributed-data-and-using-a-collection-to-create-a-dataframe">2.3.3. Distributed Data and using a collection to create a DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#query-plans-and-the-catalyst-optimizer">2.3.4. Query plans and the <code class="docutils literal"><span class="pre">Catalyst</span> <span class="pre">Optimizer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab1a_coding.html">3. cs105_lab1a codes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#exercise-overview">3.1. Exercise Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#create-list-of-data">3.2. Create list of Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#create-dataframe-from-a-list">3.3. Create DataFrame from a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#subtract-one-from-each-the-age-row">3.4. Subtract one from each the <em>age</em> row</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#apply-transformations-and-examine-query-plan">3.5. Apply transformations, and examine query plan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#use-collect-to-view-results">3.6. Use <code class="docutils literal"><span class="pre">collect</span></code> to view results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#display-helper-function-in-db">3.7. display helper function in DB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#more-actions-count-to-get-total">3.8. More actions: <code class="docutils literal"><span class="pre">count</span></code> to get total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#apply-transformation-filter-and-view-results-with-collect">3.9. Apply transformation <code class="docutils literal"><span class="pre">filter</span></code> and view results with <code class="docutils literal"><span class="pre">collect</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#lambda-functions-and-udfs">3.10. Lambda functions and UDFs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#additional-dataframe-actions">3.11. Additional DataFrame actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#additional-dataframe-transformations">3.12. Additional DataFrame transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#orderby">3.12.1. orderBy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#a-distinct-and-dropduplicates">3.12.2. A <code class="docutils literal"><span class="pre">distinct</span></code> and <code class="docutils literal"><span class="pre">dropDuplicates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#drop">3.12.3. drop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#groupby">3.12.4. groupBy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#sample">3.12.5. sample</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#caching-dataframes-and-storage-options">3.13. Caching DataFrames and Storage Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#unpersist-and-storage-options">3.13.1. Unpersist and storage options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1a_coding.html#debugging-spark-applications-and-lazy-evaluation">3.14. Debugging Spark applications and lazy evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#jvm-and-py4j-how-python-is-executed-in-spark">3.14.1. JVM and Py4J - How Python is Executed in Spark</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#challenges-with-lazy-evaluation-using-transformations-and-actions">3.14.2. Challenges with lazy evaluation using transformations and actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#finding-the-bug">3.14.3. Finding the bug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1a_coding.html#moving-toward-expert-style">3.14.4. Moving toward expert style</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab1b.html">4. cs105_lab1b_wordcount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#create-a-base-df-and-perform-operations">4.1. Create a base DF and perform operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#create-a-base-df">4.1.1. Create a base DF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#use-df-functions-to-add-an-s">4.1.2. Use DF functions to add an &#8216;s&#8217;</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#length-of-each-word">4.1.3. Length of each word</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#counting-with-spark-sql-and-dataframes">4.2. Counting with Spark SQL and DataFrames</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#using-groupby-and-count">4.2.1. Using groupBy and count</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#finding-unique-words-and-a-mean-value">4.3. Finding unique words and a mean value</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#unique-words">4.3.1. Unique words</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#means-of-groups-using-dataframes">4.3.2. Means of groups using DataFrames</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#apply-word-count-to-a-file">4.4. Apply word count to a file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#the-wordcount-function">4.4.1. The wordCount function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#capitalization-and-punctuation">4.4.2. Capitalization and punctuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#load-a-text-file">4.4.3. Load a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#words-from-lines">4.4.4. Words from lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#count-the-words">4.4.5. Count the words</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#random-stuffs-i-played-around-with">4.5. Random stuffs I played around with</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab2.html">5. cs105_lab2_apache_log</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#introduction-and-imports">5.1. Introduction and Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#exploratory-data-analysis">5.2. Exploratory Data Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#b-parsing-the-log-file">5.2.1. (2b) Parsing the log file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#data-cleaning">5.2.2. Data Cleaning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#fix-the-rows-with-null-content-size">5.2.3. Fix the rows with null content_size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#parsing-the-timestamp">5.2.4. Parsing the timestamp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#analysis-walk-through-on-the-web-server-log-file">5.3. Analysis Walk-Through on the Web Server Log File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#example-content-size-statistics">5.3.1. Example: Content Size Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#example-http-status-analysis">5.3.2. Example: HTTP Status Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#example-status-graphing">5.3.3. Example: Status Graphing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#example-frequent-hosts">5.3.4. Example: Frequent Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#example-visualizing-paths">5.3.5. Example: Visualizing Paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#example-top-paths">5.3.6. Example: Top Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#analyzing-web-server-log-file">5.4. Analyzing Web Server Log File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-top-ten-error-paths-hw-problem">5.4.1. Exercise: Top Ten Error Paths (HW Problem)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-number-of-unique-hosts-hw">5.4.2. Exercise: Number of Unique Hosts (HW)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-number-of-unique-daily-hosts">5.4.3. Exercise: Number of Unique Daily Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-visualizing-the-number-of-unique-daily-hosts">5.4.4. Exercise: Visualizing the Number of Unique Daily Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-average-number-of-daily-requests-per-host">5.4.5. Exercise: Average Number of Daily Requests per Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-visualizing-the-average-daily-requests-per-unique-host">5.4.6. Exercise: Visualizing the Average Daily Requests per Unique Host</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#exploring-404-status-codes">5.5. Exploring 404 Status Codes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-counting-404-response-codes">5.5.1. Exercise: Counting 404 Response Codes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-listing-404-status-code-records">5.5.2. Exercise: Listing 404 Status Code Records</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-listing-the-top-twenty-404-response-code-paths">5.5.3. Exercise: Listing the Top Twenty 404 Response Code paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-listing-the-top-twenty-five-404-response-code-hosts">5.5.4. Exercise: Listing the Top Twenty-five 404 Response Code Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-listing-404-errors-per-day">5.5.5. Exercise: Listing 404 Errors per Day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-visualizing-the-404-errors-by-day">5.5.6. Exercise: Visualizing the 404 Errors by Day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-top-five-days-for-404-errors">5.5.7. Exercise: Top Five Days for 404 Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-hourly-404-errors">5.5.8. Exercise: Hourly 404 Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#exercise-visualizing-the-404-response-codes-by-hour">5.5.9. Exercise: Visualizing the 404 Response Codes by Hour</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab1.html">6. cs110_lab1_power_ml_pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#background">6.1. Background</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#background-power-generation">6.1.1. Background &#8212; power generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#challenge-for-power-grid-operation">6.1.2. Challenge for power grid operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#the-business-problem">6.1.3. The business problem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#business-understanding">6.2. Business Understanding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#extract-transform-load-etl-your-data">6.3. Extract-Transform-Load (ETL) Your Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-2a">6.3.1. Exercise 2a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-2b">6.3.2. Exercise 2b</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-2c">6.3.3. Exercise 2c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-2d">6.3.4. Exercise 2d</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#explore-your-data">6.4. Explore your data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#a">6.4.1. 3a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#b">6.4.2. 3b</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#visualize-your-data">6.5. Visualize your data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#id1">6.5.1. 4a</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-4-b">6.5.2. Exercise 4(b)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#excercise-4-c">6.5.3. Excercise 4(c)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-4-d">6.5.4. Exercise 4(d)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#data-preparation-where-i-left-off">6.6. Data Preparation (where i left off)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-5-a">6.6.1. Exercise 5(a)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#data-modeling">6.7. Data Modeling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-6-a">6.7.1. Exercise 6(a)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#id2">6.7.2. 6(b)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#c">6.7.3. 6(c)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#d">6.7.4. 6(d)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#e">6.7.5. 6e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#f">6.7.6. 6(f)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#g">6.7.7. 6(g)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#h">6.7.8. 6(h)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#i">6.7.9. 6(i)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#j">6.7.10. 6(j)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#k">6.7.11. 6(k)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#tuning-and-evaluation">6.8. Tuning and Evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#id3">6.8.1. 7(a)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-b">6.8.2. Exercise 7(b)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-c-decisiontreeregressor">6.8.3. Exercise 7(c) DecisionTreeRegressor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-d">6.8.4. Exercise 7(d)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-e">6.8.5. Exercise 7(e)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-f-random-forest-regressor">6.8.6. Exercise 7(f) (Random Forest Regressor)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-g-cross-validation">6.8.7. Exercise 7(g) (cross validation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#exercise-7-h-model-evaluation">6.8.8. Exercise 7(h) (model evaluation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab2.html">7. cs110_lab2_als_prediction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab2.html#preliminaries">7.1. Preliminaries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#the-20-million-movie-sample">7.1.1. The 20-million movie sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#cpu-vs-io-tradeoff">7.1.2. CPU vs IO Tradeoff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#load-and-cache">7.1.3. Load and Cache</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab2.html#basic-recommendations">7.2. Basic Recommendations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-1a-movies-with-highest-average-ratings">7.2.1. Exercise (1a) Movies with Highest Average Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-1b-movies-with-highest-average-ratings-and-at-least-500-reviews">7.2.2. Exercise (1b) Movies with Highest Average Ratings and at least 500 reviews</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab2.html#collaborative-filtering">7.3. Collaborative Filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-2a-creating-a-training-set">7.3.1. Exercise (2a) Creating a Training Set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-2b-alternating-least-squares">7.3.2. Exercise (2b) Alternating Least Squares</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#why-are-we-doing-our-own-cross-validation">7.3.3. Why are we doing our own cross-validation?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#excersie-2c-testing-your-model">7.3.4. Excersie (2c) Testing Your Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-2d-comparing-your-model">7.3.5. Exercise (2d) Comparing Your Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab2.html#predictions-for-yourself">7.4. Predictions for Yourself</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-3a-your-movie-ratings">7.4.1. Exercise (3a) Your Movie Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-3b-add-your-movies-to-training-dataset">7.4.2. Exercise (3b) Add Your Movies to Training Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-3c-train-a-model-with-your-ratings">7.4.3. Exercise (3c) Train a Model with Your Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-3d-check-rmse-for-the-new-model-with-your-ratings">7.4.4. Exercise (3d) Check RMSE for the New Model with Your Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-3e-predict-your-ratings">7.4.5. Exercise (3e) Predict Your Ratings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#exercise-3f-predict-your-ratings">7.4.6. Exercise (3f) Predict Your Ratings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab3a.html">8. cs110_lab3a_word_count_rdd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab3b.html">9. cs110_lab3b_text_analysis_ER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#data-files">9.1. Data files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#preliminaries">9.2. Preliminaries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#load-data-files">9.2.1. Load data files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#examine-the-lines-loaded">9.2.2. Examine the lines loaded</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#er-as-text-similarity-bags-of-words">9.3. ER as Text Similarity - Bags of Words</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-1-a-tokenize-a-string">9.3.1. Exercise 1(a) Tokenize a String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-1b-removing-stopwords">9.3.2. Exercise (1b) removing stopwords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-1c-tokenizing-the-small-datasets">9.3.3. Exercise (1c) Tokenizing the small datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-1d-amazon-record-with-the-most-tokens">9.3.4. Exercise (1d) Amazon record with the most tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#er-as-text-similarity-weighted-bag-of-words-using-tf-idf">9.4. ER as Text Similarity - Weighted Bag-of-Words using TF-IDF</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-2a-implement-a-tf-function">9.4.1. Exercise (2a) Implement a TF function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-2b-create-a-corpus">9.4.2. Exercise (2b) Create a corpus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-2c-implement-an-idfs-function">9.4.3. Exercise (2c) Implement an IDFs function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-2d-tokens-with-the-smallest-idf">9.4.4. Exercise (2d) Tokens with the smallest IDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-2e-idf-histogram">9.4.5. Exercise (2e) IDF Histogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-2f-implement-a-tf-idf-function">9.4.6. Exercise (2f) Implement a TF-IDF function</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#er-as-text-similarity-cosine-similarity">9.5. ER as Text Similarity &#8212; Cosine Similarity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#excercise-3a-implement-the-components-of-a-cosinesimilarity-function">9.5.1. Excercise (3a) Implement the components of a cosineSimilarity function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-3b-implement-a-cosinesimilarity-function">9.5.2. Exercise (3b) Implement a cosineSimilarity function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-3c-perform-entity-resolution">9.5.3. Exercise (3c) Perform Entity Resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-3d-perform-entity-resolution-with-broadcast-variables">9.5.4. Exercise (3d) Perform Entity Resolution with Broadcast Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#e-perform-a-gold-standard-evaluation">9.5.5. (3e) Perform a Gold Standard evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#using-the-gold-standard-data-we-can-answer-the-following-questions">9.5.6. Using the &#8220;gold standard&#8221; data we can answer the following questions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#scalable-er">9.6. Scalable ER</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-4a-tokenize-the-full-dataset">9.6.1. Exercise (4a) Tokenize the full dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-4b-compute-idfs-and-tf-idfs-for-the-full-datasets">9.6.2. Exercise (4b) Compute IDFs and TF-IDFs for the full datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-4c-compute-norms-for-the-weights-from-the-full-datasets">9.6.3. Exercise (4c) Compute Norms for the weights from the full datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-4d-create-inverted-indices-from-the-full-datasets">9.6.4. Exercise (4d) Create inverted indices from the full datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-4e-identify-common-tokens-from-the-full-dataset">9.6.5. Exercise (4e) Identify common tokens from the full dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-4f-identify-common-tokens-from-the-full-dataset">9.6.6. Exercise (4f) Identify common tokens from the full dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#analysis">9.7. Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#exercise-5a-counting-true-positives-false-positives-and-false-negatives">9.7.1. Exercise (5a) Counting True Positives, False Positives, and False Negatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#b-precision-recall-and-f-measures">9.7.2. 5b Precision, Recall, and F-measures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#c-line-plots">9.7.3. 5c Line Plots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab1a.html">10. cs120_lab1a_math_review</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1a.html#math-review">10.1. Math review</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-1a-scalar-multiplication-vectors">10.1.1. Exercise (1a) Scalar multiplication: vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-1b-element-wise-multiplication-vectors">10.1.2. Exercise (1b) Element-wise multiplication: vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-1c-dot-product">10.1.3. Exercise (1c) Dot product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-1d-matrix-multiplication">10.1.4. Exercise (1d) Matrix multiplication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1a.html#numpy">10.2. NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-2a-scalar-multiplication">10.2.1. Exercise (2a) Scalar multiplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-2b-element-wise-multiplication-and-dot-product">10.2.2. Exercise (2b) Element-wise multiplication and dot product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-2c-matrix-math">10.2.3. Exercise (2c) Matrix math</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1a.html#additional-numpy-and-spark-linear-algebra">10.3. Additional NumPy and Spark linear algebra</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-3a-slices">10.3.1. Exercise (3a) Slices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-3b-combining-ndarray-objects">10.3.2. Exercise (3b) Combining ndarray objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-3c-pyspark-s-densevector">10.3.3. Exercise (3c) PySpark&#8217;s DenseVector</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1a.html#python-lambda-expressions">10.4. Python lambda expressions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-4a-lambda-is-an-anonymous-function">10.4.1. Exercise (4a) Lambda is an anonymous function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-4b-lambda-fewer-steps-than-def">10.4.2. Exercise (4b) lambda fewer steps than def</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-4c-lambda-expression-arguments">10.4.3. Exercise (4c) Lambda expression arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-4d-restrictions-on-lambda-expressions">10.4.4. Exercise (4d) Restrictions on lambda expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-4e-functional-programming">10.4.5. Exercise (4e) Functional programming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-4f-composability">10.4.6. Exercise (4f) Composability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab1b.html">11. cs120_lab1b_word_count_rdd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab2.html">12. cs120_lab2_linear_regression_df</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab3.html">13. cs120_lab3_ctr_df</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab4.html">14. cs120_lab4_pca</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab4.html#work-through-the-steps-of-pca-on-a-sample-dataset">14.1. Work through the steps of PCA on a sample dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-1-two-dimensional-gaussians">14.1.1. Visualization 1: Two-dimensional Gaussians</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#a-interpreting-pca">14.1.2. 1a) Interpreting PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#b-sample-covariance-matrix">14.1.3. 1b) Sample covariance matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#c-covariance-function">14.1.4. 1c) Covariance Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#d-eigendecomposition">14.1.5. 1d) Eigendecomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#e-pca-scores">14.1.6. 1e) PCA scores</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab4.html#write-a-pca-function-and-evaluate-pca-on-sample-datasets">14.2. Write a PCA function and evaluate PCA on sample datasets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#a-pca-function">14.2.1. 2a) PCA function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#b-pca-on-data-random">14.2.2. 2b) PCA on data_random</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-2-pca-projection">14.2.3. Visualization 2: PCA projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-3-three-dimensional-data">14.2.4. Visualization 3: Three-dimensional data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#c-3d-to-2d">14.2.5. 2c) 3D to 2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-4-2d-representation-of-3d-data">14.2.6. Visualization 4: 2D representation of 3D data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#d-variance-explained">14.2.7. 2d) Variance explained</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab4.html#parse-inspect-and-preprocess-neuroscience-data-then-perform-pca">14.3. Parse, inspect, and preprocess neuroscience data then perform PCA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#a-load-neuroscience-data">14.3.1. 3a) Load neuroscience data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#b-parse-the-data">14.3.2. 3b) Parse the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#c-min-and-max-fluorescence">14.3.3. 3c) Min and max fluorescence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-5-pixel-intensity">14.3.4. Visualization 5: Pixel intensity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#d-fractional-signal-change">14.3.5. 3d) Fractional signal change</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-6-normalized-data">14.3.6. Visualization 6: Normalized data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#e-pca-on-the-scaled-data">14.3.7. 3e) PCA on the scaled data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-7-top-two-components-as-images">14.3.8. Visualization 7: Top two components as images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-8-top-two-components-as-one-image">14.3.9. Visualization 8: Top two components as one image</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab4.html#feature-based-aggregation-and-pca">14.4. Feature-based aggregation and PCA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#a-aggregation-using-arrays">14.4.1. (4a) Aggregation using arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#b-recreate-with-np-tile-and-np-eye">14.4.2. (4b) Recreate with np.tile and np.eye</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#c-recreate-with-np-kron">14.4.3. (4c) Recreate with np.kron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#d-aggregate-by-time">14.4.4. (4d) Aggregate by time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#e-obtain-a-compact-representation">14.4.5. (4e) Obtain a compact representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-9-top-two-components-by-time">14.4.6. Visualization 9: Top two components by time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#f-aggregate-by-direction">14.4.7. (4f) Aggregate by direction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#g-compact-representation-of-direction-data">14.4.8. (4g) Compact representation of direction data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-10-top-two-components-by-direction">14.4.9. Visualization 10: Top two components by direction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apache-ml-guide.html">MLLib - Main guide (<code class="docutils literal"><span class="pre">apache-ml-guide.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-guide.pipeline-old.html">1. Pipeline-old (<code class="docutils literal"><span class="pre">pipeline-old</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#main-concepts-in-pipelines">1.1. Main concepts in Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#dataframe">1.2. DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#pipeline-components">1.3. Pipeline components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#transformers">1.3.1. Transformers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#estimators">1.3.2. Estimators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#properties-of-pipeline-components">1.3.3. Properties of pipeline components</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#pipeline-transformers-and-estimators">1.4. Pipeline (transformers and estimators)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#how-it-works">1.4.1. How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#details">1.4.2. Details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#parameters">1.5. Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#saving-and-loading-pipelines">1.6. Saving and Loading Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#code-examples">1.7. Code Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#estimator-transformer-and-param">1.7.1. Estimator, Transformer, and Param</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#example-pipeline">1.7.2. Example: Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#example-model-selection-via-cv-scala">1.7.3. Example: model selection via CV (Scala)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.pipeline-old.html#example-model-selection-via-train-validation-split-scala">1.7.4. Example: model selection via train validation split (scala)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-guide.et-fs.html">2. Extracting, transforming and selecting features (<code class="docutils literal"><span class="pre">et-fs</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.et-fs.html#feature-extractors">2.1. Feature Extractors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#tf-idf">2.1.1. TF-IDF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#word2vec">2.1.2. Word2Vec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#countvectorizer">2.1.3. CountVectorizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.et-fs.html#feature-transformers">2.2. Feature Transformers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#tokenizer">2.2.1. Tokenizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#stopwordsremover">2.2.2. StopWordsRemover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#n-gram">2.2.3. n-gram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#binarizer">2.2.4. Binarizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#pca">2.2.5. PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#polynomialexpansion">2.2.6. PolynomialExpansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#discrete-cosine-transform-dct">2.2.7. Discrete Cosine Transform (DCT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#stringindexer">2.2.8. StringIndexer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#indextostring">2.2.9. IndexToString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#onehotencoder">2.2.10. OneHotEncoder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#vectorindexer">2.2.11. VectorIndexer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#normalizer">2.2.12. Normalizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#standardscaler">2.2.13. StandardScaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#minmaxscaler">2.2.14. MinMaxScaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#maxabsscaler">2.2.15. MaxAbsScaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#bucketizer">2.2.16. Bucketizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#elementwiseproduct-bm">2.2.17. ElementwiseProduct (bm)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#sqltransformer-bm">2.2.18. SQLTransformer (bm)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#vectorassembler">2.2.19. VectorAssembler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#quantilediscretizer">2.2.20. QuantileDiscretizer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.et-fs.html#feature-selectors">2.3. Feature Selectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#vectorslicer">2.3.1. VectorSlicer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#rformula">2.3.2. RFormula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.et-fs.html#chisqselector">2.3.3. ChiSqSelector</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-guide.classification.html">3. Classification (<code class="docutils literal"><span class="pre">classification</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#logistic-regression">3.1. Logistic regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#decision-tree-classifier">3.2. Decision tree classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#random-forest-classifier">3.3. Random forest classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#gradient-boosted-tree-classifier">3.4. Gradient-boosted tree classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#multilayer-perceptron-classifier">3.5. Multilayer perceptron classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#one-vs-rest-classifier-a-k-a-one-vs-all">3.6. One-vs-Rest classifier (a.k.a. One-vs-All)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.classification.html#naive-bayes">3.7. Naive Bayes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-guide.regression.html">4. Regression (<code class="docutils literal"><span class="pre">regression.rst</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#linear-regression">4.1. Linear regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#generalized-linear-regression">4.2. Generalized linear regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.regression.html#available-families">4.2.1. Available families</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#decision-tree-regression">4.3. Decision tree regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#random-forest-regression">4.4. Random forest regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#gradient-boosted-tree-regression">4.5. Gradient-boosted tree regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#survival-regression">4.6. Survival regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.regression.html#isotonic-regression">4.7. Isotonic regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.regression.html#examples">4.7.1. Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-guide.tree.html">5. Tree-based-methods (<code class="docutils literal"><span class="pre">tree.rst</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.tree.html#decision-trees">5.1. Decision trees</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.tree.html#inputs-and-outputs">5.1.1. Inputs and Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-guide.tree.html#tree-ensembles">5.2. Tree Ensembles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.tree.html#random-forests">5.2.1. Random Forests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-guide.tree.html#gradient-boosted-trees-gbts">5.2.2. Gradient-Boosted Trees (GBTs)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="apache-ml-rdd.html">MLLib: RDD-based API Guideline (<code class="docutils literal"><span class="pre">apache-ml-rdd</span></code>)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">1. Data Types (<code class="docutils literal"><span class="pre">datatypes</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#local-vector">1.1. Local vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#labeled-point">1.2. Labeled point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-matrix">1.3. Local matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distributed-matrix">1.4. Distributed matrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rowmatrix">1.4.1. RowMatrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexedrowmatrix">1.4.2. IndexedRowMatrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coordinatematrix">1.4.3. CoordinateMatrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blockmatrix">1.4.4. BlockMatrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-rdd.stats.html">2. Basic Statistics (<code class="docutils literal"><span class="pre">stats</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.stats.html#summary-statistics">2.1. Summary statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.stats.html#correlations">2.2. Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.stats.html#stratified-sampling">2.3. Stratified sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.stats.html#hypothesis-testing">2.4. Hypothesis testing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-rdd.stats.html#streaming-significance-testing">2.4.1. Streaming Significance Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.stats.html#random-data-generation">2.5. Random data generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.stats.html#kernel-density-estimation">2.6. Kernel density estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="apache-ml-rdd.eval.html">3. Evaluation metrics (<code class="docutils literal"><span class="pre">eval</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.eval.html#classification-model-evaluation">3.1. Classification model evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-rdd.eval.html#binary-classification">3.1.1. Binary classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-rdd.eval.html#multiclass-classification">3.1.2. Multiclass classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-rdd.eval.html#multilabel-classification">3.1.3. Multilabel classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-ml-rdd.eval.html#ranking-systems">3.1.4. Ranking systems</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apache-ml-rdd.eval.html#regression-model-evaluation">3.2. Regression model evaluation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Table of Contents (Others)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../top-sqlite.html">SQL notes (<code class="docutils literal"><span class="pre">top-sqlite.rst</span></code>)</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Coding Notebook</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="apache-ml-rdd.html">MLLib: RDD-based API Guideline (<code class="docutils literal"><span class="pre">apache-ml-rdd</span></code>)</a> &raquo;</li>
+      
+    <li>1. Data Types (<code class="docutils literal"><span class="pre">datatypes</span></code>)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/pyspark/apache-ml-rdd.datatype.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-types-datatypes">
+<h1>1. Data Types (<code class="docutils literal"><span class="pre">datatypes</span></code>)<a class="headerlink" href="#data-types-datatypes" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://spark.apache.org/docs/latest/mllib-data-types.html">http://spark.apache.org/docs/latest/mllib-data-types.html</a></p>
+<div class="section" id="local-vector">
+<h2>1.1. Local vector<a class="headerlink" href="#local-vector" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="labeled-point">
+<h2>1.2. Labeled point<a class="headerlink" href="#labeled-point" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="local-matrix">
+<h2>1.3. Local matrix<a class="headerlink" href="#local-matrix" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="distributed-matrix">
+<h2>1.4. Distributed matrix<a class="headerlink" href="#distributed-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rowmatrix">
+<h3>1.4.1. RowMatrix<a class="headerlink" href="#rowmatrix" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="indexedrowmatrix">
+<h3>1.4.2. IndexedRowMatrix<a class="headerlink" href="#indexedrowmatrix" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="coordinatematrix">
+<h3>1.4.3. CoordinateMatrix<a class="headerlink" href="#coordinatematrix" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="blockmatrix">
+<h3>1.4.4. BlockMatrix<a class="headerlink" href="#blockmatrix" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache-ml-rdd.stats.html" class="btn btn-neutral float-right" title="2. Basic Statistics (stats)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apache-ml-rdd.html" class="btn btn-neutral" title="MLLib: RDD-based API Guideline (apache-ml-rdd)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Takanori Watanabe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

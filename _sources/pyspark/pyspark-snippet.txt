@@ -42,6 +42,21 @@ Create toy dataset
     >>> len(data)
     Out[16]: 10000
 
+##################
+Print RDD per item
+##################
+Directly printing the ``list`` returned from ``take`` yields ugly print-out...
+so print one item from the list at a time
+
+.. code-block:: python
+
+    def print_rdd(RDD,n=5):
+      """ Directly printing the ``list`` returned from ``take`` yields ugly print-out...
+         so print one item from the list at a time
+      """
+      for i,item in enumerate(RDD.take(n)):
+        print i,item
+
 ############################################################
 Databrick helper function displaying all DFs in the notebook
 ############################################################
