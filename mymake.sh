@@ -14,7 +14,6 @@ export PATH="/cygdrive/c/Users/takanori/Anaconda2/Scripts:$PATH" # <- in case i'
 # # rm -r ./source/generated*
 make html
 
-
 exit 0
 # --- browse result in chrome? --- #
 # BROWSE=false

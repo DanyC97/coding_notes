@@ -122,7 +122,10 @@ for root, dirnames, filenames in os.walk('./'):
 items_to_include = [
     'pyspark/top-edx.rst',
     'pyspark/top-pyspark.rst',
+    'pyspark/pyspark-overflow.rst',
     'pyspark/cs105_lab2.rst',
+    'pyspark/cs110_lab1.rst',
+    'pyspark/cs110_lab1_trimmed.rst',
     'pyspark/pyspark-snippet.rst',
     # 'pyspark/cs110_lab3b.rst',
     # 'pyspark/cs120_lab4.rst',

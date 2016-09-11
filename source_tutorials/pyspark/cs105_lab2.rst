@@ -101,11 +101,6 @@ replaced `sql.SQLContext <https://wtak23.github.io/pyspark/generated/generated/s
     >>> print log_file_path
     dbfs:/databricks-datasets/cs100/lab2/data-001/apache.access.log.PROJECT
 
-    >>> # I think schema inference is done here via sqlContext
-    >>> base_df = sqlContext.read.text(log_file_path)
-    >>> base_df.printSchema()
-
-
 .. code-block:: python
 
     >>> base_df = sqlContext.read.text(log_file_path)
@@ -583,140 +578,538 @@ http://matplotlib.org/examples/color/colormaps_reference.html
 
 .. image:: /_static/img/105_lab2_3c2.png
    :align: center
-   
+
 ***************************
 3d) Example: Frequent Hosts
 ***************************
+>>> logs_df.show(n=3)
++------------------+--------------------+------+------------+--------------------+
+|              host|                path|status|content_size|                time|
++------------------+--------------------+------+------------+--------------------+
+|in24.inetnebr.com |/shuttle/missions...|   200|        1839|1995-08-01 00:00:...|
+|  uplherc.upl.com |                   /|   304|           0|1995-08-01 00:00:...|
+|  uplherc.upl.com |/images/ksclogo-m...|   304|           0|1995-08-01 00:00:...|
++------------------+--------------------+------+------------+--------------------+
 
+Get any hosts that has accessed the server more than 10 times (use ``groupBy``)
+
+.. code-block:: python
+
+    >>> # get any hosts that has accessed the server more than 10 times.
+    >>> host_sum_df =(logs_df
+    >>>               .groupBy('host')
+    >>>               .count())
+    >>> 
+    >>> host_more_than_10_df = (host_sum_df
+    >>>                         .filter(host_sum_df['count'] > 10)
+    >>>                         .select(host_sum_df['host']))
+    >>> 
+    >>> print 'Any 8 hosts that have accessed more then 10 times:\n'
+    >>> host_more_than_10_df.show(n=8,truncate=False)
+    Any 8 hosts that have accessed more then 10 times:
+
+    +---------------------------+
+    |host                       |
+    +---------------------------+
+    |gcl-s2.aero.kyushu-u.ac.jp |
+    |dd09-015.compuserve.com    |
+    |sun8.hrz.th-darmstadt.de   |
+    |128.159.144.47             |
+    |160.151.233.33             |
+    |128.159.132.13             |
+    |s025n217.ummed.edu         |
+    |204.126.175.80             |
+    +---------------------------+
 ******************************
 3e) Example: Visualizing Paths
 ******************************
+Now, let's visualize the **number of hits to paths (URIs)** in the **log**. 
+
+- for this, we start with our ``logs_df``, and:
+
+  - group by the path column
+  - aggregate by count, and 
+  - sort in descending order.
+
+>>> paths_df = (logs_df
+>>>           .groupBy('path')
+>>>           .count()
+>>>           .sort('count', ascending=False))
+>>> paths_df.show(n=3)
++--------------------+-----+
+|                path|count|
++--------------------+-----+
+|/images/NASA-logo...|59666|
+|/images/KSC-logos...|50420|
+|/images/MOSAIC-lo...|43831|
++--------------------+-----+
+
+- Next extract the paths and the counts, and unpack the resulting list of ``Rows`` using a map function and lambda expression. 
+- Then we can plot it in mpl.
+
+.. note::
+
+    select gives a collection of Row items....not exactly what we want
+
+    >>> paths_df.select('path', 'count').take(5)
+    Out[176]: 
+    [Row(path=u'/images/NASA-logosmall.gif', count=59666),
+     Row(path=u'/images/KSC-logosmall.gif', count=50420),
+     Row(path=u'/images/MOSAIC-logosmall.gif', count=43831),
+     Row(path=u'/images/USA-logosmall.gif', count=43604),
+
+    so apply lambda
+
+    >>> paths_df.select('path', 'count').map(lambda r: (r[0], r[1])).take(5)
+    Out[179]: 
+    [(u'/images/NASA-logosmall.gif', 59666),
+     (u'/images/KSC-logosmall.gif', 50420),
+     (u'/images/MOSAIC-logosmall.gif', 43831),
+     (u'/images/USA-logosmall.gif', 43604),
+     (u'/images/WORLD-logosmall.gif', 43217)]
+
+>>> paths_counts = (paths_df
+>>>                  .select('path', 'count') # this gives a list of *Row* objects
+>>>                  .map(lambda r: (r[0], r[1])) # unpack Rows with lambda function
+>>>                  .collect()) # collect. now we have a nice python list that i am accustomted to :)
+>>> paths, counts = zip(*paths_counts)
+>>> 
+>>> colorMap = 'Accent'
+>>> cmap = cm.get_cmap(colorMap)
+>>>
+>>> # plot using the first 1000 rows of data
+>>> index = np.arange(1000)
+>>> 
+>>> fig, ax = prepareSubplot(np.arange(0, 1000, 100), np.arange(0, 70000, 10000))
+>>> plt.xlabel('Paths')
+>>> plt.ylabel('Number of Hits')
+>>> plt.plot(index, counts[:1000], color=cmap(0), linewidth=3)
+>>> plt.axhline(linewidth=2, color='#999999')
+>>> display(fig)
+
+.. image:: /_static/img/105_lab2_3e.png
+   :align: center
 
 **********************
 3f) Example: Top Paths
 **********************
+- here we'll find the **top paths (URIs)** in the log. 
+- Because we sorted paths_df for plotting, all we need to do is call ``.show()`` 
 
-#############################
-Analyzing Web Server Log File
-#############################
+>>> # Top Paths
+>>> print 'Top Ten Paths:'
+>>> paths_df.show(n=10, truncate=False)
+Top Ten Paths:
++---------------------------------------+-----+
+|path                                   |count|
++---------------------------------------+-----+
+|/images/NASA-logosmall.gif             |59666|
+|/images/KSC-logosmall.gif              |50420|
+|/images/MOSAIC-logosmall.gif           |43831|
+|/images/USA-logosmall.gif              |43604|
+|/images/WORLD-logosmall.gif            |43217|
+|/images/ksclogo-medium.gif             |41267|
+|/ksc.html                              |28536|
+|/history/apollo/images/apollo-logo1.gif|26766|
+|/images/launch-logo.gif                |24742|
+|/                                      |20173|
++---------------------------------------+-----+
 
-******************************************
-Exercise: Top Ten Error Paths (HW Problem)
-******************************************
+.. _cs105_lab2_part4:
 
-.. code-block:: python
+#####################################
+Part 4: Analyzing Web Server Log File
+#####################################
+We'll be working with this DataFrame for a while.
 
-    # TODO: Replace <FILL IN> with appropriate code
-    # You are welcome to structure your solution in a different way, so long as
-    # you ensure the variables used in the next Test section are defined
-
-    # DataFrame containing all accesses that did not return a code 200
-    from pyspark.sql.functions import desc
-    not200DF = logs_df.<FILL IN>
-    not200DF.show(10)
-    # Sorted DataFrame containing all paths and the number of times they were accessed with non-200 return code
-    logs_sum_df = not200DF.<FILL IN>
-
-    print 'Top Ten failed URLs:'
-    logs_sum_df.show(10, False)
-
-
-*************************************
-Exercise: Number of Unique Hosts (HW)
-*************************************
-.. code-block:: python
-
-    # TODO: Replace <FILL IN> with appropriate code
-    unique_host_count = <FILL IN>
-    print 'Unique hosts: {0}'.format(unique_host_count)
-
+>>> logs_df.show(n=5)
+>>> +------------------+--------------------+------+------------+--------------------+
+>>> |              host|                path|status|content_size|                time|
+>>> +------------------+--------------------+------+------------+--------------------+
+>>> |in24.inetnebr.com |/shuttle/missions...|   200|        1839|1995-08-01 00:00:...|
+>>> |  uplherc.upl.com |                   /|   304|           0|1995-08-01 00:00:...|
+>>> |  uplherc.upl.com |/images/ksclogo-m...|   304|           0|1995-08-01 00:00:...|
+>>> |  uplherc.upl.com |/images/MOSAIC-lo...|   304|           0|1995-08-01 00:00:...|
+>>> |  uplherc.upl.com |/images/USA-logos...|   304|           0|1995-08-01 00:00:...|
+>>> +------------------+--------------------+------+------------+--------------------+
 
 **************************************
-Exercise: Number of Unique Daily Hosts
+4a) Exercise: Top Ten Error Paths (HW)
 **************************************
+- What are the top ten paths which did not have return code 200? 
+- Create a sorted list containing the paths and the number of times that they were accessed with a non-200 return code and show the top ten.
+- http://www.w3schools.com/tags/ref_httpmessages.asp
+- https://wtak23.github.io/pyspark/generated/generated/sql.functions.desc.html
+
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#a-exercise-top-ten-error-paths-hw>`__)
+
 .. code-block:: python
 
-    # TODO: Replace <FILL IN> with appropriate code
-    from pyspark.sql.functions import dayofmonth
+    >>> # DataFrame containing all accesses that did not return a code 200
+    >>> # from pyspark.sql.functions import desc <= I ended up not using this...
+    >>> not200DF = logs_df.<FILL IN>
+    >>> not200DF.show(5)
+    +----------------+--------------------+------+------------+--------------------+
+    |            host|                path|status|content_size|                time|
+    +----------------+--------------------+------+------------+--------------------+
+    |uplherc.upl.com |                   /|   304|           0|1995-08-01 00:00:...|
+    |uplherc.upl.com |/images/ksclogo-m...|   304|           0|1995-08-01 00:00:...|
+    |uplherc.upl.com |/images/MOSAIC-lo...|   304|           0|1995-08-01 00:00:...|
+    |uplherc.upl.com |/images/USA-logos...|   304|           0|1995-08-01 00:00:...|
+    |uplherc.upl.com |/images/WORLD-log...|   304|           0|1995-08-01 00:00:...|
+    +----------------+--------------------+------+------------+--------------------+
 
-    day_to_host_pair_df = logs_df.<FILL IN>
-    day_group_hosts_df = day_to_host_pair_df.<FILL IN>
-    daily_hosts_df = day_group_hosts_df.<FILL IN>
+    >>> # Sorted DataFrame with the paths and the number of times they were accessed with non-200 return code
+    >>> logs_sum_df = not200DF.<FILL IN>
+    >>> 
+    >>> print 'Top Five failed URLs:'
+    >>> logs_sum_df.show(5, False)
+    Top Five failed URLs:
+    +----------------------------+-----+
+    |path                        |count|
+    +----------------------------+-----+
+    |/images/NASA-logosmall.gif  |8761 |
+    |/images/KSC-logosmall.gif   |7236 |
+    |/images/MOSAIC-logosmall.gif|5197 |
+    |/images/USA-logosmall.gif   |5157 |
+    |/images/WORLD-logosmall.gif |5020 |
+    +----------------------------+-----+
+    only showing top 5 rows
 
-    print 'Unique hosts per day:'
-    daily_hosts_df.show(30, False)
 
-******************************************************
-Exercise: Visualizing the Number of Unique Daily Hosts
-******************************************************
+*****************************************
+4b) Exercise: Number of Unique Hosts (HW)
+*****************************************
+How many unique hosts are there in the entire log?
+
+- There are multiple ways to find this. 
+- Try to find a more optimal way than grouping by 'host'.
+
+
+https://wtak23.github.io/pyspark/generated/generated/sql.DataFrame.distinct.html
+
+(`solution <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#b-exercise-number-of-unique-hosts-hw>`__)
+
+
 .. code-block:: python
 
-    # TODO: Your solution goes here
+    >>> # TODO: Replace <FILL IN> with appropriate code
+    >>> unique_host_count = <FILL IN>
+    >>> print 'Unique hosts: {0}'.format(unique_host_count)
+    Unique hosts: 54507
 
-    days_with_hosts = <FILL IN>
-    hosts = <FILL IN>
-    for <FILL IN>:
-      <FILL IN>
+******************************************
+4c) Exercise: Number of Unique Daily Hosts
+******************************************
+Let's determine the **number of unique hosts in the entire log on a day-by-day basis**. 
 
-    print(days_with_hosts)
-    print(hosts)
+- so we want to get the **counts of the number of unique daily hosts**. 
+- We'd like ``daily_hosts_df`` **sorted by increasing day of the month** which includes: (1) the day of the month and (2) the associated number of unique hosts for that day. 
+- Make sure you ``cache`` the resulting DataFrame (used in next exercise)
+- note: since the log only covers a single month, you can ignore the month.
+- you may want ot use the ``dayofmonth`` function (`link <https://wtak23.github.io/pyspark/generated/generated/sql.functions.dayofmonth.html>`__) in ``sql.functions`` module
+- Think about the steps that you need to perform to count the number of different hosts that make requests each day. 
 
-***************************************************
-Exercise: Average Number of Daily Requests per Host
-***************************************************
+(`solution <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#c-exercise-number-of-unique-daily-hosts>`__)
+
 .. code-block:: python
 
-    # TODO: Replace <FILL IN> with appropriate code
+    >>> # dataframe with two columns: (host, day) = (the hostname, the day of the month)
+    >>> day_to_host_pair_df = logs_df.<FILL IN>
+    >>> day_to_host_pair_df.show(n=5,truncate=False)
+    +------------------+---+
+    |host              |day|
+    +------------------+---+
+    |in24.inetnebr.com |1  |
+    |uplherc.upl.com   |1  |
+    |uplherc.upl.com   |1  |
+    |uplherc.upl.com   |1  |
+    |uplherc.upl.com   |1  |
+    +------------------+---+
+    >>> day_to_host_pair_df.describe().show()
+    +-------+------------------+
+    |summary|               day|
+    +-------+------------------+
+    |  count|           1043177|
+    |   mean|12.215187834854488|
+    | stddev| 5.904864431416356|
+    |    min|                 1|
+    |    max|                22|
+    +-------+------------------+
 
-    total_req_per_day_df = logs_df.<FILL IN>
+    >>> # remove duplicate (day,host) rows
+    >>> day_group_hosts_df = day_to_host_pair_df.<FILL IN>
+    >>> day_group_hosts_df.show(n=5,truncate=False)
+    +-------------------------+---+
+    |host                     |day|
+    +-------------------------+---+
+    |xslip47.csrv.uidaho.edu  |1  |
+    |bettong.client.uq.oz.au  |1  |
+    |gatekeeper.unicc.org     |1  |
+    |slmel2p17.ozemail.com.au |1  |
+    |core.sci.toyama-u.ac.jp  |1  |
+    +-------------------------+---+
+    >>> day_group_hosts_df.describe().show()
+    +-------+------------------+
+    |summary|               day|
+    +-------+------------------+
+    |  count|             77506|
+    |   mean|12.263669909426367|
+    | stddev| 5.947202970239651|
+    |    min|                 1|
+    |    max|                22|
+    +-------+------------------+
 
-    avg_daily_req_per_host_df = (
-      total_req_per_day_df.<FILL IN>
-    )
+    >>> # data frame with columns (day,count) = (day, # of uniq requesting host for that day)
+    >>> daily_hosts_df = day_group_hosts_df.<FILL IN>
+    >>>
+    >>> # cache DataFrame as instructed
+    >>> daily_hosts_df.cache()
+    >>> 
+    >>> print 'Unique hosts per day:'
+    >>> daily_hosts_df.show(30, False)
+    (2) Spark Jobs
+    +---+-----+
+    |day|count|
+    +---+-----+
+    |1  |2582 |
+    |3  |3222 |
+    |4  |4190 |
+    |5  |2502 |
+    |6  |2537 |
+    |7  |4106 |
+    |8  |4406 |
+    |9  |4317 |
+    |10 |4523 |
+    |11 |4346 |
+    |12 |2864 |
+    |13 |2650 |
+    |14 |4454 |
+    |15 |4214 |
+    |16 |4340 |
+    |17 |4385 |
+    |18 |4168 |
+    |19 |2550 |
+    |20 |2560 |
+    |21 |4134 |
+    |22 |4456 |
+    +---+-----+
 
-    print 'Average number of daily requests per Hosts is:\n'
-    avg_daily_req_per_host_df.show()
+**********************************************************
+4d) Exercise: Visualizing the Number of Unique Daily Hosts
+**********************************************************
+- plot a line graph of the unique hosts requests by day. 
+- We need two lists:
+  
+  - ``days_with_hosts`` = list of days
+  - ``hosts`` = list of the number of unique hosts for each corresponding day
 
+.. warning::
 
-****************************************************************
-Exercise: Visualizing the Average Daily Requests per Unique Host
-****************************************************************
+    -  calling ``collect()`` on your transformed DataFrame won't work, because it returns a list of ``Row`` objects. 
+    - You must extract the appropriate column values from the Row objects. 
+    - Hint: A loop will help
+
+.. important:: Odd...I don't see why the loop is needed...
+
+(`solution <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#d-exercise-visualizing-the-number-of-unique-daily-hosts>`__)
+
 .. code-block:: python
 
-    # TODO: Replace <FILL IN> with appropriate code
+    >>> days_with_hosts = <FILL IN>
+    >>> hosts = <FILL IN>
+    >>> for <FILL IN>:
+    >>>   <FILL IN>
+    >>> 
+    >>> print(days_with_hosts)
+    >>> print(hosts)
+    [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+    [2582, 3222, 4190, 2502, 2537, 4106, 4406, 4317, 4523, 4346, 2864, 2650, 4454, 4214, 4340, 4385, 4168, 2550, 2560, 4134, 4456]
 
-    days_with_avg = (avg_daily_req_per_host_df.<FILL IN>)
-    avgs = (avg_daily_req_per_host_df.<FILL IN>)
-    for <FILL IN>:
-      <FILL IN>
 
-    print(days_with_avg)
-    print(avgs)
+>>> fig, ax = prepareSubplot(np.arange(0, 30, 5), np.arange(0, 5000, 1000))
+>>> colorMap = 'Dark2'
+>>> cmap = cm.get_cmap(colorMap)
+>>> plt.plot(days_with_hosts, hosts, color=cmap(0), linewidth=3)
+>>> plt.axis([0, max(days_with_hosts), 0, max(hosts)+500])
+>>> plt.xlabel('Day')
+>>> plt.ylabel('Hosts')
+>>> plt.axhline(linewidth=3, color='#999999')
+>>> plt.axvline(linewidth=2, color='#999999')
+>>> display(fig)    
+
+.. image:: /_static/img/105_lab2_4d.png
+   :align: center
+
+
+>>> display(daily_hosts_df)
+
+.. image:: /_static/img/105_lab2_4d2.png
+   :align: center
+
+.. _cs105_lab2_4e:
+
+*******************************************************
+4e) Exercise: Average Number of Daily Requests per Host
+*******************************************************
+.. important:: This one was VERY informative (although it took a lot of my time)
+
+Next, let's determine the **average number of requests on a day-by-day basis**. 
+
+- We'd like a list by *increasing day of the month* and the **associated average number of requests per host for that day**. 
+- Make sure you ``cache`` the resulting DataFrame ``avg_daily_req_per_host_df`` so that we can reuse it in the next exercise.
+- To compute the **average number of requests per host**:
+
+  - find the **total number of requests per day** (across all hosts) 
+  - divide this by the **number of unique hosts per day** (which we found in part 4c and cached as ``daily_hosts_df``).
+- Since the log only covers a single month, you can skip checking for the month.
+
+.. admonition:: Refresher on what we have
+
+   .. code-block:: python
+   
+       >>> logs_df.show(n=3)
+       +------------------+--------------------+------+------------+--------------------+
+       |              host|                path|status|content_size|                time|
+       +------------------+--------------------+------+------------+--------------------+
+       |in24.inetnebr.com |/shuttle/missions...|   200|        1839|1995-08-01 00:00:...|
+       |  uplherc.upl.com |                   /|   304|           0|1995-08-01 00:00:...|
+       |  uplherc.upl.com |/images/ksclogo-m...|   304|           0|1995-08-01 00:00:...|
+       +------------------+--------------------+------+------------+--------------------+
+
+       >>> daily_hosts_df.show(n=3)
+       +---+-----+
+       |day|count|
+       +---+-----+
+       |  1| 2582|
+       |  3| 3222|
+       |  4| 4190|
+       +---+-----+
+
+(`solution <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#e-exercise-average-number-of-daily-requests-per-host>`__)
+
+.. code-block:: python
+
+    >>> total_req_per_day_df = logs_df.<FILL IN>
+    >>> total_req_per_day_df.show(n=5)
+    +---+-----+
+    |day|count|
+    +---+-----+
+    |  1|33996|
+    |  3|41387|
+    |  4|59554|
+    |  5|31888|
+    |  6|32416|
+    +---+-----+
+
+    >>> avg_daily_req_per_host_df = (
+    >>>   total_req_per_day_df.<FILL IN>
+    >>> )
+    >>> 
+    >>> # cache DF as instructed
+    >>> avg_daily_req_per_host_df.cache()
+    >>>
+    >>> print 'Average number of daily requests per Hosts is:'
+    >>> avg_daily_req_per_host_df.show()
+    Average number of daily requests per Hosts is:
+    +---+-------------------------+
+    |day|avg_reqs_per_host_per_day|
+    +---+-------------------------+
+    |  1|       13.166537567776917|
+    |  3|       12.845127250155183|
+    |  4|       14.213365155131266|
+    |  5|       12.745003996802557|
+    |  6|       12.777296018919984|
+    |  7|       13.968582562104238|
+    |  8|       13.650022696323196|
+    |  9|        14.00440120454019|
+    | 10|       13.540791510059695|
+    | 11|       14.091578462954441|
+    | 12|       13.292597765363128|
+    | 13|       13.766037735849057|
+    | 14|       13.442523574315222|
+    | 15|       13.964167062173706|
+    | 16|       13.053225806451612|
+    | 17|       13.450399087799315|
+    | 18|       13.494241842610364|
+    | 19|       12.585098039215687|
+    | 20|             12.876171875|
+    | 21|       13.434687953555878|
+    +---+-------------------------+
+
+
+
+********************************************************************
+4f) Exercise: Visualizing the Average Daily Requests per Unique Host
+********************************************************************
+- use ``avg_daily_req_per_host_df`` to plot a line graph of the **average daily requests per unique host by day**.
+- ``days_with_avg`` = list of days
+- ``avgs`` = list of average daily requests (as integers) per unique hosts for each corresponding day. 
+- **Hint**: You will need to extract these from the Dataframe in a similar way to part 4d. 
+
+(`solution <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#f-exercise-visualizing-the-average-daily-requests-per-unique-host>`__)
+
+.. code-block:: python
+
+    >>> days_with_avg = (avg_daily_req_per_host_df.<FILL IN>)
+    >>> avgs = (avg_daily_req_per_host_df.<FILL IN>)
+    >>> # (again, i didn't see why this loop is needed)...
+    >>> for <FILL IN>:
+    >>>   <FILL IN>
+    >>> 
+    >>> print(days_with_avg)
+    >>> print(avgs)     
+    [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+    [13.166537567776917, 12.845127250155183, 14.213365155131266, 12.745003996802557, 12.777296018919984, 13.968582562104238, 13.650022696323196, 14.00440120454019, 13.540791510059695, 14.091578462954441, 13.292597765363128, 13.766037735849057, 13.442523574315222, 13.964167062173706, 13.053225806451612, 13.450399087799315, 13.494241842610364, 12.585098039215687, 12.876171875, 13.434687953555878, 12.961849192100539]
+
+.. code-block:: python
+
+    fig, ax = prepareSubplot(np.arange(0, 20, 5), np.arange(0, 16, 2))
+    colorMap = 'Set3'
+    cmap = cm.get_cmap(colorMap)
+    plt.plot(days_with_avg, avgs, color=cmap(0), linewidth=3)
+    plt.axis([0, max(days_with_avg), 0, max(avgs)+2])
+    plt.xlabel('Day')
+    plt.ylabel('Average')
+    plt.axhline(linewidth=3, color='#999999')
+    plt.axvline(linewidth=2, color='#999999')
+    display(fig)
+
+.. image:: /_static/img/105_lab2_4f1.png
+   :align: center
 
 As a comparison to the prior plot, use the Databricks display function to plot a line graph of the average daily requests per unique host by day.
 
 .. code-block:: python
 
-    # TODO: Replace <FILL IN> with appropriate code
-    display(<FILL IN>)
+    >>> # TODO: Replace <FILL IN> with appropriate code
+    >>> display(<FILL IN>)
 
-##########################
-Exploring 404 Status Codes
-##########################
+.. image:: /_static/img/105_lab2_4f2.png
+   :align: center
 
-*************************************
-Exercise: Counting 404 Response Codes
-*************************************
+#################################
+Part5: Exploring 404 Status Codes
+#################################
+
+.. important::
+
+    This section is basically a carbon-copy of :ref:`cs105_lab2_part4`. 
+    So skipped noting.
+
+*****************************************
+5a) Exercise: Counting 404 Response Codes
+*****************************************
 .. code-block:: python
 
-    # TODO: Replace <FILL IN> with appropriate code
+    >>> not_found_df = logs_df.<FILL IN>
+    >>> print('Found {0} 404 URLs').format(not_found_df.count())
+    Found 6185 404 URLs
+    >>> not_found_df.cache()
 
-    not_found_df = logs_df.<FILL IN>
-    print('Found {0} 404 URLs').format(not_found_df.count())
-
-*****************************************
-Exercise: Listing 404 Status Code Records
-*****************************************
+*********************************************
+5b) Exercise: Listing 404 Status Code Records
+*********************************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code
@@ -727,9 +1120,9 @@ Exercise: Listing 404 Status Code Records
     print '404 URLS:\n'
     unique_not_found_paths_df.show(n=40, truncate=False)
 
-********************************************************
-Exercise: Listing the Top Twenty 404 Response Code paths
-********************************************************
+************************************************************
+5c) Exercise: Listing the Top Twenty 404 Response Code paths
+************************************************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code
@@ -739,9 +1132,9 @@ Exercise: Listing the Top Twenty 404 Response Code paths
     print 'Top Twenty 404 URLs:\n'
     top_20_not_found_df.show(n=20, truncate=False)
 
-*************************************************************
-Exercise: Listing the Top Twenty-five 404 Response Code Hosts
-*************************************************************
+*****************************************************************
+5d) Exercise: Listing the Top Twenty-five 404 Response Code Hosts
+*****************************************************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code
@@ -751,9 +1144,9 @@ Exercise: Listing the Top Twenty-five 404 Response Code Hosts
     print 'Top 25 hosts that generated errors:\n'
     hosts_404_count_df.show(n=25, truncate=False)
 
-************************************
-Exercise: Listing 404 Errors per Day
-************************************
+****************************************
+5e) Exercise: Listing 404 Errors per Day
+****************************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code
@@ -763,9 +1156,9 @@ Exercise: Listing 404 Errors per Day
     print '404 Errors by day:\n'
     errors_by_date_sorted_df.show()
 
-*******************************************
-Exercise: Visualizing the 404 Errors by Day
-*******************************************
+***********************************************
+5f) Exercise: Visualizing the 404 Errors by Day
+***********************************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code
@@ -778,22 +1171,9 @@ Exercise: Visualizing the 404 Errors by Day
     print days_with_errors_404
     print errors_404_by_day
 
-
-**************************************
-Exercise: Top Five Days for 404 Errors
-**************************************
-.. code-block:: python
-
-    # TODO: Replace <FILL IN> with appropriate code
-
-    top_err_date_df = errors_by_date_sorted_df.<FILL IN>
-
-    print 'Top Five Dates for 404 Requests:\n'
-    top_err_date_df.show(5)
-
-***************************
-Exercise: Hourly 404 Errors
-***************************
+*******************************
+5h) Exercise: Hourly 404 Errors
+*******************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code
@@ -803,9 +1183,33 @@ Exercise: Hourly 404 Errors
     print 'Top hours for 404 requests:\n'
     hour_records_sorted_df.show(24)
 
-****************************************************
-Exercise: Visualizing the 404 Response Codes by Hour
-****************************************************
+******************************************
+5g) Exercise: Top Five Days for 404 Errors
+******************************************
+.. code-block:: python
+
+    # TODO: Replace <FILL IN> with appropriate code
+
+    top_err_date_df = errors_by_date_sorted_df.<FILL IN>
+
+    print 'Top Five Dates for 404 Requests:\n'
+    top_err_date_df.show(5)
+
+*******************************
+5i) Exercise: Hourly 404 Errors
+*******************************
+.. code-block:: python
+
+    # TODO: Replace <FILL IN> with appropriate code
+    from pyspark.sql.functions import hour
+    hour_records_sorted_df = not_found_df.<FILL IN>
+
+    print 'Top hours for 404 requests:\n'
+    hour_records_sorted_df.show(24)
+
+********************************************************
+5j) Exercise: Visualizing the 404 Response Codes by Hour
+********************************************************
 .. code-block:: python
 
     # TODO: Replace <FILL IN> with appropriate code

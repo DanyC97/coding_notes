@@ -21,6 +21,7 @@ Notes I took when completing EdX's program series on `Data Science and Engineeri
     cs105_lab1b
     cs105_lab2
     cs110_lab1
+    cs110_lab1_trimmed
     cs110_lab2
     cs110_lab3a
     cs110_lab3b
@@ -38,3 +39,7 @@ In Databricks, these come preloaded
 1.6.2
 <class '__main__.RemoteContext'>
 <class 'pyspark.sql.context.HiveContext'>
+
+.. note::
+
+    I learned a whole lot from :ref:`cs105_lab2_4e`
