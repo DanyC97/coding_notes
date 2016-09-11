@@ -402,6 +402,38 @@ Basically want the following in pandas in pyspark:
 
   Spark DataFrames don't support random row access.
 
+
+########################################
+Dividing two columns from a different DF
+########################################
+  It is not possible to reference column from another table. If you want to combine data you'll have to ``join`` first using something similar to this:
+
+- http://stackoverflow.com/questions/38128014/dividing-two-columns-of-a-different-dataframes
+
+
+.. note:: 
+
+    - Personally not a fan of handling **joins** of two DF with overlapping column names using ``df.alias``.
+    - See my private github (`link <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst#e-exercise-average-number-of-daily-requests-per-host>`__)
+
+
+.. code-block:: python
+
+    from pyspark.sql.functions import col
+
+    # maybe i need to get comfortable with this sql-like approach, but
+    # i have the feeling this is asking for confusion...
+    (df1.alias("df1")
+        .join(df2.alias("df2"), ["day"])
+        .select(col("day"), (col("df1.count") / col("df2.count")).alias("ratio")))
+
+    # i'd rather do this
+    df_out = (
+      # join df1 and df2 on column ['day'], but rename 'count' to 'df2_count' to avoid overlap in column name after join
+      df1.withColumnRenamed('count','df1_count').join(df2.withColumnRenamed('count','df2_count'), ['day'])
+      .select('day', (col('df1_count')/col('df2_count')).alias('ratio'))
+    )
+
 ###########################################
 Ones I just bookmarked for future reference
 ###########################################
