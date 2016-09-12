@@ -1,5 +1,5 @@
-Random notes relating to computer science (``cs-computer.rst``)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Random computer science notes (``cs-computer``)
+"""""""""""""""""""""""""""""""""""""""""""""""
 
 .. toctree::
     :maxdepth: 2

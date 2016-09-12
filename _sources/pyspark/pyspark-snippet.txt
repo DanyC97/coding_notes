@@ -2,6 +2,51 @@
 """""""""""""""""""""""
 Just bunch of handy snippets for using pyspark in databricks.
 
+###
+DBF
+###
+
+>>> dbutils.fs.ls('dbfs:/')
+Out[12]: 
+[FileInfo(path=u'dbfs:/FileStore/', name=u'FileStore/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/', name=u'databricks-datasets/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-results/', name=u'databricks-results/', size=0L),
+ FileInfo(path=u'dbfs:/datasets/', name=u'datasets/', size=0L),
+ FileInfo(path=u'dbfs:/tmp/', name=u'tmp/', size=0L),
+ FileInfo(path=u'dbfs:/user/', name=u'user/', size=0L)]
+
+
+>>> dbutils.fs.ls('dbfs:/databricks-datasets/')
+Out[18]: 
+[FileInfo(path=u'dbfs:/databricks-datasets/README.md', name=u'README.md', size=976L),
+ FileInfo(path=u'dbfs:/databricks-datasets/Rdatasets/', name=u'Rdatasets/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/SPARK_README.md', name=u'SPARK_README.md', size=3359L),
+ FileInfo(path=u'dbfs:/databricks-datasets/adult/', name=u'adult/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/airlines/', name=u'airlines/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/amazon/', name=u'amazon/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/asa/', name=u'asa/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/bikeSharing/', name=u'bikeSharing/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/cs100/', name=u'cs100/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/cs110x/', name=u'cs110x/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/cs190/', name=u'cs190/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/data.gov/', name=u'data.gov/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/flights/', name=u'flights/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/learning-spark/', name=u'learning-spark/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/mnist-digits/', name=u'mnist-digits/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/news20.binary/', name=u'news20.binary/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/online_retail/', name=u'online_retail/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/power-plant/', name=u'power-plant/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/sample_logs/', name=u'sample_logs/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/samples/', name=u'samples/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/sfo_customer_survey/', name=u'sfo_customer_survey/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/sms_spam_collection/', name=u'sms_spam_collection/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/songs/', name=u'songs/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/structured-streaming/', name=u'structured-streaming/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/tpch/', name=u'tpch/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/wiki/', name=u'wiki/', size=0L),
+ FileInfo(path=u'dbfs:/databricks-datasets/wikipedia-datasets/', name=u'wikipedia-datasets/', size=0L)]
+
+
 #######
 Modules
 #######
@@ -214,3 +259,26 @@ Built-in helper for Databricks (from :ref:`cs110_lab1`)
     mounts: SchemaSeq -> Displays information about what is mounted within DBFS
     refreshMounts: boolean -> Forces all machines in this cluster to refresh their mount cache, ensuring they receive the most recent information
     unmount(mountPoint: String): boolean -> Deletes a DBFS mount point
+
+################################################
+Random from Spark Essentials (Spark Summit 2016)
+################################################
+.. code-block:: python
+
+    # create new DF that contains only the *young* users
+    young_df = users_df.filter(users_df['age'] < 21)
+
+    # equivalent but with pandas like syntax (I like this better)
+    young_df = users_df[users_df['age'] < 21]
+
+    # increment everyone's age by 1
+    young_df.select(young_df['name'], young_df['age']+1)
+
+    # count the number of young by gender
+    young_df.groupBy('gender').count()
+
+    # join young users with another DF, log_df
+    young_df.join(log_df, log_df['userId'] == users_df['userId'], 'left_couter')
+
+    young_df.registerTempTable('young')
+    sqlContext.sql('SELECT count(*) FROM young')

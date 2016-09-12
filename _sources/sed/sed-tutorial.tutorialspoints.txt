@@ -1,5 +1,5 @@
-sed-tutorial-tutorials-points (``sed-tutorial.tutorialspoints.rst``)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+sed-tutorials-points (``sed-tutorial.tut``)
+"""""""""""""""""""""""""""""""""""""""""""
 http://www.tutorialspoint.com/sed/sed_workflow.htm
 
 .. contents:: **Contents**
