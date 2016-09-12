@@ -10,3 +10,5 @@ source/generated
 published
 _temp.sh
 debug.log
+
+ignore_dir

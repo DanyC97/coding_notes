@@ -102,50 +102,51 @@ language = None
 # http://stackoverflow.com/questions/11264684/flatten-list-of-lists
 # http://stackoverflow.com/questions/2793324/is-there-a-simple-way-to-delete-a-list-element-by-value-in-python
 #=============================================================================#
-import fnmatch
+# import fnmatch
 
-exclude_patterns = []
-for root, dirnames, filenames in os.walk('./'):
-    if root == './_templates':
-        continue # keep templating rst files
-    for filename in fnmatch.filter(filenames, '*.rst'):
-        # in case i'm on windows, replace "\\" with "/"
-        #http://stackoverflow.com/questions/16333569/mixed-slashes-with-os-path-join-on-windows
-        # also, strip first two chars in the item corresponding to './'
-        tmp = os.path.join(root, filename).replace("\\","/")[2:]
-        if tmp == 'index.rst':
-            # i always want this
-            continue
+# exclude_patterns = []
+# for root, dirnames, filenames in os.walk('./'):
+#     if root == './_templates':
+#         continue # keep templating rst files
+#     for filename in fnmatch.filter(filenames, '*.rst'):
+#         # in case i'm on windows, replace "\\" with "/"
+#         #http://stackoverflow.com/questions/16333569/mixed-slashes-with-os-path-join-on-windows
+#         # also, strip first two chars in the item corresponding to './'
+#         tmp = os.path.join(root, filename).replace("\\","/")[2:]
+#         if tmp == 'index.rst':
+#             # i always want this
+#             continue
 
-        exclude_patterns.append(tmp)
+#         exclude_patterns.append(tmp)
 
-items_to_include = [
-    'pyspark/top-edx.rst',
-    'pyspark/top-pyspark.rst',
-    'pyspark/pyspark-overflow.rst',
-    'pyspark/cs105_lab2.rst',
-    'pyspark/cs110_lab1.rst',
-    'pyspark/cs110_lab1_trimmed.rst',
-    'pyspark/pyspark-snippet.rst',
-    # 'pyspark/cs110_lab3b.rst',
-    # 'pyspark/cs120_lab4.rst',
-]
-for item_ in items_to_include:
-    exclude_patterns.remove(item_)
+# items_to_include = [
+#     'pyspark/top-edx.rst',
+#     'pyspark/top-pyspark.rst',
+#     'pyspark/pyspark-overflow.rst',
+#     'pyspark/cs105_lab2.rst',
+#     'pyspark/cs110_lab1.rst',
+#     'pyspark/cs110_lab1_trimmed.rst',
+#     'pyspark/cs110_lab3b.rst',
+#     'pyspark/pyspark-snippet.rst',
+#     # 'pyspark/cs110_lab3b.rst',
+#     # 'pyspark/cs120_lab4.rst',
+# ]
+# for item_ in items_to_include:
+#     exclude_patterns.remove(item_)
 
 # # with open('test_test.txt','w') as f:
 # #     f.write('\n'.join(exclude_patterns))
 
-# exclude_patterns = [
-# # 'pyspark/pyspark*.rst',
-# # 'pyspark/cs105*.rst',
-# # 'pyspark/cs120*.rst',
+exclude_patterns = [
+# 'pyspark/pyspark*.rst',
+# 'pyspark/cs105*.rst',
+# 'pyspark/cs120*.rst',
 # 'awk*',
 # 'sed*',
 # 'sql*',
 # 'bash*',
 # 'cs-computer*',
-# ]
+]
 #-----------------------------------------------------------------------------#
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -320,13 +321,30 @@ latex_elements = {
      # 'figure_align': 'htbp',
 }
 
+#=============================================================================#
+# Modified this part to get latex working.
+# MakeFile turns out to be more finicky than i thought...I had to wrestle
+# with the configs below to get it to work.
+# (oddly, it didn't allow me to use variables below...so i just hard-coded
+#  the string entries below)
+# 09-12-2016 (13:06)
+#-----------------------------------------------------------------------------#
+# the .tex file-name cannot contain space. surprised this wasn't handled in
+# sphinx or Make...
+# (so when my ``project`` variable had space, makefile complains)
+##-----------------------------------------------------------------------------#
+# see http://www.sphinx-doc.org/en/stable/config.html#options-for-latex-output
+# for the options to insert below
+#=============================================================================#
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Snippets.tex', u'Snippets Documentation',
-     u'tw', 'manual'),
+    # (master_doc, 'Snippets.tex', u'Snippets Documentation',u'tw', 'manual'),
+    (master_doc, 'coding_notebook.tex', 'Coding notebook',author, 'manual'),
+    # (master_doc, project+'.tex', project,author, 'manual'),
 ]
+#\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
