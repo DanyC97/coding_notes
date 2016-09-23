@@ -1,81 +1,89 @@
+
+
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4 Spark Programming Guide DataFrames (apache-prog-guide-df)</title>
+  
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>6 Spark Programming Guide DataFrames (apache-prog-guide-df)</title>
-    
-    <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-2.3.2/simplex/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+  
+  
     <link rel="shortcut icon" href="../_static/favicon-umich.ico"/>
-    <link rel="top" title="" href="../index.html" />
-    <link rel="up" title="PySpark Notes (top-pyspark.rst)" href="top-pyspark.html" />
-    <link rel="next" title="7 Databrick Doc (databricks.rst)" href="databricks.html" />
-    <link rel="prev" title="5 (todo) Spark Programming Guide (apache-prog-guide-rdd)" href="apache-prog-guide-rdd.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+  
 
-  </head>
-  <body role="document">
+  
 
-  <div id="navbar" class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+  
+  
+    
 
-        <a class="brand" href="../index.html">
-          Coding Notebook</a>
-        <span class="navbar-text pull-left"><b></b></span>
+  
 
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="divider-vertical"></li>
+  
+  
+    <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="" href="../index.html"/>
+        <link rel="up" title="PySpark Notes (top-pyspark.rst)" href="top-pyspark.html"/>
+        <link rel="next" title="5 Databrick Doc (databricks.rst)" href="databricks.html"/>
+        <link rel="prev" title="3 pyspark-overflow.rst" href="pyspark-overflow.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
             
-                <li><a href="https://github.com/wtak23">Github</a></li>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
             
             
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="../index.html">Table of Contents <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Table of Contents (PySpark)</span></p>
+                <p class="caption"><span class="caption-text">Table of Contents (PySpark)</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="top-edx.html">EdX Course Notes (<code class="docutils literal"><span class="pre">top-edx.rst</span></code>)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="top-edx.html">EdX - Data Science and Engineering with Spark</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs105_lab0.html">cs105_lab0 - Running Your First Notebook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#create-dataframe-and-filter-it">Create DataFrame and filter it</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#load-a-text-file">Load a text file</a></li>
@@ -575,81 +583,100 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pyspark-install.html">4 Install PySpark (<code class="docutils literal"><span class="pre">pyspark-install</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-install.html#windows">4.1 windows?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-install.html#retry-above-is-a-clusterfuck">4.2 Retry, above is a clusterfuck</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="apache-prog-guide-rdd.html">5 (todo) Spark Programming Guide (<code class="docutils literal"><span class="pre">apache-prog-guide-rdd</span></code>)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">6 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">6.1 Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sql">6.1.1 SQL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#datasets-and-dataframes">6.1.2 Datasets and DataFrames</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#datasets">6.1.2.1 Datasets</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#dataframe">6.1.2.2 DataFrame</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">4 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">4.1 Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sql">4.1.1 SQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datasets-and-dataframes">4.1.2 Datasets and DataFrames</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#datasets">4.1.2.1 Datasets</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#dataframe">4.1.2.2 DataFrame</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-started">6.2 Getting Started</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#starting-point-sparksession">6.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-dataframes">6.2.2 Creating DataFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#untyped-dataset-operations-aka-dataframe-operations">6.2.3 Untyped Dataset Operations (aka DataFrame Operations)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-sql-queries-programmatically">6.2.4 Running SQL Queries Programmatically</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-datasets-only-in-scala-java">6.2.5 Creating Datasets (only in Scala/Java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#interoperating-with-rdds">6.2.6 Interoperating with RDDs</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#inferring-the-schema-using-reflection">6.2.6.1 Inferring the Schema Using Reflection</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#programmatically-specifying-the-schema">6.2.6.2 Programmatically Specifying the Schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">4.2 Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#starting-point-sparksession">4.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-dataframes">4.2.2 Creating DataFrames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#untyped-dataset-operations-aka-dataframe-operations">4.2.3 Untyped Dataset Operations (aka DataFrame Operations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-sql-queries-programmatically">4.2.4 Running SQL Queries Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-datasets-only-in-scala-java">4.2.5 Creating Datasets (only in Scala/Java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interoperating-with-rdds">4.2.6 Interoperating with RDDs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#inferring-the-schema-using-reflection">4.2.6.1 Inferring the Schema Using Reflection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#programmatically-specifying-the-schema">4.2.6.2 Programmatically Specifying the Schema</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#data-sources">6.3 Data Sources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generic-load-functions">6.4 Generic Load Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#default-parquet">6.4.1 Default (parquet)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#manually-specifying-options">6.4.2 Manually Specifying Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-sql-on-files-directly">6.4.3 Run SQL on files directly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-sources">4.3 Data Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generic-load-functions">4.4 Generic Load Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-parquet">4.4.1 Default (parquet)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manually-specifying-options">4.4.2 Manually Specifying Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-sql-on-files-directly">4.4.3 Run SQL on files directly</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#generic-save-functions">6.5 Generic Save Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#save-modes">6.5.1 Save Modes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#saving-to-persistent-tables">6.5.2 __Saving to Persistent Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generic-save-functions">4.5 Generic Save Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#save-modes">4.5.1 Save Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#saving-to-persistent-tables">4.5.2 __Saving to Persistent Tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#parquet-files">6.6 Parquet Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#loading-data-programmatically">6.6.1 Loading Data Programmatically</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#partition-discovery">6.6.2 __Partition Discovery</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#schema-merging">6.6.3 Schema Merging</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hive-metastore-parquet-conversion">6.6.4 __Hive metastore Parquet Conversion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configuration">6.6.5 Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parquet-files">4.6 Parquet Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loading-data-programmatically">4.6.1 Loading Data Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#partition-discovery">4.6.2 __Partition Discovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schema-merging">4.6.3 Schema Merging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hive-metastore-parquet-conversion">4.6.4 __Hive metastore Parquet Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">4.6.5 Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#json-datasets">6.7 JSON Datasets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hive-tables">6.8 Hive Tables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#interacting-with-different-versions-of-hive-metastore">6.8.1 __Interacting with Different Versions of Hive Metastore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json-datasets">4.7 JSON Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hive-tables">4.8 Hive Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interacting-with-different-versions-of-hive-metastore">4.8.1 __Interacting with Different Versions of Hive Metastore</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#jdbc-to-other-databases">6.9 __JDBC To Other Databases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#performance-tuning">6.10 Performance Tuning</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#caching-data-in-memory">6.10.1 Caching Data in Memory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#other-configuration-options">6.10.2 Other Configuration Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jdbc-to-other-databases">4.9 __JDBC To Other Databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-tuning">4.10 Performance Tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#caching-data-in-memory">4.10.1 Caching Data in Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-configuration-options">4.10.2 Other Configuration Options</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#distributed-sql-engine">6.11 Distributed SQL Engine</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-thrift-jdbc-odbc-server">6.11.1 __Running the Thrift JDBC/ODBC server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-spark-sql-cli">6.11.2 Running the Spark SQL CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distributed-sql-engine">4.11 Distributed SQL Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-thrift-jdbc-odbc-server">4.11.1 __Running the Thrift JDBC/ODBC server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-spark-sql-cli">4.11.2 Running the Spark SQL CLI</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reference">6.12 Reference</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-types">6.12.1 Data-Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nan-semantics">6.12.2 NaN Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">4.12 Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-types">4.12.1 Data-Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nan-semantics">4.12.2 NaN Semantics</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="databricks.html">7 Databrick Doc (<code class="docutils literal"><span class="pre">databricks.rst</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="databricks.html#ml-stuffs">7.1 ML Stuffs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="databricks.html#bunch-of-notebooks">7.2 Bunch of notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databricks.html">5 Databrick Doc (<code class="docutils literal"><span class="pre">databricks.rst</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databricks.html#ml-stuffs">5.1 ML Stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databricks.html#bunch-of-notebooks">5.2 Bunch of notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspark-local.html">PySpark on AWS (<code class="docutils literal"><span class="pre">pyspark-local</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#setting-up-aws-and-pyspark">Setting up AWS and PySpark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-iam-user-key">Create IAM user key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-admin-group-and-user">Create admin group and user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#setup-an-s3-bucket">Setup an S3 Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-wordcount-script-to-submit">Create wordcount script to submit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-emr-cluster">Create EMR cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#run-spark-application-on-emr">Run Spark application on EMR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#setup-pyspark-in-ipython-profile">Setup pyspark in ipython profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#finally-worked">Finally worked!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#wrong-java-version">Wrong java version?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#pyspark-options-giving-errors">pyspark options giving errors...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#update-scala">Update scala?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#rough-drafts">rough drafts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#failed-windows-try">Failed Windows Try</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#windows">windows?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#retry-above-is-a-disaster">Retry, above is a disaster</a></li>
 </ul>
 </li>
 </ul>
@@ -1136,116 +1163,67 @@
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Contents (current page) <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">6 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</a><ul>
-<li><a class="reference internal" href="#overview">6.1 Overview</a><ul>
-<li><a class="reference internal" href="#sql">6.1.1 SQL</a></li>
-<li><a class="reference internal" href="#datasets-and-dataframes">6.1.2 Datasets and DataFrames</a><ul>
-<li><a class="reference internal" href="#datasets">6.1.2.1 Datasets</a></li>
-<li><a class="reference internal" href="#dataframe">6.1.2.2 DataFrame</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#getting-started">6.2 Getting Started</a><ul>
-<li><a class="reference internal" href="#starting-point-sparksession">6.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
-<li><a class="reference internal" href="#creating-dataframes">6.2.2 Creating DataFrames</a></li>
-<li><a class="reference internal" href="#untyped-dataset-operations-aka-dataframe-operations">6.2.3 Untyped Dataset Operations (aka DataFrame Operations)</a></li>
-<li><a class="reference internal" href="#running-sql-queries-programmatically">6.2.4 Running SQL Queries Programmatically</a></li>
-<li><a class="reference internal" href="#creating-datasets-only-in-scala-java">6.2.5 Creating Datasets (only in Scala/Java)</a></li>
-<li><a class="reference internal" href="#interoperating-with-rdds">6.2.6 Interoperating with RDDs</a><ul>
-<li><a class="reference internal" href="#inferring-the-schema-using-reflection">6.2.6.1 Inferring the Schema Using Reflection</a></li>
-<li><a class="reference internal" href="#programmatically-specifying-the-schema">6.2.6.2 Programmatically Specifying the Schema</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#data-sources">6.3 Data Sources</a></li>
-<li><a class="reference internal" href="#generic-load-functions">6.4 Generic Load Functions</a><ul>
-<li><a class="reference internal" href="#default-parquet">6.4.1 Default (parquet)</a></li>
-<li><a class="reference internal" href="#manually-specifying-options">6.4.2 Manually Specifying Options</a></li>
-<li><a class="reference internal" href="#run-sql-on-files-directly">6.4.3 Run SQL on files directly</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#generic-save-functions">6.5 Generic Save Functions</a><ul>
-<li><a class="reference internal" href="#save-modes">6.5.1 Save Modes</a></li>
-<li><a class="reference internal" href="#saving-to-persistent-tables">6.5.2 __Saving to Persistent Tables</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#parquet-files">6.6 Parquet Files</a><ul>
-<li><a class="reference internal" href="#loading-data-programmatically">6.6.1 Loading Data Programmatically</a></li>
-<li><a class="reference internal" href="#partition-discovery">6.6.2 __Partition Discovery</a></li>
-<li><a class="reference internal" href="#schema-merging">6.6.3 Schema Merging</a></li>
-<li><a class="reference internal" href="#hive-metastore-parquet-conversion">6.6.4 __Hive metastore Parquet Conversion</a></li>
-<li><a class="reference internal" href="#configuration">6.6.5 Configuration</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#json-datasets">6.7 JSON Datasets</a></li>
-<li><a class="reference internal" href="#hive-tables">6.8 Hive Tables</a><ul>
-<li><a class="reference internal" href="#interacting-with-different-versions-of-hive-metastore">6.8.1 __Interacting with Different Versions of Hive Metastore</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#jdbc-to-other-databases">6.9 __JDBC To Other Databases</a></li>
-<li><a class="reference internal" href="#performance-tuning">6.10 Performance Tuning</a><ul>
-<li><a class="reference internal" href="#caching-data-in-memory">6.10.1 Caching Data in Memory</a></li>
-<li><a class="reference internal" href="#other-configuration-options">6.10.2 Other Configuration Options</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#distributed-sql-engine">6.11 Distributed SQL Engine</a><ul>
-<li><a class="reference internal" href="#running-the-thrift-jdbc-odbc-server">6.11.1 __Running the Thrift JDBC/ODBC server</a></li>
-<li><a class="reference internal" href="#running-the-spark-sql-cli">6.11.2 Running the Spark SQL CLI</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#reference">6.12 Reference</a><ul>
-<li><a class="reference internal" href="#data-types">6.12.1 Data-Types</a></li>
-<li><a class="reference internal" href="#nan-semantics">6.12.2 NaN Semantics</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-            
-            
-            
-          </ul>
 
-          
             
-<form class="navbar-form navbar-right" action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
           
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="span12 content">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
       
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Coding Notebook</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="top-pyspark.html">PySpark Notes (<code class="docutils literal"><span class="pre">top-pyspark.rst</span></code>)</a> &raquo;</li>
+        
+      <li>4 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pyspark/apache-prog-guide-df.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="spark-programming-guide-dataframes-apache-prog-guide-df">
-<h1>6 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</h1>
+<h1>4 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</h1>
 <p><a class="reference external" href="http://spark.apache.org/docs/latest/sql-programming-guide.html">http://spark.apache.org/docs/latest/sql-programming-guide.html</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1278,7 +1256,7 @@
 <p class="last">I did create a <em>skeleton</em> of TOC though.</p>
 </div>
 <div class="section" id="overview">
-<h2><a class="toc-backref" href="#id1">6.1 Overview</a></h2>
+<h2><a class="toc-backref" href="#id1">4.1 Overview</a></h2>
 <ul class="simple">
 <li>Spark SQL is a Spark module for <strong>structured</strong> data processing.</li>
 <li>Spark SQL uses the extra information from the <strong>structure</strong> to perform extra optimizations (so more optimized the basic <code class="docutils literal"><span class="pre">Spark</span> <span class="pre">RDD</span> <span class="pre">API</span></code>).</li>
@@ -1286,7 +1264,7 @@
 </ul>
 <p>All of the examples on this page use sample data included in the Spark distribution and can be run in the <code class="docutils literal"><span class="pre">spark-shell</span></code>, <code class="docutils literal"><span class="pre">pyspark</span> <span class="pre">shell</span></code>, or <code class="docutils literal"><span class="pre">sparkR</span> <span class="pre">shell</span></code>.</p>
 <div class="section" id="sql">
-<h3>6.1.1 SQL</h3>
+<h3>4.1.1 SQL</h3>
 <p>One use of Spark SQL is to execute <strong>SQL queries</strong>.</p>
 <ul class="simple">
 <li>Spark SQL can also be used to read data from an <strong>existing Hive installation</strong>.<ul>
@@ -1298,9 +1276,9 @@
 </ul>
 </div>
 <div class="section" id="datasets-and-dataframes">
-<h3>6.1.2 Datasets and DataFrames</h3>
+<h3>4.1.2 Datasets and DataFrames</h3>
 <div class="section" id="datasets">
-<h4>6.1.2.1 Datasets</h4>
+<h4>4.1.2.1 Datasets</h4>
 <p>A <strong>Dataset</strong> is a distributed collection of data.</p>
 <ul class="simple">
 <li>Dataset is a new interface added in Spark 1.6 that provides the benefits of RDDs with the benefits of Spark SQL&#8217;s optimized execution engine.<ul>
@@ -1317,7 +1295,7 @@
 </div>
 </div>
 <div class="section" id="dataframe">
-<h4>6.1.2.2 DataFrame</h4>
+<h4>4.1.2.2 DataFrame</h4>
 <p>A <strong>DataFrame</strong> is a Dataset organized into named columns.</p>
 <ul class="simple">
 <li>It is conceptually equivalent to a table in a relational database or a data frame in R/Python, but with <strong>richer optimizations under the hood</strong>.</li>
@@ -1340,13 +1318,13 @@
 </div>
 </div>
 <div class="section" id="getting-started">
-<h2><a class="toc-backref" href="#id2">6.2 Getting Started</a></h2>
+<h2><a class="toc-backref" href="#id2">4.2 Getting Started</a></h2>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Find full example code at &#8220;<code class="docutils literal"><span class="pre">examples/src/main/python/sql.py</span></code>&#8221; in the Spark repo.</p>
 </div>
 <div class="section" id="starting-point-sparksession">
-<h3>6.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></h3>
+<h3>4.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></h3>
 <p>The entry point into all functionality in Spark is the <code class="docutils literal"><span class="pre">SparkSession</span></code> class.</p>
 <ul class="simple">
 <li>To create a basic SparkSession, just use <code class="docutils literal"><span class="pre">SparkSession.builder()</span></code>:</li>
@@ -1369,7 +1347,7 @@
 </div>
 </div>
 <div class="section" id="creating-dataframes">
-<h3>6.2.2 Creating DataFrames</h3>
+<h3>4.2.2 Creating DataFrames</h3>
 <p>With a <code class="docutils literal"><span class="pre">SparkSession</span></code>, applications can create DataFrames from:</p>
 <ul class="simple">
 <li>an existing RDD,</li>
@@ -1386,7 +1364,7 @@
 </div>
 </div>
 <div class="section" id="untyped-dataset-operations-aka-dataframe-operations">
-<h3>6.2.3 Untyped Dataset Operations (aka DataFrame Operations)</h3>
+<h3>4.2.3 Untyped Dataset Operations (aka DataFrame Operations)</h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1472,20 +1450,20 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="running-sql-queries-programmatically">
-<h3>6.2.4 Running SQL Queries Programmatically</h3>
+<h3>4.2.4 Running SQL Queries Programmatically</h3>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM table&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="creating-datasets-only-in-scala-java">
-<h3>6.2.5 Creating Datasets (only in Scala/Java)</h3>
+<h3>4.2.5 Creating Datasets (only in Scala/Java)</h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Skipped...no python support</p>
 </div>
 </div>
 <div class="section" id="interoperating-with-rdds">
-<h3>6.2.6 Interoperating with RDDs</h3>
+<h3>4.2.6 Interoperating with RDDs</h3>
 <p>Spark SQL supports two methods for converting existing RDDs into Datasets.</p>
 <p>The first method uses <strong>reflection</strong> to infer the schema of an RDD that contains specific types of objects.</p>
 <ul class="simple">
@@ -1496,7 +1474,7 @@
 <li>While this method is <strong>more verbose</strong>, it allows you to construct Datasets when the columns and their <strong>types are not known until runtime</strong>.</li>
 </ul>
 <div class="section" id="inferring-the-schema-using-reflection">
-<span id="pyspark-proguide-schema-refl"></span><h4>6.2.6.1 Inferring the Schema Using Reflection</h4>
+<span id="pyspark-proguide-schema-refl"></span><h4>4.2.6.1 Inferring the Schema Using Reflection</h4>
 <p>Spark SQL can convert an RDD of <code class="docutils literal"><span class="pre">Row</span></code> objects to a DataFrame, <strong>inferring the datatypes</strong>.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">Rows</span></code> are constructed by passing a <strong>list of key/value pairs</strong> as <code class="docutils literal"><span class="pre">kwargs</span></code> to the Row class (ie, pass a <code class="docutils literal"><span class="pre">dict</span></code>).<ul>
@@ -1548,7 +1526,7 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="programmatically-specifying-the-schema">
-<h4>6.2.6.2 Programmatically Specifying the Schema</h4>
+<h4>4.2.6.2 Programmatically Specifying the Schema</h4>
 <p>When a dictionary of kwargs cannot be defined ahead of time, a DataFrame can be created programmatically with <strong>three steps</strong>.</p>
 <ol class="arabic simple">
 <li><strong>Create an RDD of tuples or lists</strong> from the original RDD;</li>
@@ -1621,7 +1599,7 @@
 </div>
 </div>
 <div class="section" id="data-sources">
-<span id="pyspark-proguide-data-sources"></span><h2><a class="toc-backref" href="#id3">6.3 Data Sources</a></h2>
+<span id="pyspark-proguide-data-sources"></span><h2><a class="toc-backref" href="#id3">4.3 Data Sources</a></h2>
 <p>Spark SQL supports operating on a variety of data sources through the <strong>DataFrame interface</strong>.</p>
 <p>A DataFrame can be operated on using <strong>relational transformations</strong> and can also be used to create a <strong>temporary view</strong>.</p>
 <div class="admonition important">
@@ -1634,9 +1612,9 @@
 </div>
 </div>
 <div class="section" id="generic-load-functions">
-<h2><a class="toc-backref" href="#id4">6.4 Generic Load Functions</a></h2>
+<h2><a class="toc-backref" href="#id4">4.4 Generic Load Functions</a></h2>
 <div class="section" id="default-parquet">
-<h3>6.4.1 Default (parquet)</h3>
+<h3>4.4.1 Default (parquet)</h3>
 <p>The default data source (<code class="docutils literal"><span class="pre">parquet</span></code> unless otherwise configured by <code class="docutils literal"><span class="pre">spark.sql.sources.default</span></code>) will be used for all operations.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1651,7 +1629,7 @@
 </div>
 </div>
 <div class="section" id="manually-specifying-options">
-<h3>6.4.2 Manually Specifying Options</h3>
+<h3>4.4.2 Manually Specifying Options</h3>
 <ul class="simple">
 <li>Data sources are specified by their fully qualified name (i.e., <code class="docutils literal"><span class="pre">org.apache.spark.sql.parquet</span></code>), but for built-in sources you can also use their short names (<code class="docutils literal"><span class="pre">json,</span> <span class="pre">parquet,</span> <span class="pre">jdbc</span></code>)</li>
 <li>DataFrames loaded from any data source type can be converted into other types using this syntax.</li>
@@ -1662,7 +1640,7 @@
 </div>
 </div>
 <div class="section" id="run-sql-on-files-directly">
-<h3>6.4.3 Run SQL on files directly</h3>
+<h3>4.4.3 Run SQL on files directly</h3>
 <p>Instead of using read API to load a file into DataFrame and query it, you can also query that file directly with SQL.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM parquet.`examples/src/main/resources/users.parquet`&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1670,9 +1648,9 @@
 </div>
 </div>
 <div class="section" id="generic-save-functions">
-<h2><a class="toc-backref" href="#id5">6.5 Generic Save Functions</a></h2>
+<h2><a class="toc-backref" href="#id5">4.5 Generic Save Functions</a></h2>
 <div class="section" id="save-modes">
-<h3>6.5.1 Save Modes</h3>
+<h3>4.5.1 Save Modes</h3>
 <p>Save operations can optionally take a <code class="docutils literal"><span class="pre">SaveMode</span></code>, that specifies how to handle existing data if present.</p>
 <ul class="simple">
 <li>It is important to realize that these save modes <strong>do not utilize any locking</strong> and are <strong>not atomic</strong>.</li>
@@ -1711,7 +1689,7 @@
 </table>
 </div>
 <div class="section" id="saving-to-persistent-tables">
-<h3>6.5.2 __Saving to Persistent Tables</h3>
+<h3>4.5.2 __Saving to Persistent Tables</h3>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">todo</p>
@@ -1719,14 +1697,14 @@
 </div>
 </div>
 <div class="section" id="parquet-files">
-<span id="pyspark-proguide-parquet-files"></span><h2><a class="toc-backref" href="#id6">6.6 Parquet Files</a></h2>
+<span id="pyspark-proguide-parquet-files"></span><h2><a class="toc-backref" href="#id6">4.6 Parquet Files</a></h2>
 <p><a class="reference external" href="http://parquet.io/">Parquet</a> is a columnar format that is supported by many other data processing systems.</p>
 <ul class="simple">
 <li>Spark SQL provides support for both reading and writing Parquet files that automatically preserves the schema of the original data.</li>
 <li>When writing Parquet files, all columns are automatically converted to be nullable for compatibility reasons.</li>
 </ul>
 <div class="section" id="loading-data-programmatically">
-<h3>6.6.1 Loading Data Programmatically</h3>
+<h3>4.6.1 Loading Data Programmatically</h3>
 <p>Using the data from the above example:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1765,10 +1743,10 @@
 </td></tr></table></div>
 </div>
 <div class="section" id="partition-discovery">
-<h3>6.6.2 __Partition Discovery</h3>
+<h3>4.6.2 __Partition Discovery</h3>
 </div>
 <div class="section" id="schema-merging">
-<h3>6.6.3 Schema Merging</h3>
+<h3>4.6.3 Schema Merging</h3>
 <p>Like ProtocolBuffer, Avro, and Thrift, Parquet also supports schema evolution. Users can start with a simple schema, and gradually add more columns to the schema as needed. In this way, users may end up with multiple Parquet files with different but mutually compatible schemas. The Parquet data source is now able to automatically detect this case and merge schemas of all these files.</p>
 <p>Since schema merging is a relatively expensive operation, and is not a necessity in most cases, we turned it off by default starting from 1.5.0. You may enable it by
 setting data source option mergeSchema to true when reading Parquet files (as shown in the examples below), or
@@ -1813,10 +1791,10 @@ setting the global SQL option spark.sql.parquet.mergeSchema to true.</p>
 </div>
 </div>
 <div class="section" id="hive-metastore-parquet-conversion">
-<h3>6.6.4 __Hive metastore Parquet Conversion</h3>
+<h3>4.6.4 __Hive metastore Parquet Conversion</h3>
 </div>
 <div class="section" id="configuration">
-<h3>6.6.5 Configuration</h3>
+<h3>4.6.5 Configuration</h3>
 <p>Configuration of Parquet can be done using the <code class="docutils literal"><span class="pre">setConf</span></code> method on <code class="docutils literal"><span class="pre">SparkSession</span></code> or by running <code class="docutils literal"><span class="pre">SET</span> <span class="pre">key=value</span></code> commands using <code class="docutils literal"><span class="pre">SQL</span></code>.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1864,7 +1842,7 @@ setting the global SQL option spark.sql.parquet.mergeSchema to true.</p>
 </div>
 </div>
 <div class="section" id="json-datasets">
-<h2><a class="toc-backref" href="#id7">6.7 JSON Datasets</a></h2>
+<h2><a class="toc-backref" href="#id7">4.7 JSON Datasets</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span>Spark SQL can automatically infer the schema of a JSON dataset and load it as a DataFrame. This conversion can be done using SparkSession.read.json on a JSON file.
 
 Note that the file that is offered as a json file is not a typical JSON file. Each line must contain a separate, self-contained valid JSON object. As a consequence, a regular multi-line JSON file will most often fail.
@@ -1915,7 +1893,7 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </td></tr></table></div>
 </div>
 <div class="section" id="hive-tables">
-<span id="pyspark-proguide-hive-tables"></span><h2><a class="toc-backref" href="#id8">6.8 Hive Tables</a></h2>
+<span id="pyspark-proguide-hive-tables"></span><h2><a class="toc-backref" href="#id8">4.8 Hive Tables</a></h2>
 <p><a class="reference external" href="http://spark.apache.org/docs/latest/sql-programming-guide.html#hive-tables">http://spark.apache.org/docs/latest/sql-programming-guide.html#hive-tables</a></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># spark is an existing SparkSession</span>
 
@@ -1927,19 +1905,19 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </pre></div>
 </div>
 <div class="section" id="interacting-with-different-versions-of-hive-metastore">
-<h3>6.8.1 __Interacting with Different Versions of Hive Metastore</h3>
+<h3>4.8.1 __Interacting with Different Versions of Hive Metastore</h3>
 <p><a class="reference external" href="http://spark.apache.org/docs/latest/sql-programming-guide.html#interacting-with-different-versions-of-hive-metastore">http://spark.apache.org/docs/latest/sql-programming-guide.html#interacting-with-different-versions-of-hive-metastore</a></p>
 </div>
 </div>
 <div class="section" id="jdbc-to-other-databases">
-<h2><a class="toc-backref" href="#id9">6.9 __JDBC To Other Databases</a></h2>
+<h2><a class="toc-backref" href="#id9">4.9 __JDBC To Other Databases</a></h2>
 <p><a class="reference external" href="http://spark.apache.org/docs/latest/sql-programming-guide.html#jdbc-to-other-databases">http://spark.apache.org/docs/latest/sql-programming-guide.html#jdbc-to-other-databases</a></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;jdbc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;jdbc:postgresql:dbserver&#39;</span><span class="p">,</span> <span class="n">dbtable</span><span class="o">=</span><span class="s1">&#39;schema.tablename&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="performance-tuning">
-<h2><a class="toc-backref" href="#id10">6.10 Performance Tuning</a></h2>
+<h2><a class="toc-backref" href="#id10">4.10 Performance Tuning</a></h2>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>For some workloads it is possible to improve performance by either:</p>
@@ -1949,7 +1927,7 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </ol>
 </div>
 <div class="section" id="caching-data-in-memory">
-<h3>6.10.1 Caching Data in Memory</h3>
+<h3>4.10.1 Caching Data in Memory</h3>
 <p>Spark SQL can cache tables using an in-memory columnar format by calling <code class="docutils literal"><span class="pre">spark.cacheTable(&quot;tableName&quot;</span></code>) or <code class="docutils literal"><span class="pre">dataFrame.cache()</span></code>.</p>
 <ul class="simple">
 <li>Then Spark SQL will scan only required columns and will automatically tune compression to minimize memory usage and GC pressure.</li>
@@ -1984,7 +1962,7 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </table>
 </div>
 <div class="section" id="other-configuration-options">
-<h3>6.10.2 Other Configuration Options</h3>
+<h3>4.10.2 Other Configuration Options</h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">It is possible that these options will be deprecated in future release as more optimizations are performed automatically.</p>
@@ -2023,14 +2001,14 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </div>
 </div>
 <div class="section" id="distributed-sql-engine">
-<h2><a class="toc-backref" href="#id11">6.11 Distributed SQL Engine</a></h2>
+<h2><a class="toc-backref" href="#id11">4.11 Distributed SQL Engine</a></h2>
 <p>Spark SQL can also act as a distributed query engine using its <code class="docutils literal"><span class="pre">JDBC/ODBC</span></code> or <strong>command-line interface</strong>.</p>
 <p>In this mode, end-users or applications can interact with Spark SQL directly to run SQL queries, without the need to write any code.</p>
 <div class="section" id="running-the-thrift-jdbc-odbc-server">
-<h3>6.11.1 __Running the Thrift JDBC/ODBC server</h3>
+<h3>4.11.1 __Running the Thrift JDBC/ODBC server</h3>
 </div>
 <div class="section" id="running-the-spark-sql-cli">
-<h3>6.11.2 Running the Spark SQL CLI</h3>
+<h3>4.11.2 Running the Spark SQL CLI</h3>
 <p>The Spark SQL CLI is a convenient tool to run the Hive metastore service in local mode and execute queries input from the command line. Note that the Spark SQL CLI cannot talk to the Thrift JDBC server.</p>
 <p>To start the Spark SQL CLI, run the following in the Spark directory:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>./bin/spark-sql
@@ -2043,13 +2021,13 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </div>
 </div>
 <div class="section" id="reference">
-<h2><a class="toc-backref" href="#id12">6.12 Reference</a></h2>
+<h2><a class="toc-backref" href="#id12">4.12 Reference</a></h2>
 <div class="section" id="data-types">
-<h3>6.12.1 Data-Types</h3>
+<h3>4.12.1 Data-Types</h3>
 <p><a class="reference external" href="http://spark.apache.org/docs/latest/sql-programming-guide.html#data-types">http://spark.apache.org/docs/latest/sql-programming-guide.html#data-types</a></p>
 </div>
 <div class="section" id="nan-semantics">
-<h3>6.12.2 NaN Semantics</h3>
+<h3>4.12.2 NaN Semantics</h3>
 <p>There is specially handling for not-a-number (NaN) when dealing with float or double types that does not exactly match standard floating point semantics.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -2065,27 +2043,72 @@ Note that the file that is offered as a json file is not a typical JSON file. Ea
 </div>
 
 
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="databricks.html" class="btn btn-neutral float-right" title="5 Databrick Doc (databricks.rst)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyspark-overflow.html" class="btn btn-neutral" title="3 pyspark-overflow.rst" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-      
-  </div>
-</div>
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-        <br/>
-        
-<div id="sourcelink">
-  <a href="../_sources/pyspark/apache-prog-guide-df.txt"
-     rel="nofollow">Source</a>
-</div>
-      
-    </p>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
     <p>
-      Last updated on Sep 23, 2016.<br/>
+      Last updated on Sep 23, 2016.
+
     </p>
-  </div>
+  </div> 
+
 </footer>
-  </body>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

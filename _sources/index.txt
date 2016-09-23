@@ -16,6 +16,7 @@ My coding notebook
 
     pyspark/top-edx
     pyspark/top-pyspark
+    pyspark/pyspark-local
     pyspark/apache-ml-guide
     pyspark/apache-ml-rdd
 

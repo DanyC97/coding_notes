@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MLLib: RDD-based API Guideline (apache-ml-rdd-guide)</title>
+  <title>PySpark on AWS (pyspark-local)</title>
   
 
   
@@ -32,7 +32,9 @@
   
 
   
-    <link rel="top" title="" href="../index.html"/> 
+    <link rel="top" title="" href="../index.html"/>
+        <link rel="next" title="MLLib - Main guide (apache-ml-guide.rst)" href="apache-ml-guide.html"/>
+        <link rel="prev" title="5 Databrick Doc (databricks.rst)" href="databricks.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -79,7 +81,7 @@
             
             
                 <p class="caption"><span class="caption-text">Table of Contents (PySpark)</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="top-edx.html">EdX - Data Science and Engineering with Spark</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cs105_lab0.html">cs105_lab0 - Running Your First Notebook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#create-dataframe-and-filter-it">Create DataFrame and filter it</a></li>
@@ -653,27 +655,27 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pyspark-local.html">PySpark on AWS (<code class="docutils literal"><span class="pre">pyspark-local</span></code>)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#setting-up-aws-and-pyspark">Setting up AWS and PySpark</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-iam-user-key">Create IAM user key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-admin-group-and-user">Create admin group and user</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#setup-an-s3-bucket">Setup an S3 Bucket</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-wordcount-script-to-submit">Create wordcount script to submit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-emr-cluster">Create EMR cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#run-spark-application-on-emr">Run Spark application on EMR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">PySpark on AWS (<code class="docutils literal"><span class="pre">pyspark-local</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-aws-and-pyspark">Setting up AWS and PySpark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-iam-user-key">Create IAM user key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-admin-group-and-user">Create admin group and user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-an-s3-bucket">Setup an S3 Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-wordcount-script-to-submit">Create wordcount script to submit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-emr-cluster">Create EMR cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-spark-application-on-emr">Run Spark application on EMR</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#setup-pyspark-in-ipython-profile">Setup pyspark in ipython profile</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#finally-worked">Finally worked!</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#wrong-java-version">Wrong java version?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#pyspark-options-giving-errors">pyspark options giving errors...</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#update-scala">Update scala?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#rough-drafts">rough drafts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-pyspark-in-ipython-profile">Setup pyspark in ipython profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#finally-worked">Finally worked!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wrong-java-version">Wrong java version?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyspark-options-giving-errors">pyspark options giving errors...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-scala">Update scala?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rough-drafts">rough drafts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#failed-windows-try">Failed Windows Try</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#windows">windows?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#retry-above-is-a-disaster">Retry, above is a disaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#failed-windows-try">Failed Windows Try</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">windows?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retry-above-is-a-disaster">Retry, above is a disaster</a></li>
 </ul>
 </li>
 </ul>
@@ -1200,13 +1202,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>MLLib: RDD-based API Guideline (<code class="docutils literal"><span class="pre">apache-ml-rdd-guide</span></code>)</li>
+      <li>PySpark on AWS (<code class="docutils literal"><span class="pre">pyspark-local</span></code>)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/pyspark/apache-ml-rdd-guide.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/pyspark/pyspark-local.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -1217,20 +1219,413 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mllib-rdd-based-api-guideline-apache-ml-rdd-guide">
-<h1>MLLib: RDD-based API Guideline (<code class="docutils literal"><span class="pre">apache-ml-rdd-guide</span></code>)</h1>
-<p>Bottom part of the sidebar in  <a class="reference external" href="https://spark.apache.org/docs/latest/ml-guide.html">https://spark.apache.org/docs/latest/ml-guide.html</a></p>
-<ul class="simple">
-<li><a class="reference external" href="http://spark.apache.org/docs/latest/mllib-data-types.html">Data Types</a></li>
-<li><a class="reference external" href="http://spark.apache.org/docs/latest/mllib-statistics.html">Basic Statistics</a></li>
-<li><a class="reference external" href="http://spark.apache.org/docs/latest/mllib-linear-methods.html">Linear methods</a></li>
+  <div class="section" id="pyspark-on-aws-pyspark-local">
+<h1>PySpark on AWS (<code class="docutils literal"><span class="pre">pyspark-local</span></code>)</h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Databricks is nice, but I also wanted to get my hands wet on configuring my own AWS S3, EC2, EMR setup, as well as have a local installation of PySpark working. So here I noted down the steps I took to have my own Spark application running on AWS.</p>
+</div>
+<p><a class="reference external" href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></p>
+<div class="section" id="setting-up-aws-and-pyspark">
+<h2>Setting up AWS and PySpark</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install awscli --user
+Collecting awscli
+  Downloading awscli-1.10.66-py2.py3-none-any.whl <span class="o">(</span>1.0MB<span class="o">)</span>
+    100% <span class="p">|</span>████████████████████████████████<span class="p">|</span> 1.0MB 1.2MB/s
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: docutils&gt;<span class="o">=</span>0.10 in /home/takanori/anaconda2/lib/python2.7/site-packages <span class="o">(</span>from awscli<span class="o">)</span>
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: rsa&lt;<span class="o">=</span>3.5.0,&gt;<span class="o">=</span>3.1.2 in /home/takanori/.local/lib/python2.7/site-packages <span class="o">(</span>from awscli<span class="o">)</span>
+Collecting s3transfer&lt;0.2.0,&gt;<span class="o">=</span>0.1.0 <span class="o">(</span>from awscli<span class="o">)</span>
+  Downloading s3transfer-0.1.4-py2.py3-none-any.whl <span class="o">(</span>52kB<span class="o">)</span>
+    100% <span class="p">|</span>████████████████████████████████<span class="p">|</span> 61kB 4.6MB/s
+Collecting <span class="nv">botocore</span><span class="o">==</span>1.4.56 <span class="o">(</span>from awscli<span class="o">)</span>
+  Downloading botocore-1.4.56-py2.py3-none-any.whl <span class="o">(</span>2.6MB<span class="o">)</span>
+    100% <span class="p">|</span>████████████████████████████████<span class="p">|</span> 2.6MB 592kB/s
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: colorama&lt;<span class="o">=</span>0.3.7,&gt;<span class="o">=</span>0.2.5 in /home/takanori/anaconda2/lib/python2.7/site-packages <span class="o">(</span>from awscli<span class="o">)</span>
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: pyasn1&gt;<span class="o">=</span>0.1.3 in /home/takanori/anaconda2/lib/python2.7/site-packages <span class="o">(</span>from rsa&lt;<span class="o">=</span>3.5.0,&gt;<span class="o">=</span>3.1.2-&gt;awscli<span class="o">)</span>
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: futures&lt;4.0.0,&gt;<span class="o">=</span>2.2.0<span class="p">;</span> <span class="nv">python_version</span> <span class="o">==</span> <span class="s2">&quot;2.6&quot;</span> or <span class="nv">python_version</span> <span class="o">==</span> <span class="s2">&quot;2.7&quot;</span> in /home/takanori/.local/lib/python2.7/site-packages <span class="o">(</span>from s3transfer&lt;0.2.0,&gt;<span class="o">=</span>0.1.0-&gt;awscli<span class="o">)</span>
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: python-dateutil&lt;3.0.0,&gt;<span class="o">=</span>2.1 in /home/takanori/.local/lib/python2.7/site-packages <span class="o">(</span>from <span class="nv">botocore</span><span class="o">==</span>1.4.56-&gt;awscli<span class="o">)</span>
+Collecting jmespath&lt;1.0.0,&gt;<span class="o">=</span>0.7.1 <span class="o">(</span>from <span class="nv">botocore</span><span class="o">==</span>1.4.56-&gt;awscli<span class="o">)</span>
+  Downloading jmespath-0.9.0-py2.py3-none-any.whl
+Requirement already satisfied <span class="o">(</span>use --upgrade to upgrade<span class="o">)</span>: six&gt;<span class="o">=</span>1.5 in /home/takanori/.local/lib/python2.7/site-packages <span class="o">(</span>from python-dateutil&lt;3.0.0,&gt;<span class="o">=</span>2.1-&gt;botocore<span class="o">==</span>1.4.56-&gt;awscli<span class="o">)</span>
+Installing collected packages: jmespath, botocore, s3transfer, awscli
+Successfully installed awscli-1.10.66 botocore-1.4.56 jmespath-0.9.0 s3transfer-0.1.4
+</pre></div>
+</div>
+<div class="section" id="create-iam-user-key">
+<h3>Create IAM user key</h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Do <strong>NOT</strong> create ROOT access-key. Dangerous!</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html</a></li>
+<li><a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html">http://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html</a></li>
 </ul>
+</div>
+<p>With IAM, you can securely control access to AWS services and resources for users in your AWS account. For example, if you require administrator-level permissions, you can create an IAM user, grant that user full access, and then use those credentials to interact with AWS. If you need to modify or revoke your permissions, you can delete or modify the policies that are associated with that IAM user.</p>
+</div>
+<div class="section" id="create-admin-group-and-user">
+<h3>Create admin group and user</h3>
+<div class="admonition-references admonition">
+<p class="first admonition-title">References</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html">http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html</a></li>
+<li><a class="reference external" href="http://mollyrossow.com/how%20to/2015/08/04/How-to-run-PySpark-on-AWS-EMR%20and-S3/">http://mollyrossow.com/how%20to/2015/08/04/How-to-run-PySpark-on-AWS-EMR%20and-S3/</a></li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">For aws cli reference, see <a class="reference external" href="http://docs.aws.amazon.com/cli/latest/reference/index.html">http://docs.aws.amazon.com/cli/latest/reference/index.html</a></p>
+</div>
+<ul class="simple">
+<li>Below is after I created a user with access-key (saved info in <code class="docutils literal"><span class="pre">~/awsinfo</span></code>, a safe path in my local computer).</li>
+<li>For user info, go to <a class="reference external" href="https://console.aws.amazon.com/iam/home#home">https://console.aws.amazon.com/iam/home#home</a></li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># enter user access-key info I just created</span>
+$ aws configure
+AWS Access Key ID <span class="o">[</span>None<span class="o">]</span>: --
+AWS Secret Access Key <span class="o">[</span>None<span class="o">]</span>: --
+Default region name <span class="o">[</span>None<span class="o">]</span>: us-east-1
+Default output format <span class="o">[</span>None<span class="o">]</span>:
+
+<span class="c1"># confirm the group was created</span>
+$ aws iam list-groups
+<span class="o">{</span>
+    <span class="s2">&quot;Groups&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;Path&quot;</span>: <span class="s2">&quot;/&quot;</span>,
+            <span class="s2">&quot;CreateDate&quot;</span>: <span class="s2">&quot;2016-09-23T17:10:54Z&quot;</span>,
+            <span class="s2">&quot;GroupId&quot;</span>: <span class="s2">&quot;--&quot;</span>,
+            <span class="s2">&quot;Arn&quot;</span>: <span class="s2">&quot;arn:aws:iam::--:group/admin&quot;</span>,
+            <span class="s2">&quot;GroupName&quot;</span>: <span class="s2">&quot;admin&quot;</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+
+<span class="c1"># confirm policy is attached to the group with AdministratorAccess</span>
+$ aws iam list-attached-group-policies --group-name admin
+<span class="o">{</span>
+    <span class="s2">&quot;AttachedPolicies&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;PolicyName&quot;</span>: <span class="s2">&quot;AdministratorAccess&quot;</span>,
+            <span class="s2">&quot;PolicyArn&quot;</span>: <span class="s2">&quot;arn:aws:iam::aws:policy/AdministratorAccess&quot;</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-an-s3-bucket">
+<h3>Setup an S3 Bucket</h3>
+<p><a class="reference external" href="http://mollyrossow.com/how%20to/2015/08/04/How-to-run-PySpark-on-AWS-EMR%20and-S3/">http://mollyrossow.com/how%20to/2015/08/04/How-to-run-PySpark-on-AWS-EMR%20and-S3/</a></p>
+<p><a class="reference external" href="https://console.aws.amazon.com/s3/home">https://console.aws.amazon.com/s3/home</a></p>
+<p>Below I set a bucket called <code class="docutils literal"><span class="pre">pyspark-test-sep23</span></code></p>
+<a class="reference internal image-reference" href="../_images/S3_pyspark_test.png"><img alt="../_images/S3_pyspark_test.png" class="align-center" src="../_images/S3_pyspark_test.png" style="width: 730.0px; height: 352.0px;" /></a>
+<p>You can upload data to the bucket from aws cli:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;hello aws&quot;</span> &gt; ~/test.txt
+$ aws s3 cp ~/test.txt s3://pyspark-test-sep23
+upload: ../test.txt to s3://pyspark-test-sep23/test.txt
+$ aws s3 cp ~/data.txt s3://pyspark-test-sep23
+upload: ../data.txt to s3://pyspark-test-sep23/data.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-wordcount-script-to-submit">
+<h3>Create wordcount script to submit</h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;SimpleApp.py&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">SparkContext</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Get access key info in setted up on AWS management console</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/awsinfo/access-key-id&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">access_key</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/awsinfo/secret-access-key&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">secret_key</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">bucket</span> <span class="o">=</span> <span class="s1">&#39;pyspark-test-sep23&#39;</span>
+<span class="c1"># bucket = &#39;sparktak&#39;</span>
+<span class="c1"># dataFile = &quot;/data.txt&quot;  # Should be some file on your system</span>
+<span class="n">dataFile</span> <span class="o">=</span> <span class="s2">&quot;s3n://{ACCESS_KEY}:{SECRET_KEY}@{BUCKET_NAME}/data.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">ACCESS_KEY</span><span class="o">=</span><span class="n">access_key</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="o">=</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">BUCKET_NAME</span><span class="o">=</span><span class="n">bucket</span><span class="p">)</span>
+
+<span class="c1"># print &quot;dataFile = &quot;,dataFile</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="s2">&quot;Simple App&quot;</span><span class="p">)</span>
+<span class="c1"># logData = sc.textFile(dataFile).cache() # &lt;- somehow gives an error...see https://github.com/databricks/spark-redshift/issues/135 (could be related)</span>
+<span class="n">text_info</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">I am takanori. I am takanori.</span>
+<span class="s2">Lerem ipsum.</span>
+<span class="s2">This is not the idea way to do it.</span>
+<span class="s2">Some how sending s3 to sc.text raises an error.</span>
+<span class="s2">So just directly feed in a text variable to sc parallelize to create RDD.</span>
+<span class="s2">Need to figure this out later.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># print text_info</span>
+<span class="n">logData</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">text_info</span><span class="p">)</span>
+
+<span class="n">numAs</span> <span class="o">=</span> <span class="n">logData</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">numBs</span> <span class="o">=</span> <span class="n">logData</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s2">&quot;Lines with a: </span><span class="si">%i</span><span class="s2">, lines with b: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">numAs</span><span class="p">,</span> <span class="n">numBs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-emr-cluster">
+<h3>Create EMR cluster</h3>
+<a class="reference internal image-reference" href="../_images/pyspark-test-emr.png"><img alt="../_images/pyspark-test-emr.png" class="align-center" src="../_images/pyspark-test-emr.png" style="width: 570.0px; height: 654.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/pyspark-test-emr2.png"><img alt="../_images/pyspark-test-emr2.png" class="align-center" src="../_images/pyspark-test-emr2.png" style="width: 1106.0px; height: 176.0px;" /></a>
+</div>
+<div class="section" id="run-spark-application-on-emr">
+<h3>Run Spark application on EMR</h3>
+<a class="reference internal image-reference" href="../_images/pyspark-test-emr3.png"><img alt="../_images/pyspark-test-emr3.png" class="align-center" src="../_images/pyspark-test-emr3.png" style="width: 976.0px; height: 208.0px;" /></a>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># unset my variables that configures PYSPARK to run on Jupyter</span>
+$ <span class="nb">unset</span> PYSPARK_DRIVER
+$ <span class="nb">unset</span> PYSPARK_DRIVER_PYTHON_OPTS
+
+<span class="c1"># grrr...sc.textFile is raising error on URI location...couldn&#39;t figure this out...</span>
+$ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.1 --master spark:://&lt;Master public DNS&gt; SimpleApp.py 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee pyspark-test-log-0923.log
+
+<span class="c1"># i hard-coded the text variable in my above script for the sake of running something on erm</span>
+$ spark-submit --packages org.apache.hadoop:hadoop-aws:2.7.1 --master <span class="se">\</span>
+    spark:://ec2-54-166-62-109.compute-1.amazonaws.com SimpleApp.py <span class="se">\</span>
+    1&gt; emr_test.stdout 2&gt;emr_test.stderr
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Lines with a: 17, lines with b: 1
+</pre></div>
+</div>
+<p>The complaint/exception I get is: <code class="docutils literal"><span class="pre">java.lang.IllegalArgumentException:</span> <span class="pre">Invalid</span> <span class="pre">hostname</span> <span class="pre">in</span> <span class="pre">URI</span></code></p>
+<p>This is odd, since the path i gave workedin <code class="docutils literal"><span class="pre">boto</span></code>...maybe I screwed one of the config up in AWS management console...</p>
+</div>
+</div>
+<div class="section" id="setup-pyspark-in-ipython-profile">
+<h2>Setup pyspark in ipython profile</h2>
+<div class="admonition-references admonition">
+<p class="first admonition-title">References</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://www.cloudera.com/documentation/enterprise/latest/topics/spark_ipython.html">http://www.cloudera.com/documentation/enterprise/latest/topics/spark_ipython.html</a></li>
+<li><a class="reference external" href="http://www.cloudera.com/documentation/enterprise/latest/topics/spark_ipython.html#ipython__jupyter_install">http://www.cloudera.com/documentation/enterprise/latest/topics/spark_ipython.html#ipython__jupyter_install</a></li>
+<li><a class="reference external" href="http://blog.cloudera.com/blog/2014/08/how-to-use-ipython-notebook-with-apache-spark/">http://blog.cloudera.com/blog/2014/08/how-to-use-ipython-notebook-with-apache-spark/</a></li>
+<li><a class="reference external" href="https://plot.ly/python/apache-spark/">https://plot.ly/python/apache-spark/</a></li>
+<li><a class="reference external" href="http://ipython.readthedocs.io/en/stable/development/config.html">http://ipython.readthedocs.io/en/stable/development/config.html</a></li>
+</ul>
+</div>
+<div class="section" id="finally-worked">
+<h3>Finally worked!</h3>
+<div class="admonition-timestamp admonition">
+<p class="first admonition-title">Timestamp</p>
+<p class="last">23 September 2016 (Friday)</p>
+</div>
+<p>Got the setup from comment by <strong>Wanderer</strong> from <a class="reference external" href="http://thepowerofdata.io/configuring-jupyteripython-notebook-to-work-with-pyspark-1-4-0/">http://thepowerofdata.io/configuring-jupyteripython-notebook-to-work-with-pyspark-1-4-0/</a></p>
+<p>Included these in my <code class="docutils literal"><span class="pre">.bashrc</span></code> file</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/mybin/spark-2.0.0-bin-hadoop2.7
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SPARK_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$SPARK_HOME</span>/bin
+
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$SPARK_HOME</span>/python/:<span class="nv">$PYTHONPATH</span>
+<span class="c1"># export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.1-src.zip:$PYTHONPATH</span>
+
+<span class="nb">export</span> <span class="nv">ANACONDA_ROOT</span><span class="o">=</span>~/anaconda2
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="nv">$ANACONDA_ROOT</span>/bin/jupyter
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span><span class="s1">&#39;notebook&#39;</span> pyspark
+<span class="nb">export</span> <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span><span class="nv">$ANACONDA_ROOT</span>/bin/python
+</pre></div>
+</div>
+<p>Now I can invoke pyspark in jupyter as default via calling <code class="docutils literal"><span class="pre">$pyspark</span></code></p>
+<p>..important:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>However, to submit job application via ``spark-submit``, need to comment
+out these variables:
+
+.. code-block:: bash
+
+    #export PYSPARK_DRIVER_PYTHON=$ANACONDA_ROOT/bin/jupyter
+    #export PYSPARK_DRIVER_PYTHON_OPTS=&#39;notebook&#39; pyspark
+
+When submitting, just ``unset`` these variables from the commandline.
+
+.. code-block:: bash
+
+    unset PYSPARK_DRIVER_PYTHON
+    unset PYSPARK_DRIVER_PYTHON_OPTS
+    spark-submit ${SPARK_HOME}/examples/src/main/python/pi.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="wrong-java-version">
+<h3>Wrong java version?</h3>
+<p><a class="reference external" href="https://community.cloudera.com/t5/Storage-Random-Access-HDFS/Failed-to-load-native-hadoop-with-error-libhadoop-so-1-0-0-wrong/td-p/31573">https://community.cloudera.com/t5/Storage-Random-Access-HDFS/Failed-to-load-native-hadoop-with-error-libhadoop-so-1-0-0-wrong/td-p/31573</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ java -version
+java version <span class="s2">&quot;1.7.0_79&quot;</span>
+OpenJDK Runtime Environment <span class="o">(</span>IcedTea 2.5.6<span class="o">)</span> <span class="o">(</span>7u79-2.5.6-0ubuntu1.14.04.1<span class="o">)</span>
+OpenJDK 64-Bit Server VM <span class="o">(</span>build 24.79-b02, mixed mode<span class="o">)</span>
+</pre></div>
+</div>
+<p class="rubric">Installing java8...harder than i thought</p>
+<p>Following this thread achieved my goal (<a class="reference external" href="http://stackoverflow.com/questions/32942023/ubuntu-openjdk-8-unable-to-locate-package?rq=1">http://stackoverflow.com/questions/32942023/ubuntu-openjdk-8-unable-to-locate-package?rq=1</a>)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ java -version
+java version <span class="s2">&quot;1.8.0_101&quot;</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_101-b13<span class="o">)</span>
+Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.101-b13, mixed mode<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pyspark-options-giving-errors">
+<h3>pyspark options giving errors...</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pyspark options
+Exception in thread <span class="s2">&quot;main&quot;</span> java.lang.IllegalArgumentException: pyspark does not support any application options.
+    at org.apache.spark.launcher.CommandBuilderUtils.checkArgument<span class="o">(</span>CommandBuilderUtils.java:241<span class="o">)</span>
+    at org.apache.spark.launcher.SparkSubmitCommandBuilder.buildPySparkShellCommand<span class="o">(</span>SparkSubmitCommandBuilder.java:290<span class="o">)</span>
+    at org.apache.spark.launcher.SparkSubmitCommandBuilder.buildCommand<span class="o">(</span>SparkSubmitCommandBuilder.java:147<span class="o">)</span>
+    at org.apache.spark.launcher.Main.main<span class="o">(</span>Main.java:86<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-scala">
+<h3>Update scala?</h3>
+<p><a class="reference external" href="http://spark.apache.org/docs/latest/">http://spark.apache.org/docs/latest/</a></p>
+<blockquote>
+<div>Spark runs on Java 7+, Python 2.6+/3.4+ and R 3.1+. For the Scala API, Spark 2.0.0 uses Scala 2.11. You will need to use a compatible <strong>Scala version (2.11.x)</strong>.</div></blockquote>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ scala -version
+Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
+</pre></div>
+</div>
+<p><a class="reference external" href="http://www.scala-lang.org/download/2.11.8.html">http://www.scala-lang.org/download/2.11.8.html</a></p>
+<p>in bashrc:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/home/takanori/mybin/scala-2.11.8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+$ scala -version
+Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL
+</pre></div>
+</div>
+</div>
+<div class="section" id="rough-drafts">
+<h3>rough drafts</h3>
+<p>Added these to my <code class="docutils literal"><span class="pre">.bashrc</span></code> file:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/mybin/spark-2.0.0-bin-hadoop2.7
+<span class="c1"># http://www.cloudera.com/documentation/enterprise/latest/topics/spark_ipython.html#ipython__jupyter_install</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER</span><span class="o">=</span><span class="nv">$HOME</span>/anaconda2/bin/jupyter
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON_OPTS</span><span class="o">=</span><span class="s2">&quot;notebook --NotebookApp.open_browser=False --NotebookApp.ip=&#39;*&#39; --NotebookApp.port=8880&quot;</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span><span class="nv">$HOME</span>/anaconda2/bin/python
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ipython profile create pyspark
+<span class="o">[</span>ProfileCreate<span class="o">]</span> Generating default config file: u<span class="s1">&#39;/home/takanori/.ipython/profile_pyspark/ipython_config.py&#39;</span>
+<span class="o">[</span>ProfileCreate<span class="o">]</span> Generating default config file: u<span class="s1">&#39;/home/takanori/.ipython/profile_pyspark/ipython_kernel_config.py&#39;</span>
+
+$ <span class="c1"># i updated by .bashrc to do this</span>
+$ <span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/mybin/spark-2.0.0-bin-hadoop2.7
+
+<span class="c1"># this is where you specify all the options you would normally add after bin/pyspark</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_SUBMIT_ARGS</span><span class="o">=</span><span class="s1">&#39;--master yarn --deploy-mode client --num-executors 24 --executor-memory 10g --executor-cores 5&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ipython profile list
+
+Available profiles in /home/takanori/.ipython:
+    pyspark
+    default
+
+To use any of the above profiles, start IPython with:
+    ipython --profile<span class="o">=</span>&lt;name&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="failed-windows-try">
+<h2>Failed Windows Try</h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Come back to this later...Below didn&#8217;t pan out...fix later (kept notes for my own reference). 09-23-2016 (12:34)</p>
+</div>
+<div class="section" id="windows">
+<h3>windows?</h3>
+<p>09-05-2016 (15:36)</p>
+<div class="admonition-references admonition">
+<p class="first admonition-title">References</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://www.ithinkcloud.com/tutorials/tutorial-on-how-to-install-apache-spark-on-windows/">http://www.ithinkcloud.com/tutorials/tutorial-on-how-to-install-apache-spark-on-windows/</a></li>
+<li><a class="reference external" href="http://jmdvinodjmd.blogspot.com/2015/08/installing-ipython-notebook-with-apache.html">http://jmdvinodjmd.blogspot.com/2015/08/installing-ipython-notebook-with-apache.html</a></li>
+</ul>
+</div>
+<ol class="arabic simple">
+<li>Download tgz from <a class="reference external" href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></li>
+<li>Unzip the folder <code class="docutils literal"><span class="pre">spark-2.0.0-bin-hadoop2.7</span></code> under <code class="docutils literal"><span class="pre">C:\spark-2.0.0-bin-hadoop2.7</span></code></li>
+<li>Set env-var by:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Start Menu -&gt; My Computer (Right Click and select <code class="docutils literal"><span class="pre">Properties</span></code>) -&gt; Advanced System Settings (see screenshot)</li>
+<li>Create an Environment variable named <code class="docutils literal"><span class="pre">SPARK_HOME</span></code> with value equal to <code class="docutils literal"><span class="pre">C:\spark-2.0.0-bin-hadoop2.7</span></code></li>
+</ul>
+</div></blockquote>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/31962862/ipython-ipython-notebook-config-py-missing">http://stackoverflow.com/questions/31962862/ipython-ipython-notebook-config-py-missing</a></li>
+</ul>
+<p><code class="docutils literal"><span class="pre">ipython_notebook_config.py</span></code> no longer around after <code class="docutils literal"><span class="pre">jupyter</span></code>, so above instruction no longer applies...</p>
+<p>Do this to create jupyter profile under <code class="docutils literal"><span class="pre">~/.jupyter</span></code></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ jupyter notebook --generate-config
+Writing default config to: C:<span class="se">\U</span>sers<span class="se">\t</span>akanori<span class="se">\.</span>jupyter<span class="se">\j</span>upyter_notebook_config.py
+</pre></div>
+</div>
+<p>For more info, see:</p>
+<ul class="last simple">
+<li><a class="reference external" href="http://jupyter.readthedocs.io/en/latest/migrating.html">http://jupyter.readthedocs.io/en/latest/migrating.html</a></li>
+<li><a class="reference external" href="http://jupyter.readthedocs.io/en/latest/migrating.html#profiles">http://jupyter.readthedocs.io/en/latest/migrating.html#profiles</a></li>
+</ul>
+</div>
+<img alt="../_images/pyspark_install_win_pic1.png" class="align-center" src="../_images/pyspark_install_win_pic1.png" />
+<img alt="../_images/pyspark_install_win_pic2.png" class="align-center" src="../_images/pyspark_install_win_pic2.png" />
+</div>
+<div class="section" id="retry-above-is-a-disaster">
+<h3>Retry, above is a disaster</h3>
+<p><a class="reference external" href="http://stackoverflow.com/questions/32948743/cant-start-apache-spark-on-windows-using-cygwin">http://stackoverflow.com/questions/32948743/cant-start-apache-spark-on-windows-using-cygwin</a></p>
+<p><a class="reference external" href="http://spark.apache.org/docs/latest/spark-standalone.html">http://spark.apache.org/docs/latest/spark-standalone.html</a></p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/17465581/how-to-set-up-spark-cluster-on-windows-machines">http://stackoverflow.com/questions/17465581/how-to-set-up-spark-cluster-on-windows-machines</a></p>
+<p>I first need java:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.java.com/en/download/faq/win10_faq.xml">https://www.java.com/en/download/faq/win10_faq.xml</a></li>
+<li><a class="reference external" href="https://www.java.com/en/download/help/windows_manual_download.xml">https://www.java.com/en/download/help/windows_manual_download.xml</a></li>
+</ul>
+<p>Else i got the message:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>takanori@DESKTOP-FJQ41I1 /home/takanori
+$ pyspark
+Error: Could not find or load main class org.apache.spark.launcher.Main
+
+takanori@DESKTOP-FJQ41I1 /home/takanori
+$ which pyspark
+/home/takanori/<span class="se">\s</span>park-2.0.0-bin-hadoop2.7<span class="se">\b</span>in/pyspark
+</pre></div>
+</div>
+<div class="admonition-maybe-cygwin-isn-t-the-way-to-go admonition">
+<p class="first admonition-title">...maybe cygwin isn&#8217;t the way to go...</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/34483855/installing-spark-for-python-through-cgwin">http://stackoverflow.com/questions/34483855/installing-spark-for-python-through-cgwin</a></p>
+<p>See comment by Josh Rosen, one of PySpark&#8217;s original authors.</p>
+<blockquote class="last">
+<div>As one of PySpark&#8217;s original authors, I do not recommend using it in Cygwin.</div></blockquote>
+</div>
+</div>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apache-ml-guide.html" class="btn btn-neutral float-right" title="MLLib - Main guide (apache-ml-guide.rst)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="databricks.html" class="btn btn-neutral" title="5 Databrick Doc (databricks.rst)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

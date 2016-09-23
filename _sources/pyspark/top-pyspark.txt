@@ -12,8 +12,6 @@ PySpark Notes (``top-pyspark.rst``)
     pyspark-snippet
     pyspark-practice
     pyspark-overflow
-    pyspark-install
-    apache-prog-guide-rdd
     apache-prog-guide-df
     databricks
 
