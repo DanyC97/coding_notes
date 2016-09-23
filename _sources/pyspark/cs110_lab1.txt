@@ -1,7 +1,7 @@
 .. _cs110_lab1:
 
-cs110_lab1_power_ml_pipeline
-""""""""""""""""""""""""""""
+cs110 - Power Plant Machine Learning Pipeline Application
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 https://raw.githubusercontent.com/spark-mooc/mooc-setup/master/cs110_lab1_power_plant_ml_pipeline.py
 
 .. important:: 

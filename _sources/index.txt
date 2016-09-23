@@ -8,6 +8,8 @@ My coding notebook
    1. here I usually keep a more detailed notes
    2. The codes I keep in ``snippets`` is quite jumbled from many different resources. Here, I usually take notes from a fixed set of resource (*e.g.*, web tutorial, book chapter)
 
+   **HTML last built:**  |today|
+
 .. toctree::
     :maxdepth: 1
     :caption: Table of Contents (PySpark)

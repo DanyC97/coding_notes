@@ -21,9 +21,7 @@ Notes I took when completing EdX's program series on `Data Science and Engineeri
     cs105_lab1b
     cs105_lab2
     cs110_lab1
-    cs110_lab1_trimmed
     cs110_lab2
-    cs110_lab3a
     cs110_lab3b
     cs120_lab1a
     cs120_lab1b

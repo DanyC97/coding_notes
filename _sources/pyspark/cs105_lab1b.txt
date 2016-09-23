@@ -1,5 +1,7 @@
-cs105_lab1b_wordcount
-"""""""""""""""""""""
+.. _cs105_lab1b:
+
+cs105_lab1b - Building a word count application
+"""""""""""""""""""""""""""""""""""""""""""""""
 https://raw.githubusercontent.com/spark-mooc/mooc-setup/master/cs105_lab1b_word_count.py
 
 .. important:: 

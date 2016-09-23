@@ -1,11 +1,11 @@
-cs110_lab2_als_prediction
-"""""""""""""""""""""""""
+cs110 - Predicting Movie Ratings with Alternating Least Squares
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 https://raw.githubusercontent.com/spark-mooc/mooc-setup/master/cs110_lab2_als_prediction.py
 
 .. important:: 
 
   This is an actual homework program submitted to EdX. To adhere to the honor code, 
-  the ``<FILL IN>`` is kept in my personal private `github repos <https://github.com/wtak23/private_repos/blob/master/cs105_lab2_solutions.rst>`__.
+  the ``<FILL IN>`` is kept in my personal private `github repos <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst>`__.
 
 .. contents:: `Contents`
    :depth: 2
@@ -271,9 +271,10 @@ Collaborative Filtering
 *************************************
 Exercise (2a) Creating a Training Set
 *************************************
-.. code-block:: python
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-2a-creating-a-training-set>`__)
 
-    >>> # TODO: Replace <FILL_IN> with the appropriate code.
+
+.. code-block:: python
 
     >>> # We'll hold out 60% for training, 20% of our data for validation, and leave 20% for testing
     >>> seed = 1800009193L
@@ -287,16 +288,42 @@ Exercise (2a) Creating a Training Set
     >>> print('Training: {0}, validation: {1}, test: {2}\n'.format(
     >>>   training_df.count(), validation_df.count(), test_df.count())
     >>> )
+    Training: 12001389, validation: 4003694, test: 3995180
+
     >>> training_df.show(3)
+    +------+-------+------+
+    |userId|movieId|rating|
+    +------+-------+------+
+    |     1|      2|   3.5|
+    |     1|     29|   3.5|
+    |     1|     47|   3.5|
+    +------+-------+------+
+
     >>> validation_df.show(3)
+    +------+-------+------+
+    |userId|movieId|rating|
+    +------+-------+------+
+    |     1|     32|   3.5|
+    |     1|    253|   4.0|
+    |     1|    293|   4.0|
+    +------+-------+------+
+
     >>> test_df.show(3)
+    +------+-------+------+
+    |userId|movieId|rating|
+    +------+-------+------+
+    |     1|    112|   3.5|
+    |     1|    151|   4.0|
+    |     1|    318|   4.0|
+    +------+-------+------+
 
 ***************************************
 Exercise (2b) Alternating Least Squares
 ***************************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-2b-alternating-least-squares>`__)
+
 .. code-block:: python
 
-    >>> # TODO: Replace <FILL IN> with appropriate code
     >>> # This step is broken in ML Pipelines: https://issues.apache.org/jira/browse/SPARK-14489
     >>> from pyspark.ml.recommendation import ALS
     >>> 
@@ -342,11 +369,14 @@ Exercise (2b) Alternating Least Squares
     >>>     min_error = error
     >>>     best_rank = err
     >>>   err += 1
-    >>>  
+    For rank 4 the RMSE is 0.82825406832
+    For rank 8 the RMSE is 0.816154128069
+    For rank 12 the RMSE is 0.810037726846
+
     >>> als.setRank(ranks[best_rank])
     >>> print 'The best model was trained with rank %s' % ranks[best_rank]
     >>> my_model = models[best_rank]
-
+    The best model was trained with rank 12
 
 ******************************************
 Why are we doing our own cross-validation?
@@ -355,6 +385,8 @@ Why are we doing our own cross-validation?
 ********************************
 Excersie (2c) Testing Your Model
 ********************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#excersie-2c-testing-your-model>`__)
+
 .. code-block:: python
 
     >>> # TODO: Replace <FILL_IN> with the appropriate code
@@ -369,10 +401,13 @@ Excersie (2c) Testing Your Model
     >>> test_RMSE = <FILL_IN>
     >>> 
     >>> print('The model had a RMSE on the test set of {0}'.format(test_RMSE))
+    The model had a RMSE on the test set of 0.809624038485
 
 **********************************
 Exercise (2d) Comparing Your Model
 **********************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-2d-comparing-your-model>`__)
+
 .. code-block:: python
 
     >>> # TODO: Replace <FILL_IN> with the appropriate code.
@@ -383,7 +418,8 @@ Exercise (2d) Comparing Your Model
     >>> training_avg_rating = avg_rating_df.collect()[0][0]
     >>> 
     >>> print('The average rating for movies in the training set is {0}'.format(training_avg_rating))
-    >>> 
+    The average rating for movies in the training set is 3.52547984237
+
     >>> # Add a column with the average rating
     >>> test_for_avg_df = test_df.withColumn('prediction', <FILL_IN>)
     >>> 
@@ -391,6 +427,7 @@ Exercise (2d) Comparing Your Model
     >>> test_avg_RMSE = <FILL_IN>
     >>> 
     >>> print("The RMSE on the average set is {0}".format(test_avg_RMSE))
+
 
 ########################
 Predictions for Yourself
@@ -421,6 +458,8 @@ Predictions for Yourself
 ********************************
 Exercise (3a) Your Movie Ratings
 ********************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-3a-your-movie-ratings>`__)
+
 .. code-block:: python
 
     >>> # TODO: Replace <FILL IN> with appropriate code
@@ -450,11 +489,14 @@ Exercise (3b) Add Your Movies to Training Dataset
     >>> 
     >>> print ('The training dataset now has %s more entries than the original training dataset' %
     >>>        (training_with_my_ratings_df.count() - training_df.count()))
+    The training dataset now has 2 more entries than the original training dataset
     >>> assert (training_with_my_ratings_df.count() - training_df.count()) == my_ratings_df.count()
 
 *********************************************
 Exercise (3c) Train a Model with Your Ratings
 *********************************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-3c-train-a-model-with-your-ratings>`__)
+
 .. code-block:: python
 
     >>> # TODO: Replace <FILL IN> with appropriate code
@@ -471,6 +513,8 @@ Exercise (3c) Train a Model with Your Ratings
 ************************************************************
 Exercise (3d) Check RMSE for the New Model with Your Ratings
 ************************************************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-3d-check-rmse-for-the-new-model-with-your-ratings>`__)
+
 .. code-block:: python
 
     >>> # TODO: Replace <FILL IN> with appropriate code
@@ -482,14 +526,15 @@ Exercise (3d) Check RMSE for the New Model with Your Ratings
     >>> # Run the previously created RMSE evaluator, reg_eval, on the predicted_test_my_ratings_df DataFrame
     >>> test_RMSE_my_ratings = <FILL IN>
     >>> print('The model had a RMSE on the test set of {0}'.format(test_RMSE_my_ratings))
+    The model had a RMSE on the test set of 0.811317254176
 
 **********************************
 Exercise (3e) Predict Your Ratings
 **********************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-3e-predict-your-ratings>`__)
+
 .. code-block:: python
 
-    >>> # TODO: Replace <FILL_IN> with the appropriate code
-    >>> 
     >>> # Create a list of my rated movie IDs
     >>> my_rated_movie_ids = [x[1] for x in my_rated_movies]
     >>> 
@@ -507,12 +552,42 @@ Exercise (3e) Predict Your Ratings
 **********************************
 Exercise (3f) Predict Your Ratings
 **********************************
+(`sol <https://github.com/wtak23/private_repos/blob/master/cs110_lab2_solutions.rst#exercise-3f-predict-your-ratings>`__)
+
 .. code-block:: python
 
-    >>> # TODO: Replace <FILL_IN> with the appropriate code
-    >>> 
     >>> predicted_with_counts_df = <FILL_IN>
     >>> predicted_highest_rated_movies_df = predicted_with_counts_df.<FILL_IN>
     >>> 
     >>> print ('My 25 highest rated movies as predicted (for movies with more than 75 reviews):')
     >>> predicted_highest_rated_movies_df.<FILL_IN>
+    My 25 highest rated movies as predicted (for movies with more than 75 reviews):
+    +-------+--------------------+------+----------+------------------+-----+
+    |movieID|               title|userID|prediction|           average|count|
+    +-------+--------------------+------+----------+------------------+-----+
+    |   1210|Star Wars: Episod...|     0| 4.4931936| 4.004622216528961|46839|
+    |   1196|Star Wars: Episod...|     0| 4.4817257| 4.188202061218635|45313|
+    |   7153|Lord of the Rings...|     0|  4.370755|  4.14238211356367|31577|
+    |   4993|Lord of the Rings...|     0|  4.335004| 4.137925065906852|37553|
+    |   5952|Lord of the Rings...|     0| 4.3144684| 4.107520546734616|33947|
+    |   1356|Star Trek: First ...|     0|  4.278973| 3.664872697164148|19324|
+    |   1198|Raiders of the Lo...|     0|  4.138433| 4.219009123455364|43295|
+    |   1376|Star Trek IV: The...|     0|  4.122119| 3.494617498854787|13098|
+    |   1374|Star Trek II: The...|     0| 4.1175756|3.6956836343044106|15893|
+    |   1197|Princess Bride, T...|     0|  4.053096|4.1767323390413065|32586|
+    |  33779|Eddie Izzard: Dre...|     0| 4.0350504| 4.033653846153846|  208|
+    |   1291|Indiana Jones and...|     0|  4.030114| 4.007592710997442|31280|
+    |  69524|Raiders of the Lo...|     0|  3.991203| 3.890557939914163|  233|
+    |   1372|Star Trek VI: The...|     0| 3.9851758| 3.303213036273246|10862|
+    |   2571|  Matrix, The (1999)|     0| 3.9628763| 4.187185880702848|51334|
+    |   4006|Transformers: The...|     0| 3.9442182|3.2378349788434413| 2836|
+    |   3612|Slipper and the R...|     0|   3.87641| 3.431159420289855|  138|
+    |    589|Terminator 2: Jud...|     0| 3.8694332|3.9319539085828037|52244|
+    |  34405|     Serenity (2005)|     0| 3.8414702| 3.993260756868844| 7716|
+    | 106642|Day of the Doctor...|     0|  3.826096|  3.91726618705036|  417|
+    |    329|Star Trek: Genera...|     0| 3.8223531|3.3296280866535373|26404|
+    |  91488| Snowman, The (1982)|     0|  3.812455|3.7756410256410255|   78|
+    |    671|Mystery Science T...|     0| 3.8115058|3.6769375884294924| 6361|
+    |  27611|Battlestar Galact...|     0| 3.8006465|4.0256588072122055| 2884|
+    |  95654|  Geri's Game (1997)|     0| 3.7806861|        3.82421875|  128|
+    +-------+--------------------+------+----------+------------------+-----+

@@ -8,8 +8,8 @@
 
 .. _cs110_lab3b:
 
-cs110_lab3b_text_analysis_ER
-""""""""""""""""""""""""""""
+cs110 - Text Analysis and Entity Resolution with TF-IDF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 https://raw.githubusercontent.com/spark-mooc/mooc-setup/master/cs110_lab3b_text_analysis_and_entity_resolution.py
 
 .. important:: 

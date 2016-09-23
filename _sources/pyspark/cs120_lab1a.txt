@@ -1,4 +1,4 @@
-cs120_lab1a_math_review
+cs120 Lab - Math_review
 """""""""""""""""""""""
 https://github.com/spark-mooc/mooc-setup/raw/master/cs120_lab1a_math_review.dbc
 
@@ -17,6 +17,8 @@ https://github.com/spark-mooc/mooc-setup/raw/master/cs120_lab1a_math_review.dbc
 - Part 2: NumPy
 - Part 3: Additional NumPy and Spark linear algebra
 - Part 4: Python lambda expressions
+
+.. note:: Too basic...skipped noting...
 
 ###########
 Math review

@@ -2,6 +2,180 @@
 """""""""""""""""""""""
 Just bunch of handy snippets for using pyspark in databricks.
 
+
+################################################
+Data from *Application Examples* on DB Workspace
+################################################
+Link also at https://docs.cloud.databricks.com/docs/latest/sample_applications/index.html#01%20Introduction%20%28Readme%29.html
+
+In Databricks, files are available on S3 via ``dbfs`` or the Databricks file system. Access the data at ``/databricks-datasets`` directory which is a repository of public, Databricks-hosted datasets that is available on all Databricks accounts.
+
+*****************************
+List out datasets (Important)
+*****************************
+From 1 Gentle Intro - 2 Spark for Data Engineers
+
+
+.. code-block:: bash
+
+    %fs ls dbfs:/databricks-datasets/
+
+.. image:: /_static/img/dbfs_datasets_snip.png
+    :align: center
+    :scale: 100 %
+
+Then read in one of the textfile as RDD
+
+.. code-block:: python
+
+    >>> log_files = "/databricks-datasets/sample_logs"
+    >>> raw_log_files = sc.textFile(log_files)
+    >>> raw_log_files.count()
+    Out[4]: 100000
+
+Register as table (convert to ``DF``, then create Table)
+
+.. code-block:: python
+
+    >>> parsed_log_files.toDF().registerTempTable("log_data")
+
+Run sql commands::
+
+    %sql select * from log_data
+
+Then read in as a table
+
+.. code-block:: python
+
+    # important that we registered "log_data" as table above
+    >>> logData = sqlContext.table("log_data")
+    >>> print logData.count()
+    100000
+    >>> logData.show(n=5,truncate=False)
+    +------------+-----------+--------------------------+-------------+---------+------+--------+------------+------+
+    |clientIdentd|contentSize|dateTime                  |endpoint     |ipAddress|method|protocol|responseCode|userId|
+    +------------+-----------+--------------------------+-------------+---------+------+--------+------------+------+
+    |-           |21         |21/Jun/2014:10:00:00 -0700|/endpoint_27 |3.3.3.3  |GET   |HTTP/1.1|200         |user1 |
+    |-           |435        |21/Feb/2014:10:00:00 -0300|/endpoint_988|4.4.4.4  |GET   |HTTP/1.1|200         |user2 |
+    |-           |11         |21/Jan/2014:10:00:00 -0200|/endpoint_271|3.3.3.3  |GET   |HTTP/1.1|200         |user2 |
+    |-           |182        |21/Mar/2014:10:00:00 -0400|/endpoint_906|4.4.4.4  |POST  |HTTP/1.1|401         |user1 |
+    |-           |208        |21/May/2014:10:00:00 -0600|/endpoint_381|3.3.3.3  |GET   |HTTP/1.1|500         |-     |
+    +------------+-----------+--------------------------+-------------+---------+------+--------+------------+------+
+    only showing top 5 rows
+
+
+
+***********************
+Create sample JSON file
+***********************
+.. code-block:: python
+
+    dbutils.fs.put("/home/tmp/datasets/person.json",
+    """
+    {"name":"Elaine Benes","email":"elaine@acme.com","iq":145}
+    {"name":"George Costanza","email":"george@acme.com","iq":85}
+    """, true)
+    spark.read.json("/home/tmp/datasets/person.json").write.mode("overwrite").saveAsTable("person")
+
+    dbutils.fs.put("/home/tmp/datasets/smart.json",
+    """
+    {"name":"Elaine Benes","email":"elaine@acme.com","iq":145}
+    """, true)
+    spark.read.json("/home/tmp/datasets/smart.json").write.mode("overwrite").saveAsTable("smart")
+
+    // then read!
+    val jsonData = spark.read.json("/home/tmp/datasets/person.json")
+    jsonData.show()
+    +---------------+---+---------------+
+    |          email| iq|           name|
+    +---------------+---+---------------+
+    |elaine@acme.com|145|   Elaine Benes|
+    |george@acme.com| 85|George Costanza|
+    +---------------+---+---------------+
+
+******
+Tables
+******
+From `Application Examples --- Spark Session 2.0 <https://docs.cloud.databricks.com/docs/latest/sample_applications/index.html#04%20Apache%20Spark%202.0%20Examples/01%20SparkSession.html>`__
+
+.. code-block:: scala
+
+    // To get a list of tables in the current database
+    val tables = spark.catalog.listTables()
+    
+    tables.show(truncate=false)
+    +---------------------------+--------+-----------+---------+-----------+
+    |name                       |database|description|tableType|isTemporary|
+    +---------------------------+--------+-----------+---------+-----------+
+    |cleaned_taxes              |default |null       |MANAGED  |false      |
+    |ny_baby_names              |default |null       |MANAGED  |false      |
+    |pageviews_by_second_example|default |null       |EXTERNAL |false      |
+    |person                     |default |null       |MANAGED  |false      |
+    |power_plant_predictions    |default |null       |MANAGED  |false      |
+    |smart                      |default |null       |MANAGED  |false      |
+    +---------------------------+--------+-----------+---------+-----------+
+
+**************
+Random data-io
+**************
+https://docs.cloud.databricks.com/docs/latest/sample_applications/index.html#03%20Quick%20Start/Quick%20Start%20Apache%20Spark%20and%20RDDs.html
+
+.. code-block:: scala
+
+    val textFile = sc.textFile("/databricks-datasets/SPARK_README.md")
+    textFile.count() // Number of items in this RDD
+
+    // convert to DataFrame
+    val clickstreamDF = sqlContext.read.format(dataFormat)
+      .option("header", "true") // first line is the header
+      .option("delimiter", "\\t") // tab delimiter
+      .option("mode", "PERMISSIVE")
+      .option("inferSchema", "true") // infer data types (e.g., int, string) from values
+      .load("dbfs:///databricks-datasets/wikipedia-datasets/data-001/clickstream/raw-uncompressed")
+
+
+********
+Diamonds
+********
+From 1 Gentle Intro - 1 Spark on Databricks
+
+.. code-block:: python
+
+    >>> dataPath = "/databricks-datasets/Rdatasets/data-001/csv/ggplot2/diamonds.csv"
+    >>> diamonds = sqlContext.read.format("com.databricks.spark.csv")\
+    >>>   .option("header","true")\
+    >>>   .option("inferSchema", "true")\
+    >>>   .load(dataPath)
+    >>> diamonds.show(n=8,truncate=False)
+    +---+-----+---------+-----+-------+-----+-----+-----+----+----+----+
+    |_c0|carat|cut      |color|clarity|depth|table|price|x   |y   |z   |
+    +---+-----+---------+-----+-------+-----+-----+-----+----+----+----+
+    |1  |0.23 |Ideal    |E    |SI2    |61.5 |55.0 |326  |3.95|3.98|2.43|
+    |2  |0.21 |Premium  |E    |SI1    |59.8 |61.0 |326  |3.89|3.84|2.31|
+    |3  |0.23 |Good     |E    |VS1    |56.9 |65.0 |327  |4.05|4.07|2.31|
+    |4  |0.29 |Premium  |I    |VS2    |62.4 |58.0 |334  |4.2 |4.23|2.63|
+    |5  |0.31 |Good     |J    |SI2    |63.3 |58.0 |335  |4.34|4.35|2.75|
+    |6  |0.24 |Very Good|J    |VVS2   |62.8 |57.0 |336  |3.94|3.96|2.48|
+    |7  |0.24 |Very Good|I    |VVS1   |62.3 |57.0 |336  |3.95|3.98|2.47|
+    |8  |0.26 |Very Good|H    |SI1    |61.9 |55.0 |337  |4.07|4.11|2.53|
+    +---+-----+---------+-----+-------+-----+-----+-----+----+----+----+
+
+
+************************************************
+February 2015 English Wikipedia Clickstream data
+************************************************
+Available here: http://datahub.io/dataset/wikipedia-clickstream/resource/be85cc68-d1e6-4134-804a-fd36b94dbb82.
+
+The data is approximately 1.2GB and it is hosted in the following Databricks file: 
+``/databricks-datasets/wikipedia-datasets/data-001/clickstream/raw-uncompressed``
+
+
+https://docs.cloud.databricks.com/docs/latest/sample_applications/index.html#03%20Quick%20Start/Quick%20Start%20DataFrames.html
+
+.. code-block:: python
+
+    val clickstreamText = sc.textFile("dbfs:///databricks-datasets/wikipedia-datasets/data-001/clickstream/raw-uncompressed")
+
 ###
 DBF
 ###
@@ -52,14 +226,14 @@ Modules
 #######
 .. code-block:: python
 
-  >>> from pyspark import sql
-  >>> from pyspark.sql import functions as F
-  >>> from pprint import pprint
-  >>> import os
-  >>> import re
-  >>> import datetime
-  >>> print 'This was last run on: {0}'.format(datetime.datetime.now())
-  This was last run on: 2016-09-05 03:53:21.809269
+    >>> from pyspark import sql
+    >>> from pyspark.sql import functions as F
+    >>> from pprint import pprint
+    >>> import os
+    >>> import re
+    >>> import datetime
+    >>> print 'This was last run on: {0}'.format(datetime.datetime.now())
+    This was last run on: 2016-09-05 03:53:21.809269
 
 #############################################
 spark_notebook_helpers library for Databricks
@@ -282,3 +456,223 @@ Random from Spark Essentials (Spark Summit 2016)
 
     young_df.registerTempTable('young')
     sqlContext.sql('SELECT count(*) FROM young')
+
+#########################
+Spark for Data Scientists
+#########################
+From **1 - Gentle Intro - 3 Spark for Data Scientists**
+(initially was going to make a snippet, but turned out this was very informative)
+
+********
+Tax Data
+********
+http://catalog.data.gov/dataset/zip-code-data
+
+**SOI Tax Stats** - Individual Income Tax Statistics - ZIP Code Data (SOI). 
+
+This study provides detailed tabulations of individual income tax return data at the state and ZIP code level and is provided by the IRS. This repository only has a sample of the data: 2013 and includes "**AGI**" (adjusted gross income).
+
+The ZIP Code data show selected income and tax items classified by State, ZIP Code, and size of adjusted gross income. Data are based on individual income tax returns filed with the IRS and are available for Tax Years 1998, 2001, 2004 through 2013. 
+
+The data include items, such as:
+
+- Number of returns, which approximates the number of households
+- Number of personal exemptions, which approximates the population
+- Adjusted gross income
+- Wages and salaries
+- Dividends before exclusion
+
+.. code-block:: python
+
+    >>> # Spark 1.6
+    >>> taxes2013 = (sqlContext
+    >>>   .read.format("com.databricks.spark.csv")
+    >>>   .option("header", "true")
+    >>>   .load("dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv")
+    >>> )
+    >>> 
+    >>> # Spark 2.X
+    >>> taxes2013 = (spark.read
+    >>>   .option("header", "true")
+    >>>   .csv("dbfs:/databricks-datasets/data.gov/irs_zip_code_data/data-001/2013_soi_zipcode_agi.csv")
+    >>> )
+    >>> print 'ncol = {},nrow = {}'.format(len(taxes2013.head()), taxes2013.count())
+    ncol = 114,nrow = 166740
+
+    >>> # register as template table (Spark 2.0 method ``createOrReplaceTempView``, replaces ``registerTempTable``)
+    >>> taxes2013.createOrReplaceTempView("taxes2013")
+
+********************
+Farmer's market data
+********************
+http://catalog.data.gov/dataset/farmers-markets-geographic-data/resource/cca1cc8a-9670-4a27-a8c7-0c0180459bef
+
+**Farmers Markets Directory and Geographic Data.** 
+
+This dataset contains information on the longitude and latitude, state, address, name, and zip code of Farmers Markets in the United States (updated Dec 1, 2015). 
+
+.. code-block:: python
+
+    >>> # in Spark 1.6
+    >>> markets = (sqlContext
+    >>>   .read.format("com.databricks.spark.csv")
+    >>>   .option("header", "true")
+    >>>   .load("dbfs:/databricks-datasets/data.gov/farmers_markets_geographic_data/data-001/market_data.csv")
+    >>> )
+
+
+    >>> # in Apache Spark 2.0
+    >>> print type(spark)
+    <class 'pyspark.sql.session.SparkSession'>
+
+    >>> markets = (spark.read
+    >>>   .option("header", "true")
+    >>>   .csv("dbfs:/databricks-datasets/data.gov/farmers_markets_geographic_data/data-001/market_data.csv")
+    >>> )
+    >>> print 'ncol = {},nrow = {}'.format(len(markets.head()), markets.count())
+    ncol = 59,nrow = 8518
+    >>> markets.registerTempTable("markets")
+
+Registering as table
+
+.. code-block:: python
+
+    >>> # old version
+    >>> markets.registerTempTable("markets")
+
+    >>> # for spark 2.X
+    >>> markets.createOrReplaceTempView("markets")
+
+Now you can run bunch of SQL commands using ``%sql`` Databricks magic.
+
+.. code-block:: sql
+
+    -- show whatcha got
+    show tables
+
+.. image:: /_static/img/databricks_showtable_snip.png
+    :align: center
+    :scale: 100 %
+
+.. code-block:: sql
+
+    -- this is equivalent to display(tax2013)
+    SELECT * FROM taxes2013
+
+***************************
+Run some sql, create tables
+***************************
+.. code-block:: sql
+
+    DROP TABLE IF EXISTS cleaned_taxes;
+
+    CREATE TABLE cleaned_taxes AS
+    SELECT state, int(zipcode / 10) as zipcode, 
+      int(mars1) as single_returns, 
+      int(mars2) as joint_returns, 
+      int(numdep) as numdep, 
+      double(A02650) as total_income_amount,
+      double(A00300) as taxable_interest_amount,
+      double(a01000) as net_capital_gains,
+      double(a00900) as biz_net_income
+    FROM taxes2013
+
+
+Create Dataframe from table created in SQL:
+
+.. code-block:: python
+
+    >>> # creating a DataFrame from the table
+    >>> cleanedTaxes = sqlContext.sql("SELECT * FROM cleaned_taxes") 
+    >>> cleanedTaxes.show(5)
+    (1) Spark Jobs
+    +-----+-------+--------------+-------------+------+-------------------+-----------------------+-----------------+--------------+
+    |state|zipcode|single_returns|joint_returns|numdep|total_income_amount|taxable_interest_amount|net_capital_gains|biz_net_income|
+    +-----+-------+--------------+-------------+------+-------------------+-----------------------+-----------------+--------------+
+    |   AL|      0|        488030|       122290|571240|        1.1444868E7|                77952.0|          23583.0|      824487.0|
+    |   AL|      0|        195840|       155230|383240|        1.7810952E7|                81216.0|          54639.0|      252768.0|
+    |   AL|      0|         72710|       146880|189340|        1.6070153E7|                80627.0|          84137.0|      259836.0|
+    |   AL|      0|         24860|       126480|134370|        1.4288572E7|                71086.0|         105947.0|      214668.0|
+    |   AL|      0|         16930|       168170|177800|         2.605392E7|               149150.0|         404166.0|      567439.0|
+    +-----+-------+--------------+-------------+------+-------------------+-----------------------+-----------------+--------------+
+
+    >>> cleanedTaxes.groupBy("state").avg("total_income_amount").show(5)
+    (2) Spark Jobs
+    +-----+------------------------+
+    |state|avg(total_income_amount)|
+    +-----+------------------------+
+    |   AZ|       184981.2064590542|
+    |   SC|       96920.34577777778|
+    |   LA|       83006.56901615272|
+    |   MN|       74854.02570585757|
+    |   NJ|       209996.5740402194|
+    +-----+------------------------+
+
+********************************
+cache table in SQL or sqlContext
+********************************
+Consider the following from the ``explain`` method:
+
+.. code-block:: python
+
+    >>> sqlContext.sql("""
+    >>>   SELECT zipcode, 
+    >>>     SUM(biz_net_income) as net_income, 
+    >>>     SUM(net_capital_gains) as cap_gains, 
+    >>>     SUM(net_capital_gains) + SUM(biz_net_income) as combo
+    >>>   FROM cleaned_taxes 
+    >>>   WHERE NOT (zipcode = 0000 OR zipcode = 9999)
+    >>>   GROUP BY zipcode
+    >>>   ORDER BY combo desc
+    >>>   limit 50""").explain
+    == Physical Plan ==
+    TakeOrderedAndProject(limit=50, orderBy=[combo#4007 DESC], output=[zipcode#3128,net_income#4005,cap_gains#4006,combo#4007])
+    +- *HashAggregate(keys=[zipcode#3128], functions=[sum(biz_net_income#3135), sum(net_capital_gains#3134), sum(net_capital_gains#3134), sum(biz_net_income#3135)])
+       +- Exchange hashpartitioning(zipcode#3128, 200)
+          +- *HashAggregate(keys=[zipcode#3128], functions=[partial_sum(biz_net_income#3135), partial_sum(net_capital_gains#3134), partial_sum(net_capital_gains#3134), partial_sum(biz_net_income#3135)])
+             +- *Project [zipcode#3128, net_capital_gains#3134, biz_net_income#3135]
+                +- *Filter ((isnotnull(zipcode#3128) && NOT (zipcode#3128 = 0)) && NOT (zipcode#3128 = 9999))
+                   +- *BatchedScan parquet default.cleaned_taxes[zipcode#3128,net_capital_gains#3134,biz_net_income#3135] Format: ParquetFormat, InputPaths: dbfs:/user/hive/warehouse/cleaned_taxes, PartitionFilters: [], PushedFilters: [IsNotNull(zipcode), Not(EqualTo(zipcode,0)), Not(EqualTo(zipcode,9999))], ReadSchema: struct<zipcode:int,net_capital_gains:double,biz_net_income:double>
+The SQL queries on our temp SQL VIEWS are reading data from disk (fetched from ``dbfs:/user/hive/warehouse/cleaned_taxes`` which is where the data is stored when we registered it as a temporary table)
+
+
+Let's cache data in memory for speed.
+
+You can do either:
+
+.. code-block:: python
+
+    sqlContext.cacheTable("cleaned_taxes")
+
+    %sql CACHE TABLE cleaned_taxes
+
+Now our query will read data cached in memory, so will be much faster to this:
+
+.. code-block:: sql
+
+    SELECT zipcode, 
+      SUM(biz_net_income) as net_income, 
+      SUM(net_capital_gains) as cap_gains, 
+      SUM(net_capital_gains) + SUM(biz_net_income) as combo
+    FROM cleaned_taxes 
+      WHERE NOT (zipcode = 0000 OR zipcode = 9999)
+    GROUP BY zipcode
+    ORDER BY combo desc
+    limit 50
+
+Now let's see query plan again (this is equivalent to ``df.explain`` we did above):
+
+.. code-block:: sql
+
+    EXPLAIN 
+      SELECT zipcode, 
+        SUM(biz_net_income) as net_income, 
+        SUM(net_capital_gains) as cap_gains, 
+        SUM(net_capital_gains) + SUM(biz_net_income) as combo
+      FROM cleaned_taxes 
+      WHERE NOT (zipcode = 0000 OR zipcode = 9999)
+      GROUP BY zipcode
+      ORDER BY combo desc
+      limit 50
+
+    == Physical Plan == TakeOrderedAndProject(limit=50, orderBy=[combo#4303 DESC], output=[zipcode#3128,net_income#4301,cap_gains#4302,combo#4303]) +- *HashAggregate(keys=[zipcode#3128], functions=[sum(biz_net_income#3135), sum(net_capital_gains#3134), sum(net_capital_gains#3134), sum(biz_net_income#3135)]) +- Exchange hashpartitioning(zipcode#3128, 200) +- *HashAggregate(keys=[zipcode#3128], functions=[partial_sum(biz_net_income#3135), partial_sum(net_capital_gains#3134), partial_sum(net_capital_gains#3134), partial_sum(biz_net_income#3135)]) +- *Filter ((isnotnull(zipcode#3128) && NOT (zipcode#3128 = 0)) && NOT (zipcode#3128 = 9999)) +- InMemoryTableScan [zipcode#3128, net_capital_gains#3134, biz_net_income#3135], [isnotnull(zipcode#3128), NOT (zipcode#3128 = 0), NOT (zipcode#3128 = 9999)] +- InMemoryRelation [state#3127, zipcode#3128, single_returns#3129, joint_returns#3130, numdep#3131, total_income_amount#3132, taxable_interest_amount#31...
