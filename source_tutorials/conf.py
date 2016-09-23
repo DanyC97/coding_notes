@@ -143,6 +143,7 @@ language = None
 exclude_patterns = [
 # 'pyspark/pyspark*.rst',
 'pyspark/cs120_lab3.rst',
+# 'pyspark/cs*.rst',
 # 'pyspark/cs105*.rst',
 # 'pyspark/cs110*.rst',
 # # 'pyspark/cs120*.rst',
@@ -188,8 +189,8 @@ pygments_style = 'sphinx'
 todo_include_todos = True
 
 
-# _theme = 'rtd'
-_theme = 'bootstrap'
+_theme = 'rtd'
+# _theme = 'bootstrap'
 # -- Options for HTML output ----------------------------------------------
 #=============================================================================#
 # for rtd_theme

@@ -1,7 +1,7 @@
 .. __edx_course_notes:
 
-EdX Course Notes (``top-edx.rst``)
-""""""""""""""""""""""""""""""""""
+EdX - Data Science and Engineering with Spark
+"""""""""""""""""""""""""""""""""""""""""""""
 Notes I took when completing EdX's program series on `Data Science and Engineering with Spark <https://www.edx.org/xseries/data-science-engineering-apache-spark>`__.
 
 - **CS105**: Introduction to Apache Spark (`link <https://www.edx.org/course/introduction-apache-spark-uc-berkeleyx-cs105x>`__)

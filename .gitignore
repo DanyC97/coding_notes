@@ -12,3 +12,4 @@ _temp.sh
 debug.log
 
 ignore_dir
+*.stderr
