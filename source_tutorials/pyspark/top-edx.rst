@@ -4,6 +4,10 @@ EdX Course Notes (``top-edx.rst``)
 """"""""""""""""""""""""""""""""""
 Notes I took when completing EdX's program series on `Data Science and Engineering with Spark <https://www.edx.org/xseries/data-science-engineering-apache-spark>`__.
 
+- **CS105**: Introduction to Apache Spark (`link <https://www.edx.org/course/introduction-apache-spark-uc-berkeleyx-cs105x>`__)
+- **CS110**: Big Data Analysis with Apache Spark (`link <https://www.edx.org/course/big-data-analysis-apache-spark-uc-berkeleyx-cs110x>`__)
+- **CS120**: Distributed Machine Learning with Apache Spark (`link <https://www.edx.org/course/distributed-machine-learning-apache-uc-berkeleyx-cs120x>`__)
+
 .. important:: 
 
   To adhere to the honor code, I kept the content of ``<FILL IN>`` for the HW problems 
