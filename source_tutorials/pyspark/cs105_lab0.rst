@@ -1,7 +1,7 @@
 .. _cs105_lab0:
 
-cs105_lab0
-""""""""""
+cs105_lab0 - Running Your First Notebook
+""""""""""""""""""""""""""""""""""""""""
 https://github.com/spark-mooc/mooc-setup/blob/master/cs105_lab0.dbc
 
 .. note:: This notebook tests Spark Functionality (not a tutorial)

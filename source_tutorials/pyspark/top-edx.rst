@@ -2,7 +2,7 @@
 
 EdX Course Notes (``top-edx.rst``)
 """"""""""""""""""""""""""""""""""
-Notes I took when completing EdX's program series on `Data Science and Engineering with Spark <https://courses.edx.org/dashboard/programs/21/data-science-and-engineering-with-spark>`__.
+Notes I took when completing EdX's program series on `Data Science and Engineering with Spark <https://www.edx.org/xseries/data-science-engineering-apache-spark>`__.
 
 .. important:: 
 
@@ -21,9 +21,7 @@ Notes I took when completing EdX's program series on `Data Science and Engineeri
     cs105_lab1b
     cs105_lab2
     cs110_lab1
-    cs110_lab1_trimmed
     cs110_lab2
-    cs110_lab3a
     cs110_lab3b
     cs120_lab1a
     cs120_lab1b

@@ -122,11 +122,14 @@ language = None
 # items_to_include = [
 #     'pyspark/top-edx.rst',
 #     'pyspark/top-pyspark.rst',
-#     'pyspark/pyspark-overflow.rst',
-#     'pyspark/cs105_lab2.rst',
-#     'pyspark/cs110_lab1.rst',
-#     'pyspark/cs110_lab1_trimmed.rst',
-#     'pyspark/cs110_lab3b.rst',
+#     # 'pyspark/pyspark-overflow.rst',
+#     # 'pyspark/cs105_lab2.rst',
+#     # 'pyspark/cs110_lab1.rst',
+#     # 'pyspark/cs110_lab1_trimmed.rst',
+#     'pyspark/cs105_lab1b.rst',
+#     'pyspark/cs120_lab1b.rst',
+#     'pyspark/cs120_lab2.rst',
+#     'pyspark/cs120_lab4.rst',
 #     'pyspark/pyspark-snippet.rst',
 #     # 'pyspark/cs110_lab3b.rst',
 #     # 'pyspark/cs120_lab4.rst',
@@ -134,13 +137,18 @@ language = None
 # for item_ in items_to_include:
 #     exclude_patterns.remove(item_)
 
-# # with open('test_test.txt','w') as f:
-# #     f.write('\n'.join(exclude_patterns))
+# # # with open('test_test.txt','w') as f:
+# # #     f.write('\n'.join(exclude_patterns))
 
 exclude_patterns = [
 # 'pyspark/pyspark*.rst',
+'pyspark/cs120_lab3.rst',
 # 'pyspark/cs105*.rst',
-# 'pyspark/cs120*.rst',
+# 'pyspark/cs110*.rst',
+# # 'pyspark/cs120*.rst',
+# 'pyspark/cs120_lab1*.rst',
+# 'pyspark/cs120_lab2*.rst',
+# 'pyspark/cs120_lab3*.rst',
 # 'awk*',
 # 'sed*',
 # 'sql*',
@@ -354,8 +362,8 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
-html_last_updated_fmt = None
-# html_last_updated_fmt = ''
+# html_last_updated_fmt = None
+html_last_updated_fmt = ''
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.

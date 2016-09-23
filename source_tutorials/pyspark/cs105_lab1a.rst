@@ -1,5 +1,5 @@
-cs105_lab1a
-"""""""""""
+cs105_lab1a - Learning Apache Spark
+"""""""""""""""""""""""""""""""""""
 https://raw.githubusercontent.com/spark-mooc/mooc-setup/master/cs105_lab1a_spark_tutorial.py
 
 #############
