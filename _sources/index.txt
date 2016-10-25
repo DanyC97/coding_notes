@@ -24,6 +24,7 @@ My coding notebook
     :maxdepth: 1
     :caption: Table of Contents (Others)
 
+    R/top-R
     bash_wooledge/top-bash-wool.rst
     sed/sed-tutorial.gnu.rst
     sed/sed-tutorial.tutorialspoints.rst

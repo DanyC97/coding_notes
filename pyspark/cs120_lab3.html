@@ -1,88 +1,96 @@
+
+
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cs120_lab3_ctr_df</title>
+  
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>cs120_lab3_ctr_df</title>
-    
-    <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-2.3.2/simplex/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+  
+  
     <link rel="shortcut icon" href="../_static/favicon-umich.ico"/>
-    <link rel="top" title="" href="../index.html" />
-    <link rel="up" title="EdX Course Notes (top-edx.rst)" href="top-edx.html" />
-    <link rel="next" title="cs120_lab4_pca" href="cs120_lab4.html" />
-    <link rel="prev" title="cs120_lab2_linear_regression_df" href="cs120_lab2.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+  
 
-  </head>
-  <body role="document">
+  
 
-  <div id="navbar" class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+  
+  
+    
 
-        <a class="brand" href="../index.html">
-          Coding Notebook</a>
-        <span class="navbar-text pull-left"><b></b></span>
+  
 
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="divider-vertical"></li>
+  
+  
+    <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="" href="../index.html"/>
+        <link rel="up" title="EdX - Data Science and Engineering with Spark" href="top-edx.html"/>
+        <link rel="next" title="cs120 - PCA on Neuroscience Data" href="cs120_lab4.html"/>
+        <link rel="prev" title="cs120 - Linear Regression with DataFrames" href="cs120_lab2.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Coding Notebook
+          
+
+          
+          </a>
+
+          
             
-                <li><a href="https://github.com/wtak23">Github</a></li>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
             
             
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="../index.html">Table of Contents <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Table of Contents (PySpark)</span></p>
+                <p class="caption"><span class="caption-text">Table of Contents (PySpark)</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="top-edx.html">EdX Course Notes (<code class="docutils literal"><span class="pre">top-edx.rst</span></code>)</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cs105_lab0.html">cs105_lab0</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="top-edx.html">EdX - Data Science and Engineering with Spark</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab0.html">cs105_lab0 - Running Your First Notebook</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#create-dataframe-and-filter-it">Create DataFrame and filter it</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#load-a-text-file">Load a text file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab0.html#check-plotting">Check plotting</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs105_lab1a.html">cs105_lab1a</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab1a.html">cs105_lab1a - Learning Apache Spark</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab1a.html#spark-context">Spark Context</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab1a.html#sparkcontext-and-the-driver-program-cluster-structure">SparkContext and the Driver Program (Cluster Structure)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs105_lab1a.html#about-the-driver-program">About the Driver Program</a></li>
@@ -132,7 +140,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs105_lab1b.html">cs105_lab1b_wordcount</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab1b.html">cs105_lab1b - Building a word count application</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#create-a-base-df-and-perform-operations">Create a base DF and perform operations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#create-a-base-df">Create a base DF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs105_lab1b.html#use-df-functions-to-add-an-s">Use DF functions to add an &#8216;s&#8217;</a></li>
@@ -159,7 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab1b.html#random-stuffs-i-played-around-with">Random stuffs I played around with</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs105_lab2.html">cs105_lab2_apache_log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs105_lab2.html">cs105_lab2 - Web Server Log Analysis with Apache Spark</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#part1-overview-web-server-log-analysis-with-apache-spark">Part1: Overview: Web Server Log Analysis with Apache Spark</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#modules-used-in-this-assignment">Modules used in this assignment</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#dataset-used">Dataset used</a></li>
@@ -191,22 +199,9 @@
 <li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#f-exercise-visualizing-the-average-daily-requests-per-unique-host">4f) Exercise: Visualizing the Average Daily Requests per Unique Host</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cs105_lab2.html#part5-exploring-404-status-codes">Part5: Exploring 404 Status Codes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#a-exercise-counting-404-response-codes">5a) Exercise: Counting 404 Response Codes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#b-exercise-listing-404-status-code-records">5b) Exercise: Listing 404 Status Code Records</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#c-exercise-listing-the-top-twenty-404-response-code-paths">5c) Exercise: Listing the Top Twenty 404 Response Code paths</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#d-exercise-listing-the-top-twenty-five-404-response-code-hosts">5d) Exercise: Listing the Top Twenty-five 404 Response Code Hosts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#e-exercise-listing-404-errors-per-day">5e) Exercise: Listing 404 Errors per Day</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#f-exercise-visualizing-the-404-errors-by-day">5f) Exercise: Visualizing the 404 Errors by Day</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#h-exercise-hourly-404-errors">5h) Exercise: Hourly 404 Errors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#g-exercise-top-five-days-for-404-errors">5g) Exercise: Top Five Days for 404 Errors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#i-exercise-hourly-404-errors">5i) Exercise: Hourly 404 Errors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs105_lab2.html#j-exercise-visualizing-the-404-response-codes-by-hour">5j) Exercise: Visualizing the 404 Response Codes by Hour</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cs110_lab1.html">cs110_lab1_power_ml_pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab1.html">cs110 - Power Plant Machine Learning Pipeline Application</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs110_lab1.html#part1-business-understanding">Part1: Business Understanding</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#background-power-generation">Background &#8212; power generation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs110_lab1.html#challenge-for-power-grid-operation">Challenge for power grid operation</a></li>
@@ -269,16 +264,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs110_lab1_trimmed.html">cs110_lab1_trimmed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cs110_lab1_trimmed.html#part2-extract-transform-load-etl-your-data">Part2: Extract-Transform-Load (ETL) Your Data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cs110_lab1_trimmed.html#exercise-2a">Exercise 2a</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cs110_lab1_trimmed.html#exercise-2b">Exercise 2b</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cs110_lab1_trimmed.html#part-2-alternative-method-to-load-your-data">Part 2: Alternative Method to Load your Data</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="cs110_lab2.html">cs110_lab2_als_prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab2.html">cs110 - Predicting Movie Ratings with Alternating Least Squares</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs110_lab2.html#preliminaries">Preliminaries</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#the-20-million-movie-sample">The 20-million movie sample</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs110_lab2.html#cpu-vs-io-tradeoff">CPU vs IO Tradeoff</a></li>
@@ -309,8 +295,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs110_lab3a.html">cs110_lab3a_word_count_rdd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cs110_lab3b.html">cs110_lab3b_text_analysis_ER</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs110_lab3b.html">cs110 - Text Analysis and Entity Resolution with TF-IDF</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#preliminaries">Preliminaries</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#background-on-er">Background on ER</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs110_lab3b.html#data-files">Data files</a></li>
@@ -362,7 +347,7 @@
 <li class="toctree-l3"><a class="reference internal" href="cs110_lab3b.html#discussion-of-results">Discussion of results</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs120_lab1a.html">cs120_lab1a_math_review</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab1a.html">cs120 Lab - Math_review</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs120_lab1a.html#math-review">Math review</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-1a-scalar-multiplication-vectors">Exercise (1a) Scalar multiplication: vectors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs120_lab1a.html#exercise-1b-element-wise-multiplication-vectors">Exercise (1b) Element-wise multiplication: vectors</a></li>
@@ -393,10 +378,84 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cs120_lab1b.html">cs120_lab1b_word_count_rdd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cs120_lab2.html">cs120_lab2_linear_regression_df</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab1b.html">cs120 - Word Count Lab in RDD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1b.html#part-1-creating-a-base-rdd-and-pair-rdds">Part 1: Creating a base RDD and pair RDDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#b-pluralize-and-test">1b) Pluralize and test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#c-apply-makeplural-to-the-base-rdd">1c) Apply makePlural to the base RDD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#d-pass-a-lambda-function-to-map">1d) Pass a lambda function to map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#e-length-of-each-word">1e) Length of each word</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#f-pair-rdds">1f) Pair RDDs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1b.html#part-2-counting-with-pair-rdds">Part 2: Counting with pair RDDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#a-groupbykey-approach">2a) <code class="docutils literal"><span class="pre">groupByKey()</span></code> approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#b-use-groupbykey-to-obtain-the-counts">2b) Use <code class="docutils literal"><span class="pre">groupByKey()</span></code> to obtain the counts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#c-counting-using-reducebykey">2c) Counting using <code class="docutils literal"><span class="pre">reduceByKey</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#d-all-together">2d) All together</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1b.html#part-3-finding-unique-words-and-a-mean-value">Part 3: Finding unique words and a mean value</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#a-unique-words">3a) Unique words</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#b-mean-using-reduce">3b) Mean using <code class="docutils literal"><span class="pre">reduce</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab1b.html#part-4-apply-word-count-to-a-file">Part 4: Apply word count to a file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#a-wordcount-function">4a) <code class="docutils literal"><span class="pre">wordCount</span></code> function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#b-capitalization-and-punctuation">4b) Capitalization and punctuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#c-load-a-text-file">4c) Load a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#d-words-from-lines">4d) Words from lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#e-remove-empty-elements">4e) Remove empty elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab1b.html#f-count-the-words">4f) Count the words</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab2.html">cs120 - Linear Regression with DataFrames</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab2.html#part-1-read-and-parse-the-initial-dataset">Part 1: Read and parse the initial dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#a-load-and-check-the-data">1a) Load and check the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#b-using-labeledpoint">1b) Using LabeledPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#visualization-1-features">Visualization 1: Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#c-find-the-range">1c) Find the range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#d-shift-labels">1d) Shift labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#visualization-2-shifting-labels">Visualization 2: Shifting labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#e-training-validation-and-test-sets">1e) Training, validation, and test sets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab2.html#part-2-create-and-evaluate-a-baseline-model">Part 2: Create and evaluate a baseline model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#a-average-label">2a) Average label</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#b-root-mean-squared-error">2b) Root mean squared error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#c-training-validation-and-test-rmse">2c) Training, validation and test RMSE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#visualization-3-predicted-vs-actual">Visualization 3: Predicted vs. actual</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab2.html#part-3-train-via-gradient-descent-and-evaluate-a-linear-regression-model">Part 3: Train (via gradient descent) and evaluate a linear regression model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#a-gradient-summand">3a) Gradient summand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#b-use-weights-to-make-predictions">3b) Use weights to make predictions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#c-gradient-descent">3c) Gradient descent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#d-train-the-model">3d) Train the model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#visualization-4-training-error">Visualization 4: Training error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab2.html#part-4-train-using-sparkml-and-perform-grid-search">Part 4: Train using SparkML and perform grid search</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#a-linearregression">4a) LinearRegression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#b-transform">4b) Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#c-evaluate-rmse">4c) Evaluate RMSE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#d-grid-search">4d) Grid search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#visualization-5-best-model-s-predictions">Visualization 5: Best model&#8217;s predictions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#visualization-6-hyperparameter-heat-map">Visualization 6: Hyperparameter heat map</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cs120_lab2.html#part-5-add-interactions-between-features">Part 5: Add interactions between features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#a-add-2-way-interactions">5a) Add 2-way interactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#b-build-interaction-model">5b) Build interaction model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#c-evaluate-interaction-model-on-test-data">5c) Evaluate interaction model on test data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cs120_lab2.html#d-use-a-pipeline-to-create-the-interaction-model">5d) Use a pipeline to create the interaction model</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">cs120_lab3_ctr_df</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cs120_lab4.html">cs120_lab4_pca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cs120_lab4.html">cs120 - PCA on Neuroscience Data</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cs120_lab4.html#work-through-the-steps-of-pca-on-a-sample-dataset">Work through the steps of PCA on a sample dataset</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#visualization-1-two-dimensional-gaussians">Visualization 1: Two-dimensional Gaussians</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cs120_lab4.html#a-interpreting-pca">1a) Interpreting PCA</a></li>
@@ -446,20 +505,36 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="top-pyspark.html">PySpark Notes (<code class="docutils literal"><span class="pre">top-pyspark.rst</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pyspark-snippet.html">1 <code class="docutils literal"><span class="pre">pyspark-snippet.rst</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#dbf">1.1 DBF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#modules">1.2 Modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#spark-notebook-helpers-library-for-databricks">1.3 spark_notebook_helpers library for Databricks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#create-toy-dataset">1.4 Create toy dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#print-rdd-per-item">1.5 Print RDD per item</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#databrick-helper-function-displaying-all-dfs-in-the-notebook">1.6 Databrick helper function displaying all DFs in the notebook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#get-shape-of-df-gotta-be-a-better-way">1.7 Get shape of DF (gotta be a better way)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#random-snippets">1.8 Random snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#print-dataframes-in-my-workspace-super-ad-hoc">1.8.1 print dataframes in my workspace (super-ad-hoc)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#rename-column">1.8.2 Rename column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#data-from-application-examples-on-db-workspace">1.1 Data from <em>Application Examples</em> on DB Workspace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#list-out-datasets-important">1.1.1 List out datasets (Important)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#create-sample-json-file">1.1.2 Create sample JSON file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#tables">1.1.3 Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#random-data-io">1.1.4 Random data-io</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#diamonds">1.1.5 Diamonds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#february-2015-english-wikipedia-clickstream-data">1.1.6 February 2015 English Wikipedia Clickstream data</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#dbutils">1.9 dbutils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#random-from-spark-essentials-spark-summit-2016">1.10 Random from Spark Essentials (Spark Summit 2016)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#dbf">1.2 DBF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#modules">1.3 Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#spark-notebook-helpers-library-for-databricks">1.4 spark_notebook_helpers library for Databricks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#create-toy-dataset">1.5 Create toy dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#print-rdd-per-item">1.6 Print RDD per item</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#databrick-helper-function-displaying-all-dfs-in-the-notebook">1.7 Databrick helper function displaying all DFs in the notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#get-shape-of-df-gotta-be-a-better-way">1.8 Get shape of DF (gotta be a better way)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#random-snippets">1.9 Random snippets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#print-dataframes-in-my-workspace-super-ad-hoc">1.9.1 print dataframes in my workspace (super-ad-hoc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#rename-column">1.9.2 Rename column</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#dbutils">1.10 dbutils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#random-from-spark-essentials-spark-summit-2016">1.11 Random from Spark Essentials (Spark Summit 2016)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-snippet.html#spark-for-data-scientists">1.12 Spark for Data Scientists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#tax-data">1.12.1 Tax Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#farmer-s-market-data">1.12.2 Farmer&#8217;s market data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#run-some-sql-create-tables">1.12.3 Run some sql, create tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyspark-snippet.html#cache-table-in-sql-or-sqlcontext">1.12.4 cache table in SQL or sqlContext</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyspark-practice.html">2 <code class="docutils literal"><span class="pre">pyspark-practice.rst</span></code></a><ul>
@@ -509,81 +584,100 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pyspark-install.html">4 Install PySpark (<code class="docutils literal"><span class="pre">pyspark-install</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-install.html#windows">4.1 windows?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyspark-install.html#retry-above-is-a-clusterfuck">4.2 Retry, above is a clusterfuck</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="apache-prog-guide-rdd.html">5 (todo) Spark Programming Guide (<code class="docutils literal"><span class="pre">apache-prog-guide-rdd</span></code>)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apache-prog-guide-df.html">6 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#overview">6.1 Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#sql">6.1.1 SQL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#datasets-and-dataframes">6.1.2 Datasets and DataFrames</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#datasets">6.1.2.1 Datasets</a></li>
-<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#dataframe">6.1.2.2 DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apache-prog-guide-df.html">4 Spark Programming Guide DataFrames (<code class="docutils literal"><span class="pre">apache-prog-guide-df</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#overview">4.1 Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#sql">4.1.1 SQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#datasets-and-dataframes">4.1.2 Datasets and DataFrames</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#datasets">4.1.2.1 Datasets</a></li>
+<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#dataframe">4.1.2.2 DataFrame</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#getting-started">6.2 Getting Started</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#starting-point-sparksession">6.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#creating-dataframes">6.2.2 Creating DataFrames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#untyped-dataset-operations-aka-dataframe-operations">6.2.3 Untyped Dataset Operations (aka DataFrame Operations)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-sql-queries-programmatically">6.2.4 Running SQL Queries Programmatically</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#creating-datasets-only-in-scala-java">6.2.5 Creating Datasets (only in Scala/Java)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#interoperating-with-rdds">6.2.6 Interoperating with RDDs</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#inferring-the-schema-using-reflection">6.2.6.1 Inferring the Schema Using Reflection</a></li>
-<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#programmatically-specifying-the-schema">6.2.6.2 Programmatically Specifying the Schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#getting-started">4.2 Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#starting-point-sparksession">4.2.1 Starting Point: <code class="docutils literal"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#creating-dataframes">4.2.2 Creating DataFrames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#untyped-dataset-operations-aka-dataframe-operations">4.2.3 Untyped Dataset Operations (aka DataFrame Operations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-sql-queries-programmatically">4.2.4 Running SQL Queries Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#creating-datasets-only-in-scala-java">4.2.5 Creating Datasets (only in Scala/Java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#interoperating-with-rdds">4.2.6 Interoperating with RDDs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#inferring-the-schema-using-reflection">4.2.6.1 Inferring the Schema Using Reflection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="apache-prog-guide-df.html#programmatically-specifying-the-schema">4.2.6.2 Programmatically Specifying the Schema</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#data-sources">6.3 Data Sources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#generic-load-functions">6.4 Generic Load Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#default-parquet">6.4.1 Default (parquet)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#manually-specifying-options">6.4.2 Manually Specifying Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#run-sql-on-files-directly">6.4.3 Run SQL on files directly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#data-sources">4.3 Data Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#generic-load-functions">4.4 Generic Load Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#default-parquet">4.4.1 Default (parquet)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#manually-specifying-options">4.4.2 Manually Specifying Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#run-sql-on-files-directly">4.4.3 Run SQL on files directly</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#generic-save-functions">6.5 Generic Save Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#save-modes">6.5.1 Save Modes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#saving-to-persistent-tables">6.5.2 __Saving to Persistent Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#generic-save-functions">4.5 Generic Save Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#save-modes">4.5.1 Save Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#saving-to-persistent-tables">4.5.2 __Saving to Persistent Tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#parquet-files">6.6 Parquet Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#loading-data-programmatically">6.6.1 Loading Data Programmatically</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#partition-discovery">6.6.2 __Partition Discovery</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#schema-merging">6.6.3 Schema Merging</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#hive-metastore-parquet-conversion">6.6.4 __Hive metastore Parquet Conversion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#configuration">6.6.5 Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#parquet-files">4.6 Parquet Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#loading-data-programmatically">4.6.1 Loading Data Programmatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#partition-discovery">4.6.2 __Partition Discovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#schema-merging">4.6.3 Schema Merging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#hive-metastore-parquet-conversion">4.6.4 __Hive metastore Parquet Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#configuration">4.6.5 Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#json-datasets">6.7 JSON Datasets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#hive-tables">6.8 Hive Tables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#interacting-with-different-versions-of-hive-metastore">6.8.1 __Interacting with Different Versions of Hive Metastore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#json-datasets">4.7 JSON Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#hive-tables">4.8 Hive Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#interacting-with-different-versions-of-hive-metastore">4.8.1 __Interacting with Different Versions of Hive Metastore</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#jdbc-to-other-databases">6.9 __JDBC To Other Databases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#performance-tuning">6.10 Performance Tuning</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#caching-data-in-memory">6.10.1 Caching Data in Memory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#other-configuration-options">6.10.2 Other Configuration Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#jdbc-to-other-databases">4.9 __JDBC To Other Databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#performance-tuning">4.10 Performance Tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#caching-data-in-memory">4.10.1 Caching Data in Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#other-configuration-options">4.10.2 Other Configuration Options</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#distributed-sql-engine">6.11 Distributed SQL Engine</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-the-thrift-jdbc-odbc-server">6.11.1 __Running the Thrift JDBC/ODBC server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-the-spark-sql-cli">6.11.2 Running the Spark SQL CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#distributed-sql-engine">4.11 Distributed SQL Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-the-thrift-jdbc-odbc-server">4.11.1 __Running the Thrift JDBC/ODBC server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#running-the-spark-sql-cli">4.11.2 Running the Spark SQL CLI</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#reference">6.12 Reference</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#data-types">6.12.1 Data-Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#nan-semantics">6.12.2 NaN Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache-prog-guide-df.html#reference">4.12 Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#data-types">4.12.1 Data-Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apache-prog-guide-df.html#nan-semantics">4.12.2 NaN Semantics</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="databricks.html">7 Databrick Doc (<code class="docutils literal"><span class="pre">databricks.rst</span></code>)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="databricks.html#ml-stuffs">7.1 ML Stuffs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="databricks.html#bunch-of-notebooks">7.2 Bunch of notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databricks.html">5 Databrick Doc (<code class="docutils literal"><span class="pre">databricks.rst</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databricks.html#ml-stuffs">5.1 ML Stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databricks.html#bunch-of-notebooks">5.2 Bunch of notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyspark-local.html">PySpark on AWS (<code class="docutils literal"><span class="pre">pyspark-local</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#setting-up-aws-and-pyspark">Setting up AWS and PySpark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-iam-user-key">Create IAM user key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-admin-group-and-user">Create admin group and user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#setup-an-s3-bucket">Setup an S3 Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-wordcount-script-to-submit">Create wordcount script to submit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#create-emr-cluster">Create EMR cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#run-spark-application-on-emr">Run Spark application on EMR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#setup-pyspark-in-ipython-profile">Setup pyspark in ipython profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#finally-worked">Finally worked!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#wrong-java-version">Wrong java version?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#pyspark-options-giving-errors">pyspark options giving errors...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#update-scala">Update scala?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#rough-drafts">rough drafts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyspark-local.html#failed-windows-try">Failed Windows Try</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#windows">windows?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyspark-local.html#retry-above-is-a-disaster">Retry, above is a disaster</a></li>
 </ul>
 </li>
 </ul>
@@ -734,6 +828,36 @@
 </ul>
 <p class="caption"><span class="caption-text">Table of Contents (Others)</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../R/top-R.html">R Notes (<code class="docutils literal"><span class="pre">top-R.rst</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../R/R-cookbook.html">R cookbook (<code class="docutils literal"><span class="pre">R-cookbook.rst</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../R/r-cookbook-1-getting-started.html">1. Getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-1-getting-started.html#getting-help">Getting help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-1-getting-started.html#help-search">help.search</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html">2. Some basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#print-and-cat">print and cat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#setting-listing-and-removing-variables">setting, listing, and removing variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#create-vector-the-c-operator">Create vector - the <code class="docutils literal"><span class="pre">c(...)</span></code> operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#basic-statistics">Basic statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#create-sequences-seq-from-to-by-rep-arg-times-5">Create sequences (<code class="docutils literal"><span class="pre">:,</span> <span class="pre">seq(from,to,by),</span> <span class="pre">rep(arg,times=5)</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#vector-comparison-elementwise-comparison">Vector comparison (elementwise comparison)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#vector-indexing-and-slicing">Vector indexing and slicing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#naming-vector-elements-gives-another-way-to-index">naming vector elements (gives another way to index)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#vector-arithmetic-elementwise">Vector arithmetic (elementwise...)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#some-special-operator">Some special operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#warning-on-operator-precedence">Warning on operator precedence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-2-some-basics.html#defining-function">Defining function</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../R/r-cookbook-11-lr-anova.html">11. Linear Regression and ANOVA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../R/r-cookbook-11-lr-anova.html#syntax-for-linear-regression">Syntax for linear regression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../bash_wooledge/top-bash-wool.html">Bash wooledge (<code class="docutils literal"><span class="pre">top-bash-wool.rst</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/special_char.html">1 Special Characters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bash_wooledge/param.html">2 Parameters</a><ul>
@@ -1064,54 +1188,71 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../cs-computer.network.html">Network notes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cs-computer.network.html#http-messages">HTTP messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cs-computer.network.html#random-overflows">Random overflows</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Contents (current page) <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">cs120_lab3_ctr_df</a></li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-            
-            
-            
-          </ul>
 
-          
             
-<form class="navbar-form navbar-right" action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
           
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="span12 content">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
       
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Coding Notebook</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="top-edx.html">EdX - Data Science and Engineering with Spark</a> &raquo;</li>
+        
+      <li>cs120_lab3_ctr_df</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pyspark/cs120_lab3.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="cs120-lab3-ctr-df">
 <h1>cs120_lab3_ctr_df</h1>
 <p><a class="reference external" href="https://github.com/spark-mooc/mooc-setup/raw/master/cs120_lab3_ctr_df.dbc">https://github.com/spark-mooc/mooc-setup/raw/master/cs120_lab3_ctr_df.dbc</a></p>
@@ -1124,26 +1265,72 @@ the <code class="docutils literal"><span class="pre">&lt;FILL</span> <span class
 </div>
 
 
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cs120_lab4.html" class="btn btn-neutral float-right" title="cs120 - PCA on Neuroscience Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cs120_lab2.html" class="btn btn-neutral" title="cs120 - Linear Regression with DataFrames" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-      
-  </div>
-</div>
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-        <br/>
-        
-<div id="sourcelink">
-  <a href="../_sources/pyspark/cs120_lab3.txt"
-     rel="nofollow">Source</a>
-</div>
-      
-    </p>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
     <p>
+      Last updated on Oct 25, 2016.
+
     </p>
-  </div>
+  </div> 
+
 </footer>
-  </body>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
