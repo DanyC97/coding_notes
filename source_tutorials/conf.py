@@ -21,6 +21,11 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 #sys.path.insert(0,'/home/takanori/Dropbox/work/sbia_work/python/modules')
 sys.path.insert(0, os.path.abspath('./sphinxext/numpydoc'))
+
+# include my module in path
+sys.path.insert(0,os.path.expanduser('~/Dropbox/work/sbia_work/python/modules'))
+# in case i'm in windows
+sys.path.insert(0,"'C:\\Users\\takanori/Dropbox/work/sbia_work/python/modules'")
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.

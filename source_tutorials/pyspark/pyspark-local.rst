@@ -204,7 +204,7 @@ Included these in my ``.bashrc`` file
 
 Now I can invoke pyspark in jupyter as default via calling ``$pyspark``
 
-..important:: 
+.. important:: 
 
     However, to submit job application via ``spark-submit``, need to comment
     out these variables:
