@@ -1,5 +1,6 @@
 11. Linear Regression and ANOVA
 """""""""""""""""""""""""""""""
+https://rpubs.com/escott8908/RC11
 
 .. contents:: `Contents`
    :depth: 2

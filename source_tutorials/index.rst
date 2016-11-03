@@ -26,6 +26,7 @@ My coding notebook
 
     python/pynotes
     R/top-R
+    Rknit/Rknit
     bash_wooledge/top-bash-wool.rst
     sed/sed-tutorial.gnu.rst
     sed/sed-tutorial.tutorialspoints.rst
