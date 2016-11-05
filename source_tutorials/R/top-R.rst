@@ -9,3 +9,4 @@ Quick refreshers on R syntax
 
     R-cookbook.rst
     control_var
+    dave-langer/TitanicDataAnalysis_Video7
