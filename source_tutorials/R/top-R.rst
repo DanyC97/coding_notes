@@ -8,3 +8,4 @@ Quick refreshers on R syntax
     :maxdepth: 1
 
     R-cookbook.rst
+    control_var

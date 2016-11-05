@@ -1,14 +1,22 @@
-R notes from ``knitr`` (``Rknit.rst``)
-""""""""""""""""""""""""""""""""""""""
-The notes here are created using ``knitr``, ``RMarkDown``, ``pandoc``, ``sed``, and ``Sphinx``
+R - Labs from ISL (``R-ISL``)
+"""""""""""""""""""""""""""""
+The labs codes are from `An Introduction to Statistical Learning
+with Applications in R <http://www-bcf.usc.edu/~gareth/ISL/>`__ by G. James et al. 
+
+
 
 .. toctree::
     :maxdepth: 1
-    :numbered:
-    :caption: Table of Contents
-    :name: ds-R
 
-    control_var
+    ch2
+    ch3
+    ch4
+    ch5
+    ch6
+    ch7
+    ch8
+    ch9
+    ch10
 
 .. rubric:: How the notebooks are created
 
