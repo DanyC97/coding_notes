@@ -8,3 +8,5 @@ Quick refreshers on R syntax
     :maxdepth: 1
 
     R-cookbook.rst
+    control_var
+    dave-langer/TitanicDataAnalysis_Video7

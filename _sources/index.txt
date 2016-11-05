@@ -22,10 +22,19 @@ My coding notebook
 
 .. toctree::
     :maxdepth: 1
-    :caption: Table of Contents (Others)
+    :caption: Table of Contents (Python and R)
 
     python/pynotes
     R/top-R
+    R-ISL/R-ISL
+    Rknit/Rknit
+    ggplot/top-ggplot
+    lattice-R-book/lattice-R    
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Table of Contents (Others)
+
     bash_wooledge/top-bash-wool.rst
     sed/sed-tutorial.gnu.rst
     sed/sed-tutorial.tutorialspoints.rst

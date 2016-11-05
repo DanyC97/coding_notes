@@ -9,6 +9,8 @@
 ************
 Getting help
 ************
+http://www.statmethods.net/interface/help.html
+
 .. code-block:: R
 
     # Use help to display the documentation for the function:
