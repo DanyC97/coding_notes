@@ -27,6 +27,7 @@ My coding notebook
     python/pynotes
     R/top-R
     R-ISL/R-ISL
+    R-regression/R-regression
     Rknit/Rknit
     ggplot/top-ggplot
     lattice-R-book/lattice-R    
