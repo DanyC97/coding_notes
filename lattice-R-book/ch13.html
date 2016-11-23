@@ -879,6 +879,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../R/demo_image.html">image and heatmap try</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../R/demo_image.html#header-1">HEADER-1</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../R/dave-langer/TitanicDataAnalysis_Video7.html">Introduction to Data Science with R</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../R/dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">Video1 - Data Analysis Part 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../R/dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">Video2 - Data Analysis Part 2</a></li>
@@ -988,6 +992,21 @@
 <li class="toctree-l4"><a class="reference internal" href="../R-ISL/ch10.html#clustering-the-observations-of-the-nci60-data">Clustering the Observations of the NCI60 Data</a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../R-regression/R-regression.html">R - regression notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../R-regression/ch1.html">Ch1 - Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#load-dataset-and-do-quick-analysis">Load dataset, and do quick analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#some-data-cleansing">Some data cleansing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#now-we-re-ready-to-plot-stuffs">Now we&#8217;re ready to plot stuffs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../R-regression/ch1.html#r-s-base-graph-system">R&#8217;s Base-graph system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R-regression/ch1.html#ggplot">ggplot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#example-manilius-data">Example: manilius data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#example-child-height-prediction">Example: child-height prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -1665,7 +1684,7 @@ grid<span class="o">$</span>k <span class="o">&lt;-</span> <span class="kp">with
        prepanel <span class="o">=</span> prepanel.hypocycloid<span class="p">,</span> panel <span class="o">=</span> panel.hypocycloid<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../_images/unnamed-chunk-3-114.png" /></p>
+<p><img alt="image0" src="../_images/unnamed-chunk-3-115.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>p <span class="o">&lt;-</span> xyplot<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="o">~</span> <span class="kt">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> aspect <span class="o">=</span> <span class="m">1</span><span class="p">,</span> cycles <span class="o">=</span> <span class="m">15</span><span class="p">,</span>
             scales <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>draw <span class="o">=</span> <span class="kc">FALSE</span><span class="p">),</span> xlab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
             panel <span class="o">=</span> panel.hypotrochoid<span class="p">)</span>
@@ -1766,7 +1785,7 @@ panel.corrgram <span class="o">&lt;-</span>
 <span class="c1">## logical.return = TRUE, : there is no package called &#39;ellipse&#39;</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../_images/unnamed-chunk-7-17.png" /></p>
+<p><img alt="image4" src="../_images/unnamed-chunk-7-18.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>panel.corrgram.2 <span class="o">&lt;-</span>
   <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> subscripts<span class="p">,</span> at <span class="o">=</span> <span class="kp">pretty</span><span class="p">(</span>z<span class="p">),</span> scale <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
   <span class="p">{</span>
@@ -1801,7 +1820,7 @@ panel.corrgram <span class="o">&lt;-</span>
           col.regions <span class="o">=</span> colorRampPalette<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image5" src="../_images/unnamed-chunk-8-110.png" /></p>
+<p><img alt="image5" src="../_images/unnamed-chunk-8-111.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>panel.3d.contour <span class="o">&lt;-</span>
   <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> rot.mat<span class="p">,</span> distance<span class="p">,</span>
            nlevels <span class="o">=</span> <span class="m">20</span><span class="p">,</span> zlim.scaled<span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
@@ -1944,7 +1963,7 @@ breaks <span class="o">&lt;-</span> <span class="kp">exp</span><span class="p">(
 <span class="c1">## alaska,haines, alaska,....</span>
 </pre></div>
 </div>
-<p><img alt="image9" src="../_images/unnamed-chunk-12-12.png" /></p>
+<p><img alt="image9" src="../_images/unnamed-chunk-12-13.png" /></p>
 </div>
 </div>
 
@@ -1967,7 +1986,7 @@ breaks <span class="o">&lt;-</span> <span class="kp">exp</span><span class="p">(
 
   <div role="contentinfo">
     <p>
-      Last updated on Nov 05, 2016.
+      Last updated on Nov 23, 2016.
 
     </p>
   </div> 

@@ -879,6 +879,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../R/demo_image.html">image and heatmap try</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../R/demo_image.html#header-1">HEADER-1</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../R/dave-langer/TitanicDataAnalysis_Video7.html">Introduction to Data Science with R</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../R/dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">Video1 - Data Analysis Part 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../R/dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">Video2 - Data Analysis Part 2</a></li>
@@ -988,6 +992,21 @@
 <li class="toctree-l4"><a class="reference internal" href="../R-ISL/ch10.html#clustering-the-observations-of-the-nci60-data">Clustering the Observations of the NCI60 Data</a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../R-regression/R-regression.html">R - regression notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../R-regression/ch1.html">Ch1 - Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#load-dataset-and-do-quick-analysis">Load dataset, and do quick analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#some-data-cleansing">Some data cleansing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#now-we-re-ready-to-plot-stuffs">Now we&#8217;re ready to plot stuffs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../R-regression/ch1.html#r-s-base-graph-system">R&#8217;s Base-graph system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R-regression/ch1.html#ggplot">ggplot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#example-manilius-data">Example: manilius data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../R-regression/ch1.html#example-child-height-prediction">Example: child-height prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -1689,7 +1708,7 @@ Titanic1
          auto.key <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>title <span class="o">=</span> <span class="s">&quot;Survived&quot;</span><span class="p">,</span> columns <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../_images/unnamed-chunk-3-111.png" /></p>
+<p><img alt="image0" src="../_images/unnamed-chunk-3-112.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>Titanic2 <span class="o">&lt;-</span>
   reshape<span class="p">(</span>Titanic1<span class="p">,</span> direction <span class="o">=</span> <span class="s">&quot;wide&quot;</span><span class="p">,</span> v.names <span class="o">=</span> <span class="s">&quot;Freq&quot;</span><span class="p">,</span>
           idvar <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Class&quot;</span><span class="p">,</span> <span class="s">&quot;Sex&quot;</span><span class="p">),</span> timevar <span class="o">=</span> <span class="s">&quot;Survived&quot;</span><span class="p">)</span>
@@ -1762,7 +1781,7 @@ str<span class="p">(</span>make.groups<span class="p">(</span>x1<span class="p">
        distribution <span class="o">=</span> qexp<span class="p">,</span> aspect <span class="o">=</span> <span class="s">&quot;iso&quot;</span><span class="p">,</span> type <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../_images/unnamed-chunk-7-14.png" /></p>
+<p><img alt="image4" src="../_images/unnamed-chunk-7-15.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>str<span class="p">(</span>beaver1<span class="p">)</span>
 </pre></div>
 </div>
@@ -1808,7 +1827,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        scales <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>x <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>relation <span class="o">=</span> <span class="s">&quot;sliced&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image5" src="../_images/unnamed-chunk-8-17.png" /></p>
+<p><img alt="image5" src="../_images/unnamed-chunk-8-18.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>USAge.df<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;latticeExtra&quot;</span><span class="p">)</span>
 <span class="kp">head</span><span class="p">(</span>USAge.df<span class="p">)</span>
 </pre></div>
@@ -1863,7 +1882,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        ylab <span class="o">=</span> <span class="s">&quot;Number of stations reporting&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image9" src="../_images/unnamed-chunk-12-11.png" /></p>
+<p><img alt="image9" src="../_images/unnamed-chunk-12-12.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>quakes<span class="o">$</span>Mag <span class="o">&lt;-</span> equal.count<span class="p">(</span>quakes<span class="o">$</span>mag<span class="p">,</span> number <span class="o">=</span> <span class="m">10</span><span class="p">,</span> overlap <span class="o">=</span> <span class="m">0.2</span><span class="p">)</span>
 <span class="kp">summary</span><span class="p">(</span>quakes<span class="o">$</span>Mag<span class="p">)</span>
 </pre></div>
@@ -2170,7 +2189,7 @@ barley<span class="o">$</span>year<span class="p">[</span>morris<span class="p">
 
   <div role="contentinfo">
     <p>
-      Last updated on Nov 05, 2016.
+      Last updated on Nov 23, 2016.
 
     </p>
   </div> 
