@@ -1,0 +1,215 @@
+---
+title: "Ch2 - Estimation"
+author: 
+date: 
+output:
+   html_document:
+     fig_width: 8
+     fig_height: 8
+     keep_md: true
+     toc: true
+     toc_depth: 2
+---
+
+```{r warning=FALSE,message=FALSE}
+library(dplyr)
+library(faraway)
+library(ggplot2)
+```
+
+# Load data
+
+```{r}
+data(gala, package="faraway")
+gala <- tbl_df(gala)
+# str(gala)
+
+# omit 2nd col (Endemics) from this analysis
+head(gala[,-2])
+
+dim(gala)
+
+# ls.str(gala)
+```
+
+Here the 2nd column will be omitted for the analysis.
+
+- Species = the number of species found on the island
+- Area = area of the island in $km^2$
+- Elevation = highest elevation of the island (m)
+- Nearest = the distance from the nearest island (km)
+- Scruz = distance from Santa Cruz
+- Adjacent - the area of the adjacent island (km^2)
+
+# Fit linear model (Wilkinson-Rogers notation)
+```{r}
+lmod <- lm(Species ~ Area + Elevation + Nearest + Scruz  + Adjacent, data=gala)
+
+# full regression summary (from R base)
+summary(lmod)
+
+# abbreviated regression summary
+faraway::sumary(lmod)
+```
+
+# Fit linear model via closed form linear algebra notation
+```{r}
+# extract the x-matrix
+gala[1:5,]
+x <- model.matrix( ~ Area + Elevation + Nearest + Scruz  + Adjacent,gala)
+x[1:5,]
+
+y <- gala$Species
+
+# a horrible way to to compute (X'X)^-1*X'*y
+xtxi <- solve(t(x) %*% x)
+xtxi %*% t(x) %*% y
+
+# a little-bit better way (better to use lm()....which uses QR decomp)
+solve(crossprod(x,x),crossprod(x,y))
+```
+
+# Let's study regression quantities from fitted model
+```{r}
+# regression quantities from the lm model
+names(lmod)
+```
+
+## Estimate of noise-std-dev
+$$\hat{\sigma}^2 = \frac{RSS}{n-p}$$
+```{r}
+n <- nrow(gala)
+p <- 6
+
+# quantities in the summary(lmod)
+lmodsum <- summary(lmod)
+names(lmodsum)
+
+# estimate of the \sigma (std-dev)
+sqrt(deviance(lmod)/df.residual(lmod))
+
+# in closed form (sigma^2 = RSS / (n-p))
+dev_lmod <- sum(lmod$residuals**2)
+df_resid <- n-p
+sqrt(dev_lmod/df_resid)
+
+# from summary
+lmodsum$sigma 
+```
+
+## Get std-err of coefficients
+$$\text{se}(\hat{\beta}_{i-1})=\hat{\sigma}\sqrt{(X^TX)_{ii}^{-1}}$$
+```{r}
+# extract (X'X)^-1, and use the diag components to compute std-err of coeffs
+xtxi <- lmodsum$cov.unscaled
+sqrt(diag(xtxi))*lmodsum$sigma 
+lmodsum$coef[,2] # from summary
+```
+
+# QR Decomposition (see book for more details)
+```{r}
+qrx <- qr(x)
+dim(qr.Q(qrx))
+(f <- t(qr.Q(qrx)) %*% y)
+backsolve(qr.R(qrx),f) # to solve tiangular matrix
+```
+
+# Gauss-Markov Theorem
+There are 3 good reasons to use the method of LS:
+
+1. It results from an orthogonal projection onto the model space. It makes sense geometrically. 
+2. If the errors are iid, it is the MLE, which is the value of $\beta$ that maximizes the probability of the data that was observed (loosely put). 
+3. The Gauss-Markov theorem states that $\hat{\beta}$ is the best linear unbiased estimate (BLUE).
+
+# Goodness of fit
+Coefficient of determination (aka *percentage of variance explained*)
+
+$$R^2 = 1 - \frac{\sum_i (\hat{y}_i-y_i)^2}{\sum_i (y_i-\bar{y})^2}=1-\frac{RSS}{\text{Total SS(Corrected for mean)}}$$
+# Identifiability
+```{r}
+# deliberately introduce a linearly dependent variable
+gala$Adiff <- gala$Area -gala$Adjacent
+lmod <- lm(Species ~ Area+Elevation+Nearest+Scruz+Adjacent +Adiff,gala)
+
+# here we should get a message about singularity 
+# (X is now rank deficient - rank=6 < ncol=7)
+sumary(lmod)
+
+
+# -- next add a small perturbation noise --
+set.seed(123)
+Adiffe <- gala$Adiff+0.001*(runif(30)-0.5)
+lmod <- lm(Species ~ Area+Elevation+Nearest+Scruz +Adjacent+Adiffe,gala)
+
+# this time, all parameters were estimated, but std-errs are very large
+# due to numerical instability
+sumary(lmod)
+```
+
+# Orthogonality
+Goal -- determine the effects of the following factor towards reducing the (unpleasant) **odor** in a chemical product:
+
+- column temperature
+- gas/liquid ratio 
+- packing height
+
+```{r}
+data(odor, package="faraway")
+odor[1:5,]
+str(odor)
+
+# the 3 predictors are orthogonal
+cov(odor[,-1])
+
+lmod <- lm(odor ~ temp + gas + pack, odor)
+# 2nd arg: ask for the correlation of coefficients
+# (here we see the correlation between coefficieents is zero)
+summary(lmod,cor=T) 
+
+# fit without the temperature 
+# (the coeffs do not change, but the residual SE changes slightly,
+#  leading to changes in the SEs of the coeffs, t-stats, and p-values)
+lmod <- lm(odor ~ gas + pack, odor)
+summary(lmod)
+```
+
+# Polynomial fit
+```{r}
+class(1:20)
+x <- as.double(1:20)
+class(x)
+y <- x+rnorm(20)
+
+# simple linear regression
+mod1 <- lm(y~x)
+summary(mod1)
+plot(y~x)
+abline(mod1)
+```
+
+- http://stackoverflow.com/questions/2063821/do-i-always-have-to-use-data-frames-in-ggplot2
+- http://stackoverflow.com/questions/23334360/plot-polynomial-regression-curve-in-r
+
+```{r}
+df <- data.frame(x=x,y=y)
+# polynomial fit
+mod2 <- lm(y~x+I(x^2),data=df)
+summary(mod2)
+
+prd <- data.frame(x=seq(from = min(x), to = max(x), length.out = 100))
+err <- predict(mod2, newdata = prd, se.fit = TRUE)
+str(err)
+names(err)
+
+prd$lci <- err$fit - 1.96 * err$se.fit
+prd$fit <- err$fit
+prd$uci <- err$fit + 1.96 * err$se.fit
+head(prd)
+
+ggplot(prd, aes(x = x, y = fit)) +
+  theme_bw() +
+  geom_line() +
+  geom_smooth(aes(ymin = lci, ymax = uci), stat = "identity") +
+  geom_point(data=df, aes(x = x, y = y))
+```
+

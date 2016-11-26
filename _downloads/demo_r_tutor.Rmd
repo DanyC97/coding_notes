@@ -1,0 +1,375 @@
+---
+title: "Elementary Statistics with R"
+author: 
+date: 
+output:
+   html_document:
+     fig_width: 8
+     fig_height: 8
+     keep_md: true
+     toc: true
+     toc_depth: 2
+---
+**Personal notes. Reference: r-tutor**
+http://www.r-tutor.com/elementary-statistics
+
+```{r message=FALSE}
+#library(MASS)
+library(dplyr)
+library(xtable)
+
+print_table <- function(df,n=6){
+  print(xtable::xtable(head(df,n=n)), type='html')
+}
+```
+
+# Categorical Data
+http://www.r-tutor.com/elementary-statistics/qualitative-data
+```{r}
+#https://blog.rstudio.org/2016/03/24/tibble-1-0-0/
+painters <- dplyr::as_data_frame(MASS::painters)
+dim(painters)
+head(painters)
+```
+
+
+```{r results='asis'}
+print_table(painters)
+```
+
+## Get frequency counts using table
+```{r}
+school = painters$School    
+school
+as.numeric(school)
+
+# apply table function to get counts
+school.freq = table(school)
+school.freq
+
+# use cbind to print vertically
+cbind(school.freq)
+
+# convert to relative frequency distribution
+default_options = options()
+school.relfreq <- school.freq / nrow(painters) 
+cbind(school.relfreq)
+
+# change digit output
+options(digits=1)
+school.relfreq
+
+# reset options
+options(default_options)
+```
+
+## Plot as bar/pie charts
+
+```{r fig.height=4}
+par(mfrow=c(1,3))
+barplot(school.freq)
+barplot(school.relfreq)
+colors = c("red", "yellow", "green", "violet", "orange", "blue", "pink", "cyan") 
+barplot(school.freq,col=colors)
+
+# pie char
+par(mfrow=c(1,2))
+pie(school.freq)              
+pie(school.freq,col=colors) 
+```
+
+# Quantitative Data
+http://www.r-tutor.com/elementary-statistics/quantitative-data
+```{r}
+#https://blog.rstudio.org/2016/03/24/tibble-1-0-0/
+faithful <- dplyr::as_data_frame(faithful)
+dim(faithful)
+head(faithful)
+```
+
+
+```{r results='asis'}
+print_table(faithful)
+```
+
+```{r}
+duration <- faithful$eruptions
+range(duration) # min/max
+breaks = seq(1.5, 5.5, by=0.5)    # half-integer sequence 
+breaks
+```
+
+## Discretize with cut
+- cut divides the range of x into intervals and codes the values in x according to which interval they fall. 
+- The leftmost interval corresponds to level one, the next leftmost to level two and so on.
+```{r}
+duration.cut = cut(duration, breaks, right=FALSE) 
+duration.cut[1:5]
+
+# now we can apply the table technique to get frequency counts
+duration.freq = table(duration.cut) 
+duration.relfreq = table(duration.cut) / length(duration.cut)
+
+# add cdf
+duration.cumfreq = cumsum(duration.freq)
+duration.cumrelfreq = duration.cumfreq / nrow(faithful) 
+
+
+cbind(duration.freq, duration.relfreq,duration.cumfreq,duration.cumrelfreq) 
+duration_df <- data.frame(cbind(duration.freq, 
+                                duration.relfreq,
+                                duration.cumfreq,
+                                duration.cumrelfreq ) )
+duration_df
+colnames <- names(duration_df) <- c('freq','relfreq','cumfreq','duration.cumrelfreq')
+duration_df
+# convert to dataframe
+# duration_df <- data.frame( freq = as.vector(duration.freq),
+#                            relfreq = as.vector(duration.relfreq),
+#                            row.names = row.names(duration.freq))
+# duration_df <- as_data_frame(duration_df)
+# duration_df
+```
+
+## Plotting 
+```{r fig.height=4}
+par(mfrow=c(1,3))
+hist(duration)
+hist(duration,right=FALSE) # intervals closed on the left
+
+# more styles
+hist(duration,
+     col=colors,
+     main="Old Faithful eruptions", # title text
+     xlab = "Duration minutes") # xaxis label
+
+par(mfrow=c(1,2))
+cumfreq0 = c(0, cumsum(duration.freq)) 
+cumfreq0
+plot(breaks, cumfreq0, main = "Old Faithful eruptions", 
+     xlab="duration minutes",ylab = "cumulative eruptions")
+lines(breaks,cumfreq0) # connect the dots
+
+# alternatively, create an interpolation funcion Fn using ecdf
+# ecdf: Compute an empirical cumulative distribution function
+Fn = ecdf(duration) 
+plot(Fn, main="Old Faithful Eruptions", xlab="Duration minutes", 
+    ylab="Cumulative eruption proportion") 
+
+# stem and leaf plot
+stem(duration) 
+
+# scatter plot
+plot(faithful$eruptions, faithful$waiting,            # plot the variables 
+      xlab="Eruption duration",        # x−axis label 
+      ylab="Time waited")              # y−axis label 
+
+# enhanced solution
+# (abline: Add Straight Lines to a Plot)
+plot(faithful$eruptions, faithful$waiting,            # plot the variables 
+      xlab="Eruption duration",        # x−axis label 
+      ylab="Time waited")              # y−axis label 
+# abline(lm( faithful$waiting ~ faithful$eruptions))
+abline(lm( waiting ~ eruptions, data=faithful))
+```
+
+# Basic statistics
+http://www.r-tutor.com/elementary-statistics/numerical-measures
+
+## Scalar statistics
+```{r}
+head(faithful)
+
+# === mean, median, sd, var,range, iqr ===
+mean(duration)
+median(duration)
+sd(duration)
+var(duration)
+range(duration) # max - min
+IQR(duration) # max - min
+
+# repeat using dataframes
+faithful %>% apply(2,mean)
+faithful %>% summarise(mean(eruptions),mean(waiting))
+
+# above is tedious if you want to apply same func to all cols....
+# but we can use summarise_each
+# http://stackoverflow.com/questions/21644848/summarizing-multiple-columns-with-dplyr
+# http://stackoverflow.com/questions/21295936/can-dplyr-summarise-over-several-variables-without-listing-each-one
+faithful %>% summarise_each(funs(mean,median,sd,var,IQR)) %>% t()
+```
+
+
+## Quantiles, covariance, correlation
+```{r}
+# ===  quantiles  ===
+quantile(duration)
+quantiles <- rbind(quantile(faithful$eruptions),quantile(faithful$waiting))
+quantiles
+row.names(quantiles) <- c('duration','waiting')
+quantiles
+
+# data frame approach?
+# - use lapply
+#http://stackoverflow.com/questions/17020293/quantiles-of-a-data-frame
+lapply(faithful, quantile)
+as.data.frame(lapply(faithful, quantile))
+
+# === covariance ===
+# covariance value
+cov(faithful$eruptions,faithful$waiting)
+
+# correlation value
+cor(faithful$eruptions,faithful$waiting)
+
+# covariance matrix
+cov(faithful)
+
+# correlation matrix
+cor(faithful)
+```
+
+## Higher order moments, skewness, kurtosis
+```{r}
+# 3rd order moment
+e1071::moment(duration, order=3, center=TRUE) 
+e1071::skewness(duration) 
+e1071::kurtosis(duration) 
+```
+
+# (incomp) Probability Distributions
+http://www.r-tutor.com/elementary-statistics/probability-distributions
+
+# (incomp) Interval estimation
+http://www.r-tutor.com/elementary-statistics/interval-estimation
+
+# (incomp) Hypothesis testing
+http://www.r-tutor.com/elementary-statistics/hypothesis-testing
+
+# (incomp) Type-II Errors
+http://www.r-tutor.com/elementary-statistics/type-2-errors
+
+# (incomp) Inference about two populatiosnr
+http://www.r-tutor.com/elementary-statistics/inference-about-two-populations
+
+# (incomp) Goodness of Fit
+http://www.r-tutor.com/elementary-statistics/goodness-fit
+
+
+# (incomp) Probability distributions
+http://www.r-tutor.com/elementary-statistics/probability-distributions
+
+# (incomp) ANOVA
+http://www.r-tutor.com/elementary-statistics/analysis-variance
+
+# (incomp) Nonparametric methods
+http://www.r-tutor.com/elementary-statistics/non-parametric-methods
+
+# Simple Linear Regression
+http://www.r-tutor.com/elementary-statistics/simple-linear-regression
+```{r}
+eruption.lm = lm(eruptions ~ waiting, data=faithful) 
+eruption.lm
+ls.str(summary(eruption.lm))
+summary(eruption.lm)
+
+
+# get coefficients
+coeffs = coefficients(eruption.lm)
+coeffs
+class(coeffs)
+
+# prediction at test point
+predict(eruption.lm, data.frame(waiting=40))
+predict(eruption.lm, data.frame(waiting=80))
+
+# coefficient of determination
+summary(eruption.lm)$r.squared
+
+#Further detail of the summary function for linear regression model
+help(summary.lm)
+```
+
+## Significance test and confidence interval for linear regression
+```{r}
+# see coefficients and f-stast
+summary(eruption.lm)
+
+# test point and confidence interval (95%)
+newdata <- data.frame(waiting=80)
+
+# === prediction vs confidence ===
+#http://stats.stackexchange.com/questions/16493/difference-between-confidence-intervals-and-prediction-intervals
+#https://www.r-bloggers.com/the-uncertainty-of-predictions/
+predict(eruption.lm, newdata, interval="confidence") 
+predict(eruption.lm, newdata, interval="prediction") 
+
+# Further detail of the predict function for linear regression model
+help(predict.lm)
+```
+
+## Residual analysis
+$$\text{residual} = y - \hat{y}$$
+The **standardized residual** is the residual divided by its standard deviation. 
+$$\text{standardized residual } i = \frac{\text{residual } i}{\text{std-dev of resid } i}$$
+
+```{r fig.height=4}
+# residual
+eruption.res = resid(eruption.lm) 
+
+# plot residual against observed values
+par(mfrow=c(1,3))
+plot(faithful$waiting, eruption.res, 
+     ylab="Residuals", xlab="Waiting Time", 
+     main="Old Faithful Eruptions") 
+abline(0, 0)                  # the horizon 
+
+# standardized residual
+eruption.stdres = rstandard(eruption.lm) 
+plot(faithful$waiting, eruption.stdres, 
+     ylab="Standardized Residuals", xlab="Waiting Time", 
+     main="Old Faithful Eruptions") 
+abline(0, 0)                  # the horizon 
+
+# check normality of residual via qqplot
+qqnorm(eruption.stdres, 
+   ylab="Standardized Residuals", 
+   xlab="Normal Scores", 
+   main="Old Faithful Eruptions") 
+qqline(eruption.stdres) 
+```
+
+# (incomp) Multiple linear regression
+http://www.r-tutor.com/elementary-statistics/multiple-linear-regression
+
+# Logistic regression
+http://www.r-tutor.com/elementary-statistics/logistic-regression
+
+## glm
+```{r}
+mtcars <- as_data_frame(mtcars)
+head(mtcars)
+
+am.glm = glm(formula=am ~ hp + wt, data=mtcars, family=binomial) 
+
+newdata = data.frame(hp=120, wt=2.8) 
+
+help(predict.glm)
+
+# default - scale of linear predictors (prob on logit scale)
+predict(am.glm, newdata, type= 'link')    
+
+# scale of response variable (predicted probability)
+predict(am.glm, newdata, type='response') 
+
+predict(am.glm, newdata, type='terms') 
+```
+
+## Significance test for glm
+http://www.r-tutor.com/elementary-statistics/logistic-regression/significance-test-logistic-regression
+```{r}
+summary(am.glm) 
+help("summary.glm")
+```
+
+
