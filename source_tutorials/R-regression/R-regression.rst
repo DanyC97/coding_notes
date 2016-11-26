@@ -7,6 +7,7 @@ Notes from: J. Faraway - Linear models with R
     :maxdepth: 1
 
     ch1
+    ch2
 
 .. rubric:: How the notebooks are created
 
